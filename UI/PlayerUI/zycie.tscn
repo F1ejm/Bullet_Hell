@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfyt2yxs1dv36"]
+
+[ext_resource type="Script" uid="uid://d1cwu21tkufgw" path="res://UI/PlayerUI/zycie.gd" id="1_abms2"]
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_oq6xj"]
+
+[node name="zycie" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abms2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 788.0
+offset_bottom = 128.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+texture_progress = ExtResource("2_oq6xj")
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+texture_progress = ExtResource("2_oq6xj")
+
+[node name="TextureProgressBar3" type="TextureProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+texture_progress = ExtResource("2_oq6xj")
+
+[node name="TextureProgressBar4" type="TextureProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+texture_progress = ExtResource("2_oq6xj")
+
+[node name="TextureProgressBar5" type="TextureProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+texture_progress = ExtResource("2_oq6xj")
+
+[node name="TextureProgressBar6" type="TextureProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+texture_progress = ExtResource("2_oq6xj")
