@@ -1,5 +1,12 @@
 extends Node
 
+#Player Speed
+var speed: int = 600
+var stop: bool = false
+
+#Shop
+var shop_can_interact: bool = false
+
 #Życie
 var Zycie: int = 3
 var Max_Zycie: int = 3

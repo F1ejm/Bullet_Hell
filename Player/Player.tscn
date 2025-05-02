@@ -21,3 +21,21 @@ texture = ExtResource("2_tok1r")
 [node name="Marker2D" type="Marker2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 591.0
+offset_top = 600.0
+offset_right = 659.0
+offset_bottom = 631.0
+text = "NIGGER"
+metadata/_edit_use_anchors_ = true

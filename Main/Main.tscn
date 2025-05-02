@@ -1,33 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=6 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://dn4sqx4suowf1" path="res://Player/Player.tscn" id="1_lxy7q"]
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_83ytx"]
 [ext_resource type="PackedScene" uid="uid://cfyt2yxs1dv36" path="res://UI/PlayerUI/zycie.tscn" id="3_amygn"]
 [ext_resource type="PackedScene" uid="uid://ht7qibk0wg3t" path="res://UI/PlayerUI/stamina.tscn" id="4_ps1la"]
+[ext_resource type="PackedScene" uid="uid://divjj2xl1j2sh" path="res://Misc/Shop/shop_vendor.tscn" id="5_6aewd"]
+[ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Enemy.tscn" id="5_u2i7p"]
 
 [node name="Main" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_lxy7q")]
-position = Vector2(604, 337)
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(218, 571)
-texture = ExtResource("2_83ytx")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(309, 4)
-texture = ExtResource("2_83ytx")
-
-[node name="Icon3" type="Sprite2D" parent="."]
-position = Vector2(1490, 544)
-texture = ExtResource("2_83ytx")
-
-[node name="Icon4" type="Sprite2D" parent="."]
-position = Vector2(1118, 36)
-texture = ExtResource("2_83ytx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="zycie" parent="CanvasLayer" instance=ExtResource("3_amygn")]
 
 [node name="Stamina" parent="CanvasLayer" instance=ExtResource("4_ps1la")]
+
+[node name="Player" parent="." instance=ExtResource("1_lxy7q")]
+position = Vector2(604, 337)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_u2i7p")]
+position = Vector2(506, 460)
+Player = NodePath("../Player")
+
+[node name="Shop Vendor" parent="." instance=ExtResource("5_6aewd")]
+position = Vector2(1256, 373)
