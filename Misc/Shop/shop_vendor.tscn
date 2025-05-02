@@ -23,21 +23,5 @@ shape = SubResource("CircleShape2D_n55vs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wrktd")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UI" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Button" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 591.0
-offset_top = 600.0
-offset_right = 659.0
-offset_bottom = 631.0
-text = "NIGGER"
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
