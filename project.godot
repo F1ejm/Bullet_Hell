@@ -23,6 +23,7 @@ Global="*res://Misc/Global.gd"
 
 folder_colors={
 "res://Art/": "orange",
+"res://Enemy/": "red",
 "res://Main/": "blue",
 "res://Misc/": "pink",
 "res://Player/": "yellow",
