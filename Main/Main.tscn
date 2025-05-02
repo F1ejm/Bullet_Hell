@@ -1,26 +1,15 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=7 format=3 uid="uid://c5lhq3xlm4eps"]
-=======
-[gd_scene load_steps=9 format=3 uid="uid://c5lhq3xlm4eps"]
->>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://dn4sqx4suowf1" path="res://Player/Player.tscn" id="1_lxy7q"]
 [ext_resource type="PackedScene" uid="uid://cfyt2yxs1dv36" path="res://UI/PlayerUI/zycie.tscn" id="3_amygn"]
-[ext_resource type="Script" uid="uid://blw1stgcbuefi" path="res://Main/shop_ui.gd" id="3_u2i7p"]
-[ext_resource type="Script" uid="uid://bwd005brrlo5h" path="res://Main/interaction.gd" id="4_hh5pf"]
 [ext_resource type="PackedScene" uid="uid://ht7qibk0wg3t" path="res://UI/PlayerUI/stamina.tscn" id="4_ps1la"]
 [ext_resource type="PackedScene" uid="uid://divjj2xl1j2sh" path="res://Misc/Shop/shop_vendor.tscn" id="5_6aewd"]
 [ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Enemy.tscn" id="5_u2i7p"]
 
-<<<<<<< Updated upstream
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6aewd"]
 vertices = PackedVector2Array(1171, 659, 37, 659, 37, 21, 1171, 21)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(32, 16, 32, 664, 1176, 664, 1176, 16)])
-=======
-[sub_resource type="LabelSettings" id="LabelSettings_6aewd"]
-font_size = 32
->>>>>>> Stashed changes
 
 [node name="Main" type="Node2D"]
 
@@ -32,39 +21,6 @@ navigation_polygon = SubResource("NavigationPolygon_6aewd")
 [node name="zycie" parent="CanvasLayer" instance=ExtResource("3_amygn")]
 
 [node name="Stamina" parent="CanvasLayer" instance=ExtResource("4_ps1la")]
-
-[node name="Shop_UI" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_u2i7p")
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="CanvasLayer/Shop_UI"]
-layout_mode = 0
-offset_left = 591.0
-offset_top = 600.0
-offset_right = 659.0
-offset_bottom = 631.0
-text = "NIGGER"
-metadata/_edit_use_anchors_ = true
-
-[node name="Interaction" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("4_hh5pf")
-
-[node name="Label" type="Label" parent="CanvasLayer/Interaction"]
-layout_mode = 0
-offset_left = 568.0
-offset_top = 255.0
-offset_right = 586.0
-offset_bottom = 300.0
-text = "E"
-label_settings = SubResource("LabelSettings_6aewd")
 
 [node name="Player" parent="." instance=ExtResource("1_lxy7q")]
 position = Vector2(604, 337)
