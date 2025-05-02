@@ -15,3 +15,4 @@ var Max_Zycie: int = 3
 var Stamina: float = 200
 var Max_Stamina: float = 200
 var Stamina_Regen: float = 1
+var Dash: bool = false
