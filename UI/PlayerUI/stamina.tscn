@@ -19,6 +19,5 @@ offset_bottom = 155.0
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.4
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

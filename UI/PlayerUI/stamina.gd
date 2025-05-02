@@ -20,7 +20,10 @@ func _physics_process(delta: float) -> void:
 		Global.Stamina += Global.Stamina_Regen * 80 * delta
 
 	#Sprawdzenie Czy jest Dash
-	if dash == true:
+	if Global.Dash == true:
+		timer.stop()
+		Global.Dash = false
+		dash = true
 		timer.start()
 
 func _on_timer_timeout() -> void:
