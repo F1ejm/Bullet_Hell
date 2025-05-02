@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed = 50 
 
-@export var Player : CharacterBody2D
+@export var Player : Node2D
 @export var nav_agent : NavigationAgent2D
 
 
@@ -12,3 +12,9 @@ func _process(delta: float) -> void:
 	move_and_slide()
 func make_path():
 	nav_agent.target_position = Player.global_position
+
+
+
+
+func _on_timer_timeout() -> void:
+	make_path()

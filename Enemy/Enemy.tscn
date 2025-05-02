@@ -11,6 +11,7 @@ height = 582.0
 size = Vector2(96, 64)
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent")]
+scale = Vector2(0.5, 0.5)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_epr5s")
@@ -30,3 +31,9 @@ texture = ExtResource("1_3o4wt")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
