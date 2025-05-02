@@ -21,12 +21,6 @@ rotation = 1.5708
 position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_q3lat")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Melee_attack_area"]
-visible = false
-position = Vector2(-1.90735e-06, -50)
-scale = Vector2(0.698794, 0.188487)
-texture = ExtResource("2_tok1r")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
 scale = Vector2(0.978177, 1)
@@ -50,17 +44,10 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
 offset_left = 591.0
 offset_top = 600.0
 offset_right = 659.0
 offset_bottom = 631.0
 text = "NIGGER"
 metadata/_edit_use_anchors_ = true
-
-[node name="Collision_Timer" type="Timer" parent="."]
-wait_time = 0.2
-
-[node name="Atak_Timer" type="Timer" parent="."]
-
-[connection signal="timeout" from="Collision_Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Atak_Timer" to="." method="_on_atak_timer_timeout"]
