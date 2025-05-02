@@ -16,15 +16,14 @@ func _physics_process(delta: float) -> void:
 	progress_bar.value = Global.Stamina
 	
 	#Regeneracja Staminy
-	if Global.Stamina < Global.Max_Stamina and dash == false:
+	if Global.Stamina < Global.Max_Stamina and dash == false and Global.Long_Stamina_cdr == false:
 		Global.Stamina += Global.Stamina_Regen * 80 * delta
 
 	#Sprawdzenie Czy jest Dash
-	if Global.Dash == true:
-		timer.stop()
-		Global.Dash = false
-		dash = true
+	if Global.IsDashing == true:
 		timer.start()
+		dash = true
+		
 
 func _on_timer_timeout() -> void:
 	dash = false

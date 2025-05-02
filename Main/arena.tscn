@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cdp8nop01h20c"]
+
+[node name="Arena" type="Node2D"]
+
+[node name="Ściany" type="Node2D" parent="."]
+
+[node name="Unstable_Ściany" type="Node2D" parent="."]
+
+[node name="Spawnery" type="Node2D" parent="."]
