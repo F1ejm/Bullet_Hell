@@ -14,10 +14,10 @@ var collision_atak: bool = false
 #Zmienna Okreslajaca czy atak jest na cooldawnie: False-możesz atakować
 var atak_cooldown: bool = false
 
-func _ready() -> void:
-	ui.visible = false
 
 func _physics_process(delta):
+	if Global.stop == true:
+		return
 	#Atak
 
 	if Input.is_action_just_pressed("atak") and atak_cooldown == false:
@@ -33,8 +33,6 @@ func _physics_process(delta):
 		Atak()
 	
 	#Ruch
-	if Global.stop == true:
-		return
 	
 	look_at(get_global_mouse_position())
 	
