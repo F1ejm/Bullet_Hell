@@ -50,6 +50,7 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 0
 offset_left = 591.0
 offset_top = 600.0
 offset_right = 659.0
