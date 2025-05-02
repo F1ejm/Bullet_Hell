@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=7 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://dn4sqx4suowf1" path="res://Player/Player.tscn" id="1_lxy7q"]
 [ext_resource type="PackedScene" uid="uid://cfyt2yxs1dv36" path="res://UI/PlayerUI/zycie.tscn" id="3_amygn"]
@@ -6,7 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://divjj2xl1j2sh" path="res://Misc/Shop/shop_vendor.tscn" id="5_6aewd"]
 [ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Enemy.tscn" id="5_u2i7p"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6aewd"]
+vertices = PackedVector2Array(1171, 659, 37, 659, 37, 21, 1171, 21)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(32, 16, 32, 664, 1176, 664, 1176, 16)])
+
 [node name="Main" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_6aewd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

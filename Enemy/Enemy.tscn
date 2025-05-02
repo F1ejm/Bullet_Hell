@@ -4,18 +4,17 @@
 [ext_resource type="Script" uid="uid://m2npcd1yeoyq" path="res://Enemy/Enemy.gd" id="1_epr5s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vonkd"]
-radius = 291.0
-height = 582.0
+radius = 102.0
+height = 204.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epr5s"]
 size = Vector2(96, 64)
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent")]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_epr5s")
-nav_agent = NodePath("NavigationAgent2D")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -36,4 +35,6 @@ debug_enabled = true
 wait_time = 0.5
 autostart = true
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
