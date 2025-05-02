@@ -20,3 +20,8 @@ var Stamina: float = 200
 var Max_Stamina: float = 200
 var Stamina_Regen: float = 1
 var Dash: bool = false
+
+#Dash
+var IsDashing: bool
+var dash_timer: float = 0
+var Koszt_Dasha: int = 80

@@ -1,7 +1,61 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn4sqx4suowf1"]
+[gd_scene load_steps=8 format=3 uid="uid://dn4sqx4suowf1"]
 
 [ext_resource type="Script" uid="uid://hms7joihh6ve" path="res://Player/Player.gd" id="1_q3lat"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_tok1r"]
+
+[sub_resource type="Animation" id="Animation_q3lat"]
+resource_name = "dash"
+length = 0.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_startdash"
+}, {
+"args": [],
+"method": &"_stopdash"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(50, 0), Vector2(100, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tok1r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tok1r"]
+_data = {
+&"RESET": SubResource("Animation_tok1r"),
+&"dash": SubResource("Animation_q3lat")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3lat"]
 radius = 44.0
@@ -11,6 +65,16 @@ size = Vector2(47, 47)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_q3lat")
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tok1r")
+}
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2(7, 0)
 
 [node name="Node2D" type="Node2D" parent="."]
 rotation = 1.5708
