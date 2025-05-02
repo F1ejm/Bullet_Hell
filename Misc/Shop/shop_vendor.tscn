@@ -1,19 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://divjj2xl1j2sh"]
 
 [ext_resource type="Script" uid="uid://b0di2g6m3baao" path="res://Misc/Shop/shop_vendor.gd" id="1_n55vs"]
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_wrktd"]
+[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro_ZdjęcieOG.png" id="2_n55vs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n55vs"]
 radius = 233.283
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrktd"]
-size = Vector2(128, 128)
+size = Vector2(140, 140)
 
 [node name="Shop Vendor" type="StaticBody2D"]
 script = ExtResource("1_n55vs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_wrktd")
+scale = Vector2(0.98, 0.7)
+texture = ExtResource("2_n55vs")
 
 [node name="Area2D" type="Area2D" parent="."]
 

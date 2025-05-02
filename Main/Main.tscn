@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dn4sqx4suowf1" path="res://Player/Player.tscn" id="1_lxy7q"]
 [ext_resource type="PackedScene" uid="uid://cfyt2yxs1dv36" path="res://UI/PlayerUI/zycie.tscn" id="3_amygn"]
-[ext_resource type="Script" uid="uid://fyehnsobw802" path="res://UI/Shop UI/shop_ui.gd" id="3_u2i7p"]
+[ext_resource type="PackedScene" uid="uid://ckn81yvwna77p" path="res://UI/Shop UI/shop_ui.tscn" id="3_hh5pf"]
 [ext_resource type="Script" uid="uid://q8h1xhj2mpt0" path="res://UI/Interaction UI/interaction.gd" id="4_hh5pf"]
 [ext_resource type="PackedScene" uid="uid://ht7qibk0wg3t" path="res://UI/PlayerUI/stamina.tscn" id="4_ps1la"]
 [ext_resource type="PackedScene" uid="uid://divjj2xl1j2sh" path="res://Misc/Shop/shop_vendor.tscn" id="5_6aewd"]
@@ -27,27 +27,8 @@ navigation_polygon = SubResource("NavigationPolygon_6aewd")
 
 [node name="Stamina" parent="CanvasLayer" instance=ExtResource("4_ps1la")]
 
-[node name="shop ui" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-script = ExtResource("3_u2i7p")
-
-[node name="Button" type="Button" parent="CanvasLayer/shop ui"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -55.5
-offset_top = -40.0
-offset_right = 55.5
-offset_bottom = -9.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "shop coś tam"
+[node name="shop ui" parent="CanvasLayer" instance=ExtResource("3_hh5pf")]
+visible = false
 
 [node name="interaction" type="Control" parent="CanvasLayer"]
 layout_mode = 3

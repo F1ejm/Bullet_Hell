@@ -1,0 +1,150 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckn81yvwna77p"]
+
+[ext_resource type="Script" uid="uid://fyehnsobw802" path="res://UI/Shop UI/shop_ui.gd" id="1_0qc3d"]
+[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro_ZdjęcieOG.png" id="2_ck7jg"]
+[ext_resource type="Texture2D" uid="uid://mdwhvtwfji0s" path="res://Art/Serce_maro.png" id="3_40xpq"]
+[ext_resource type="Texture2D" uid="uid://dyk16oftjoirt" path="res://Art/stamina_maro.png" id="4_ybqa0"]
+[ext_resource type="Texture2D" uid="uid://f74hss5ejnxi" path="res://Art/Stamina_regenaracja_maro.png" id="5_d8ich"]
+[ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Atak_maro.png" id="6_0kvjv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y03ah"]
+font_size = 32
+
+[node name="shop ui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_0qc3d")
+
+[node name="visuals" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="visuals"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -259.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.556863)
+
+[node name="TextureRect" type="TextureRect" parent="visuals"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -234.0
+offset_right = 294.0
+offset_bottom = -58.0
+grow_vertical = 0
+texture = ExtResource("2_ck7jg")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="visuals"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 593.0
+offset_right = 271.0
+offset_bottom = 638.0
+text = "Shop Vender"
+label_settings = SubResource("LabelSettings_y03ah")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 305.0
+offset_top = 419.0
+offset_right = -9.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Health" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Health"]
+layout_mode = 2
+texture = ExtResource("3_40xpq")
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Health"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+max_value = 4.0
+step = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="Button" type="Button" parent="HBoxContainer/Health"]
+layout_mode = 2
+text = "Buy"
+
+[node name="Stamina Amount" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Stamina Amount"]
+layout_mode = 2
+texture = ExtResource("4_ybqa0")
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Stamina Amount"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+max_value = 4.0
+step = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="Button" type="Button" parent="HBoxContainer/Stamina Amount"]
+layout_mode = 2
+text = "Buy"
+
+[node name="Stamina Regen" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Stamina Regen"]
+layout_mode = 2
+texture = ExtResource("5_d8ich")
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Stamina Regen"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+max_value = 4.0
+step = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="Button" type="Button" parent="HBoxContainer/Stamina Regen"]
+layout_mode = 2
+text = "Buy"
+
+[node name="Attack" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Attack"]
+layout_mode = 2
+texture = ExtResource("6_0kvjv")
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Attack"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+max_value = 4.0
+step = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="Button" type="Button" parent="HBoxContainer/Attack"]
+layout_mode = 2
+text = "Buy"
