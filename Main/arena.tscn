@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cdp8nop01h20c"]
+[gd_scene load_steps=0 format=3 uid="uid://cdp8nop01h20c"]
 
 [node name="Arena" type="Node2D"]
 

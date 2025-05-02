@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxcd4bfk2fee7"]
+[gd_scene load_steps=6 format=3 uid="uid://bxcd4bfk2fee7"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_3o4wt"]
 [ext_resource type="Script" uid="uid://m2npcd1yeoyq" path="res://Enemy/Enemy.gd" id="1_epr5s"]
+[ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Atak_maro.png" id="3_vonkd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vonkd"]
 radius = 102.0
@@ -28,13 +29,23 @@ shape = SubResource("RectangleShape2D_epr5s")
 scale = Vector2(0.828125, 0.519608)
 texture = ExtResource("1_3o4wt")
 
+[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+scale = Vector2(1.20755, 1.92453)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Marker2D"]
+position = Vector2(60, -4)
+scale = Vector2(0.31616, 0.20386)
+texture = ExtResource("3_vonkd")
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+[node name="nav_timer" type="Timer" parent="."]
+wait_time = 0.1
 autostart = true
+
+[node name="shoot_timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="nav_timer" to="." method="_on_timer_timeout"]
