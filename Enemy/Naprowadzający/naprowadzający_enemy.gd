@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var nav_agent := $NavigationAgent2D as  NavigationAgent2D
 @onready var sprite: Sprite2D = $Sprite2D
 
-var speed = 3000
+var speed = 1500
 var distance : Vector2i
 var lang : int
 var shoot_available : bool
@@ -41,14 +41,14 @@ func movement(delta):
 	#poruszanie 
 	if lang >= 500:
 		generate = true
-		speed = 7000
+		speed = 5000
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
 		velocity = dir * speed * delta
 		move_and_slide()
 		
 	if lang < 270:	
 		generate = true
-		speed = 7000
+		speed = 5000
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
 		velocity = dir * speed * delta
 		move_and_slide()
@@ -56,7 +56,7 @@ func movement(delta):
 	elif lang > 300 and lang < 500:
 		#Poruszanie Na Boki TODO
 		generate = false
-		speed = 7000
+		speed = 5000
 		if -dir != to_local(nav_agent.get_next_path_position()).normalized():
 			dir = to_local(nav_agent.get_next_path_position()).normalized()
 			velocity = dir * speed * delta
@@ -71,20 +71,13 @@ func make_path():
 	else: 
 		nav_agent.target_position = Player.global_position + Vector2(x,y)
 
-func _on_timer_timeout() -> void:
-	make_path()
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		speed = 0 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		speed = 7000
-
-func can_shoot() -> void:
-	shoot_available = true
-	shoot()
+		speed = 5000
 
 func shoot():
 	if shoot_available and lang > 150:
@@ -92,8 +85,16 @@ func shoot():
 		var b = Bullet.instantiate()
 		owner.add_child(b)
 		b.transform = $Sprite2D/Marker2D.global_transform
+		b.enemy = Player
 		shoot_timer.start()
 
 func Generate():
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
+
+func _on_shoot_timer_timeout() -> void:
+	shoot_available = true
+	shoot()
+
+func _on_nav_timer_timeout() -> void:
+	make_path()

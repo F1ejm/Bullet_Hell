@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://04k2bfngq2n6"]
+
+[ext_resource type="Script" uid="uid://64o2ihrcs81r" path="res://Enemy/Naprowadzający/Bullets/naprowadzający_bullet.gd" id="1_fnhgm"]
+[ext_resource type="Texture2D" uid="uid://mdwhvtwfji0s" path="res://Art/Maro/Serce_maro.png" id="2_ejlwd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7heth"]
+radius = 32.0
+
+[node name="Naprowadzający_Bullet" type="Area2D"]
+script = ExtResource("1_fnhgm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7heth")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, -1.90735e-06)
+scale = Vector2(0.655594, 0.655594)
+texture = ExtResource("2_ejlwd")
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2(-2, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Immunity_timer" type="Timer" parent="." groups=["Bullet"]]
+wait_time = 0.2
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Immunity_timer" to="." method="_on_immunity_timer_timeout"]

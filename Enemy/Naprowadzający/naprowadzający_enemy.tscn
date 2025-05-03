@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://cot52aa5y87c6"]
+
+[ext_resource type="Script" uid="uid://d0wwik5db7tdx" path="res://Enemy/Naprowadzający/naprowadzający_enemy.gd" id="1_em4cq"]
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_hrbuo"]
+[ext_resource type="PackedScene" uid="uid://04k2bfngq2n6" path="res://Enemy/Naprowadzający/Bullets/naprowadzający_bullet.tscn" id="2_y6jkd"]
+[ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="3_y6jkd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nq2ui"]
+radius = 102.0
+height = 204.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkbr0"]
+size = Vector2(96, 64)
+
+[node name="Naprowadzający_Enemy" type="CharacterBody2D" node_paths=PackedStringArray("shoot_timer") groups=["Enemy"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_em4cq")
+Bullet = ExtResource("2_y6jkd")
+shoot_timer = NodePath("shoot_timer")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_nq2ui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qkbr0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.828125, 0.519608)
+texture = ExtResource("2_hrbuo")
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+scale = Vector2(1.20755, 1.92453)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Marker2D"]
+position = Vector2(60, -4)
+scale = Vector2(0.31616, 0.20386)
+texture = ExtResource("3_y6jkd")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="nav_timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="shoot_timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="nav_timer" to="." method="_on_nav_timer_timeout"]
+[connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
