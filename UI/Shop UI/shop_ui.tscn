@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://ckn81yvwna77p"]
 
 [ext_resource type="Script" uid="uid://fyehnsobw802" path="res://UI/Shop UI/shop_ui.gd" id="1_0qc3d"]
-[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro_ZdjęcieOG.png" id="2_ck7jg"]
-[ext_resource type="Texture2D" uid="uid://mdwhvtwfji0s" path="res://Art/Serce_maro.png" id="3_40xpq"]
-[ext_resource type="Texture2D" uid="uid://dyk16oftjoirt" path="res://Art/stamina_maro.png" id="4_ybqa0"]
-[ext_resource type="Texture2D" uid="uid://f74hss5ejnxi" path="res://Art/Stamina_regenaracja_maro.png" id="5_d8ich"]
-[ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Atak_maro.png" id="6_0kvjv"]
+[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="2_ck7jg"]
+[ext_resource type="Texture2D" uid="uid://mdwhvtwfji0s" path="res://Art/Maro/Serce_maro.png" id="3_40xpq"]
+[ext_resource type="Texture2D" uid="uid://dyk16oftjoirt" path="res://Art/Maro/stamina_maro.png" id="4_ybqa0"]
+[ext_resource type="Texture2D" uid="uid://f74hss5ejnxi" path="res://Art/Maro/Stamina_regenaracja_maro.png" id="5_d8ich"]
+[ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="6_0kvjv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y03ah"]
 font_size = 32

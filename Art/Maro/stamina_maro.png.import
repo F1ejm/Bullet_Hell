@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh4p6dwv0p5t5"
-path="res://.godot/imported/Atak_maro.png-5ebdf011e165b96926c36c99e1d75145.ctex"
+uid="uid://dyk16oftjoirt"
+path="res://.godot/imported/stamina_maro.png-d4757b781bcdef9c0f9342c6e782f73c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Atak_maro.png"
-dest_files=["res://.godot/imported/Atak_maro.png-5ebdf011e165b96926c36c99e1d75145.ctex"]
+source_file="res://Art/Maro/stamina_maro.png"
+dest_files=["res://.godot/imported/stamina_maro.png-d4757b781bcdef9c0f9342c6e782f73c.ctex"]
 
 [params]
 

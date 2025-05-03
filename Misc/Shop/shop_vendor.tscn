@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://divjj2xl1j2sh"]
 
 [ext_resource type="Script" uid="uid://b0di2g6m3baao" path="res://Misc/Shop/shop_vendor.gd" id="1_n55vs"]
-[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro_ZdjęcieOG.png" id="2_n55vs"]
+[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="2_n55vs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n55vs"]
 radius = 233.283

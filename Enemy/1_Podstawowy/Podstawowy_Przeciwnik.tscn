@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bxcd4bfk2fee7"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_3o4wt"]
-[ext_resource type="Script" uid="uid://m2npcd1yeoyq" path="res://Enemy/Enemy.gd" id="1_epr5s"]
-[ext_resource type="PackedScene" uid="uid://diikl76jay5oc" path="res://Enemy/Bullet.tscn" id="2_vso2s"]
-[ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Atak_maro.png" id="3_vonkd"]
+[ext_resource type="Script" uid="uid://m2npcd1yeoyq" path="res://Enemy/1_Podstawowy/Enemy.gd" id="1_epr5s"]
+[ext_resource type="PackedScene" uid="uid://diikl76jay5oc" path="res://Enemy/Bullets/Bullet.tscn" id="2_vso2s"]
+[ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="3_vonkd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vonkd"]
 radius = 102.0

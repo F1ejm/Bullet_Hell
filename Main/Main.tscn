@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=12 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
 [ext_resource type="PackedScene" uid="uid://dn4sqx4suowf1" path="res://Player/Player.tscn" id="1_lxy7q"]
@@ -7,8 +7,9 @@
 [ext_resource type="Script" uid="uid://q8h1xhj2mpt0" path="res://UI/Interaction UI/interaction.gd" id="4_hh5pf"]
 [ext_resource type="PackedScene" uid="uid://ht7qibk0wg3t" path="res://UI/PlayerUI/stamina.tscn" id="4_ps1la"]
 [ext_resource type="PackedScene" uid="uid://divjj2xl1j2sh" path="res://Misc/Shop/shop_vendor.tscn" id="5_6aewd"]
-[ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Podstawowy_Przeciwnik.tscn" id="5_u2i7p"]
+[ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/1_Podstawowy/Podstawowy_Przeciwnik.tscn" id="5_u2i7p"]
 [ext_resource type="PackedScene" uid="uid://cdp8nop01h20c" path="res://Main/arena.tscn" id="8_qg80j"]
+[ext_resource type="PackedScene" uid="uid://c202ehhkt6j32" path="res://Enemy/1_Agresywny/Agresywny_Przeciwnik.tscn" id="10_wltqy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hh5pf"]
 font_size = 32
@@ -68,4 +69,9 @@ Player = NodePath("../Player")
 
 [node name="Podstawowy_Przeciwnik3" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_u2i7p")]
 position = Vector2(1135, -306)
+Player = NodePath("../Player")
+
+[node name="Podstawowy_Przeciwnik4" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("10_wltqy")]
+position = Vector2(568, -592)
+scale = Vector2(0.9, 0.9)
 Player = NodePath("../Player")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mdwhvtwfji0s"
-path="res://.godot/imported/Serce_maro.png-c9c82402922e8a5215191116f94fe3d0.ctex"
+uid="uid://bi00ujhkyifeq"
+path="res://.godot/imported/Maro_ZdjęcieOG.png-f95f129e8f916df833d3070194591f14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Serce_maro.png"
-dest_files=["res://.godot/imported/Serce_maro.png-c9c82402922e8a5215191116f94fe3d0.ctex"]
+source_file="res://Art/Maro/Maro_ZdjęcieOG.png"
+dest_files=["res://.godot/imported/Maro_ZdjęcieOG.png-f95f129e8f916df833d3070194591f14.ctex"]
 
 [params]
 
