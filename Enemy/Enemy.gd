@@ -18,8 +18,6 @@ var y
 var generate:bool = false
 
 var dir: Vector2 = Vector2(0,0)
-var start_timer:bool = false
-var change:bool = true
 
 func _ready() -> void:
 	x = randi_range(-400,400)
@@ -29,8 +27,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if generate == true:
 		Generate()
-	if start_timer == true:
-		$another_timer.start()
 	movement(delta)
 
 func movement(delta):
@@ -43,36 +39,36 @@ func movement(delta):
 	lang = sqrt(lang)
 	
 	#poruszanie 
-	if lang >= 400:
+	if lang >= 500:
 		generate = true
-		start_timer = false
 		speed = 10000
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
 		velocity = dir * speed * delta
 		move_and_slide()
 		
-	if lang <= 300 and change == true:
-		change = false
+	if lang < 270:	
 		generate = true
-		start_timer = false
-		speed = -10000
+		speed = 10000
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
-		velocity = dir * speed  * delta
+		velocity = dir * speed * delta
 		move_and_slide()
 		
-	else:
+	elif lang > 300 and lang < 500:
 		#Poruszanie Na Boki TODO
 		generate = false
-		start_timer = true
 		speed = 10000
 		if -dir != to_local(nav_agent.get_next_path_position()).normalized():
 			dir = to_local(nav_agent.get_next_path_position()).normalized()
 			velocity = dir * speed * delta
 		move_and_slide()
 		
+
 func make_path():
-	if lang <= 300 or lang >= 400 and change == true:
+	if lang >= 500:
 		nav_agent.target_position = Player.global_position
+	elif lang >= 70 and lang <= 300:
+		print(global_position - Player.global_position)
+		nav_agent.target_position = global_position + (global_position - Player.global_position)
 	else: 
 		nav_agent.target_position = Player.global_position + Vector2(x,y)
 
@@ -92,7 +88,7 @@ func can_shoot() -> void:
 	shoot()
 
 func shoot():
-	if shoot_available:
+	if shoot_available and lang > 150:
 		shoot_available = false
 		var b = Bullet.instantiate()
 		owner.add_child(b)
@@ -102,7 +98,3 @@ func shoot():
 func Generate():
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
-
-
-func _on_another_timer_timeout() -> void:
-	change = true
