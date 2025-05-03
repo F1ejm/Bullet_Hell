@@ -36,6 +36,7 @@ var Generate_wall: bool = false
 #Timer Do Staminy
 var timer: float = 0
 func _process(delta: float) -> void:
+	#Timer Do Staminy - Jeśli wyjdziesz staminą na minus to tedy to sie aktywuje
 	if Stamina < 0:
 		Long_Stamina_cdr = true
 		Stamina = 0

@@ -61,7 +61,7 @@ _data = {
 radius = 44.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
-size = Vector2(47, 47)
+size = Vector2(43.9462, 42.5)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_q3lat")
@@ -92,7 +92,7 @@ scale = Vector2(0.698794, 0.188487)
 texture = ExtResource("2_tok1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(-1.19209e-07, 0)
 scale = Vector2(0.978177, 1)
 shape = SubResource("RectangleShape2D_ddoul")
 

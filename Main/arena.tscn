@@ -1,9 +1,74 @@
-[gd_scene load_steps=0 format=3 uid="uid://cdp8nop01h20c"]
+[gd_scene load_steps=5 format=3 uid="uid://cdp8nop01h20c"]
+
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_hjvuf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66sge"]
+size = Vector2(20, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juncb"]
+size = Vector2(20, 1172)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xp4cu"]
+vertices = PackedVector2Array(1142, 638, 10, 638, 10, 10, 1142, 10)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)])
 
 [node name="Arena" type="Node2D"]
 
 [node name="Ściany" type="Node2D" parent="."]
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Ściany"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
+position = Vector2(0, -314)
+shape = SubResource("RectangleShape2D_66sge")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D"]
+position = Vector2(-27, -320.5)
+scale = Vector2(0.578125, 6.00781)
+texture = ExtResource("1_hjvuf")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Ściany"]
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D2"]
+position = Vector2(0, -575.5)
+shape = SubResource("RectangleShape2D_juncb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D2"]
+position = Vector2(27.0339, -573.065)
+scale = Vector2(0.577595, 9.95415)
+texture = ExtResource("1_hjvuf")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Ściany"]
+position = Vector2(1152, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D3"]
+position = Vector2(0, -314)
+shape = SubResource("RectangleShape2D_66sge")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D3"]
+position = Vector2(27, -324)
+scale = Vector2(0.578125, 6.0625)
+texture = ExtResource("1_hjvuf")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Ściany"]
+position = Vector2(0, -648)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D4"]
+position = Vector2(0, -576)
+shape = SubResource("RectangleShape2D_juncb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D4"]
+position = Vector2(-26.9964, -575.677)
+scale = Vector2(0.578181, 9.99495)
+texture = ExtResource("1_hjvuf")
+
 [node name="Unstable_Ściany" type="Node2D" parent="."]
 
 [node name="Spawnery" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(0, -648)
+navigation_polygon = SubResource("NavigationPolygon_xp4cu")
