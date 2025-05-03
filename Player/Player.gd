@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var atak_timer: Timer = $Atak_Timer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var range_timer: Timer = $Range_Timer
+@onready var parry_area: Area2D = $"Node2D/Parry area"
 
 @onready var sprite_2d: Sprite2D = $Node2D/Melee_attack_area/Sprite2D
 
@@ -44,6 +45,7 @@ func _physics_process(delta):
 		
 	if collision_atak == true:
 		sprite_2d.visible = true #Zamiast Tego Animacja TODO
+		parry_area.monitoring = true
 		Atak()
 		
 	#Atak - Ranged
@@ -92,6 +94,7 @@ func Atak():
 #Atak - melee
 func _on_timer_timeout() -> void:
 	sprite_2d.visible = false #Zamiast Tego Animacja TODO
+	parry_area.monitoring = false
 	collision_atak = false
 func _on_atak_timer_timeout() -> void:
 	atak_cooldown = false
@@ -113,3 +116,8 @@ func _startdash():
 	lock_rotation = rotation
 func _stopdash():
 	Global.IsDashing = false
+
+#Parry
+func _on_parry_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Bullet"):
+		area.queue_free()
