@@ -29,12 +29,16 @@ var dash_timer: float = 0
 var Koszt_Dasha: int = 60
 
 #Attack Speed Gracza - melee
-var AtakCooldown: float = 0.5
+var AtakCooldown: float = 0.7
 #Attack Speed Gracza - range
 var RangeCooldown: float = 2
 
 #Pieniądze
 var VDolce: int = 0
+
+#Immunity Gracza Po Otrzymaniu obrażeń
+var immune: bool = false
+var immunity: float = 1
 
 #Rundy
 var Runda: int = 0
@@ -53,3 +57,10 @@ func _process(delta: float) -> void:
 	if timer >= 2:
 		Long_Stamina_cdr = false
 		timer = 0
+		
+	#Immunity Gracza 
+	if immune == true:
+		immunity = 1
+		immunity -= delta
+	if immunity <= 0:
+		immune = false
