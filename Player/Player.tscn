@@ -105,7 +105,7 @@ texture = ExtResource("2_tok1r")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Collision_Timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.05
 
 [node name="Atak_Timer" type="Timer" parent="."]
 

@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://diugecwtbpsr7"]
+
+[ext_resource type="Script" uid="uid://b7hyuhncr7lu8" path="res://UI/PlayerUI/v_dolce.gd" id="1_tqnuy"]
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_uwwjy"]
+
+[node name="V-Dolce" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tqnuy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_right = -53.0
+offset_bottom = 43.0
+grow_horizontal = 0
+texture = ExtResource("2_uwwjy")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -46.0
+offset_top = 10.0
+offset_right = -6.0
+offset_bottom = 33.0
+grow_horizontal = 0

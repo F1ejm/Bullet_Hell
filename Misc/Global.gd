@@ -28,6 +28,12 @@ var IsDashing: bool
 var dash_timer: float = 0
 var Koszt_Dasha: int = 60
 
+#Attack Speed Gracza
+var AtakCooldown: float = 2
+
+#Pieniądze
+var VDolce: int = 0
+
 #Rundy
 var Runda: int = 0
 var Czas_Rundy: float = 0

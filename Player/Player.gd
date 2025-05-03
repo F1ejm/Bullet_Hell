@@ -18,10 +18,17 @@ var atak_cooldown: bool = false
 #variable do lockowwania rotacji przy dashu
 var lock_rotation
 
+
+func _ready() -> void:
+	atak_timer.wait_time = Global.AtakCooldown
+
 func _physics_process(delta):
 	if Global.stop == true:
 		return
 	#Atak
+	
+	atak_timer.wait_time = Global.AtakCooldown
+	
 	if Input.is_action_just_pressed("atak") and atak_cooldown == false:
 		atak_timer.stop()
 		atak_timer.start()
@@ -59,6 +66,10 @@ func Atak():
 	#Zabijanie Przeciwnika
 	for o in melee_attack_area.get_overlapping_bodies():
 		if o.is_in_group("Enemy"):
+			#Pieniądze
+			var monetki = randi_range(0,2)
+			Global.VDolce += monetki
+			
 			o.queue_free()
 
 #Atak

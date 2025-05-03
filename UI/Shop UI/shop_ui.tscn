@@ -15,6 +15,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 script = ExtResource("1_0qc3d")
 
 [node name="visuals" type="Control" parent="."]
@@ -24,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="visuals"]
 layout_mode = 1
@@ -31,10 +33,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -6.0
 offset_top = -259.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 color = Color(0, 0, 0, 0.556863)
 
 [node name="TextureRect" type="TextureRect" parent="visuals"]
@@ -47,6 +49,7 @@ offset_top = -234.0
 offset_right = 294.0
 offset_bottom = -58.0
 grow_vertical = 0
+mouse_filter = 2
 texture = ExtResource("2_ck7jg")
 expand_mode = 1
 
@@ -70,25 +73,29 @@ offset_right = -9.0
 offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/separation = 50
 alignment = 1
 
 [node name="Health" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Health"]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_40xpq")
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Health"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+mouse_filter = 2
 max_value = 4.0
 step = 1.0
 value = 1.0
 show_percentage = false
 
-[node name="Button" type="Button" parent="HBoxContainer/Health"]
+[node name="Health_Button" type="Button" parent="HBoxContainer/Health"]
 layout_mode = 2
 text = "Buy"
 
@@ -107,7 +114,7 @@ step = 1.0
 value = 1.0
 show_percentage = false
 
-[node name="Button" type="Button" parent="HBoxContainer/Stamina Amount"]
+[node name="Stamina_Button" type="Button" parent="HBoxContainer/Stamina Amount"]
 layout_mode = 2
 text = "Buy"
 
@@ -126,7 +133,7 @@ step = 1.0
 value = 1.0
 show_percentage = false
 
-[node name="Button" type="Button" parent="HBoxContainer/Stamina Regen"]
+[node name="Stamina_Regen_Button" type="Button" parent="HBoxContainer/Stamina Regen"]
 layout_mode = 2
 text = "Buy"
 
@@ -145,6 +152,11 @@ step = 1.0
 value = 1.0
 show_percentage = false
 
-[node name="Button" type="Button" parent="HBoxContainer/Attack"]
+[node name="Attack_Speed_Button" type="Button" parent="HBoxContainer/Attack"]
 layout_mode = 2
 text = "Buy"
+
+[connection signal="pressed" from="HBoxContainer/Health/Health_Button" to="." method="_on_health_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Stamina Amount/Stamina_Button" to="." method="_on_stamina_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Stamina Regen/Stamina_Regen_Button" to="." method="_on_stamina_regen_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Attack/Attack_Speed_Button" to="." method="_on_attack_speed_button_pressed"]

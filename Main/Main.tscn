@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=11 format=3 uid="uid://c5lhq3xlm4eps"]
 
+[ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
 [ext_resource type="PackedScene" uid="uid://dn4sqx4suowf1" path="res://Player/Player.tscn" id="1_lxy7q"]
 [ext_resource type="PackedScene" uid="uid://cfyt2yxs1dv36" path="res://UI/PlayerUI/zycie.tscn" id="3_amygn"]
 [ext_resource type="PackedScene" uid="uid://ckn81yvwna77p" path="res://UI/Shop UI/shop_ui.tscn" id="3_hh5pf"]
@@ -16,12 +17,11 @@ font_size = 32
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="V-Dolce" parent="CanvasLayer" instance=ExtResource("1_bor5n")]
+
 [node name="zycie" parent="CanvasLayer" instance=ExtResource("3_amygn")]
 
 [node name="Stamina" parent="CanvasLayer" instance=ExtResource("4_ps1la")]
-
-[node name="shop ui" parent="CanvasLayer" instance=ExtResource("3_hh5pf")]
-visible = false
 
 [node name="interaction" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -45,6 +45,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "E"
 label_settings = SubResource("LabelSettings_hh5pf")
+
+[node name="shop ui" parent="CanvasLayer" instance=ExtResource("3_hh5pf")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_lxy7q")]
 position = Vector2(628, -458)
