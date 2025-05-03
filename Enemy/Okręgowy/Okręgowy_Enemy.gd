@@ -29,12 +29,10 @@ func _physics_process(delta: float) -> void:
 	if generate == true:
 		Generate()
 	#movement(delta)
-	sprite.look_at(Player.global_position)
 	Marker.rotation +=0.1
 
 func movement(delta):
 	#sledzenie 
-	sprite.look_at(Player.global_position)
 	
 	#obliczanie odległości 
 	distance = Player.global_position - position
@@ -99,7 +97,7 @@ func shoot():
 
 func marker_rot():
 	var marker  = Marker.global_transform
-	for i in range(0,100,1):
+	for i in range(0,100,2):
 		Marker.rotation +=i
 		shoot()
 	shoot_timer.start()

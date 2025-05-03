@@ -48,7 +48,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="shoot_timer" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.8
 
 [node name="another_timer" type="Timer" parent="."]
 wait_time = 0.5

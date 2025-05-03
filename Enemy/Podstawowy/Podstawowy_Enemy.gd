@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var nav_agent := $NavigationAgent2D as  NavigationAgent2D
 @onready var sprite: Sprite2D = $Sprite2D
 
-var speed = 5000
+var speed = 3000
 var distance : Vector2i
 var lang : int
 var shoot_available : bool

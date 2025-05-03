@@ -40,6 +40,10 @@ var VDolce: int = 0
 var immune: bool = false
 var immunity: float = 1
 
+#Immunity Przy dashu
+var dash_immunity: bool = false
+var dash_imm_timer: float = 0
+
 #Rundy
 var Runda: int = 0
 var Czas_Rundy: float = 0
@@ -64,3 +68,11 @@ func _process(delta: float) -> void:
 	if immunity <= 0:
 		immune = false
 		immunity = 1
+	
+	if IsDashing == true:
+		dash_immunity = true
+		dash_imm_timer = 0.2
+	if dash_immunity == true:
+		dash_imm_timer -= delta
+	if dash_imm_timer <= 0:
+		dash_immunity = false

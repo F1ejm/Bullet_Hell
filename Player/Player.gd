@@ -60,7 +60,7 @@ func _physics_process(delta):
 		rotation = lock_rotation
 		var current_time = animation_player.current_animation_position
 		var value = animation_player.get_animation("dash").value_track_interpolate(1,current_time)
-		self.position = self.position - ((self.global_position - $Pivot.global_position) * value.x * delta * 3)
+		self.position = self.position - ((self.global_position - $Pivot.global_position) * value.x * delta * 4)
 
 	if Input.is_action_just_pressed("dash") and Global.IsDashing == false and Global.Stamina > 0:
 		Global.Stamina -= Global.Koszt_Dasha
