@@ -88,6 +88,7 @@ func Atak():
 		if o.is_in_group("Bullet"):
 			#Animacja Rozbicia Bulleta TODO
 			o.queue_free()
+			
 #Atak - melee
 func _on_timer_timeout() -> void:
 	sprite_2d.visible = false #Zamiast Tego Animacja TODO

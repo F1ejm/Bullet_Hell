@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ht7qibk0wg3t" path="res://UI/PlayerUI/stamina.tscn" id="4_ps1la"]
 [ext_resource type="PackedScene" uid="uid://divjj2xl1j2sh" path="res://Misc/Shop/shop_vendor.tscn" id="5_6aewd"]
 [ext_resource type="PackedScene" uid="uid://cdp8nop01h20c" path="res://Main/arena.tscn" id="8_qg80j"]
-[ext_resource type="PackedScene" uid="uid://cne0e6ok8lj6l" path="res://Enemy/2_Podstawowy/Podstawowy_Przeciwnik.tscn" id="9_bor5n"]
+[ext_resource type="PackedScene" uid="uid://cne0e6ok8lj6l" path="res://Enemy/Okręgowy/Okręgowy_Enemy.tscn" id="9_bor5n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hh5pf"]
 font_size = 32
@@ -58,6 +58,6 @@ position = Vector2(1313, -685)
 [node name="Arena" parent="." instance=ExtResource("8_qg80j")]
 position = Vector2(243, -116)
 
-[node name="Podstawowy_Przeciwnik" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("9_bor5n")]
-position = Vector2(456, -296)
+[node name="2_Podstawowy_Przeciwnik" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("9_bor5n")]
+position = Vector2(838, -409)
 Player = NodePath("../Player")

@@ -94,16 +94,14 @@ func shoot():
 		shoot_available = false
 		var b = Bullet.instantiate()
 		owner.add_child(b)
-		b.global_rotation = Marker.global_rotation
+		b.global_transform = Marker.global_transform
 
 
 func marker_rot():
 	var marker  = Marker.global_transform
-	print("as")
-	for i in range(0,100,10):
+	for i in range(0,100,5):
 		Marker.rotation +=i
 		shoot()
-	Marker.global_rotation = marker
 	shoot_timer.start()
 
 func Generate():
