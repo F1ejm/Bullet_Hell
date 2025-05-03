@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 		
 	#Immunity Gracza 
 	if immune == true:
-		immunity = 1
 		immunity -= delta
 	if immunity <= 0:
 		immune = false
+		immunity = 1
