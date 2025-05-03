@@ -35,6 +35,7 @@ folder_colors={
 Player=""
 Enemy=""
 Wall=""
+Bullet=""
 
 [input]
 
