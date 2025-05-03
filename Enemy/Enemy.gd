@@ -67,7 +67,6 @@ func make_path():
 	if lang >= 500:
 		nav_agent.target_position = Player.global_position
 	elif lang >= 70 and lang <= 300:
-		print(global_position - Player.global_position)
 		nav_agent.target_position = global_position + (global_position - Player.global_position)
 	else: 
 		nav_agent.target_position = Player.global_position + Vector2(x,y)
