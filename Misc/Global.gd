@@ -29,7 +29,7 @@ var dash_timer: float = 0
 var Koszt_Dasha: int = 60
 
 #Attack Speed Gracza - melee
-var AtakCooldown: float = 0.7
+var AtakCooldown: float = 0.4
 #Attack Speed Gracza - range
 var RangeCooldown: float = 2
 
@@ -71,7 +71,7 @@ func _process(delta: float) -> void:
 	
 	if IsDashing == true:
 		dash_immunity = true
-		dash_imm_timer = 0.2
+		dash_imm_timer = 0.4
 	if dash_immunity == true:
 		dash_imm_timer -= delta
 	if dash_imm_timer <= 0:

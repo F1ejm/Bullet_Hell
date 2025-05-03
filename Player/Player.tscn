@@ -58,10 +58,10 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3lat"]
-radius = 44.0
+radius = 52.8764
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
-size = Vector2(88.5714, 25.7143)
+size = Vector2(114.286, 61.4286)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
 size = Vector2(43.9462, 42.5)
@@ -86,7 +86,7 @@ rotation = 1.5708
 [node name="Melee_attack_area" type="Area2D" parent="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Melee_attack_area"]
-position = Vector2(0, -24)
+position = Vector2(-0.000113771, -31.4286)
 shape = SubResource("CircleShape2D_q3lat")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Melee_attack_area"]
@@ -99,7 +99,7 @@ texture = ExtResource("2_tok1r")
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Parry area"]
-position = Vector2(-0.000180999, -50)
+position = Vector2(-0.000253816, -67.8571)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_q3lat")
 

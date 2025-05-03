@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 150
+var speed = 300
 var enemy: CharacterBody2D
 
 #Immunity na chwile
