@@ -28,8 +28,10 @@ var IsDashing: bool
 var dash_timer: float = 0
 var Koszt_Dasha: int = 60
 
-#Attack Speed Gracza
-var AtakCooldown: float = 2
+#Attack Speed Gracza - melee
+var AtakCooldown: float = 0.5
+#Attack Speed Gracza - range
+var RangeCooldown: float = 2
 
 #Pieniądze
 var VDolce: int = 0
@@ -48,6 +50,6 @@ func _process(delta: float) -> void:
 		Stamina = 0
 	if Long_Stamina_cdr == true:
 		timer += delta
-	if timer >= 1.5:
+	if timer >= 2:
 		Long_Stamina_cdr = false
 		timer = 0

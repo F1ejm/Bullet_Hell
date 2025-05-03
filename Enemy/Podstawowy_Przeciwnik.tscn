@@ -12,7 +12,7 @@ height = 204.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epr5s"]
 size = Vector2(96, 64)
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("shoot_timer") groups=["Enemy"]]
+[node name="Podstawowy_Przeciwnik" type="CharacterBody2D" node_paths=PackedStringArray("shoot_timer") groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -48,7 +48,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="shoot_timer" type="Timer" parent="."]
-one_shot = true
+wait_time = 0.6
 
 [node name="another_timer" type="Timer" parent="."]
 wait_time = 0.5

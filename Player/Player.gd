@@ -6,14 +6,19 @@ extends CharacterBody2D
 @onready var timer: Timer = $Collision_Timer
 @onready var atak_timer: Timer = $Atak_Timer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var range_timer: Timer = $Range_Timer
 
 @onready var sprite_2d: Sprite2D = $Node2D/Melee_attack_area/Sprite2D
 
 #Zmienna Określająca czy collision shape do zabijania jest aktywny
 var collision_atak: bool = false
 
-#Zmienna Okreslajaca czy atak jest na cooldawnie: False-możesz atakować
+#Zmienna Okreslajaca czy atak jest na cooldawnie: False-możesz atakować -- Melee
 var atak_cooldown: bool = false
+
+#Zmienna Okreslajaca czy atak jest na cooldawnie: False-możesz atakować -- Ranged
+var range_cooldown: bool = false
+var bullet_path = preload("res://Player/player_bullet.tscn")
 
 #variable do lockowwania rotacji przy dashu
 var lock_rotation
@@ -25,8 +30,8 @@ func _ready() -> void:
 func _physics_process(delta):
 	if Global.stop == true:
 		return
-	#Atak
-	
+		
+	#Atak - Melee
 	atak_timer.wait_time = Global.AtakCooldown
 	
 	if Input.is_action_just_pressed("atak") and atak_cooldown == false:
@@ -40,6 +45,15 @@ func _physics_process(delta):
 	if collision_atak == true:
 		sprite_2d.visible = true #Zamiast Tego Animacja TODO
 		Atak()
+		
+	#Atak - Ranged
+	range_timer.wait_time = Global.RangeCooldown
+	
+	if Input.is_action_just_pressed("range_atak") and range_cooldown == false:
+		range_timer.stop()
+		range_timer.start()
+		range_cooldown = true
+		Ranged()
 	
 	#Dash
 	if Global.IsDashing:
@@ -61,7 +75,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-#Atak
+#Atak - melee
 func Atak():
 	#Zabijanie Przeciwnika
 	for o in melee_attack_area.get_overlapping_bodies():
@@ -72,12 +86,23 @@ func Atak():
 			
 			o.queue_free()
 
-#Atak
+#Atak - melee
 func _on_timer_timeout() -> void:
 	sprite_2d.visible = false #Zamiast Tego Animacja TODO
 	collision_atak = false
 func _on_atak_timer_timeout() -> void:
 	atak_cooldown = false
+
+#Atak - Ranged
+func Ranged():
+	var b = bullet_path.instantiate()
+	owner.add_child(b)
+	b.transform = global_transform
+
+
+#Atak - Ranged
+func _on_range_timer_timeout() -> void:
+	range_cooldown = false
 
 #Dash
 func _startdash():

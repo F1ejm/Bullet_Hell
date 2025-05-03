@@ -49,6 +49,6 @@ func _on_stamina_regen_button_pressed() -> void:
 
 
 func _on_attack_speed_button_pressed() -> void:
-	if Global.AtakCooldown > 1.05:
-		Global.AtakCooldown -= 0.35
+	if Global.RangeCooldown > 1.05:
+		Global.RangeCooldown -= 0.35
 		Attack_Bar.value += 1

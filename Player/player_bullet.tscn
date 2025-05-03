@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://qpei2xdtyese"]
+
+[ext_resource type="Script" uid="uid://dlpbjjdtkesm" path="res://Player/player_bullet.gd" id="1_5ljcc"]
+[ext_resource type="Texture2D" uid="uid://mdwhvtwfji0s" path="res://Art/Serce_maro.png" id="1_88ptc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ljcc"]
+radius = 32.0
+
+[node name="Player_Bullet" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_5ljcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5ljcc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, -1.90735e-06)
+scale = Vector2(0.655594, 0.655594)
+texture = ExtResource("1_88ptc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

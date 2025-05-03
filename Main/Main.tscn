@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://q8h1xhj2mpt0" path="res://UI/Interaction UI/interaction.gd" id="4_hh5pf"]
 [ext_resource type="PackedScene" uid="uid://ht7qibk0wg3t" path="res://UI/PlayerUI/stamina.tscn" id="4_ps1la"]
 [ext_resource type="PackedScene" uid="uid://divjj2xl1j2sh" path="res://Misc/Shop/shop_vendor.tscn" id="5_6aewd"]
-[ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Enemy.tscn" id="5_u2i7p"]
+[ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Podstawowy_Przeciwnik.tscn" id="5_u2i7p"]
 [ext_resource type="PackedScene" uid="uid://cdp8nop01h20c" path="res://Main/arena.tscn" id="8_qg80j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hh5pf"]
@@ -52,12 +52,20 @@ visible = false
 [node name="Player" parent="." instance=ExtResource("1_lxy7q")]
 position = Vector2(628, -458)
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_u2i7p")]
-position = Vector2(926, -330)
-Player = NodePath("../Player")
-
 [node name="Shop Vendor" parent="." instance=ExtResource("5_6aewd")]
 position = Vector2(1313, -685)
 
 [node name="Arena" parent="." instance=ExtResource("8_qg80j")]
 position = Vector2(243, -116)
+
+[node name="Podstawowy_Przeciwnik" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_u2i7p")]
+position = Vector2(907, -488)
+Player = NodePath("../Player")
+
+[node name="Podstawowy_Przeciwnik2" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_u2i7p")]
+position = Vector2(614, -259)
+Player = NodePath("../Player")
+
+[node name="Podstawowy_Przeciwnik3" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_u2i7p")]
+position = Vector2(1135, -306)
+Player = NodePath("../Player")
