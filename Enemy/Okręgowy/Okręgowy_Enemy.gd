@@ -99,7 +99,7 @@ func shoot():
 
 func marker_rot():
 	var marker  = Marker.global_transform
-	for i in range(0,100,5):
+	for i in range(0,100,1):
 		Marker.rotation +=i
 		shoot()
 	shoot_timer.start()
