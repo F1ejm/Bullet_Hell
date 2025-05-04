@@ -25,7 +25,6 @@ func _ready() -> void:
 	Generate()
 
 func _process(delta: float) -> void:
-	print(Global.can_spawn)
 	if Global.i == 0:
 		Generate()
 	
@@ -43,6 +42,9 @@ func Generate():
 	Global.i += 1
 	x = randi_range(20,width)
 	y = randi_range(20,height)
+	
+	
+	# respi puste area i sprawdza czy jest ścianie czy nie jeżeli tak to puszcza gunkcje generate 
 	var c = czujka.instantiate()
 	add_child(c)
 	c.global_position = global_position
@@ -50,10 +52,9 @@ func Generate():
 	if Global.can_spawn:
 		pass
 	elif !Global.can_spawn:
-		#Generate()
-		print("nigger")
-	# respi puste area i sprawdza czy jest ścianie czy nie jeżeli tak to puszcza gunkcje generate 
+		Generate()
 	
+	#jakieś coś napisane przez kube 
 	var losowanie_enemy = randi_range(0,3)
 	
 	match(losowanie_enemy):
