@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var Player : CharacterBody2D
 @onready var shoot_timer: Timer = $shoot_timer
 
+var main: Node2D
 
 @onready var nav_agent := $NavigationAgent2D as  NavigationAgent2D
 @onready var sprite: Sprite2D = $Sprite2D
@@ -97,7 +98,7 @@ func shoot():
 	if shoot_available and lang > 150:
 		shoot_available = false
 		var b = Bullet.instantiate()
-		owner.add_child(b)
+		main.add_child(b)
 		b.transform = $Sprite2D/Marker2D.global_transform
 		shoot_timer.start()
 
@@ -107,6 +108,9 @@ func Generate():
 
 func Death():
 	#Animacja Smierci i SFX TODO
+	Global.i -= 1
+	var monetki = randi_range(0,2)
+	Global.VDolce += monetki
 	queue_free()
 
 

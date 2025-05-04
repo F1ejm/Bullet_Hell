@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdp8nop01h20c"]
+[gd_scene load_steps=9 format=3 uid="uid://cdp8nop01h20c"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_hjvuf"]
+[ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawnery.gd" id="2_66sge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66sge"]
 size = Vector2(75, 760)
@@ -14,12 +15,16 @@ size = Vector2(74, 648)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp4cu"]
 size = Vector2(69.0021, 1263)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sl4bx"]
+size = Vector2(1113, 617)
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xp4cu"]
 vertices = PackedVector2Array(1142, 638, 10, 638, 10, 10, 1142, 10)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)])
 
 [node name="Arena" type="Node2D"]
+script = ExtResource("2_66sge")
 
 [node name="Ściany" type="Node2D" parent="."]
 
@@ -75,6 +80,17 @@ texture = ExtResource("1_hjvuf")
 
 [node name="Spawnery" type="Node2D" parent="."]
 
+[node name="Timer" type="Timer" parent="Spawnery"]
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="Spawnery"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawnery/Area2D"]
+position = Vector2(575.5, -323.5)
+shape = SubResource("RectangleShape2D_sl4bx")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(0, -648)
 navigation_polygon = SubResource("NavigationPolygon_xp4cu")
+
+[connection signal="timeout" from="Spawnery/Timer" to="." method="_on_timer_timeout"]
