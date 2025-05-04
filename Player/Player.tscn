@@ -1,7 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dn4sqx4suowf1"]
+[gd_scene load_steps=15 format=3 uid="uid://dn4sqx4suowf1"]
 
 [ext_resource type="Script" uid="uid://hms7joihh6ve" path="res://Player/Player.gd" id="1_q3lat"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_tok1r"]
+[ext_resource type="AudioStream" uid="uid://cb4yukvy0ri5g" path="res://Audio/SFX/blok1.mp3" id="3_6ysni"]
+[ext_resource type="AudioStream" uid="uid://bs1v16msa4m6j" path="res://Audio/SFX/atak_mele.mp3" id="3_tok1r"]
+[ext_resource type="AudioStream" uid="uid://d37yb13k2aitl" path="res://Audio/SFX/blok2.mp3" id="4_vlldt"]
+[ext_resource type="AudioStream" uid="uid://cghvgjp03ptj" path="res://Audio/SFX/blok3.mp3" id="5_s1rgi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tok1r"]
 radius = 71.4429
@@ -83,13 +87,11 @@ wait_time = 5.0
 wait_time = 0.321
 
 [node name="Tarcza_Item_Area" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tarcza_Item_Area"]
 shape = SubResource("CircleShape2D_tok1r")
 
 [node name="AOE_Item_Area" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AOE_Item_Area"]
 shape = SubResource("CircleShape2D_ddoul")
@@ -130,7 +132,6 @@ texture = ExtResource("2_tok1r")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Node2D2" type="Node2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -145,6 +146,20 @@ wait_time = 0.05
 [node name="Range_Timer" type="Timer" parent="."]
 
 [node name="PowerUp_Timer" type="Timer" parent="."]
+
+[node name="Sound" type="Node2D" parent="."]
+
+[node name="Blok1" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("3_6ysni")
+
+[node name="Blok2" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("4_vlldt")
+
+[node name="Blok3" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("5_s1rgi")
+
+[node name="AtakMele" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("3_tok1r")
 
 [connection signal="timeout" from="Trwanie_Timer" to="." method="_on_tarcza_timer_timeout"]
 [connection signal="timeout" from="Cooldown_Timer" to="." method="_on_tarcza_cooldown_timeout"]
