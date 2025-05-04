@@ -45,8 +45,12 @@ var bullet_path = preload("res://Player/player_bullet.tscn")
 #variable do lockowwania rotacji przy dashu
 var lock_rotation
 
+#Zemienne do Broni
 var stats: WeaponStats = null
 var CurrentWeapon = "Pistol"
+var CurrentSeriaNumber = 1
+var is_sering = false
+
 #Obrazenia
 var dmg_melee: int = 1
 var dmg_range: int = 1
@@ -75,14 +79,19 @@ func _physics_process(delta):
 		parry_area.monitoring = true
 		Atak()
 		
-	#Atak - Ranged
-	range_timer.wait_time = Global.RangeCooldown * Global.RangeWeaponCooldown
 	
 	if Input.is_action_just_pressed("range_atak") and range_cooldown == false:
-		range_timer.stop()
-		range_timer.start()
-		range_cooldown = true
-		Ranged()
+		if not is_sering:
+			CurrentSeriaNumber=1
+			if(stats.seria>1):
+				range_timer.wait_time = (Global.RangeCooldown * Global.RangeWeaponCooldown) / 20
+				
+			else:
+				range_timer.wait_time = Global.RangeCooldown * Global.RangeWeaponCooldown
+			range_timer.stop()
+			range_timer.start()
+			range_cooldown = true
+			Ranged()
 	
 	#Dash
 	if Global.IsDashing:
@@ -137,10 +146,24 @@ func Ranged():
 	b.dmg = dmg_range
 	b.PowerUp_Active = Bullet_PowerUp
 	b.initial_velocity = velocity
+		
 
 #Atak - Ranged
 func _on_range_timer_timeout() -> void:
 	range_cooldown = false
+	if stats.seria>1 and CurrentSeriaNumber < stats.seria:
+		is_sering=true
+		Ranged()
+		CurrentSeriaNumber=CurrentSeriaNumber+1
+	elif stats.seria>1:
+		range_timer.wait_time = Global.RangeCooldown * Global.RangeWeaponCooldown
+		if is_sering:
+			is_sering=false
+			range_cooldown = true
+			range_timer.stop()
+			range_timer.start()
+			print("niger")
+
 
 #Dash
 func _startdash():
@@ -149,9 +172,11 @@ func _startdash():
 func _stopdash():
 	Global.IsDashing = false
 
+#Odświerza Broń !Trzeba Najpierw Zmienić Nazwe!
 func _on_weapon_changed() -> void:
 	stats = load("res://Player/Weapons/%s_Stats.tres" % CurrentWeapon)
 	Global.RangeWeaponCooldown = stats.cooldown
+	dmg_range = stats.dmg
 
 #Parry
 func _on_parry_area_area_entered(area: Area2D) -> void:

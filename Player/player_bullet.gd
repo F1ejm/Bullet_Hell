@@ -17,7 +17,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		#Particle i sound effecty śmierci przeciwnika TODO
-		area.owner.health -= 1
+		area.owner.health -= dmg
 		queue_free()
 	if area.is_in_group("Bullet") and PowerUp_Active == true:
 		area.queue_free()
