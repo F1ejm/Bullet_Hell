@@ -52,7 +52,7 @@ var Czas_Rundy: float = 0
 var Generate_wall: bool = false
 
 #Liczba Przeciwników
-var i: int = 1
+var i: int = -1
 
 #Timer Do Staminy
 var timer: float = 0
