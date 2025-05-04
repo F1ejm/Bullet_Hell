@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://u0nsxavg73xq" path="res://Enemy/Okręgowy/Okręgowy_Enemy.gd" id="1_7tp5r"]
 [ext_resource type="PackedScene" uid="uid://c8eugx1okbj2e" path="res://Enemy/Okręgowy/Bullets/Okręgowy_Bullet.tscn" id="2_t6qk3"]
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="3_keudj"]
+[ext_resource type="Texture2D" uid="uid://o8e5ldx0jta1" path="res://Art/Emeny/pixil-frame-0 (17).png" id="3_38dq1"]
 [ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="4_bpdb5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vonkd"]
@@ -24,15 +24,16 @@ Marker = NodePath("Sprite2D/Marker2D")
 shape = SubResource("CapsuleShape2D_vonkd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.828125, 0.519608)
-texture = ExtResource("3_keudj")
+texture_filter = 1
+scale = Vector2(6.66, 6.66)
+texture = ExtResource("3_38dq1")
 
 [node name="Marker2D" type="Marker2D" parent="Sprite2D"]
 scale = Vector2(1.20755, 1.92453)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Marker2D"]
-position = Vector2(60, -4)
-scale = Vector2(0.31616, 0.20386)
+position = Vector2(8.45531, -0.312077)
+scale = Vector2(0.022754, 0.0113232)
 texture = ExtResource("4_bpdb5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

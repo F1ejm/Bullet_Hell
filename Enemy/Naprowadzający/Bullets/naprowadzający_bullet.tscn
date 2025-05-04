@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://04k2bfngq2n6"]
 
 [ext_resource type="Script" uid="uid://64o2ihrcs81r" path="res://Enemy/Naprowadzający/Bullets/naprowadzający_bullet.gd" id="1_fnhgm"]
-[ext_resource type="Texture2D" uid="uid://c0wx84vri5d5d" path="res://Art/Emeny/pixil-frame-0 (10).png" id="2_ejlwd"]
+[ext_resource type="Texture2D" uid="uid://cy6a4gn3twbi5" path="res://Art/Emeny/pixil-frame-0 (13).png" id="2_ejlwd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7heth"]
 radius = 32.0
@@ -14,8 +14,8 @@ shape = SubResource("CircleShape2D_7heth")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-1, -4.54747e-13)
-scale = Vector2(3.496, 3.496)
+position = Vector2(-2, 0)
+scale = Vector2(4.498, 4.498)
 texture = ExtResource("2_ejlwd")
 
 [node name="Pivot" type="Node2D" parent="."]

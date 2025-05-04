@@ -108,6 +108,8 @@ func shoot():
 		var b = Bullet.instantiate()
 		main.add_child(b)
 		b.global_transform = Marker.global_transform
+		b.scale.x = 1
+		b.scale.y = 1
 
 
 func marker_rot():

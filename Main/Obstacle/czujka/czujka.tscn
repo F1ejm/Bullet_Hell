@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ckns38lh2ggu6" path="res://Main/Obstacle/czujka/czujka.gd" id="1_cyblj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2an3x"]
-size = Vector2(80, 48)
+size = Vector2(112, 80)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_cyblj")
