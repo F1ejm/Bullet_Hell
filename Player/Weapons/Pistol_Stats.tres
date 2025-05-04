@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_jgi54")
-cooldown = 0.001
+cooldown = 1.0
+dmg = 1
+seria = 3

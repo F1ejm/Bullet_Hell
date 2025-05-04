@@ -8,6 +8,8 @@ extends Node2D
 @export var Okrągły: PackedScene
 @export var Naprowadzający: PackedScene
 
+@export var czujka : PackedScene
+
 var Lista: Array = [Podstawowy,Seryjny,Okrągły,Naprowadzający]
 
 
@@ -23,6 +25,7 @@ func _ready() -> void:
 	Generate()
 
 func _process(delta: float) -> void:
+	print(Global.can_spawn)
 	if Global.i == 0:
 		Generate()
 	
@@ -40,6 +43,16 @@ func Generate():
 	Global.i += 1
 	x = randi_range(20,width)
 	y = randi_range(20,height)
+	var c = czujka.instantiate()
+	add_child(c)
+	c.global_position = global_position
+	c.queue_free()
+	if Global.can_spawn:
+		pass
+	elif !Global.can_spawn:
+		#Generate()
+		print("nigger")
+	# respi puste area i sprawdza czy jest ścianie czy nie jeżeli tak to puszcza gunkcje generate 
 	
 	var losowanie_enemy = randi_range(0,3)
 	
