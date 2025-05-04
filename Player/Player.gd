@@ -21,6 +21,8 @@ var atak_cooldown: bool = false
 var range_cooldown: bool = false
 var bullet_path = preload("res://Player/player_bullet.tscn")
 
+var curent_weapon = preload("res://Player/Weapons/Pistol.tscn")
+
 #variable do lockowwania rotacji przy dashu
 var lock_rotation
 
@@ -30,6 +32,9 @@ var dmg_range: int = 1
 
 func _ready() -> void:
 	atak_timer.wait_time = Global.AtakCooldown
+	var bron = curent_weapon.instantiate()
+	$WeaponHolder.add_child(bron)
+	_on_weapon_changed()
 
 func _physics_process(delta):
 	if Global.stop == true:
@@ -52,7 +57,7 @@ func _physics_process(delta):
 		Atak()
 		
 	#Atak - Ranged
-	range_timer.wait_time = Global.RangeCooldown
+	range_timer.wait_time = Global.RangeCooldown * Global.RangeWeaponCooldown
 	
 	if Input.is_action_just_pressed("range_atak") and range_cooldown == false:
 		range_timer.stop()
@@ -118,6 +123,9 @@ func _startdash():
 	lock_rotation = rotation
 func _stopdash():
 	Global.IsDashing = false
+
+func _on_weapon_changed() -> void:
+	Global.RangeWeaponCooldown=$WeaponHolder.get_child(0).Cooldown
 
 #Parry
 func _on_parry_area_area_entered(area: Area2D) -> void:
