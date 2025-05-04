@@ -17,6 +17,9 @@ var x
 var y 
 var generate:bool = false
 
+#Health
+var health:int = 2
+
 var dir: Vector2 = Vector2(0,0)
 
 func _ready() -> void:

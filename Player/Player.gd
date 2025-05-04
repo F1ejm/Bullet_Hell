@@ -104,7 +104,8 @@ func Ranged():
 	var b = bullet_path.instantiate()
 	owner.add_child(b)
 	b.transform = global_transform
-
+	b.scale.x = 0.5
+	b.scale.y = 0.5
 
 #Atak - Ranged
 func _on_range_timer_timeout() -> void:

@@ -100,7 +100,6 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Parry area"]
 position = Vector2(-0.000253816, -67.8571)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_q3lat")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

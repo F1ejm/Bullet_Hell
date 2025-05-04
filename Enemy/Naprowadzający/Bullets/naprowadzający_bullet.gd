@@ -22,6 +22,8 @@ func _on_body_entered(body: Node2D) -> void:
 		queue_free()
 	
 	elif body.is_in_group("Enemy") and immune == false:
+		var monetki = randi_range(0,2)
+		Global.VDolce += monetki
 		body.queue_free()
 		queue_free()
 
