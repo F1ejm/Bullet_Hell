@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8eugx1okbj2e"]
 
 [ext_resource type="Script" uid="uid://ibojkxmqmnvu" path="res://Enemy/Okręgowy/Bullets/Okręgowy_Bullet.gd" id="1_5f3f1"]
-[ext_resource type="Texture2D" uid="uid://mdwhvtwfji0s" path="res://Art/Maro/Serce_maro.png" id="2_j8cg2"]
+[ext_resource type="Texture2D" uid="uid://c0wx84vri5d5d" path="res://Art/Emeny/pixil-frame-0 (10).png" id="2_5f3f1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r4qxo"]
 radius = 32.0
@@ -14,9 +14,10 @@ script = ExtResource("1_5f3f1")
 shape = SubResource("CircleShape2D_r4qxo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.90735e-06, -1.90735e-06)
-scale = Vector2(0.655594, 0.655594)
-texture = ExtResource("2_j8cg2")
+texture_filter = 1
+position = Vector2(-2, -2.27374e-13)
+scale = Vector2(3.261, 3.261)
+texture = ExtResource("2_5f3f1")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.5
