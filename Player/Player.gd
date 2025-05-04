@@ -125,7 +125,8 @@ func _stopdash():
 	Global.IsDashing = false
 
 func _on_weapon_changed() -> void:
-	Global.RangeWeaponCooldown=$WeaponHolder.get_child(0).Cooldown
+	#Global.RangeWeaponCooldown=$WeaponHolder.get_child(0).Cooldown
+	pass
 
 #Parry
 func _on_parry_area_area_entered(area: Area2D) -> void:
