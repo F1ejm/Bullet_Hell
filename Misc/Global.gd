@@ -47,9 +47,12 @@ var dash_immunity: bool = false
 var dash_imm_timer: float = 0
 
 #Rundy
-var Runda: int = 0
+var Runda: int = 1
 var Czas_Rundy: float = 0
 var Generate_wall: bool = false
+
+#Liczba Przeciwników
+var i: int = 1
 
 #Timer Do Staminy
 var timer: float = 0
