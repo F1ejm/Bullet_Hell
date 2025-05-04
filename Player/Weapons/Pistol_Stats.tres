@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=2 format=3 uid="uid://dj0jdo8p83iit"]
+
+[ext_resource type="Script" uid="uid://xl4k2awifu8w" path="res://Player/Weapons/WeaponStats.gd" id="1_jgi54"]
+
+[resource]
+script = ExtResource("1_jgi54")
+cooldown = 0.001

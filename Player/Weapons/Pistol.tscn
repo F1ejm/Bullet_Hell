@@ -1,4 +1,0 @@
-[gd_scene format=3 uid="uid://b7vcrr6vv3wjl"]
-
-[node name="Pistol" type="Node2D"]
-metadata/Cooldown = 1.0

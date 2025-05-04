@@ -21,19 +21,17 @@ var atak_cooldown: bool = false
 var range_cooldown: bool = false
 var bullet_path = preload("res://Player/player_bullet.tscn")
 
-var curent_weapon = preload("res://Player/Weapons/Pistol.tscn")
-
 #variable do lockowwania rotacji przy dashu
 var lock_rotation
 
+var stats: WeaponStats = null
+var CurrentWeapon = "Pistol"
 #Obrazenia
 var dmg_melee: int = 1
 var dmg_range: int = 1
 
 func _ready() -> void:
 	atak_timer.wait_time = Global.AtakCooldown
-	var bron = curent_weapon.instantiate()
-	$WeaponHolder.add_child(bron)
 	_on_weapon_changed()
 
 func _physics_process(delta):
@@ -125,8 +123,8 @@ func _stopdash():
 	Global.IsDashing = false
 
 func _on_weapon_changed() -> void:
-	#Global.RangeWeaponCooldown=$WeaponHolder.get_child(0).Cooldown
-	pass
+	stats = load("res://Player/Weapons/%s_Stats.tres" % CurrentWeapon)
+	Global.RangeWeaponCooldown = stats.cooldown
 
 #Parry
 func _on_parry_area_area_entered(area: Area2D) -> void:
