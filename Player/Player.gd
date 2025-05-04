@@ -33,8 +33,7 @@ var Bullet_PowerUp: bool = false
 
 #Itemy Aktywne --------------------------------
 
-var Aktywne_Itemy_Cooldown: float
-var Current_Active_Item: int = 2
+var Current_Active_Item: int = 1
 @onready var trwanie_timer: Timer = $Trwanie_Timer
 @onready var cooldown_timer: Timer = $Cooldown_Timer
 
@@ -42,17 +41,18 @@ var Current_Active_Item: int = 2
 var Can_Use_Tarcza: bool = false
 var Tarcza: bool
 var Tarcza_Trwanie: float = 5
-var Tarcza_Cooldown: float = 22
+var Tarcza_Cooldown: float = 15
 @onready var tarcza_item_area: Area2D = $Tarcza_Item_Area
 
 #2 Pociski namierzające
-var Can_Use_Projectiles: bool = false
+var Can_Use_Projectiles: bool = true
 var Projectiles: bool
-var Projectiles_Trwanie: float = 10
-var Projectiles_Cooldown: float = 15
+var Projectiles_Trwanie: float = 0
+var Projectiles_Cooldown: float = 5
+@onready var projectiles_area: Area2D = $Projectiles_Area
 
 #3 AOE w Okół Gracza
-var Can_Use_AOE: bool = true
+var Can_Use_AOE: bool = false
 var AOE: bool
 var AOE_Trwanie: float = 1
 var AOE_Cooldown: float = 15
@@ -143,6 +143,25 @@ func _physics_process(delta):
 	
 	if AOE == true:
 		Func_AOE()
+	
+	#Clear
+	if Input.is_action_just_pressed("active_item") and Current_Active_Item == 3 and Can_Use_Clear == true:
+		Clear = true
+		Can_Use_Clear = false
+		trwanie_timer.start()
+	
+	if Clear == true:
+		Func_Clear()
+		
+	#Projectiles
+	if Input.is_action_just_pressed("active_item") and Current_Active_Item == 1 and Can_Use_Projectiles == true:
+		Projectiles = true
+		Can_Use_Projectiles = false
+		trwanie_timer.start()
+	
+	if Projectiles == true:
+		cooldown_timer.start()
+		Func_Projectiles()
 	
 	#Atak - Melee ------------------------------------------------
 	atak_timer.wait_time = Global.AtakCooldown
@@ -270,8 +289,9 @@ func _on_parry_area_area_entered(area: Area2D) -> void:
 		area.queue_free()
 		
 #Itemy Aktywne ------------------------------------------
-
-func _on_tarcza_timer_timeout() -> void:
+func _on_trwanie_timer_timeout() -> void:
+	cooldown_timer.start()
+	trwanie_timer.stop()
 	match(Current_Active_Item):
 		0:
 			Tarcza = false
@@ -281,9 +301,9 @@ func _on_tarcza_timer_timeout() -> void:
 			AOE = false
 		3:
 			Clear = false
-	cooldown_timer.start()
-
-func _on_tarcza_cooldown_timeout() -> void:
+	
+	
+func _on_cooldown_timer_timeout() -> void:
 	match(Current_Active_Item):
 		0:
 			Can_Use_Tarcza = true
@@ -308,3 +328,22 @@ func Func_AOE():
 			o.queue_free()
 		if o.is_in_group("Enemy"):
 			o.owner.Death()
+			
+#Clear
+func Func_Clear():
+	for o in get_tree().get_nodes_in_group("Bullet"):
+		o.queue_free()
+
+var b1_path = preload("res://Player/Naprowadzający_Bullet_Playera/naprowadzający_playera.tscn")
+
+#Projectiles
+func Func_Projectiles():
+	Projectiles = false
+	for o in projectiles_area.get_overlapping_areas():
+		if o.is_in_group("Enemy"):
+			var b1 = b1_path.instantiate()
+			b1.global_transform = global_transform
+			b1.global_position.y += 40
+			b1.enemy = o
+			b1.dmg = 3
+			owner.add_child(b1)

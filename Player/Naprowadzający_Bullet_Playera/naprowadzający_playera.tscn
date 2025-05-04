@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cijc6lo6hcxwy"]
+
+[ext_resource type="Script" uid="uid://do6187kvbbx46" path="res://Player/Naprowadzający_Bullet_Playera/naprowadzający_playera.gd" id="1_m1tfj"]
+[ext_resource type="Texture2D" uid="uid://cy6a4gn3twbi5" path="res://Art/Emeny/pixil-frame-0 (13).png" id="1_yrd0b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m1tfj"]
+radius = 32.0
+
+[node name="Naprowadzający_Playera" type="Area2D" groups=["Bullet"]]
+script = ExtResource("1_m1tfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m1tfj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, 0)
+scale = Vector2(4.498, 4.498)
+texture = ExtResource("1_yrd0b")
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2(-2, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

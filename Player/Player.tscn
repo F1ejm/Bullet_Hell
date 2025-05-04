@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dn4sqx4suowf1"]
+[gd_scene load_steps=16 format=3 uid="uid://dn4sqx4suowf1"]
 
 [ext_resource type="Script" uid="uid://hms7joihh6ve" path="res://Player/Player.gd" id="1_q3lat"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_tok1r"]
@@ -12,6 +12,9 @@ radius = 71.4429
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ddoul"]
 radius = 134.293
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ysni"]
+radius = 397.207
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3lat"]
 radius = 52.8764
@@ -84,7 +87,7 @@ script = ExtResource("1_q3lat")
 wait_time = 5.0
 
 [node name="Cooldown_Timer" type="Timer" parent="."]
-wait_time = 0.321
+wait_time = 13.029
 
 [node name="Tarcza_Item_Area" type="Area2D" parent="."]
 
@@ -95,6 +98,12 @@ shape = SubResource("CircleShape2D_tok1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AOE_Item_Area"]
 shape = SubResource("CircleShape2D_ddoul")
+
+[node name="Projectiles_Area" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Projectiles_Area"]
+shape = SubResource("CircleShape2D_6ysni")
 
 [node name="Node2D" type="Node2D" parent="."]
 rotation = 1.5708
@@ -161,8 +170,8 @@ stream = ExtResource("5_s1rgi")
 [node name="AtakMele" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("3_tok1r")
 
-[connection signal="timeout" from="Trwanie_Timer" to="." method="_on_tarcza_timer_timeout"]
-[connection signal="timeout" from="Cooldown_Timer" to="." method="_on_tarcza_cooldown_timeout"]
+[connection signal="timeout" from="Trwanie_Timer" to="." method="_on_trwanie_timer_timeout"]
+[connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="area_entered" from="Node2D/Parry area" to="." method="_on_parry_area_area_entered"]
 [connection signal="timeout" from="Collision_Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Atak_Timer" to="." method="_on_atak_timer_timeout"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=22 format=3 uid="uid://c5lhq3xlm4eps"]
 
+[ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
 [ext_resource type="PackedScene" uid="uid://dn4sqx4suowf1" path="res://Player/Player.tscn" id="1_lxy7q"]
 [ext_resource type="PackedScene" uid="uid://cfyt2yxs1dv36" path="res://UI/PlayerUI/zycie.tscn" id="3_amygn"]
@@ -43,6 +44,8 @@ sources/2 = SubResource("TileSetAtlasSource_fayjp")
 [node name="Main" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Runda_UI" parent="CanvasLayer" instance=ExtResource("1_6yo1i")]
 
 [node name="V-Dolce" parent="CanvasLayer" instance=ExtResource("1_bor5n")]
 

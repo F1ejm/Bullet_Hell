@@ -47,8 +47,9 @@ var dash_immunity: bool = false
 var dash_imm_timer: float = 0
 
 #Rundy
-var Runda: int = 1
-var Czas_Rundy: float = 0
+var Runda: int = 0
+var IsRoundPlaying: bool
+var Czas_Rundy: float = 60
 var Generate_wall: bool = false
 
 #Liczba Przeciwników
@@ -60,6 +61,21 @@ var can_spawn = true
 #Timer Do Staminy
 var timer: float = 0
 func _process(delta: float) -> void:
+	#System Rund
+	if Input.is_action_just_pressed("next_round_button") and IsRoundPlaying != true:
+		IsRoundPlaying = true
+		Czas_Rundy = 60
+		Runda += 1
+	if IsRoundPlaying == true:
+		Czas_Rundy -= delta
+	if Czas_Rundy <= 0:
+		IsRoundPlaying = false
+		
+	if IsRoundPlaying == false:
+		for o in get_tree().get_nodes_in_group("Bullet"):
+			o.queue_free()
+		for o in get_tree().get_nodes_in_group("Enemy"):
+			o.queue_free()
 	#Timer Do Staminy - Jeśli wyjdziesz staminą na minus to tedy to sie aktywuje
 	if Stamina < 0:
 		Long_Stamina_cdr = true

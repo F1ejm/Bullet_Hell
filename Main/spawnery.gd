@@ -21,22 +21,22 @@ var height = 600
 var x
 var y
 
-func _ready() -> void:
-	Generate()
 
 func _process(delta: float) -> void:
-	if Global.i == 0:
-		Generate()
-	
-	if Global.i*Global.i - Global.Runda < 0:
-		Generate()
-	elif Global.i*Global.i - Global.Runda > 0 and Global.i*Global.i - Global.Runda < 8:
-		timer.wait_time = Global.i*Global.i - Global.Runda
-	else:
-		timer.wait_time = 8
+	if Global.IsRoundPlaying == true:
+		if Global.i == 0:
+			Generate()
+		
+		if Global.i*Global.i - Global.Runda < 0:
+			Generate()
+		elif Global.i*Global.i - Global.Runda > 0 and Global.i*Global.i - Global.Runda < 8:
+			timer.wait_time = Global.i*Global.i - Global.Runda
+		else:
+			timer.wait_time = 8
 
 func _on_timer_timeout() -> void:
-	Generate()
+	if Global.IsRoundPlaying == true:
+		Generate()
 	
 func Generate():
 	Global.i += 1
@@ -54,7 +54,7 @@ func Generate():
 	elif !Global.can_spawn:
 		Generate()
 	
-	#jakieś coś napisane przez kube 
+	#jakieś coś napisane przez kube - To Poprostu losuje jakiego przeciwnika zespawnic cwelu ~ Kuba
 	var losowanie_enemy = randi_range(0,3)
 	
 	match(losowanie_enemy):
