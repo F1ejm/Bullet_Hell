@@ -25,18 +25,18 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.i*Global.i - Global.Runda < 0:
 		Generate()
-	else:
-		print( Global.i*Global.i - Global.Runda)
+	elif Global.i*Global.i - Global.Runda > 0 and Global.i*Global.i - Global.Runda < 5:
 		timer.wait_time = Global.i*Global.i - Global.Runda
-
+	else:
+		timer.wait_time = 5
 
 func _on_timer_timeout() -> void:
 	Generate()
 	
 func Generate():
 	Global.i += 1
-	x = randi_range(0,width)
-	y = randi_range(0,height)
+	x = randi_range(20,width)
+	y = randi_range(20,height)
 	
 	var losowanie_enemy = randi_range(0,len(Lista)-1)
 	
