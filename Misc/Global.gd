@@ -54,6 +54,9 @@ var Generate_wall: bool = false
 #Liczba Przeciwników
 var i: int = -1
 
+#czujka czy przeciwnik możę sie pojawić
+var can_spawn = true
+
 #Timer Do Staminy
 var timer: float = 0
 func _process(delta: float) -> void:
