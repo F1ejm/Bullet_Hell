@@ -30,7 +30,46 @@ var Stamina_PowerUp: bool = false
 #4 Bullet Przecinający Inne Bullety
 var Bullet_PowerUp: bool = false
 
-#-------------------------------------------
+
+#Itemy Aktywne --------------------------------
+
+var Aktywne_Itemy_Cooldown: float
+var Current_Active_Item: int = 2
+@onready var trwanie_timer: Timer = $Trwanie_Timer
+@onready var cooldown_timer: Timer = $Cooldown_Timer
+
+#1 Tarcza w Okół Gracza
+var Can_Use_Tarcza: bool = false
+var Tarcza: bool
+var Tarcza_Trwanie: float = 5
+var Tarcza_Cooldown: float = 22
+@onready var tarcza_item_area: Area2D = $Tarcza_Item_Area
+
+#2 Pociski namierzające
+var Can_Use_Projectiles: bool = false
+var Projectiles: bool
+var Projectiles_Trwanie: float = 10
+var Projectiles_Cooldown: float = 15
+
+#3 AOE w Okół Gracza
+var Can_Use_AOE: bool = true
+var AOE: bool
+var AOE_Trwanie: float = 1
+var AOE_Cooldown: float = 15
+@onready var aoe_item_area: Area2D = $AOE_Item_Area
+
+#4 Usuwanie Bulletów na całej mapie
+var Can_Use_Clear: bool = false
+var Clear: bool
+var Clear_Trwanie: float = 1
+var Clear_Cooldown: float = 20
+
+
+#Itemy Pasywne -------------------------------
+
+
+#------------------------------------------
+
 
 #Zmienna Określająca czy collision shape do zabijania jest aktywny
 var collision_atak: bool = false
@@ -58,15 +97,50 @@ var dmg_range: int = 1
 func _ready() -> void:
 	atak_timer.wait_time = Global.AtakCooldown
 	_on_weapon_changed()
+	
 
 func _physics_process(delta):
 	if Global.stop == true:
 		return
-		
-	#Atak - Melee
+	#Itemy Aktywne -----------------------------------------
+	
+	#Timery
+	match(Current_Active_Item):
+		0:
+			trwanie_timer.wait_time = Tarcza_Trwanie
+			cooldown_timer.wait_time = Tarcza_Cooldown
+		1:
+			trwanie_timer.wait_time = Projectiles_Trwanie
+			cooldown_timer.wait_time = Projectiles_Cooldown
+		2:
+			trwanie_timer.wait_time = AOE_Trwanie
+			cooldown_timer.wait_time = AOE_Cooldown
+		3:
+			trwanie_timer.wait_time = Clear_Trwanie
+			cooldown_timer.wait_time = Clear_Cooldown
+	
+	#Tarcza
+	if Input.is_action_just_pressed("active_item") and Current_Active_Item == 0 and Can_Use_Tarcza == true:
+		Tarcza = true
+		Can_Use_Tarcza = false
+		trwanie_timer.start()
+	
+	if Tarcza == true:
+		Func_Tarcza()
+	
+	#AOE
+	if Input.is_action_just_pressed("active_item") and Current_Active_Item == 2 and Can_Use_AOE == true:
+		AOE = true
+		Can_Use_AOE = false
+		trwanie_timer.start()
+	
+	if AOE == true:
+		Func_AOE()
+	
+	#Atak - Melee ------------------------------------------------
 	atak_timer.wait_time = Global.AtakCooldown
 	
-	if Input.is_action_just_pressed("atak") and atak_cooldown == false:
+	if Input.is_action_just_pressed("atak") and atak_cooldown == false and Tarcza != true:
 		atak_timer.stop()
 		atak_timer.start()
 		timer.stop()
@@ -79,8 +153,8 @@ func _physics_process(delta):
 		parry_area.monitoring = true
 		Atak()
 		
-	
-	if Input.is_action_just_pressed("range_atak") and range_cooldown == false:
+	#Range Atak --------------------------------------------
+	if Input.is_action_just_pressed("range_atak") and range_cooldown == false and Tarcza != true:
 		if not is_sering:
 			CurrentSeriaNumber=1
 			if(stats.seria>1):
@@ -162,7 +236,7 @@ func _on_range_timer_timeout() -> void:
 			range_cooldown = true
 			range_timer.stop()
 			range_timer.start()
-			print("niger")
+			
 
 
 #Dash
@@ -182,3 +256,43 @@ func _on_weapon_changed() -> void:
 func _on_parry_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
 		area.queue_free()
+		
+#Itemy Aktywne ------------------------------------------
+
+func _on_tarcza_timer_timeout() -> void:
+	match(Current_Active_Item):
+		0:
+			Tarcza = false
+		1:
+			Projectiles = false
+		2:
+			AOE = false
+		3:
+			Clear = false
+	cooldown_timer.start()
+
+func _on_tarcza_cooldown_timeout() -> void:
+	match(Current_Active_Item):
+		0:
+			Can_Use_Tarcza = true
+		1:
+			Can_Use_Projectiles = true
+		2:
+			Can_Use_AOE = true
+		3:
+			Can_Use_Clear = true
+
+#Tarcza
+func Func_Tarcza():
+	for o in tarcza_item_area.get_overlapping_areas():
+		if o.is_in_group("Bullet"):
+			o.queue_free()
+
+	
+#AOE
+func Func_AOE():
+	for o in aoe_item_area.get_overlapping_areas():
+		if o.is_in_group("Bullet"):
+			o.queue_free()
+		if o.is_in_group("Enemy"):
+			o.owner.Death()

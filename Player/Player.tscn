@@ -1,7 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://dn4sqx4suowf1"]
+[gd_scene load_steps=11 format=3 uid="uid://dn4sqx4suowf1"]
 
 [ext_resource type="Script" uid="uid://hms7joihh6ve" path="res://Player/Player.gd" id="1_q3lat"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_tok1r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tok1r"]
+radius = 71.4429
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddoul"]
+radius = 134.293
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3lat"]
+radius = 52.8764
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
+size = Vector2(114.286, 61.4286)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
+size = Vector2(43.9462, 42.5)
 
 [sub_resource type="Animation" id="Animation_tok1r"]
 length = 0.001
@@ -57,25 +72,27 @@ _data = {
 &"dash": SubResource("Animation_q3lat")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q3lat"]
-radius = 52.8764
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
-size = Vector2(114.286, 61.4286)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
-size = Vector2(43.9462, 42.5)
-
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_q3lat")
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="Trwanie_Timer" type="Timer" parent="."]
+wait_time = 5.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_tok1r")
-}
+[node name="Cooldown_Timer" type="Timer" parent="."]
+wait_time = 0.321
+
+[node name="Tarcza_Item_Area" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tarcza_Item_Area"]
+shape = SubResource("CircleShape2D_tok1r")
+
+[node name="AOE_Item_Area" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AOE_Item_Area"]
+shape = SubResource("CircleShape2D_ddoul")
 
 [node name="Node2D" type="Node2D" parent="."]
 rotation = 1.5708
@@ -112,6 +129,14 @@ texture = ExtResource("2_tok1r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Node2D2" type="Node2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tok1r")
+}
+
 [node name="Collision_Timer" type="Timer" parent="."]
 wait_time = 0.05
 
@@ -121,6 +146,8 @@ wait_time = 0.05
 
 [node name="PowerUp_Timer" type="Timer" parent="."]
 
+[connection signal="timeout" from="Trwanie_Timer" to="." method="_on_tarcza_timer_timeout"]
+[connection signal="timeout" from="Cooldown_Timer" to="." method="_on_tarcza_cooldown_timeout"]
 [connection signal="area_entered" from="Node2D/Parry area" to="." method="_on_parry_area_area_entered"]
 [connection signal="timeout" from="Collision_Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Atak_Timer" to="." method="_on_atak_timer_timeout"]

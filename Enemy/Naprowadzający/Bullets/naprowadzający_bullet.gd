@@ -23,10 +23,13 @@ func _on_body_entered(body: Node2D) -> void:
 	elif body.is_in_group("Wall"):
 		queue_free()
 	
-	elif body.is_in_group("Enemy") and immune == false:
+	elif body.is_in_group("Enemy"):
 		body.health -= dmg
 		queue_free()
-
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemy") and immune == false:
+		area.owner.health -= dmg
+		queue_free()
 
 func _on_timer_timeout() -> void:
 	queue_free()
