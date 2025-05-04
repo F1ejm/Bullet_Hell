@@ -24,6 +24,9 @@ var bullet_path = preload("res://Player/player_bullet.tscn")
 #variable do lockowwania rotacji przy dashu
 var lock_rotation
 
+#Obrazenia
+var dmg_melee: int = 1
+var dmg_range: int = 1
 
 func _ready() -> void:
 	atak_timer.wait_time = Global.AtakCooldown
@@ -82,11 +85,8 @@ func Atak():
 	#Zabijanie Przeciwnika
 	for o in melee_attack_area.get_overlapping_bodies():
 		if o.is_in_group("Enemy"):
-			#Pieniądze
-			var monetki = randi_range(0,2)
-			Global.VDolce += monetki
 			
-			o.queue_free()
+			o.health -= dmg_melee
 		if o.is_in_group("Bullet"):
 			#Animacja Rozbicia Bulleta TODO
 			o.queue_free()
@@ -106,6 +106,7 @@ func Ranged():
 	b.transform = global_transform
 	b.scale.x = 0.5
 	b.scale.y = 0.5
+	b.dmg = dmg_range
 
 #Atak - Ranged
 func _on_range_timer_timeout() -> void:

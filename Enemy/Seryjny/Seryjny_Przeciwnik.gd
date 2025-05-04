@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 @export var Bullet : PackedScene
 @export var Player : CharacterBody2D
-@export var shoot_timer : Timer
+@onready var shoot_timer: Timer = $shoot_timer
+
 
 @onready var nav_agent := $NavigationAgent2D as  NavigationAgent2D
 @onready var sprite: Sprite2D = $Sprite2D
@@ -19,12 +20,24 @@ var generate:bool = false
 
 var dir: Vector2 = Vector2(0,0)
 
+#Health
+var health:int = 2
+@onready var progress_bar: ProgressBar = $ProgressBar
+
+
 func _ready() -> void:
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
 	shoot_timer.start()
+	
+	progress_bar.max_value = health
 
 func _physics_process(delta: float) -> void:
+	progress_bar.value = health
+	if health <= 0:
+		Death()
+	
+	
 	if generate == true:
 		Generate()
 	movement(delta)
@@ -71,9 +84,6 @@ func make_path():
 	else: 
 		nav_agent.target_position = Player.global_position + Vector2(x,y)
 
-func _on_timer_timeout() -> void:
-	make_path()
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		speed = 0 
@@ -82,9 +92,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		speed = 10000
 
-func can_shoot() -> void:
-	shoot_available = true
-	shoot()
 
 func shoot():
 	if shoot_available and lang > 150:
@@ -97,3 +104,16 @@ func shoot():
 func Generate():
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
+
+func Death():
+	#Animacja Smierci i SFX TODO
+	queue_free()
+
+
+func _on_shoot_timer_timeout() -> void:
+	shoot_available = true
+	shoot()
+
+
+func _on_nav_timer_timeout() -> void:
+	make_path()

@@ -19,6 +19,11 @@ var generate:bool = false
 
 #Health
 var health:int = 2
+@onready var progress_bar: ProgressBar = $ProgressBar
+
+#Dmg jaki zadaje bullet innym przeciwnikom
+var bullet_dmg: int = 2
+
 
 var dir: Vector2 = Vector2(0,0)
 
@@ -26,8 +31,14 @@ func _ready() -> void:
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
 	shoot_timer.start()
+	
+	progress_bar.max_value = health
 
 func _physics_process(delta: float) -> void:
+	progress_bar.value = health
+	if health <= 0:
+		Death()
+	
 	if generate == true:
 		Generate()
 	movement(delta)
@@ -89,6 +100,7 @@ func shoot():
 		owner.add_child(b)
 		b.transform = $Sprite2D/Marker2D.global_transform
 		b.enemy = Player
+		b.dmg = bullet_dmg
 		shoot_timer.start()
 
 func Generate():
@@ -101,3 +113,7 @@ func _on_shoot_timer_timeout() -> void:
 
 func _on_nav_timer_timeout() -> void:
 	make_path()
+
+func Death():
+	#Animacja Smierci i SFX TODO
+	queue_free()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c202ehhkt6j32"]
 
-[ext_resource type="Script" uid="uid://m2npcd1yeoyq" path="res://Enemy/Podstawowy/Podstawowy_Enemy.gd" id="1_3macf"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_3o4wt"]
+[ext_resource type="Script" uid="uid://b4qhlkk4prgp5" path="res://Enemy/Seryjny/Seryjny_Przeciwnik.gd" id="1_vjau5"]
 [ext_resource type="PackedScene" uid="uid://vpbbnspwva3d" path="res://Enemy/Seryjny/Bullets/Seryjny_Bullet.tscn" id="2_qh03a"]
 [ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="3_vonkd"]
 
@@ -12,13 +12,12 @@ height = 204.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epr5s"]
 size = Vector2(96, 64)
 
-[node name="Seryjny_Przeciwnik" type="CharacterBody2D" node_paths=PackedStringArray("shoot_timer") groups=["Enemy"]]
+[node name="Seryjny_Przeciwnik" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_3macf")
+script = ExtResource("1_vjau5")
 Bullet = ExtResource("2_qh03a")
-shoot_timer = NodePath("shoot_timer")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -50,11 +49,15 @@ autostart = true
 [node name="shoot_timer" type="Timer" parent="."]
 wait_time = 0.1
 
-[node name="another_timer" type="Timer" parent="."]
-wait_time = 0.5
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = -50.0
+offset_top = -60.0
+offset_right = 52.0
+offset_bottom = -33.0
+show_percentage = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="nav_timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="shoot_timer" to="." method="can_shoot"]
-[connection signal="timeout" from="another_timer" to="." method="_on_another_timer_timeout"]
+[connection signal="timeout" from="nav_timer" to="." method="_on_nav_timer_timeout"]
+[connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]

@@ -19,12 +19,23 @@ var generate:bool = false
 
 var dir: Vector2 = Vector2(0,0)
 
+#Health
+var health:int = 1
+@onready var progress_bar: ProgressBar = $ProgressBar
+
 func _ready() -> void:
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
 	shoot_timer.start()
+	
+	progress_bar.max_value = health
 
 func _physics_process(delta: float) -> void:
+	progress_bar.value = health
+	if health <= 0:
+		Death()
+	
+	
 	if generate == true:
 		Generate()
 	movement(delta)
@@ -97,3 +108,7 @@ func shoot():
 func Generate():
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
+	
+func Death():
+	#Animacja Smierci i SFX TODO
+	queue_free()
