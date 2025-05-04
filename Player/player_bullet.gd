@@ -1,5 +1,6 @@
 extends Area2D
 
+var initial_velocity = Vector2(0,0)
 var speed = 800
 var dmg: int
 
@@ -7,7 +8,7 @@ var PowerUp_Active: bool
 
 func _physics_process(delta: float) -> void:
 	position += transform.x * speed * delta
-
+	position += initial_velocity * delta / 10
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Wall"):
 		queue_free()

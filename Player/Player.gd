@@ -136,6 +136,7 @@ func Ranged():
 	b.scale.y = 0.5
 	b.dmg = dmg_range
 	b.PowerUp_Active = Bullet_PowerUp
+	b.initial_velocity = velocity
 
 #Atak - Ranged
 func _on_range_timer_timeout() -> void:
