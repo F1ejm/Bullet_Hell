@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://hm4hwehos4pe"]
+
+[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="1_sl1jc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eit18"]
+radius = 32.0
+height = 176.0
+
+[node name="obstacle" type="StaticBody2D" groups=["Wall"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_eit18")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-06, 0)
+scale = Vector2(1.23077, 0.32)
+texture = ExtResource("1_sl1jc")

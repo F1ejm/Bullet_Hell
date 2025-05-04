@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdp8nop01h20c"]
+[gd_scene load_steps=12 format=3 uid="uid://cdp8nop01h20c"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_hjvuf"]
 [ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawnery.gd" id="2_66sge"]
+[ext_resource type="Script" uid="uid://dm3euhaddxdo0" path="res://Main/Obstacle/obstacle_spawner.gd" id="3_juncb"]
+[ext_resource type="Script" uid="uid://d2mp0xam3t2x" path="res://Main/Obstacle/spawner_controler.gd" id="3_xp4cu"]
+[ext_resource type="PackedScene" uid="uid://hm4hwehos4pe" path="res://Main/Obstacle/obstacle.tscn" id="4_xp4cu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66sge"]
 size = Vector2(75, 760)
@@ -22,6 +25,7 @@ size = Vector2(1113, 617)
 vertices = PackedVector2Array(1142, 638, 10, 638, 10, 10, 1142, 10)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)])
+agent_radius = 23.44
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("2_66sge")
@@ -90,7 +94,38 @@ position = Vector2(575.5, -323.5)
 shape = SubResource("RectangleShape2D_sl4bx")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(0, -648)
+position = Vector2(8, -648)
 navigation_polygon = SubResource("NavigationPolygon_xp4cu")
+script = ExtResource("3_xp4cu")
+
+[node name="Marker2D" type="Marker2D" parent="NavigationRegion2D"]
+position = Vector2(504, 328)
+script = ExtResource("3_juncb")
+obstacle = ExtResource("4_xp4cu")
+
+[node name="Marker2D2" type="Marker2D" parent="NavigationRegion2D"]
+position = Vector2(376, 328)
+script = ExtResource("3_juncb")
+obstacle = ExtResource("4_xp4cu")
+
+[node name="Marker2D3" type="Marker2D" parent="NavigationRegion2D"]
+position = Vector2(272, 328)
+script = ExtResource("3_juncb")
+obstacle = ExtResource("4_xp4cu")
+
+[node name="Marker2D4" type="Marker2D" parent="NavigationRegion2D"]
+position = Vector2(144, 328)
+script = ExtResource("3_juncb")
+obstacle = ExtResource("4_xp4cu")
+
+[node name="Marker2D5" type="Marker2D" parent="NavigationRegion2D"]
+position = Vector2(32, 328)
+script = ExtResource("3_juncb")
+obstacle = ExtResource("4_xp4cu")
+
+[node name="Marker2D6" type="Marker2D" parent="NavigationRegion2D"]
+position = Vector2(568, 392)
+script = ExtResource("3_juncb")
+obstacle = ExtResource("4_xp4cu")
 
 [connection signal="timeout" from="Spawnery/Timer" to="." method="_on_timer_timeout"]

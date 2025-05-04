@@ -23,7 +23,6 @@ func _ready() -> void:
 	Generate()
 
 func _process(delta: float) -> void:
-	print(Global.i)
 	if Global.i == 0:
 		Generate()
 	
