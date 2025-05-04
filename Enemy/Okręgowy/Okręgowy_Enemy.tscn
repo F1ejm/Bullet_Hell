@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cne0e6ok8lj6l"]
+[gd_scene load_steps=6 format=3 uid="uid://cne0e6ok8lj6l"]
 
 [ext_resource type="Script" uid="uid://u0nsxavg73xq" path="res://Enemy/Okręgowy/Okręgowy_Enemy.gd" id="1_7tp5r"]
 [ext_resource type="PackedScene" uid="uid://c8eugx1okbj2e" path="res://Enemy/Okręgowy/Bullets/Okręgowy_Bullet.tscn" id="2_t6qk3"]
@@ -6,11 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="4_bpdb5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vonkd"]
-radius = 102.0
-height = 204.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_epr5s"]
-size = Vector2(96, 64)
+radius = 62.0
+height = 124.0
 
 [node name="Okręgowy_Enemy" type="CharacterBody2D" node_paths=PackedStringArray("shoot_timer", "Marker") groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
@@ -21,13 +18,10 @@ Bullet = ExtResource("2_t6qk3")
 shoot_timer = NodePath("shoot_timer")
 Marker = NodePath("Sprite2D/Marker2D")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_vonkd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_epr5s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.828125, 0.519608)

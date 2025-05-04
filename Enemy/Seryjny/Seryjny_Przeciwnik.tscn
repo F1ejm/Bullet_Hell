@@ -1,16 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://c202ehhkt6j32"]
+[gd_scene load_steps=6 format=3 uid="uid://c202ehhkt6j32"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_3o4wt"]
 [ext_resource type="Script" uid="uid://b4qhlkk4prgp5" path="res://Enemy/Seryjny/Seryjny_Przeciwnik.gd" id="1_vjau5"]
 [ext_resource type="PackedScene" uid="uid://vpbbnspwva3d" path="res://Enemy/Seryjny/Bullets/Seryjny_Bullet.tscn" id="2_qh03a"]
 [ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="3_vonkd"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vonkd"]
-radius = 102.0
-height = 204.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_epr5s"]
-size = Vector2(96, 64)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bat1y"]
+radius = 62.0
+height = 124.0
 
 [node name="Seryjny_Przeciwnik" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
@@ -19,13 +16,10 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_vjau5")
 Bullet = ExtResource("2_qh03a")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_vonkd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_epr5s")
+shape = SubResource("CapsuleShape2D_bat1y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.828125, 0.519608)

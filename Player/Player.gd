@@ -11,6 +11,27 @@ extends CharacterBody2D
 
 @onready var sprite_2d: Sprite2D = $Node2D/Melee_attack_area/Sprite2D
 
+#Power Up'y --------------------------------
+
+@onready var power_up_timer: Timer = $PowerUp_Timer
+
+var PowerUp_Active: bool = false
+var PowerUp_time: float = 10
+
+#1 Tarcza Z Jednej Strony
+var Tarcza_PowerUp: bool = false
+
+#2 Dash Zabija
+var Dash_PowerUp: bool = false
+
+#3 Nieograniczona Stamina
+var Stamina_PowerUp: bool = false
+
+#4 Bullet Przecinający Inne Bullety
+var Bullet_PowerUp: bool = false
+
+#-------------------------------------------
+
 #Zmienna Określająca czy collision shape do zabijania jest aktywny
 var collision_atak: bool = false
 
@@ -71,8 +92,11 @@ func _physics_process(delta):
 		self.position = (self.position + velocity * value.x * delta * 0.04)
 
 	if Input.is_action_just_pressed("dash") and Global.IsDashing == false and Global.Stamina > 0:
-		Global.Stamina -= Global.Koszt_Dasha
-		animation_player.play("dash")
+		if Stamina_PowerUp == true:
+			animation_player.play("dash")
+		else:
+			animation_player.play("dash")
+			Global.Stamina -= Global.Koszt_Dasha
 		
 		
 	#Ruch
@@ -87,12 +111,13 @@ func _physics_process(delta):
 func Atak():
 	#Zabijanie Przeciwnika
 	for o in melee_attack_area.get_overlapping_bodies():
-		if o.is_in_group("Enemy"):
-			
-			o.health -= dmg_melee
 		if o.is_in_group("Bullet"):
 			#Animacja Rozbicia Bulleta TODO
 			o.queue_free()
+	for o in melee_attack_area.get_overlapping_areas():
+		if o.is_in_group("Enemy"):
+			#Animacja I SFX Obrazen przeciwnika TODO
+			o.owner.health -= dmg_melee
 			
 #Atak - melee
 func _on_timer_timeout() -> void:
@@ -110,6 +135,7 @@ func Ranged():
 	b.scale.x = 0.5
 	b.scale.y = 0.5
 	b.dmg = dmg_range
+	b.PowerUp_Active = Bullet_PowerUp
 
 #Atak - Ranged
 func _on_range_timer_timeout() -> void:

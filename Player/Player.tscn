@@ -119,6 +119,8 @@ wait_time = 0.05
 
 [node name="Range_Timer" type="Timer" parent="."]
 
+[node name="PowerUp_Timer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Node2D/Parry area" to="." method="_on_parry_area_area_entered"]
 [connection signal="timeout" from="Collision_Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Atak_Timer" to="." method="_on_atak_timer_timeout"]
