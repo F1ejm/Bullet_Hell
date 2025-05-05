@@ -33,7 +33,7 @@ var Bullet_PowerUp: bool = false
 
 #Itemy Aktywne --------------------------------
 
-var Current_Active_Item: int = 1
+var Current_Active_Item: int = 4
 @onready var trwanie_timer: Timer = $Trwanie_Timer
 @onready var cooldown_timer: Timer = $Cooldown_Timer
 
@@ -64,6 +64,14 @@ var Clear: bool
 var Clear_Trwanie: float = 1
 var Clear_Cooldown: float = 20
 
+#5 Burza piorunów
+var Can_Use_Pioruny: bool = true
+var Pioruny: bool
+var Pioruny_Trwanie: float = 5
+var Pioruny_Cooldown: float = 10
+@onready var raycast_pioruny: RayCast2D = $Raycast_Pioruny
+var pioruny_path = preload("res://Player/pioruny_aktywny_item.tscn")
+var pioruny_burza
 
 #Itemy Pasywne -------------------------------
 
@@ -157,6 +165,9 @@ func _physics_process(delta):
 		3:
 			trwanie_timer.wait_time = Clear_Trwanie
 			cooldown_timer.wait_time = Clear_Cooldown
+		4:
+			trwanie_timer.wait_time = Pioruny_Trwanie
+			cooldown_timer.wait_time = Pioruny_Cooldown
 	
 	#Tarcza
 	if Input.is_action_just_pressed("active_item") and Current_Active_Item == 0 and Can_Use_Tarcza == true:
@@ -193,7 +204,21 @@ func _physics_process(delta):
 	
 	if Projectiles == true:
 		cooldown_timer.start()
-		Func_Projectiles()
+		
+	
+	#Pioruny
+	if Input.is_action_just_pressed("active_item") and Current_Active_Item == 4 and Can_Use_Pioruny == true:
+		Pioruny = true
+		Can_Use_Pioruny = false
+		trwanie_timer.start()
+		
+		pioruny_burza = pioruny_path.instantiate()
+		pioruny_burza.global_position = get_global_mouse_position()
+		owner.add_child(pioruny_burza)
+		
+	if Pioruny == true:
+		cooldown_timer.start()
+		
 	
 	#Atak - Melee ------------------------------------------------
 	atak_timer.wait_time = Global.AtakCooldown
@@ -356,6 +381,9 @@ func _on_trwanie_timer_timeout() -> void:
 			AOE = false
 		3:
 			Clear = false
+		4:
+			Pioruny = false
+			pioruny_burza.queue_free()
 	
 	
 func _on_cooldown_timer_timeout() -> void:
@@ -368,6 +396,8 @@ func _on_cooldown_timer_timeout() -> void:
 			Can_Use_AOE = true
 		3:
 			Can_Use_Clear = true
+		4:
+			Can_Use_Pioruny = true
 
 #Tarcza
 func Func_Tarcza():
@@ -402,6 +432,7 @@ func Func_Projectiles():
 			b1.enemy = o
 			b1.dmg = 3
 			owner.add_child(b1)
+			
 
 #Piorun - Pasywny Itemek
 func Func_Piorun():

@@ -36,8 +36,6 @@ func _physics_process(delta: float) -> void:
 	progress_bar.value = health
 	if health <= 0:
 		Death()
-	
-	
 	if generate == true:
 		Generate()
 	movement(delta)
@@ -111,6 +109,8 @@ func shoot():
 		main.add_child(b)
 		b.transform = $Sprite2D/Marker2D.global_transform
 		shoot_timer.start()
+		b.scale.x = 0.5
+		b.scale.y = 0.5
 
 func Generate():
 	x = randi_range(-400,400)
