@@ -15,9 +15,9 @@ extends CharacterBody2D
 
 @onready var power_up_timer: Timer = $PowerUp_Timer
 
-var PowerUp_Active: bool = false
-var PowerUp_time: float = 10
+var PowerUp_time: float = 5
 
+#Pozytywne
 #1 Dash Zabija
 var Dash_PowerUp: bool = false
 
@@ -26,6 +26,10 @@ var Stamina_PowerUp: bool = false
 
 #3 Bullet Przecinający Inne Bullety
 var Bullet_PowerUp: bool = false
+
+#Negatywne
+#1 Nie możesz dashować przez 5 sekund
+var Cant_Dash_PowerUp: bool = true
 
 
 #Itemy Aktywne --------------------------------
@@ -132,6 +136,9 @@ func _ready() -> void:
 	_on_weapon_changed()
 	#fire trace - pasywny itemek
 	fire_trace_timer.wait_time = 0.05
+	
+	#power up timer
+	power_up_timer.wait_time = PowerUp_time
 
 func _process(delta: float) -> void:
 	node_orbitali.global_position = global_position
@@ -140,6 +147,12 @@ func _process(delta: float) -> void:
 func _physics_process(delta):
 	if Global.stop == true:
 		return
+	#Power Up'y ----------------------------------------
+	
+	#Nie możesz dashować
+	if Cant_Dash_PowerUp == true:
+		Global.Stamina = 0
+		
 	#Pasywne Itemki -------------------------------------
 	node_orbitali.global_position = global_position
 	if Orbitale == true:
@@ -446,3 +459,19 @@ func _on_fire_trace_timer_timeout() -> void:
 		fire_trace.scale.x = 1
 		fire_trace.scale.y = 1
 		owner.add_child(fire_trace)
+
+#Power Up Timer - wyłącza 
+func _on_power_up_timer_timeout() -> void:
+	#Pozytywne
+	#1 Dash Zabija
+	var Dash_PowerUp: bool = false
+
+	#2 Nieograniczona Stamina
+	var Stamina_PowerUp: bool = false
+
+	#3 Bullet Przecinający Inne Bullety
+	var Bullet_PowerUp: bool = false
+
+	#Negatywne
+	#1 Nie możesz dashować przez 5 sekund
+	var Cant_Dash_PowerUp: bool = true

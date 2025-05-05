@@ -87,11 +87,15 @@ _data = {
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_q3lat")
 
+[node name="PowerUp_Timer" type="Timer" parent="."]
+one_shot = true
+
 [node name="Fire_Trace_Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Trwanie_Timer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [node name="Cooldown_Timer" type="Timer" parent="."]
 wait_time = 13.029
@@ -168,8 +172,6 @@ wait_time = 0.05
 
 [node name="Range_Timer" type="Timer" parent="."]
 
-[node name="PowerUp_Timer" type="Timer" parent="."]
-
 [node name="Sound" type="Node2D" parent="."]
 
 [node name="Blok1" type="AudioStreamPlayer" parent="Sound"]
@@ -184,6 +186,7 @@ stream = ExtResource("5_s1rgi")
 [node name="AtakMele" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("3_tok1r")
 
+[connection signal="timeout" from="PowerUp_Timer" to="." method="_on_power_up_timer_timeout"]
 [connection signal="timeout" from="Fire_Trace_Timer" to="." method="_on_fire_trace_timer_timeout"]
 [connection signal="timeout" from="Trwanie_Timer" to="." method="_on_trwanie_timer_timeout"]
 [connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]
