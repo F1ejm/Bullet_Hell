@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dodlbirgod1bs"]
 
 [ext_resource type="Script" uid="uid://bvke1yd5gj5io" path="res://Player/orbitale.gd" id="1_lnv77"]
-[ext_resource type="Texture2D" uid="uid://n5j1kmsos8bq" path="res://Art/Emeny/pixil-frame-0 (20).png" id="2_lnv77"]
-[ext_resource type="Texture2D" uid="uid://b0tsnlfbc28yc" path="res://Art/Emeny/pixil-frame-0 (21).png" id="3_ksd6n"]
+[ext_resource type="Texture2D" uid="uid://dxss3tn0exs47" path="res://Art/Emeny/pixel.png" id="2_ksd6n"]
+[ext_resource type="Texture2D" uid="uid://b7iylkagj1ghb" path="res://Art/Emeny/pixel2.png" id="4_ehx4b"]
 [ext_resource type="Texture2D" uid="uid://40p4usunhdkt" path="res://Art/Emeny/pixil-frame-0 (22).png" id="4_mmxi4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksd6n"]
@@ -12,25 +12,25 @@ radius = 21.4761
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lnv77")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_ksd6n")
+"texture": ExtResource("2_ksd6n")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_mmxi4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_ksd6n")
+"texture": ExtResource("2_ksd6n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_lnv77")
+"texture": ExtResource("4_ehx4b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_ksd6n")
+"texture": ExtResource("2_ksd6n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_lnv77")
+"texture": ExtResource("2_ksd6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ehx4b")
 }],
 "loop": true,
 "name": &"default",
@@ -55,9 +55,8 @@ shape = SubResource("CircleShape2D_ksd6n")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Orbitals/Node2D/Orbital"]
 texture_filter = 1
 position = Vector2(0, -0.203996)
-scale = Vector2(2.28571, 2.28571)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ehx4b")
-frame = 6
 frame_progress = 1.0
 
 [node name="Node2D2" type="Node2D" parent="Orbitals"]
@@ -73,7 +72,7 @@ shape = SubResource("CircleShape2D_ksd6n")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Orbitals/Node2D2/Orbital2"]
 texture_filter = 1
 position = Vector2(0, -0.203996)
-scale = Vector2(2.28571, 2.28571)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ehx4b")
 frame_progress = 0.279211
 
@@ -90,6 +89,6 @@ shape = SubResource("CircleShape2D_ksd6n")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Orbitals/Node2D3/Orbital3"]
 texture_filter = 1
 position = Vector2(0, -0.203996)
-scale = Vector2(2.28571, 2.28571)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ehx4b")
 frame_progress = 0.937487
