@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c202ehhkt6j32"]
 
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_3o4wt"]
 [ext_resource type="Script" uid="uid://b4qhlkk4prgp5" path="res://Enemy/Seryjny/Seryjny_Przeciwnik.gd" id="1_vjau5"]
 [ext_resource type="PackedScene" uid="uid://vpbbnspwva3d" path="res://Enemy/Seryjny/Bullets/Seryjny_Bullet.tscn" id="2_qh03a"]
+[ext_resource type="Texture2D" uid="uid://ba3gcgh02jbvo" path="res://Art/Emeny/pixil-frame-0 (24).png" id="3_bat1y"]
 [ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="3_vonkd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bat1y"]
@@ -22,15 +22,17 @@ Bullet = ExtResource("2_qh03a")
 shape = SubResource("CapsuleShape2D_bat1y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.828125, 0.519608)
-texture = ExtResource("1_3o4wt")
+texture_filter = 1
+position = Vector2(-8, 0)
+scale = Vector2(7, 7)
+texture = ExtResource("3_bat1y")
 
 [node name="Marker2D" type="Marker2D" parent="Sprite2D"]
 scale = Vector2(1.20755, 1.92453)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Marker2D"]
-position = Vector2(60, -4)
-scale = Vector2(0.31616, 0.20386)
+position = Vector2(8.99105, 9.53674e-07)
+scale = Vector2(0.0266815, 0.0172042)
 texture = ExtResource("3_vonkd")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -45,10 +47,10 @@ wait_time = 0.1
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 modulate = Color(1, 0, 0, 1)
-offset_left = -50.0
-offset_top = -60.0
-offset_right = 52.0
-offset_bottom = -33.0
+offset_left = -52.0
+offset_top = -98.0
+offset_right = 50.0
+offset_bottom = -71.0
 show_percentage = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
