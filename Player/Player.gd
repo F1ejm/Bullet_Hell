@@ -79,9 +79,14 @@ var piorun_rand
 @onready var pasywne_itemki: Node2D = $Pasywne_Itemki
 @onready var piorun_area: Area2D = $Pasywne_Itemki/Piorun_Area
 
-#Szlak za playerem
-var Trace: bool = false
+# Szlak za playerem
+var Trace: bool = true
 var trac_fire_path = preload("res://Player/player_fire_trace.tscn")
+
+# Orbitale
+var Orbitale: bool = true
+@export var node_orbitali: Node2D
+
 
 #------------------------------------------
 
@@ -120,12 +125,22 @@ var dmg_range: int = 1
 func _ready() -> void:
 	atak_timer.wait_time = Global.AtakCooldown
 	_on_weapon_changed()
+	#fire trace - pasywny itemek
 	fire_trace_timer.wait_time = 0.05
+
+func _process(delta: float) -> void:
+	node_orbitali.global_position = global_position
 	
 
 func _physics_process(delta):
 	if Global.stop == true:
 		return
+	#Pasywne Itemki -------------------------------------
+	node_orbitali.global_position = global_position
+	if Orbitale == true:
+		node_orbitali.Func_Orbitals(delta)
+		
+	
 	#Itemy Aktywne -----------------------------------------
 	
 	#Timery

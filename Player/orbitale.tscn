@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://dodlbirgod1bs"]
+
+[ext_resource type="Script" uid="uid://bvke1yd5gj5io" path="res://Player/orbitale.gd" id="1_lnv77"]
+[ext_resource type="Texture2D" uid="uid://b0058ataa8v87" path="res://Art/Emeny/pixil-frame-0 (2).png" id="2_8jpsb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ksd6n"]
+radius = 21.4761
+
+[node name="Orbitale" type="Node2D"]
+script = ExtResource("1_lnv77")
+
+[node name="Orbitals" type="Node2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="Node2D" type="Node2D" parent="Orbitals"]
+
+[node name="Orbital" type="Area2D" parent="Orbitals/Node2D"]
+position = Vector2(0, -92.8572)
+scale = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbitals/Node2D/Orbital"]
+position = Vector2(1.42857, 0)
+shape = SubResource("CircleShape2D_ksd6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Orbitals/Node2D/Orbital"]
+texture_filter = 1
+position = Vector2(1.42857, -1.90735e-06)
+scale = Vector2(2.82143, 2.82143)
+texture = ExtResource("2_8jpsb")
+
+[node name="Node2D2" type="Node2D" parent="Orbitals"]
+
+[node name="Orbital2" type="Area2D" parent="Orbitals/Node2D2"]
+position = Vector2(0, -92.8572)
+scale = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbitals/Node2D2/Orbital2"]
+position = Vector2(1.42857, 0)
+shape = SubResource("CircleShape2D_ksd6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Orbitals/Node2D2/Orbital2"]
+texture_filter = 1
+position = Vector2(1.42857, -1.90735e-06)
+scale = Vector2(2.82143, 2.82143)
+texture = ExtResource("2_8jpsb")
+
+[node name="Node2D3" type="Node2D" parent="Orbitals"]
+
+[node name="Orbital3" type="Area2D" parent="Orbitals/Node2D3"]
+position = Vector2(0, -92.8572)
+scale = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbitals/Node2D3/Orbital3"]
+position = Vector2(1.42857, 0)
+shape = SubResource("CircleShape2D_ksd6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Orbitals/Node2D3/Orbital3"]
+texture_filter = 1
+position = Vector2(1.42857, -1.90735e-06)
+scale = Vector2(2.82143, 2.82143)
+texture = ExtResource("2_8jpsb")

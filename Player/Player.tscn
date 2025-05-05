@@ -97,7 +97,6 @@ wait_time = 5.0
 wait_time = 13.029
 
 [node name="Pasywne_Itemki" type="Node2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="Piorun_Area" type="Area2D" parent="Pasywne_Itemki"]
 position = Vector2(0, -208.571)
