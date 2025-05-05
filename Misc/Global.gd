@@ -61,6 +61,9 @@ var can_spawn : int = 0
 #Timer Do Staminy
 var timer: float = 0
 func _process(delta: float) -> void:
+	if Zycie > Max_Zycie:
+		Zycie = Max_Zycie
+	
 	#System Rund
 	if Input.is_action_just_pressed("next_round_button") and IsRoundPlaying != true:
 		IsRoundPlaying = true

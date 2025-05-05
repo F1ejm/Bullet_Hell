@@ -90,6 +90,9 @@ script = ExtResource("1_q3lat")
 [node name="PowerUp_Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Regenerating_Timer" type="Timer" parent="."]
+one_shot = true
+
 [node name="Fire_Trace_Timer" type="Timer" parent="."]
 autostart = true
 
@@ -187,6 +190,7 @@ stream = ExtResource("5_s1rgi")
 stream = ExtResource("3_tok1r")
 
 [connection signal="timeout" from="PowerUp_Timer" to="." method="_on_power_up_timer_timeout"]
+[connection signal="timeout" from="Regenerating_Timer" to="." method="_on_regenerating_timer_timeout"]
 [connection signal="timeout" from="Fire_Trace_Timer" to="." method="_on_fire_trace_timer_timeout"]
 [connection signal="timeout" from="Trwanie_Timer" to="." method="_on_trwanie_timer_timeout"]
 [connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]

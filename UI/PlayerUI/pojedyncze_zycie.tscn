@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx7c81s56xj8c"]
+[gd_scene load_steps=3 format=3 uid="uid://dx7c81s56xj8c"]
 
 [ext_resource type="Texture2D" uid="uid://mdwhvtwfji0s" path="res://Art/Maro/Serce_maro.png" id="1_njvl5"]
+[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="2_md7sr"]
 
 [node name="pojedyncze_zycie" type="TextureProgressBar"]
 anchors_preset = 15
@@ -9,3 +10,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_over = ExtResource("1_njvl5")
+texture_progress = ExtResource("2_md7sr")

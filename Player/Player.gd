@@ -97,8 +97,18 @@ var Orbitale: bool = true
 @export var node_orbitali: Node2D
 
 #Przebicie jednego przeciwnika przez bullety
-var Bullet_Piercing_Pasywny: bool = true
+var Bullet_Piercing_Pasywny: bool = false
 
+#zycie które się regeneruje
+var Regenerating_Health: bool = false
+@onready var regenerating_timer: Timer = $Regenerating_Timer
+var regenerating_wait_time: float = 19
+var regen: bool = true
+
+#Serce które się regeneruje
+var Regenerating_Heart: bool = true
+var Dodatkowe_Zycie: bool = true
+@export var Zycie_UI: Control
 
 #------------------------------------------
 
@@ -142,6 +152,9 @@ func _ready() -> void:
 	
 	#power up timer
 	power_up_timer.wait_time = PowerUp_time
+	
+	#regenerujace zycie timer
+	regenerating_timer.wait_time = regenerating_wait_time
 
 func _process(delta: float) -> void:
 	node_orbitali.global_position = global_position
@@ -161,6 +174,10 @@ func _physics_process(delta):
 	if Orbitale == true:
 		node_orbitali.Func_Orbitals(delta)
 		
+	#Pasywny Itemek - regenerujace sie zycie
+	if Regenerating_Health == true and Global.Zycie < Global.Max_Zycie and regen == true and Global.IsRoundPlaying == true:
+		regen = false
+		regenerating_timer.start()
 	
 	#Itemy Aktywne -----------------------------------------
 	
@@ -380,9 +397,17 @@ func Dmg_Func(x):
 			#Animacja nie_dostania obrażeń - Pasywny itemek
 			pass
 		else:
-			Global.Zycie -= x
+			#Pasywny Item - regenerujace serduszko
+			if Dodatkowe_Zycie == true:
+				Dodatkowe_Zycie = false
+			else:
+				Global.Zycie -= x
 	else:
-		Global.Zycie -= x
+		#Pasywny Item - regenerujace serduszko
+		if Dodatkowe_Zycie == true:
+			Dodatkowe_Zycie = false
+		else:
+			Global.Zycie -= x
 	
 		
 #Itemy Aktywne ------------------------------------------
@@ -482,3 +507,9 @@ func _on_power_up_timer_timeout() -> void:
 	#Negatywne
 	#1 Nie możesz dashować przez 5 sekund
 	var Cant_Dash_PowerUp: bool = true
+
+#Pasywny Itemek timer - regenerujace sie zycie
+func _on_regenerating_timer_timeout() -> void:
+	if Global.IsRoundPlaying == true:
+		regen = true
+		Global.Zycie += 1
