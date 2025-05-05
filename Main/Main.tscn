@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=24 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://djn0tmuhxcann" path="res://Art/TŁO/pixil-frame-0 (7).png" id="13_6ivxk"]
 [ext_resource type="Texture2D" uid="uid://c5waigc2cw3ht" path="res://Art/TŁO/pixil-frame-0 (8).png" id="14_6yo1i"]
 [ext_resource type="Texture2D" uid="uid://bnr347aq4tiyo" path="res://Art/TŁO/pixil-frame-0 (9).png" id="15_lrfe7"]
+[ext_resource type="PackedScene" uid="uid://bvxgexgniu3ha" path="res://Main/Pick_up/pick_up_cube.tscn" id="18_r2ac1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hh5pf"]
 font_size = 32
@@ -106,3 +107,6 @@ scale = Vector2(3.41967, 3.41967)
 tile_set = SubResource("TileSet_j2iu7")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 0, 0, -65534, 0, 0, -131069, 0, 0, -196604, 0, 0, -327678, 0, 0, -393211, 0, 0, -393207, 0, 0, -196598, 0, 0, -131064, 0, 0, -262137, 0, 0, -131066, 0, 0, -65531, 0, 0, -65529, 0, 0, -262135, 0, 0, -196607, 0, 0, -393216, 0, 0, -393204, 0, 0, -65526, 0, 0, -65533, 1, 0, -131067, 1, 0, -196600, 1, 0, -262138, 1, 0, -327676, 1, 0, -393213, 1, 0, -327679, 1, 0, -196608, 1, 0, -131071, 1, 0, -327672, 1, 0, -327674, 1, 0, -393209, 1, 0, -327670, 1, 0, -131063, 1, 0, -262142, 1, 0, -196606, 1, 0, -196601, 1, 0, -196603, 1, 0, -262141, 1, 0, -262139, 1, 0, -65535, 2, 0, -131070, 2, 0, -131072, 2, 0, -262144, 2, 0, -327680, 2, 0, -393214, 2, 0, -327677, 2, 0, -262140, 2, 0, -327673, 2, 0, -262136, 2, 0, -327671, 2, 0, -262134, 2, 0, -196599, 2, 0, -131062, 2, 0, -65528, 2, 0, -393206, 2, 0, -393210, 2, 0, -327675, 2, 0, -196602, 2, 0, -65532, 2, 0, -131065, 2, 0, -393212, 2, 0, -393215, 1, 0, -196605, 1, 0, -65530, 0, 0, -65527, 0, 0, -393208, 0, 0, -262143, 2, 0, -131068, 2, 0)
+
+[node name="Body" parent="." instance=ExtResource("18_r2ac1")]
+position = Vector2(264, -176)

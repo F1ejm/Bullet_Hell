@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdp8nop01h20c"]
+[gd_scene load_steps=14 format=3 uid="uid://cdp8nop01h20c"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_hjvuf"]
 [ext_resource type="PackedScene" uid="uid://dutj4ocsn2cb2" path="res://Main/Obstacle/czujka/czujka.tscn" id="2_16kjw"]
 [ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawnery.gd" id="2_66sge"]
+[ext_resource type="PackedScene" uid="uid://bvxgexgniu3ha" path="res://Main/Pick_up/pick_up_cube.tscn" id="2_nmoe4"]
 [ext_resource type="Script" uid="uid://dm3euhaddxdo0" path="res://Main/Obstacle/obstacle_spawner.gd" id="3_juncb"]
 [ext_resource type="Script" uid="uid://d2mp0xam3t2x" path="res://Main/Obstacle/spawner_controler.gd" id="3_xp4cu"]
 [ext_resource type="PackedScene" uid="uid://hm4hwehos4pe" path="res://Main/Obstacle/obstacle.tscn" id="4_xp4cu"]
@@ -28,8 +29,12 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, 8, 1136, 8, 1136, 640, 0, 640)])
 agent_radius = 23.44
 
-[node name="Arena" type="Node2D"]
+[node name="Arena" type="Node2D" node_paths=PackedStringArray("timer_power_up")]
 script = ExtResource("2_66sge")
+timer_power_up = NodePath("Spawnery/Timer_power_up")
+power_up1 = ExtResource("2_nmoe4")
+power_up2 = ExtResource("2_nmoe4")
+power_up3 = ExtResource("2_nmoe4")
 czujka = ExtResource("2_16kjw")
 
 [node name="Ściany" type="Node2D" parent="."]
@@ -89,6 +94,9 @@ texture = ExtResource("1_hjvuf")
 [node name="Timer" type="Timer" parent="Spawnery"]
 autostart = true
 
+[node name="Timer_power_up" type="Timer" parent="Spawnery"]
+wait_time = 20.0
+
 [node name="Area2D" type="Area2D" parent="Spawnery"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawnery/Area2D"]
@@ -130,4 +138,5 @@ wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="Spawnery/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Spawnery/Timer_power_up" to="." method="_on_timer_power_up_timeout"]
 [connection signal="timeout" from="NavigationRegion2D/Timer" to="NavigationRegion2D" method="_on_timer_timeout"]

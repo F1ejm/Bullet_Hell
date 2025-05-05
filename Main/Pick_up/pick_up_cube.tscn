@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvxgexgniu3ha"]
+
+[ext_resource type="Script" uid="uid://cxtpm2k0tiud1" path="res://Main/Pick_up/pick_up_cube.gd" id="1_eb5jm"]
+[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="2_l4kxa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv7j7"]
+size = Vector2(64, 64)
+
+[node name="Body" type="StaticBody2D"]
+script = ExtResource("1_eb5jm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hv7j7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.447552, 0.32)
+texture = ExtResource("2_l4kxa")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
