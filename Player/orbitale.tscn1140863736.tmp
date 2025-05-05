@@ -34,7 +34,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 15.0
+"speed": 9.0
 }]
 
 [node name="Orbitale" type="Node2D"]

@@ -10,11 +10,17 @@ extends Node2D
 @onready var orbital_3_area: Area2D = $Orbitals/Node2D3/Orbital3
 
 func _ready() -> void:
+	var orbit2 = $Orbitals/Node2D2/Orbital2/AnimatedSprite2D
+	var orbit3 = $Orbitals/Node2D3/Orbital3/AnimatedSprite2D
 	#orbitale - aktywny itemek
 	orbital_1.rotation = 90
 	orbital_2.rotation = 180
 	orbital_3.rotation = 270
-
+	$Orbitals/Node2D/Orbital/AnimatedSprite2D.play("default")
+	orbit2.play("default")
+	orbit2.frame = 2
+	orbit3.play("default")
+	orbit3.frame = 4
 
 #Orbitale - Pasywny Itemek
 func Func_Orbitals(delta):
