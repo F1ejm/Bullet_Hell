@@ -1,24 +1,27 @@
 extends Control
 
-@onready var texture_progress_bar: TextureProgressBar = $HBoxContainer/TextureProgressBar
-@onready var texture_progress_bar_2: TextureProgressBar = $HBoxContainer/TextureProgressBar2
-@onready var texture_progress_bar_3: TextureProgressBar = $HBoxContainer/TextureProgressBar3
-@onready var texture_progress_bar_4: TextureProgressBar = $HBoxContainer/TextureProgressBar4
-@onready var texture_progress_bar_5: TextureProgressBar = $HBoxContainer/TextureProgressBar5
-@onready var texture_progress_bar_6: TextureProgressBar = $HBoxContainer/TextureProgressBar6
+@onready var h_box_container: HBoxContainer = $HBoxContainer
+
+var health_path = preload("res://UI/PlayerUI/pojedyncze_zycie.tscn")
+
+var dictionary1 = {}
+var dictionary2 = {}
 
 func _ready() -> void:
-	texture_progress_bar.max_value = 1
-	texture_progress_bar_2.max_value = 1
-	texture_progress_bar_3.max_value = 1
-	texture_progress_bar_4.max_value = 1
-	texture_progress_bar_5.max_value = 1
-	texture_progress_bar_6.max_value = 1
-
+	for i in Global.Max_Zycie:
+		Spawn_Health(i + 1)
+	
 func _process(delta: float) -> void:
-	texture_progress_bar.value = Global.Zycie
-	texture_progress_bar_2.value = Global.Zycie - 1
-	texture_progress_bar_3.value = Global.Zycie - 2
-	texture_progress_bar_4.value = Global.Zycie - 3
-	texture_progress_bar_5.value = Global.Zycie - 4
-	texture_progress_bar_6.value = Global.Zycie - 5
+	for i in Global.Max_Zycie:
+		if dictionary1.get("health" + str(i + 1)) <= Global.Zycie:
+			dictionary2.get("health_" + str(i + 1)).value = 1
+			
+		if dictionary1.get("health" + str(i + 1)) > Global.Zycie:
+			dictionary2.get("health_" + str(i + 1)).value = 0
+
+func Spawn_Health(i):
+	var health = health_path.instantiate()
+	h_box_container.add_child(health)
+	dictionary1["health" + str(i)] = i
+	dictionary2["health_" + str(i)] = health
+	health.max_value = 1

@@ -79,8 +79,9 @@ grow_vertical = 2
 text = "E"
 label_settings = SubResource("LabelSettings_hh5pf")
 
-[node name="shop ui" parent="CanvasLayer" instance=ExtResource("3_hh5pf")]
+[node name="shop ui" parent="CanvasLayer" node_paths=PackedStringArray("Zycie_UI") instance=ExtResource("3_hh5pf")]
 visible = false
+Zycie_UI = NodePath("../zycie")
 
 [node name="Player" parent="." node_paths=PackedStringArray("node_orbitali") instance=ExtResource("1_lxy7q")]
 position = Vector2(628, -458)

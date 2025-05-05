@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfyt2yxs1dv36"]
+[gd_scene load_steps=2 format=3 uid="uid://cfyt2yxs1dv36"]
 
 [ext_resource type="Script" uid="uid://d1cwu21tkufgw" path="res://UI/PlayerUI/zycie.gd" id="1_abms2"]
-[ext_resource type="Texture2D" uid="uid://mdwhvtwfji0s" path="res://Art/Maro/Serce_maro.png" id="2_oq6xj"]
 
 [node name="zycie" type="Control"]
 layout_mode = 3
@@ -14,29 +13,5 @@ script = ExtResource("1_abms2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 788.0
-offset_bottom = 128.0
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer"]
-layout_mode = 2
-texture_progress = ExtResource("2_oq6xj")
-
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="HBoxContainer"]
-layout_mode = 2
-texture_progress = ExtResource("2_oq6xj")
-
-[node name="TextureProgressBar3" type="TextureProgressBar" parent="HBoxContainer"]
-layout_mode = 2
-texture_progress = ExtResource("2_oq6xj")
-
-[node name="TextureProgressBar4" type="TextureProgressBar" parent="HBoxContainer"]
-layout_mode = 2
-texture_progress = ExtResource("2_oq6xj")
-
-[node name="TextureProgressBar5" type="TextureProgressBar" parent="HBoxContainer"]
-layout_mode = 2
-texture_progress = ExtResource("2_oq6xj")
-
-[node name="TextureProgressBar6" type="TextureProgressBar" parent="HBoxContainer"]
-layout_mode = 2
-texture_progress = ExtResource("2_oq6xj")
+offset_right = 40.0
+offset_bottom = 40.0

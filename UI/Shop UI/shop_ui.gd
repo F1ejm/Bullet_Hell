@@ -10,6 +10,8 @@ extends Control
 @onready var Regen_Bar: ProgressBar = $"HBoxContainer/Stamina Regen/ProgressBar"
 @onready var Attack_Bar: ProgressBar = $HBoxContainer/Attack/ProgressBar
 
+@export var Zycie_UI: Control
+
 func _ready() -> void:
 	Stamina_Bar.max_value = 3
 	Stamina_Bar.value = 0
@@ -32,6 +34,7 @@ func _on_health_button_pressed() -> void:
 	if Health_Bar.value < 3:
 		Global.Zycie += 1
 		Global.Max_Zycie += 1
+		Zycie_UI.Spawn_Health(Global.Zycie)
 		Health_Bar.value += 1
 	
 

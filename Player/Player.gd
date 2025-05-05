@@ -29,7 +29,7 @@ var Bullet_PowerUp: bool = false
 
 #Negatywne
 #1 Nie możesz dashować przez 5 sekund
-var Cant_Dash_PowerUp: bool = true
+var Cant_Dash_PowerUp: bool = false
 
 
 #Itemy Aktywne --------------------------------
