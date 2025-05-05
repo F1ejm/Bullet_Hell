@@ -1,12 +1,18 @@
 extends Node2D
 
 @onready var timer: Timer = $Spawnery/Timer
+@export var timer_power_up : Timer
 @export var Player: CharacterBody2D
 
 @export var Podstawowy: PackedScene
 @export var Seryjny: PackedScene
 @export var Okrągły: PackedScene
 @export var Naprowadzający: PackedScene
+
+
+@export var power_up1 : PackedScene
+@export var power_up2 : PackedScene
+@export var power_up3 : PackedScene
 
 @export var czujka : PackedScene
 
@@ -26,6 +32,8 @@ var c
 
 func _ready() -> void:
 	c = Global.can_spawn
+	timer_power_up.wait_time = randi_range(10,20)
+	timer_power_up.start()
 	
 
 func _process(delta: float) -> void:
@@ -48,13 +56,12 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	if Global.IsRoundPlaying == true:
 		Generate()
-	
+
 func Generate():
 	Global.i += 1
 	x = randi_range(20,width)
 	y = randi_range(20,height)
 	
-	#jakieś coś napisane przez kube - To Poprostu losuje jakiego przeciwnika zespawnic cwelu ~ Kuba
 	var losowanie_enemy = randi_range(0,3)
 	
 	match(losowanie_enemy):
@@ -82,4 +89,30 @@ func Generate():
 			enemy.main = owner
 			enemy.global_position = Vector2(x,-y)
 			enemy.Player = Player
+
+func Generate_power_up():
+	Global.i += 1
+	x = randi_range(20,width)
+	y = randi_range(20,height)
 	
+	var losowanie_power_up = randi_range(0,2)
+	
+	match(losowanie_power_up):
+		0:
+			var enemy = power_up1.instantiate()
+			owner.add_child(enemy)
+			enemy.global_position = Vector2(x,-y)
+		1:
+			var enemy = power_up2.instantiate()
+			owner.add_child(enemy)
+			enemy.global_position = Vector2(x,-y)
+		2:
+			var enemy = power_up3.instantiate()
+			owner.add_child(enemy)
+			enemy.global_position = Vector2(x,-y)
+
+
+func _on_timer_power_up_timeout() -> void:
+	if Global.IsRoundPlaying:
+		timer_power_up.wait_time = randi_range(10,20)
+		Generate_power_up()
