@@ -37,8 +37,7 @@ func _physics_process(delta: float) -> void:
 	progress_bar.value = health
 	if health <= 0:
 		Death()
-	
-	
+
 	if generate == true:
 		Generate()
 	movement(delta)

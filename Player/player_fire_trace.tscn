@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://j8tykjpobkgg"]
+
+[ext_resource type="Script" uid="uid://c8miafkesdalg" path="res://Player/player_fire_trace.gd" id="1_22vo3"]
+[ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="2_r6vj2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xavc5"]
+
+[node name="Player_Fire_Trace" type="Area2D"]
+script = ExtResource("1_22vo3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xavc5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.113636, 0.113636)
+texture = ExtResource("2_r6vj2")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

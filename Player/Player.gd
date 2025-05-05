@@ -67,6 +67,21 @@ var Clear_Cooldown: float = 20
 
 #Itemy Pasywne -------------------------------
 
+# 1.5 raza szybsze pociski
+var faster_bullets: bool = false
+
+# 25% szans, że nie dostaniesz obrażeń
+var immunity_chance: bool = false
+
+# Piorun w losową strone
+var Piorun: bool = false
+var piorun_rand
+@onready var pasywne_itemki: Node2D = $Pasywne_Itemki
+@onready var piorun_area: Area2D = $Pasywne_Itemki/Piorun_Area
+
+#Szlak za playerem
+var Trace: bool = false
+var trac_fire_path = preload("res://Player/player_fire_trace.tscn")
 
 #------------------------------------------
 
@@ -80,13 +95,14 @@ var atak_cooldown: bool = false
 #Zmienna Okreslajaca czy atak jest na cooldawnie: False-możesz atakować -- Ranged
 var range_cooldown: bool = false
 var bullet_path = preload("res://Player/player_bullet.tscn")
+@onready var fire_trace_timer: Timer = $Fire_Trace_Timer
 
 #variable do lockowwania rotacji przy dashu
 var lock_rotation
 
-#Zemienne do Broni
+#Zemienne do Broni  
 var stats: WeaponStats = null
-var CurrentWeapon = "Pistol"
+var CurrentWeapon = "Karabin" #Karabin, Pistol, Uzi
 var CurrentSeriaNumber = 1
 var is_sering = false
 
@@ -104,6 +120,7 @@ var dmg_range: int = 1
 func _ready() -> void:
 	atak_timer.wait_time = Global.AtakCooldown
 	_on_weapon_changed()
+	fire_trace_timer.wait_time = 0.05
 	
 
 func _physics_process(delta):
@@ -187,7 +204,6 @@ func _physics_process(delta):
 			CurrentSeriaNumber=1
 			if(stats.seria>1):
 				range_timer.wait_time = (Global.RangeCooldown * Global.RangeWeaponCooldown) / 20
-				
 			else:
 				range_timer.wait_time = Global.RangeCooldown * Global.RangeWeaponCooldown
 			range_timer.stop()
@@ -245,8 +261,17 @@ func Ranged():
 	b.dmg = dmg_range
 	b.PowerUp_Active = Bullet_PowerUp
 	b.initial_velocity = velocity
+	
+	#Pasywny Itemek - faster_bullets
+	if faster_bullets == true:
+		b.speed = b.speed * 1.5
 		
-
+	#Pasywny Itemek - Piorun
+	pasywne_itemki.rotation = randi_range(0,360)
+	if Piorun == true:
+		piorun_rand = randi_range(1,4)
+		if piorun_rand == 1:
+			Func_Piorun()
 #Atak - Ranged
 func _on_range_timer_timeout() -> void:
 	range_cooldown = false
@@ -289,6 +314,19 @@ func _on_parry_area_area_entered(area: Area2D) -> void:
 			2:
 				blok_3.play()
 		area.queue_free()
+		
+#Otrzymywanie Dmg'u
+func Dmg_Func(x):
+	if immunity_chance == true:
+		var y = randi_range(1,4)
+		if y == 1:
+			#Animacja nie_dostania obrażeń - Pasywny itemek
+			pass
+		else:
+			Global.Zycie -= x
+	else:
+		Global.Zycie -= x
+	
 		
 #Itemy Aktywne ------------------------------------------
 func _on_trwanie_timer_timeout() -> void:
@@ -349,3 +387,19 @@ func Func_Projectiles():
 			b1.enemy = o
 			b1.dmg = 3
 			owner.add_child(b1)
+
+#Piorun - Pasywny Itemek
+func Func_Piorun():
+	#Animacja Pioruna i SFX TODO
+	for o in piorun_area.get_overlapping_areas():
+		if o.is_in_group("Enemy"):
+			o.owner.Death()
+
+#Fire Trace - Pasywny Itemek
+func _on_fire_trace_timer_timeout() -> void:
+	if Trace == true:
+		var fire_trace = trac_fire_path.instantiate()
+		fire_trace.global_transform = global_transform
+		fire_trace.scale.x = 1
+		fire_trace.scale.y = 1
+		owner.add_child(fire_trace)

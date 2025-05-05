@@ -29,26 +29,26 @@ func _process(delta: float) -> void:
 
 #Pieniądze Trzeba TODO
 func _on_health_button_pressed() -> void:
-	if Global.Max_Zycie < 6:
+	if Health_Bar.value < 3:
 		Global.Zycie += 1
 		Global.Max_Zycie += 1
 		Health_Bar.value += 1
 	
 
 func _on_stamina_button_pressed() -> void:
-	if Global.Max_Stamina < 350:
+	if Stamina_Bar.value < 3:
 		Global.Stamina += 50
 		Global.Max_Stamina += 50
 		Stamina_Bar.value += 1
 
 
 func _on_stamina_regen_button_pressed() -> void:
-	if Global.Stamina_Regen < 1.6:
+	if Regen_Bar.value < 3:
 		Global.Stamina_Regen += 0.2
 		Regen_Bar.value += 1
 
 
 func _on_attack_speed_button_pressed() -> void:
-	if Global.RangeCooldown > 1.05:
+	if Attack_Bar.value < 3:
 		Global.RangeCooldown -= 0.35
 		Attack_Bar.value += 1

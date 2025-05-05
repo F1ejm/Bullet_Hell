@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c3n14o50uplsa"]
 
-[ext_resource type="Script" uid="uid://cqppf6fg4stm2" path="res://runda_ui.gd" id="1_0n1a7"]
+[ext_resource type="Script" uid="uid://cqppf6fg4stm2" path="res://UI/PlayerUI/runda_ui.gd" id="1_0n1a7"]
 
 [node name="Runda_UI" type="Control"]
 layout_mode = 3
