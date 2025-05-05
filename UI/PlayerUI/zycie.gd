@@ -12,7 +12,7 @@ func _ready() -> void:
 		Spawn_Health(i + 1)
 	
 func _process(delta: float) -> void:
-	for i in Global.Max_Zycie:
+	for i in range(0,Global.Max_Zycie):
 		if dictionary1.get("health" + str(i + 1)) <= Global.Zycie:
 			dictionary2.get("health_" + str(i + 1)).value = 1
 			

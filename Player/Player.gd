@@ -96,6 +96,9 @@ var trac_fire_path = preload("res://Player/player_fire_trace.tscn")
 var Orbitale: bool = true
 @export var node_orbitali: Node2D
 
+#Przebicie jednego przeciwnika przez bullety
+var Bullet_Piercing_Pasywny: bool = true
+
 
 #------------------------------------------
 
@@ -322,6 +325,10 @@ func Ranged():
 		piorun_rand = randi_range(1,4)
 		if piorun_rand == 1:
 			Func_Piorun()
+	#Pasywny Itemek - przebicie jednego przeciwnika
+	if Bullet_Piercing_Pasywny == true:
+		b.Pasywny_Item_Piercing = true
+	
 #Atak - Ranged
 func _on_range_timer_timeout() -> void:
 	range_cooldown = false

@@ -34,7 +34,7 @@ func _on_health_button_pressed() -> void:
 	if Health_Bar.value < 3:
 		Global.Zycie += 1
 		Global.Max_Zycie += 1
-		Zycie_UI.Spawn_Health(Global.Zycie)
+		Zycie_UI.Spawn_Health(Global.Max_Zycie)
 		Health_Bar.value += 1
 	
 

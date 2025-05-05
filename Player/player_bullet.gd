@@ -4,6 +4,8 @@ var initial_velocity = Vector2(0,0)
 var speed = 800
 var dmg: int
 
+var Pasywny_Item_Piercing: bool
+
 var PowerUp_Active: bool
 
 func _physics_process(delta: float) -> void:
@@ -18,6 +20,9 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		#Particle i sound effecty śmierci przeciwnika TODO
 		area.owner.health -= dmg
-		queue_free()
+		if Pasywny_Item_Piercing == true:
+			Pasywny_Item_Piercing = false
+		else:
+			queue_free()
 	if area.is_in_group("Bullet") and PowerUp_Active == true:
 		area.queue_free()
