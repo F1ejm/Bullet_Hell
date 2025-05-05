@@ -56,7 +56,7 @@ var Generate_wall: bool = false
 var i: int = -1
 
 #czujka czy przeciwnik możę sie pojawić
-var can_spawn = true
+var can_spawn : int = 0
 
 #Timer Do Staminy
 var timer: float = 0

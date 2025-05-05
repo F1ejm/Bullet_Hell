@@ -125,11 +125,6 @@ position = Vector2(32, 328)
 script = ExtResource("3_juncb")
 obstacle = ExtResource("4_xp4cu")
 
-[node name="Marker2D6" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(568, 392)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
 [node name="Timer" type="Timer" parent="NavigationRegion2D"]
 wait_time = 5.0
 autostart = true

@@ -92,6 +92,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.Dash_PowerUp == true and Global.IsDashing == true:
 			Death()
 		speed = 0 
+	if body.is_in_group("Wall"):
+		Global.can_spawn =+ 1 
+		queue_free()
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):

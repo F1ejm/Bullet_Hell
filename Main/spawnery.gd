@@ -21,8 +21,19 @@ var height = 600
 var x
 var y
 
+#nwm jak to nazwać
+var c
+
+func _ready() -> void:
+	c = Global.can_spawn
+	
 
 func _process(delta: float) -> void:
+	if Global.can_spawn != c:
+		c = Global.can_spawn
+		print("chuj ci w ucho")
+		Generate()
+	
 	if Global.IsRoundPlaying == true:
 		if Global.i == 0:
 			Generate()
@@ -42,17 +53,6 @@ func Generate():
 	Global.i += 1
 	x = randi_range(20,width)
 	y = randi_range(20,height)
-	
-	
-	# respi puste area i sprawdza czy jest ścianie czy nie jeżeli tak to puszcza gunkcje generate 
-	var c = czujka.instantiate()
-	add_child(c)
-	c.global_position = global_position
-	c.queue_free()
-	if Global.can_spawn:
-		pass
-	elif !Global.can_spawn:
-		Generate()
 	
 	#jakieś coś napisane przez kube - To Poprostu losuje jakiego przeciwnika zespawnic cwelu ~ Kuba
 	var losowanie_enemy = randi_range(0,3)

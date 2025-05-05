@@ -26,6 +26,9 @@ var dir: Vector2 = Vector2(0,0)
 var health:int = 3
 @onready var progress_bar: ProgressBar = $ProgressBar
 
+#sygnał do generowania jeszcze raz
+signal can_not_spawn
+
 func _ready() -> void:
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
@@ -93,6 +96,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.Dash_PowerUp == true and Global.IsDashing == true:
 			Death()
 		speed = 0 
+	if body.is_in_group("Wall"):
+		Global.can_spawn =+ 1 
+		queue_free()
+
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
