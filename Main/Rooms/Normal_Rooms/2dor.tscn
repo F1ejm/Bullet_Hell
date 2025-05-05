@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://bavxgun4dur0c"]
+
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_8dnt5"]
+[ext_resource type="Script" uid="uid://bwkgbyd2haxhl" path="res://Main/Rooms/Scripts/2Door.gd" id="1_8rqoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rqoc"]
+size = Vector2(75, 760)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnnyn"]
+size = Vector2(70.9979, 538)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyj31"]
+size = Vector2(74, 648)
+
+[node name="2Dor" type="Node2D"]
+script = ExtResource("1_8rqoc")
+
+[node name="Ściany" type="Node2D" parent="."]
+position = Vector2(-579, 717)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
+position = Vector2(-27.5, -323)
+shape = SubResource("RectangleShape2D_8rqoc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D"]
+position = Vector2(-27, -320.5)
+scale = Vector2(0.578125, 6.00781)
+texture = ExtResource("1_8dnt5")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
+position = Vector2(-4, 5)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D2"]
+position = Vector2(25.4991, -212)
+shape = SubResource("RectangleShape2D_xnnyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D2"]
+position = Vector2(27.0339, -208.504)
+scale = Vector2(0.577595, 4.25789)
+texture = ExtResource("1_8dnt5")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
+position = Vector2(730, 2)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D5"]
+position = Vector2(25.4991, -212)
+shape = SubResource("RectangleShape2D_xnnyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D5"]
+position = Vector2(27.0339, -208.504)
+scale = Vector2(0.577595, 4.25789)
+texture = ExtResource("1_8dnt5")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
+position = Vector2(1, -697)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D4"]
+position = Vector2(25.4991, -212)
+shape = SubResource("RectangleShape2D_xnnyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D4"]
+position = Vector2(27.0339, -208.504)
+scale = Vector2(0.577595, 4.25789)
+texture = ExtResource("1_8dnt5")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
+position = Vector2(735, -700)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D6"]
+position = Vector2(25.4991, -212)
+shape = SubResource("RectangleShape2D_xnnyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D6"]
+position = Vector2(27.0339, -208.504)
+scale = Vector2(0.577595, 4.25789)
+texture = ExtResource("1_8dnt5")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
+position = Vector2(1152, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D3"]
+position = Vector2(27, -314)
+shape = SubResource("RectangleShape2D_lyj31")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D3"]
+position = Vector2(27, -324)
+scale = Vector2(0.578125, 6.0625)
+texture = ExtResource("1_8dnt5")
+
+[node name="DoorContainer" type="Node2D" parent="."]
+position = Vector2(-646, 5)
+
+[node name="Door" type="Node2D" parent="DoorContainer"]
+position = Vector2(637, 786)

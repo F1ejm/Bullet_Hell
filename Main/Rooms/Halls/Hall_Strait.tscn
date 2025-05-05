@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4awnekqqieck"]
+
+[ext_resource type="Script" uid="uid://bospatmvlwkns" path="res://Main/Rooms/Scripts/Hall.gd" id="1_jbptl"]
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_ligoj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qw0rs"]
+size = Vector2(75, 450)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gtbl"]
+size = Vector2(74, 375)
+
+[node name="HallStrait" type="Node2D"]
+script = ExtResource("1_jbptl")
+
+[node name="Ściany" type="Node2D" parent="."]
+position = Vector2(-574, -65)
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
+position = Vector2(463, 769)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
+position = Vector2(-27.5, -478)
+shape = SubResource("RectangleShape2D_qw0rs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D"]
+position = Vector2(-27, -479)
+scale = Vector2(0.578125, 3.53125)
+texture = ExtResource("1_ligoj")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
+position = Vector2(678, 775)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D3"]
+position = Vector2(27, -450.5)
+shape = SubResource("RectangleShape2D_8gtbl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D3"]
+position = Vector2(27, -488)
+scale = Vector2(0.578125, 3.5)
+texture = ExtResource("1_ligoj")
+
+[node name="DoorContainer" type="Node2D" parent="."]
+
+[node name="Door" type="Node2D" parent="DoorContainer"]
+position = Vector2(-2, 453)

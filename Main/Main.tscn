@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=25 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c5waigc2cw3ht" path="res://Art/TŁO/pixil-frame-0 (8).png" id="14_6yo1i"]
 [ext_resource type="Texture2D" uid="uid://bnr347aq4tiyo" path="res://Art/TŁO/pixil-frame-0 (9).png" id="15_lrfe7"]
 [ext_resource type="PackedScene" uid="uid://bvxgexgniu3ha" path="res://Main/Pick_up/pick_up_cube.tscn" id="18_r2ac1"]
+[ext_resource type="PackedScene" uid="uid://cheolkkekj0pt" path="res://Main/Rooms/Entry.tscn" id="19_d3r6l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hh5pf"]
 font_size = 32
@@ -92,7 +93,7 @@ position = Vector2(431, -261)
 position = Vector2(1313, -685)
 
 [node name="Arena" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_qg80j")]
-position = Vector2(-11, 8)
+position = Vector2(-1284, -301)
 Player = NodePath("../Player")
 Podstawowy = ExtResource("11_h5g1y")
 Seryjny = ExtResource("12_qd626")
@@ -110,3 +111,7 @@ layer_0/tile_data = PackedInt32Array(-65536, 0, 0, -65534, 0, 0, -131069, 0, 0, 
 
 [node name="Body" parent="." instance=ExtResource("18_r2ac1")]
 position = Vector2(264, -176)
+
+[node name="Entry" parent="." instance=ExtResource("19_d3r6l")]
+position = Vector2(-1301, 18)
+scale = Vector2(0.405, 0.405)
