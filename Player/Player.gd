@@ -138,11 +138,6 @@ var dmg_melee: int = 1
 var dmg_range: int = 1
 
 #Audio
-@onready var atak_mele: AudioStreamPlayer = $Sound/AtakMele
-@onready var blok_1: AudioStreamPlayer = $Sound/Blok1
-@onready var blok_2: AudioStreamPlayer = $Sound/Blok2
-@onready var blok_3: AudioStreamPlayer = $Sound/Blok3
-
 
 func _ready() -> void:
 	atak_timer.wait_time = Global.AtakCooldown
@@ -309,8 +304,6 @@ func Atak():
 	#Zabijanie Przeciwnika
 	for o in melee_attack_area.get_overlapping_areas():
 		if o.is_in_group("Enemy"):
-			atak_mele.pitch_scale = randf_range(0.9, 1.05)
-			atak_mele.play()
 			#Animacja I SFX Obrazen przeciwnika TODO
 			o.owner.health -= dmg_melee
 #Atak - melee
@@ -379,14 +372,6 @@ func _on_weapon_changed() -> void:
 #Parry
 func _on_parry_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Bullet"):
-		var x = randi_range(0,2)
-		match(x):
-			0:
-				blok_1.play()
-			1:
-				blok_2.play()
-			2:
-				blok_3.play()
 		area.queue_free()
 		
 #Otrzymywanie Dmg'u
