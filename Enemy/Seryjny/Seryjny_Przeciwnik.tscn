@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b4qhlkk4prgp5" path="res://Enemy/Seryjny/Seryjny_Przeciwnik.gd" id="1_vjau5"]
 [ext_resource type="PackedScene" uid="uid://vpbbnspwva3d" path="res://Enemy/Seryjny/Bullets/Seryjny_Bullet.tscn" id="2_qh03a"]
 [ext_resource type="Texture2D" uid="uid://ba3gcgh02jbvo" path="res://Art/Emeny/pixil-frame-0 (24).png" id="3_bat1y"]
-[ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="3_vonkd"]
+[ext_resource type="Texture2D" uid="uid://c3u1asa583sh1" path="res://Art/Emeny/minugun.png" id="4_bat1y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bat1y"]
 radius = 62.0
@@ -31,9 +31,9 @@ texture = ExtResource("3_bat1y")
 scale = Vector2(1.20755, 1.92453)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Marker2D"]
-position = Vector2(8.99105, 9.53674e-07)
-scale = Vector2(0.0266815, 0.0172042)
-texture = ExtResource("3_vonkd")
+position = Vector2(0.946426, 2.67227)
+scale = Vector2(0.542, 0.341)
+texture = ExtResource("4_bat1y")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
