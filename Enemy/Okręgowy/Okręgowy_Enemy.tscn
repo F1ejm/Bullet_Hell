@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://u0nsxavg73xq" path="res://Enemy/Okręgowy/Okręgowy_Enemy.gd" id="1_7tp5r"]
 [ext_resource type="PackedScene" uid="uid://c8eugx1okbj2e" path="res://Enemy/Okręgowy/Bullets/Okręgowy_Bullet.tscn" id="2_t6qk3"]
-[ext_resource type="Texture2D" uid="uid://o8e5ldx0jta1" path="res://Art/Emeny/pixil-frame-0 (17).png" id="3_38dq1"]
+[ext_resource type="Texture2D" uid="uid://kugnxe0ujlmi" path="res://Art/Emeny/pixil-frame-0 (18).png" id="3_38dq1"]
 [ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="4_bpdb5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vonkd"]
