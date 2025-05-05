@@ -18,16 +18,13 @@ extends CharacterBody2D
 var PowerUp_Active: bool = false
 var PowerUp_time: float = 10
 
-#1 Tarcza Z Jednej Strony
-var Tarcza_PowerUp: bool = false
-
-#2 Dash Zabija
+#1 Dash Zabija
 var Dash_PowerUp: bool = false
 
-#3 Nieograniczona Stamina
+#2 Nieograniczona Stamina
 var Stamina_PowerUp: bool = false
 
-#4 Bullet Przecinający Inne Bullety
+#3 Bullet Przecinający Inne Bullety
 var Bullet_PowerUp: bool = false
 
 
