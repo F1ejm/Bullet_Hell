@@ -20,16 +20,19 @@ func _ready() -> void:
 		Spawn_Health(i + 1)
 	
 func _process(delta: float) -> void:
+	#Spawnuje to życko nowe
 	if can_spawn == true and Player.Regenerating_Heart == true:
 		can_spawn = false
 		Spawn_Magiczne_Zycie()
-		
+	
+	#Sprawdza czy masz dodatkowe zycie jak tak to value = 1
 	if Player.Dodatkowe_Zycie == true:
 		magiczne_zycie.value = 1
 	else:
 		start_magiczny_timer = true
 		magiczne_zycie.value = 0
 	
+	#timer do regeneracji
 	if start_magiczny_timer == true:
 		timer += delta
 	if timer >= 10:
