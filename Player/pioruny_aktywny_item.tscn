@@ -9,7 +9,7 @@
 script = ExtResource("1_ngupo")
 
 [node name="Piorun" type="Area2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Piorun"]
 shape = SubResource("CircleShape2D_tk5pb")
@@ -22,7 +22,7 @@ autostart = true
 modulate = Color(1, 1, 1, 0.133333)
 self_modulate = Color(0, 0, 0, 1)
 position = Vector2(-5.96046e-08, -2.27374e-13)
-scale = Vector2(1.46875, 1.46875)
+scale = Vector2(2.1, 2.1)
 texture = ExtResource("2_tk5pb")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

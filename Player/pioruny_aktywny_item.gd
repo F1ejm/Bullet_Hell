@@ -6,11 +6,12 @@ func _on_timer_timeout() -> void:
 	Cast_Piorun()
 	
 func Cast_Piorun():
-	var x = randi_range(-100, 100)
-	var y = randi_range(-100,100)
+	var x = randi_range(-150,150)
+	var y = randi_range(-150,150)
 	
 	piorun.position = Vector2(x,y)
 	
 	for o in piorun.get_overlapping_areas():
 		if o.is_in_group("Enemy"):
-			o.owner.Death
+			o.owner.Death()
+	
