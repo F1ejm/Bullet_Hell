@@ -47,7 +47,7 @@ var Tarcza_Cooldown: float = 15
 #2 Pociski namierzające
 var Can_Use_Projectiles: bool = true
 var Projectiles: bool
-var Projectiles_Trwanie: float = 0
+var Projectiles_Trwanie: float = 1
 var Projectiles_Cooldown: float = 5
 @onready var projectiles_area: Area2D = $Projectiles_Area
 

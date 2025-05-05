@@ -10,7 +10,6 @@ radius = 21.4761
 script = ExtResource("1_lnv77")
 
 [node name="Orbitals" type="Node2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="Node2D" type="Node2D" parent="Orbitals"]
 
