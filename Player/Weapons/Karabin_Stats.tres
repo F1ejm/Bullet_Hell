@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=2 format=3 uid="uid://ymigl2rl0py4"]
+
+[ext_resource type="Script" uid="uid://xl4k2awifu8w" path="res://Player/Weapons/WeaponStats.gd" id="1_t4lqb"]
+
+[resource]
+script = ExtResource("1_t4lqb")
+cooldown = 0.2
+dmg = 1
+seria = 1

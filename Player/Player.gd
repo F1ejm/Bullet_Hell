@@ -166,6 +166,8 @@ func _physics_process(delta):
 	#Atak - Melee ------------------------------------------------
 	atak_timer.wait_time = Global.AtakCooldown
 	
+	
+	
 	if Input.is_action_just_pressed("atak") and atak_cooldown == false and Tarcza != true:
 		atak_timer.stop()
 		atak_timer.start()
@@ -180,7 +182,7 @@ func _physics_process(delta):
 		Atak()
 		
 	#Range Atak --------------------------------------------
-	if Input.is_action_just_pressed("range_atak") and range_cooldown == false and Tarcza != true:
+	if Input.is_action_pressed("range_atak") and range_cooldown == false and Tarcza != true:
 		if not is_sering:
 			CurrentSeriaNumber=1
 			if(stats.seria>1):
