@@ -19,6 +19,11 @@ config/icon="res://Art/icon.svg"
 
 Global="*res://Misc/Global.gd"
 
+[display]
+
+mouse_cursor/custom_image="uid://bss20dqd7y6od"
+mouse_cursor/custom_image_hotspot=Vector2(15, 15)
+
 [file_customization]
 
 folder_colors={
