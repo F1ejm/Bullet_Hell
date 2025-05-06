@@ -1,15 +1,39 @@
-[gd_scene load_steps=11 format=3 uid="uid://b44kfkf5wpld6"]
+[gd_scene load_steps=17 format=3 uid="uid://b44kfkf5wpld6"]
 
 [ext_resource type="Script" uid="uid://dvl3q7u8yrohs" path="res://UI/Main Menu/main_menu.gd" id="1_pfbba"]
 [ext_resource type="Texture2D" uid="uid://g8vdiyeu77y0" path="res://Art/UI/play_idle.png" id="1_qlwe4"]
-[ext_resource type="Texture2D" uid="uid://bbcu6wxlguvge" path="res://Art/UI/play_pressed.png" id="2_pfbba"]
-[ext_resource type="Texture2D" uid="uid://cjlaikwk7sso4" path="res://Art/UI/play_hover.png" id="3_2vg32"]
+[ext_resource type="Texture2D" uid="uid://djpe2y1aunig6" path="res://Art/UI/play_pressed.png" id="2_pfbba"]
+[ext_resource type="Texture2D" uid="uid://cjlaikwk7sso4" path="res://Art/UI/play_glitch.png" id="3_2vg32"]
 [ext_resource type="Texture2D" uid="uid://bcuduegvdw8vu" path="res://Art/UI/settings_idle.png" id="4_rand3"]
-[ext_resource type="Texture2D" uid="uid://cmfg7j53o0ghb" path="res://Art/UI/settings_pressed.png" id="5_gqi5s"]
-[ext_resource type="Texture2D" uid="uid://c7rxtrgsoqamh" path="res://Art/UI/settings_hover.png" id="6_uov5a"]
+[ext_resource type="Texture2D" uid="uid://cd8qjsgvtc8lg" path="res://Art/UI/play_hover.png" id="5_qlwe4"]
+[ext_resource type="Texture2D" uid="uid://c7rxtrgsoqamh" path="res://Art/UI/settings_glitch.png" id="6_uov5a"]
 [ext_resource type="Texture2D" uid="uid://pyqkvufu8hs2" path="res://Art/UI/quit_idle.png" id="7_ho881"]
-[ext_resource type="Texture2D" uid="uid://b4hweqx1ub8vd" path="res://Art/UI/quit_pressed.png" id="8_si8cx"]
-[ext_resource type="Texture2D" uid="uid://drsvijtoa4noc" path="res://Art/UI/quit_hover.png" id="9_l2sjx"]
+[ext_resource type="Texture2D" uid="uid://de7qupxpt2vid" path="res://Art/UI/settings_pressed.png" id="8_2vg32"]
+[ext_resource type="Texture2D" uid="uid://drsvijtoa4noc" path="res://Art/UI/quit_glitch.png" id="9_l2sjx"]
+[ext_resource type="Texture2D" uid="uid://bgo3bc5r4rte4" path="res://Art/UI/settings_hover.png" id="9_rand3"]
+[ext_resource type="Texture2D" uid="uid://dyh2krtpxq0e8" path="res://Art/UI/quit_pressed.png" id="12_gqi5s"]
+[ext_resource type="Texture2D" uid="uid://4o8jepdxhodw" path="res://Art/UI/quit_hover.png" id="13_uov5a"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_pfbba"]
+frames = 2
+frame_0/texture = ExtResource("1_qlwe4")
+frame_0/duration = 1.5
+frame_1/texture = ExtResource("3_2vg32")
+frame_1/duration = 0.2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_gqi5s"]
+frames = 2
+frame_0/texture = ExtResource("4_rand3")
+frame_0/duration = 1.8
+frame_1/texture = ExtResource("6_uov5a")
+frame_1/duration = 0.2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ho881"]
+frames = 2
+frame_0/texture = ExtResource("7_ho881")
+frame_0/duration = 1.7
+frame_1/texture = ExtResource("9_l2sjx")
+frame_1/duration = 0.2
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -52,27 +76,27 @@ grow_vertical = 2
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
-texture_normal = ExtResource("1_qlwe4")
+texture_normal = SubResource("AnimatedTexture_pfbba")
 texture_pressed = ExtResource("2_pfbba")
-texture_hover = ExtResource("3_2vg32")
+texture_hover = ExtResource("5_qlwe4")
 stretch_mode = 0
 
 [node name="Settings" type="TextureButton" parent="VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
-texture_normal = ExtResource("4_rand3")
-texture_pressed = ExtResource("5_gqi5s")
-texture_hover = ExtResource("6_uov5a")
+texture_normal = SubResource("AnimatedTexture_gqi5s")
+texture_pressed = ExtResource("8_2vg32")
+texture_hover = ExtResource("9_rand3")
 stretch_mode = 0
 
 [node name="Quit" type="TextureButton" parent="VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
-texture_normal = ExtResource("7_ho881")
-texture_pressed = ExtResource("8_si8cx")
-texture_hover = ExtResource("9_l2sjx")
+texture_normal = SubResource("AnimatedTexture_ho881")
+texture_pressed = ExtResource("12_gqi5s")
+texture_hover = ExtResource("13_uov5a")
 stretch_mode = 0
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
