@@ -2,6 +2,8 @@ extends Node
 
 #Player Speed
 var speed: int = 600
+var normal_speed: int = speed
+var debuffed_speed: int = speed * 0.5
 var stop: bool = false
 
 #Interaction

@@ -31,6 +31,12 @@ var Bullet_PowerUp: bool = false
 #1 Nie możesz dashować przez 5 sekund
 var Cant_Dash_PowerUp: bool = false
 
+#2 Nie możesz strzelać
+var Cant_Shoot_PowerUp: bool = false
+
+#3 Chodzisz 2 razy wolniej
+var Move_Slower_PowerUp: bool = false
+
 
 #Itemy Aktywne --------------------------------
 
@@ -163,6 +169,12 @@ func _physics_process(delta):
 	#Nie możesz dashować
 	if Cant_Dash_PowerUp == true:
 		Global.Stamina = 0
+	
+	#Chodzisz wolniej
+	if Move_Slower_PowerUp == true:
+		Global.speed = Global.debuffed_speed
+	else:
+		Global.speed = Global.normal_speed
 		
 	#Pasywne Itemki -------------------------------------
 	node_orbitali.global_position = global_position
@@ -264,7 +276,7 @@ func _physics_process(delta):
 		Atak()
 		
 	#Range Atak --------------------------------------------
-	if Input.is_action_pressed("range_atak") and range_cooldown == false and Tarcza != true:
+	if Input.is_action_pressed("range_atak") and range_cooldown == false and Tarcza != true and Cant_Shoot_PowerUp != true:
 		if not is_sering:
 			CurrentSeriaNumber=1
 			if(stats.seria>1):
@@ -470,7 +482,7 @@ func Func_Piorun():
 
 #Fire Trace - Pasywny Itemek
 func _on_fire_trace_timer_timeout() -> void:
-	if Trace == true:
+	if Trace == true and Global.IsDashing != true:
 		var fire_trace = trac_fire_path.instantiate()
 		fire_trace.global_transform = global_transform
 		fire_trace.scale.x = 1
@@ -492,6 +504,12 @@ func _on_power_up_timer_timeout() -> void:
 	#Negatywne
 	#1 Nie możesz dashować przez 5 sekund
 	Cant_Dash_PowerUp = false
+	
+	#2 Nie możesz strzelać
+	Cant_Shoot_PowerUp = false
+
+	#3 Chodzisz 2 razy wolniej
+	Move_Slower_PowerUp = false
 
 #Pasywny Itemek timer - regenerujace sie zycie
 func _on_regenerating_timer_timeout() -> void:
