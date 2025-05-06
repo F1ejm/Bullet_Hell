@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Bullet_Hell"
-run/main_scene="uid://c5lhq3xlm4eps"
+run/main_scene="uid://b44kfkf5wpld6"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Art/icon.svg"
 
