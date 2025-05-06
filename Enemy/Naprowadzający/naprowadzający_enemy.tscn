@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cot52aa5y87c6"]
 
 [ext_resource type="Script" uid="uid://d0wwik5db7tdx" path="res://Enemy/Naprowadzający/naprowadzający_enemy.gd" id="1_em4cq"]
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_hrbuo"]
 [ext_resource type="PackedScene" uid="uid://04k2bfngq2n6" path="res://Enemy/Naprowadzający/Bullets/naprowadzający_bullet.tscn" id="2_y6jkd"]
-[ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="3_y6jkd"]
+[ext_resource type="Texture2D" uid="uid://b0058ataa8v87" path="res://Art/Emeny/pixil-frame-0 (2).png" id="3_hrbuo"]
+[ext_resource type="Texture2D" uid="uid://cmd4fsfv6pq6u" path="res://Art/Emeny/broń.png" id="4_y6jkd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hrbuo"]
 radius = 62.0
@@ -21,16 +21,20 @@ shoot_timer = NodePath("shoot_timer")
 shape = SubResource("CapsuleShape2D_hrbuo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.828125, 0.519608)
-texture = ExtResource("2_hrbuo")
+texture_filter = 1
+rotation = 3.14159
+scale = Vector2(6.78, 6.78)
+texture = ExtResource("3_hrbuo")
 
 [node name="Marker2D" type="Marker2D" parent="Sprite2D"]
 scale = Vector2(1.20755, 1.92453)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Marker2D"]
-position = Vector2(60, -4)
-scale = Vector2(0.31616, 0.20386)
-texture = ExtResource("3_y6jkd")
+texture_filter = 1
+position = Vector2(1.4657, -1.68604)
+rotation = 3.14159
+scale = Vector2(-0.705, 0.482)
+texture = ExtResource("4_y6jkd")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
@@ -45,9 +49,9 @@ wait_time = 5.0
 [node name="ProgressBar" type="ProgressBar" parent="."]
 modulate = Color(1, 0, 0, 1)
 offset_left = -50.0
-offset_top = -60.0
+offset_top = -84.0
 offset_right = 52.0
-offset_bottom = -33.0
+offset_bottom = -57.0
 show_percentage = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

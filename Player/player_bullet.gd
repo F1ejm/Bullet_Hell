@@ -1,7 +1,7 @@
 extends Area2D
 
 var initial_velocity = Vector2(0,0)
-var speed = 800
+var speed = 1400
 var dmg: int
 
 var Pasywny_Item_Piercing: bool

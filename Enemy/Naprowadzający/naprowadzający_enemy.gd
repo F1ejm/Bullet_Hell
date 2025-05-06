@@ -109,6 +109,8 @@ func shoot():
 		b.enemy = Player
 		b.dmg = bullet_dmg
 		shoot_timer.start()
+		b.scale.x = 0.5
+		b.scale.y = 0.5
 
 func Generate():
 	x = randi_range(-400,400)
