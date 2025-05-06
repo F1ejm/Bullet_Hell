@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://53l1af3v5god"]
+
+[ext_resource type="PackedScene" uid="uid://divjj2xl1j2sh" path="res://Misc/Shop/shop_vendor.tscn" id="1_iu5op"]
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_b8dnb"]
+[ext_resource type="PackedScene" uid="uid://djnsnynol5ucd" path="res://Misc/Shop/other_shopkeeper.tscn" id="3_b8dnb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5udd"]
+size = Vector2(126, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwp04"]
+size = Vector2(126, 126)
+
+[node name="Safe_Room" type="Node2D"]
+
+[node name="Shop Vendor" parent="." instance=ExtResource("1_iu5op")]
+position = Vector2(879, 149)
+
+[node name="Sciany" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sciany"]
+position = Vector2(547, -61)
+scale = Vector2(10, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sciany/StaticBody2D"]
+texture = ExtResource("2_b8dnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sciany/StaticBody2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_b5udd")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Sciany"]
+position = Vector2(-29, 499)
+rotation = 1.5708
+scale = Vector2(10, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sciany/StaticBody2D2"]
+texture = ExtResource("2_b8dnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sciany/StaticBody2D2"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_iwp04")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Sciany"]
+position = Vector2(1121, 506)
+rotation = 1.5708
+scale = Vector2(10, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sciany/StaticBody2D3"]
+texture = ExtResource("2_b8dnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sciany/StaticBody2D3"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_b5udd")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Sciany"]
+position = Vector2(547, 1095)
+scale = Vector2(10, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sciany/StaticBody2D4"]
+texture = ExtResource("2_b8dnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sciany/StaticBody2D4"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_b5udd")
+
+[node name="Other_Shopkeeper" parent="." instance=ExtResource("3_b8dnb")]
+position = Vector2(987, 957)

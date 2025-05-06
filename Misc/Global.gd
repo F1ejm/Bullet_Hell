@@ -13,6 +13,9 @@ var show_interaction: bool = false
 var shop_can_interact: bool = false
 var shop_ui_visible: bool = false
 
+var show_shopkeeper: bool = false
+var shopkeeper_ui_visible: bool = false
+
 #Życie
 var Zycie: int = 3
 var Max_Zycie: int = 3
@@ -35,10 +38,12 @@ var AtakCooldown: float = 0.4
 #Attack Speed Gracza - range
 var RangeCooldown: float = 2
 
+var CurrentWeapon = "Uzi" #Karabin, Pistol, Uzi
 var RangeWeaponCooldown: float = 1
 
+
 #Pieniądze
-var VDolce: int = 0
+var VDolce: int = 100
 
 #Immunity Gracza Po Otrzymaniu obrażeń
 var immune: bool = false

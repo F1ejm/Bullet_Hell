@@ -52,7 +52,7 @@ var Tarcza_Cooldown: float = 15
 @onready var tarcza_item_area: Area2D = $Tarcza_Item_Area
 
 #2 Pociski namierzające
-var Can_Use_Projectiles: bool = true
+var Can_Use_Projectiles: bool = false
 var Projectiles: bool
 var Projectiles_Trwanie: float = 1
 var Projectiles_Cooldown: float = 5
@@ -72,7 +72,7 @@ var Clear_Trwanie: float = 1
 var Clear_Cooldown: float = 20
 
 #5 Burza piorunów
-var Can_Use_Pioruny: bool = true
+var Can_Use_Pioruny: bool = false
 var Pioruny: bool
 var Pioruny_Trwanie: float = 5
 var Pioruny_Cooldown: float = 10
@@ -95,11 +95,11 @@ var piorun_rand
 @onready var piorun_area: Area2D = $Pasywne_Itemki/Piorun_Area
 
 # Szlak za playerem
-var Trace: bool = true
+var Trace: bool = false
 var trac_fire_path = preload("res://Player/player_fire_trace.tscn")
 
 # Orbitale
-var Orbitale: bool = true
+var Orbitale: bool = false
 @export var node_orbitali: Node2D
 
 #Przebicie jednego przeciwnika przez bullety
@@ -112,8 +112,8 @@ var regenerating_wait_time: float = 19
 var regen: bool = true
 
 #Serce które się regeneruje
-var Regenerating_Heart: bool = true
-var Dodatkowe_Zycie: bool = true
+var Regenerating_Heart: bool = false
+var Dodatkowe_Zycie: bool = false
 @export var Zycie_UI: Control
 
 #------------------------------------------
@@ -135,7 +135,6 @@ var lock_rotation
 
 #Zemienne do Broni  
 var stats: WeaponStats = null
-var CurrentWeapon = "Karabin" #Karabin, Pistol, Uzi
 var CurrentSeriaNumber = 1
 var is_sering = false
 
@@ -148,6 +147,7 @@ var dmg_range: int = 1
 func _ready() -> void:
 	atak_timer.wait_time = Global.AtakCooldown
 	_on_weapon_changed()
+	
 	#fire trace - pasywny itemek
 	fire_trace_timer.wait_time = 0.05
 	
@@ -159,7 +159,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	node_orbitali.global_position = global_position
-	
+
 
 func _physics_process(delta):
 	if Global.stop == true:
@@ -207,7 +207,7 @@ func _physics_process(delta):
 			cooldown_timer.wait_time = Pioruny_Cooldown
 	
 	#Tarcza
-	if Input.is_action_just_pressed("active_item") and Current_Active_Item == 0 and Can_Use_Tarcza == true:
+	if Input.is_action_just_pressed("active_item") and Can_Use_Tarcza == true:
 		Tarcza = true
 		Can_Use_Tarcza = false
 		trwanie_timer.start()
@@ -216,7 +216,7 @@ func _physics_process(delta):
 		Func_Tarcza()
 	
 	#AOE
-	if Input.is_action_just_pressed("active_item") and Current_Active_Item == 2 and Can_Use_AOE == true:
+	if Input.is_action_just_pressed("active_item") and Can_Use_AOE == true:
 		AOE = true
 		Can_Use_AOE = false
 		trwanie_timer.start()
@@ -225,7 +225,7 @@ func _physics_process(delta):
 		Func_AOE()
 	
 	#Clear
-	if Input.is_action_just_pressed("active_item") and Current_Active_Item == 3 and Can_Use_Clear == true:
+	if Input.is_action_just_pressed("active_item") and Can_Use_Clear == true:
 		Clear = true
 		Can_Use_Clear = false
 		trwanie_timer.start()
@@ -234,17 +234,18 @@ func _physics_process(delta):
 		Func_Clear()
 		
 	#Projectiles
-	if Input.is_action_just_pressed("active_item") and Current_Active_Item == 1 and Can_Use_Projectiles == true:
+	if Input.is_action_just_pressed("active_item") and Can_Use_Projectiles == true:
+		print("NIgger")
 		Projectiles = true
 		Can_Use_Projectiles = false
 		trwanie_timer.start()
 	
 	if Projectiles == true:
 		cooldown_timer.start()
-		
+		Func_Projectiles()
 	
 	#Pioruny
-	if Input.is_action_just_pressed("active_item") and Current_Active_Item == 4 and Can_Use_Pioruny == true:
+	if Input.is_action_just_pressed("active_item") and Can_Use_Pioruny == true:
 		Pioruny = true
 		Can_Use_Pioruny = false
 		trwanie_timer.start()
@@ -255,7 +256,6 @@ func _physics_process(delta):
 		
 	if Pioruny == true:
 		cooldown_timer.start()
-		
 	
 	#Atak - Melee ------------------------------------------------
 	atak_timer.wait_time = Global.AtakCooldown
@@ -377,9 +377,12 @@ func _stopdash():
 
 #Odświerza Broń !Trzeba Najpierw Zmienić Nazwe!
 func _on_weapon_changed() -> void:
-	stats = load("res://Player/Weapons/%s_Stats.tres" % CurrentWeapon)
+	stats = load("res://Player/Weapons/%s_Stats.tres" % Global.CurrentWeapon)
 	Global.RangeWeaponCooldown = stats.cooldown
 	dmg_range = stats.dmg
+	CurrentSeriaNumber = stats.seria
+	
+	
 
 #Parry
 func _on_parry_area_area_entered(area: Area2D) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=25 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ckn81yvwna77p" path="res://UI/Shop UI/shop_ui.tscn" id="3_hh5pf"]
 [ext_resource type="Script" uid="uid://q8h1xhj2mpt0" path="res://UI/Interaction UI/interaction.gd" id="4_hh5pf"]
 [ext_resource type="PackedScene" uid="uid://ht7qibk0wg3t" path="res://UI/PlayerUI/stamina.tscn" id="4_ps1la"]
-[ext_resource type="PackedScene" uid="uid://divjj2xl1j2sh" path="res://Misc/Shop/shop_vendor.tscn" id="5_6aewd"]
+[ext_resource type="PackedScene" uid="uid://b4ule07d21r78" path="res://UI/Shop UI/shopkeeper_ui.tscn" id="7_d3r6l"]
 [ext_resource type="PackedScene" uid="uid://dodlbirgod1bs" path="res://Player/orbitale.tscn" id="8_lrfe7"]
 [ext_resource type="PackedScene" uid="uid://cdp8nop01h20c" path="res://Main/arena.tscn" id="8_qg80j"]
 [ext_resource type="PackedScene" uid="uid://cot52aa5y87c6" path="res://Enemy/Naprowadzający/naprowadzający_enemy.tscn" id="9_bor5n"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://djn0tmuhxcann" path="res://Art/TŁO/pixil-frame-0 (7).png" id="13_6ivxk"]
 [ext_resource type="Texture2D" uid="uid://c5waigc2cw3ht" path="res://Art/TŁO/pixil-frame-0 (8).png" id="14_6yo1i"]
 [ext_resource type="Texture2D" uid="uid://bnr347aq4tiyo" path="res://Art/TŁO/pixil-frame-0 (9).png" id="15_lrfe7"]
+[ext_resource type="PackedScene" uid="uid://53l1af3v5god" path="res://Main/Rooms/safe_room.tscn" id="18_r2ac1"]
 [ext_resource type="PackedScene" uid="uid://cheolkkekj0pt" path="res://Main/Rooms/Entry.tscn" id="19_d3r6l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hh5pf"]
@@ -83,6 +84,10 @@ label_settings = SubResource("LabelSettings_hh5pf")
 visible = false
 Zycie_UI = NodePath("../zycie")
 
+[node name="shopkeeper_ui" parent="CanvasLayer" node_paths=PackedStringArray("Player") instance=ExtResource("7_d3r6l")]
+visible = false
+Player = NodePath("../../Player")
+
 [node name="Player" parent="." node_paths=PackedStringArray("node_orbitali", "Zycie_UI") instance=ExtResource("1_lxy7q")]
 position = Vector2(667, -363)
 node_orbitali = NodePath("../Orbitale")
@@ -90,9 +95,6 @@ Zycie_UI = NodePath("../CanvasLayer/zycie")
 
 [node name="Orbitale" parent="." instance=ExtResource("8_lrfe7")]
 position = Vector2(431, -261)
-
-[node name="Shop Vendor" parent="." instance=ExtResource("5_6aewd")]
-position = Vector2(1313, -685)
 
 [node name="Arena" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_qg80j")]
 position = Vector2(-1284, -301)
@@ -114,3 +116,6 @@ layer_0/tile_data = PackedInt32Array(-65536, 0, 0, -65534, 0, 0, -131069, 0, 0, 
 [node name="Entry" parent="." instance=ExtResource("19_d3r6l")]
 position = Vector2(-1301, 18)
 scale = Vector2(0.405, 0.405)
+
+[node name="Safe_Room" parent="." instance=ExtResource("18_r2ac1")]
+position = Vector2(220, -503)

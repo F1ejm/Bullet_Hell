@@ -41,6 +41,7 @@ animations = [{
 script = ExtResource("1_lnv77")
 
 [node name="Orbitals" type="Node2D" parent="."]
+visible = false
 
 [node name="Node2D" type="Node2D" parent="Orbitals"]
 

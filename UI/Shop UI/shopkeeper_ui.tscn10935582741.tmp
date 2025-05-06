@@ -1,0 +1,153 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4ule07d21r78"]
+
+[ext_resource type="Script" uid="uid://b1yaqtb71s7g2" path="res://UI/Shop UI/shopkeeper_ui.gd" id="1_ji8f1"]
+[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="2_au6eo"]
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="3_pnh7f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_clkvv"]
+font_size = 32
+
+[node name="shopkeeper_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ji8f1")
+
+[node name="visuals" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="visuals"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -259.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.556863)
+
+[node name="TextureRect" type="TextureRect" parent="visuals"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -234.0
+offset_right = 294.0
+offset_bottom = -58.0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_au6eo")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="visuals"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 593.0
+offset_right = 271.0
+offset_bottom = 638.0
+text = "Shopkeeper"
+label_settings = SubResource("LabelSettings_clkvv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -241.0
+offset_right = 478.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Weapon_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_pnh7f")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Weapon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weapon_Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Buy"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Aktywny_Itemek_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("3_pnh7f")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Active_Item"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Aktywny_Itemek_Button" type="Button" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Buy"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Pasywny_Itemek1_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("3_pnh7f")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Passive_Item"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pasywny_Itemek1_Button" type="Button" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Buy"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Pasywny_Itemek2_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("3_pnh7f")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "Passive_Item"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pasywny_Itemek2_Button" type="Button" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "Buy"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Weapon_Button" to="." method="_on_weapon_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Aktywny_Itemek_Button" to="." method="_on_aktywny_itemek_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer3/Pasywny_Itemek1_Button" to="." method="_on_pasywny_itemek_1_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer4/Pasywny_Itemek2_Button" to="." method="_on_pasywny_itemek_2_button_pressed"]

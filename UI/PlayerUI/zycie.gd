@@ -26,11 +26,12 @@ func _process(delta: float) -> void:
 		Spawn_Magiczne_Zycie()
 	
 	#Sprawdza czy masz dodatkowe zycie jak tak to value = 1
-	if Player.Dodatkowe_Zycie == true:
-		magiczne_zycie.value = 1
-	else:
-		start_magiczny_timer = true
-		magiczne_zycie.value = 0
+	if Player.Regenerating_Heart == true:
+		if Player.Dodatkowe_Zycie == true:
+			magiczne_zycie.value = 1
+		else:
+			start_magiczny_timer = true
+			magiczne_zycie.value = 0
 	
 	#timer do regeneracji
 	if start_magiczny_timer == true:
