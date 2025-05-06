@@ -32,9 +32,7 @@ agent_radius = 23.44
 [node name="Arena" type="Node2D" node_paths=PackedStringArray("timer_power_up")]
 script = ExtResource("2_66sge")
 timer_power_up = NodePath("Spawnery/Timer_power_up")
-power_up1 = ExtResource("2_nmoe4")
-power_up2 = ExtResource("2_nmoe4")
-power_up3 = ExtResource("2_nmoe4")
+power_up = ExtResource("2_nmoe4")
 czujka = ExtResource("2_16kjw")
 
 [node name="Ściany" type="Node2D" parent="."]

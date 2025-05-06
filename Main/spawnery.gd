@@ -9,10 +9,7 @@ extends Node2D
 @export var Okrągły: PackedScene
 @export var Naprowadzający: PackedScene
 
-
-@export var power_up1 : PackedScene
-@export var power_up2 : PackedScene
-@export var power_up3 : PackedScene
+@export var power_up : PackedScene
 
 @export var czujka : PackedScene
 
@@ -95,21 +92,11 @@ func Generate_power_up():
 	x = randi_range(20,width)
 	y = randi_range(20,height)
 	
-	var losowanie_power_up = randi_range(0,2)
-	
-	match(losowanie_power_up):
-		0:
-			var enemy = power_up1.instantiate()
-			owner.add_child(enemy)
-			enemy.global_position = Vector2(x,-y)
-		1:
-			var enemy = power_up2.instantiate()
-			owner.add_child(enemy)
-			enemy.global_position = Vector2(x,-y)
-		2:
-			var enemy = power_up3.instantiate()
-			owner.add_child(enemy)
-			enemy.global_position = Vector2(x,-y)
+	var enemy = power_up.instantiate()
+	owner.add_child(enemy)
+	enemy.global_position = Vector2(x,-y)
+	enemy.Player = Player
+
 
 
 func _on_timer_power_up_timeout() -> void:

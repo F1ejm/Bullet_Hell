@@ -481,17 +481,17 @@ func _on_fire_trace_timer_timeout() -> void:
 func _on_power_up_timer_timeout() -> void:
 	#Pozytywne
 	#1 Dash Zabija
-	var Dash_PowerUp: bool = false
+	Dash_PowerUp = false
 
 	#2 Nieograniczona Stamina
-	var Stamina_PowerUp: bool = false
+	Stamina_PowerUp = false
 
 	#3 Bullet Przecinający Inne Bullety
-	var Bullet_PowerUp: bool = false
+	Bullet_PowerUp = false
 
 	#Negatywne
 	#1 Nie możesz dashować przez 5 sekund
-	var Cant_Dash_PowerUp: bool = true
+	Cant_Dash_PowerUp = false
 
 #Pasywny Itemek timer - regenerujace sie zycie
 func _on_regenerating_timer_timeout() -> void:
