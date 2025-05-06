@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4awnekqqieck"]
+[gd_scene load_steps=4 format=3 uid="uid://c4awnekqqieck"]
 
-[ext_resource type="Script" uid="uid://bospatmvlwkns" path="res://Main/Rooms/Scripts/Hall.gd" id="1_jbptl"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_ligoj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qw0rs"]
@@ -10,7 +9,6 @@ size = Vector2(75, 450)
 size = Vector2(74, 375)
 
 [node name="HallStrait" type="Node2D"]
-script = ExtResource("1_jbptl")
 
 [node name="Ściany" type="Node2D" parent="."]
 position = Vector2(-574, -65)

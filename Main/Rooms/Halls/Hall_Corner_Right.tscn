@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnbdgyxcr1sdj"]
+[gd_scene load_steps=4 format=3 uid="uid://cnbdgyxcr1sdj"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_mg6r4"]
-[ext_resource type="Script" uid="uid://f1sq342bjgov" path="res://Main/Rooms/Scripts/Hall_Right.gd" id="1_t5jew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mg581"]
 size = Vector2(75, 718)
@@ -10,7 +9,6 @@ size = Vector2(75, 718)
 size = Vector2(74, 375)
 
 [node name="HallCornerRight" type="Node2D"]
-script = ExtResource("1_t5jew")
 
 [node name="Ściany" type="Node2D" parent="."]
 position = Vector2(-574, -65)

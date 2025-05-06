@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bavxgun4dur0c"]
+[gd_scene load_steps=5 format=3 uid="uid://bavxgun4dur0c"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_8dnt5"]
-[ext_resource type="Script" uid="uid://bwkgbyd2haxhl" path="res://Main/Rooms/Scripts/2Door.gd" id="1_8rqoc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rqoc"]
 size = Vector2(75, 760)
@@ -13,7 +12,6 @@ size = Vector2(70.9979, 538)
 size = Vector2(74, 648)
 
 [node name="2Dor" type="Node2D"]
-script = ExtResource("1_8rqoc")
 
 [node name="Ściany" type="Node2D" parent="."]
 position = Vector2(-579, 717)
