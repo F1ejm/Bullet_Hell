@@ -36,7 +36,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.can_spawn != c:
 		c = Global.can_spawn
-		print("chuj ci w ucho")
 		Generate()
 	
 	if Global.IsRoundPlaying == true:

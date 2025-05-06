@@ -89,7 +89,7 @@ visible = false
 Player = NodePath("../../Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("node_orbitali", "Zycie_UI") instance=ExtResource("1_lxy7q")]
-position = Vector2(667, -363)
+position = Vector2(-1053, 230)
 node_orbitali = NodePath("../Orbitale")
 Zycie_UI = NodePath("../CanvasLayer/zycie")
 

@@ -38,9 +38,9 @@ var AtakCooldown: float = 0.4
 #Attack Speed Gracza - range
 var RangeCooldown: float = 2
 
-var CurrentWeapon = "Uzi" #Karabin, Pistol, Uzi
+#Karabin, Pistol, Uzi
+var CurrentWeapon = "Uzi" 
 var RangeWeaponCooldown: float = 1
-
 
 #Pieniądze
 var VDolce: int = 100

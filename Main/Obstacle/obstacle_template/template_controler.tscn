@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddj0xrvpax0fc"]
+
+[ext_resource type="Script" uid="uid://drqpas1vbb1hy" path="res://Main/Obstacle/obstacle_template/template_controler.gd" id="1_1ifxb"]
+[ext_resource type="PackedScene" uid="uid://t0vyh3upjdwm" path="res://Main/Obstacle/obstacle_template/obstacle_template_1.tscn" id="2_gs1nb"]
+[ext_resource type="PackedScene" uid="uid://d1veoygbq57d0" path="res://Main/Obstacle/obstacle_template/obstacle_template_2.tscn" id="3_ktpfk"]
+[ext_resource type="PackedScene" uid="uid://c4dgwhdyqk3ur" path="res://Main/Obstacle/obstacle_template/obstacle_template_3.tscn" id="4_bwni5"]
+
+[node name="Template_controler" type="Node2D" node_paths=PackedStringArray("timer", "midle")]
+script = ExtResource("1_1ifxb")
+timer = NodePath("Timer")
+midle = NodePath("Marker2D")
+template_1 = ExtResource("2_gs1nb")
+template_2 = ExtResource("3_ktpfk")
+template_3 = ExtResource("4_bwni5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="timeout"]
