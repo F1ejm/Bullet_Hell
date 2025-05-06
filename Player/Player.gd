@@ -107,7 +107,7 @@ var regen: bool = true
 
 #Serce które się regeneruje
 var Regenerating_Heart: bool = true
-var Dodatkowe_Zycie: bool = false
+var Dodatkowe_Zycie: bool = true
 @export var Zycie_UI: Control
 
 #------------------------------------------
@@ -481,17 +481,17 @@ func _on_fire_trace_timer_timeout() -> void:
 func _on_power_up_timer_timeout() -> void:
 	#Pozytywne
 	#1 Dash Zabija
-	Dash_PowerUp = false
+	var Dash_PowerUp: bool = false
 
 	#2 Nieograniczona Stamina
-	Stamina_PowerUp = false
+	var Stamina_PowerUp: bool = false
 
 	#3 Bullet Przecinający Inne Bullety
-	Bullet_PowerUp= false
+	var Bullet_PowerUp: bool = false
 
 	#Negatywne
 	#1 Nie możesz dashować przez 5 sekund
-	Cant_Dash_PowerUp = false
+	var Cant_Dash_PowerUp: bool = true
 
 #Pasywny Itemek timer - regenerujace sie zycie
 func _on_regenerating_timer_timeout() -> void:

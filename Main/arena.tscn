@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdp8nop01h20c"]
+[gd_scene load_steps=14 format=3 uid="uid://cdp8nop01h20c"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_hjvuf"]
 [ext_resource type="PackedScene" uid="uid://dutj4ocsn2cb2" path="res://Main/Obstacle/czujka/czujka.tscn" id="2_16kjw"]
 [ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawnery.gd" id="2_66sge"]
+[ext_resource type="PackedScene" uid="uid://bvxgexgniu3ha" path="res://Main/Pick_up/pick_up_cube.tscn" id="2_nmoe4"]
 [ext_resource type="Script" uid="uid://dm3euhaddxdo0" path="res://Main/Obstacle/obstacle_spawner.gd" id="3_juncb"]
 [ext_resource type="Script" uid="uid://d2mp0xam3t2x" path="res://Main/Obstacle/spawner_controler.gd" id="3_xp4cu"]
 [ext_resource type="PackedScene" uid="uid://hm4hwehos4pe" path="res://Main/Obstacle/obstacle.tscn" id="4_xp4cu"]
@@ -31,6 +32,9 @@ agent_radius = 23.44
 [node name="Arena" type="Node2D" node_paths=PackedStringArray("timer_power_up")]
 script = ExtResource("2_66sge")
 timer_power_up = NodePath("Spawnery/Timer_power_up")
+power_up1 = ExtResource("2_nmoe4")
+power_up2 = ExtResource("2_nmoe4")
+power_up3 = ExtResource("2_nmoe4")
 czujka = ExtResource("2_16kjw")
 
 [node name="Ściany" type="Node2D" parent="."]

@@ -22,7 +22,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#Spawnuje to życko nowe
 	if can_spawn == true and Player.Regenerating_Heart == true:
-		Player.Dodatkowe_Zycie = true
 		can_spawn = false
 		Spawn_Magiczne_Zycie()
 	
