@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://04k2bfngq2n6"]
+[gd_scene load_steps=4 format=3 uid="uid://04k2bfngq2n6"]
 
 [ext_resource type="Script" uid="uid://64o2ihrcs81r" path="res://Enemy/Naprowadzający/Bullets/naprowadzający_bullet.gd" id="1_fnhgm"]
 [ext_resource type="Texture2D" uid="uid://cy6a4gn3twbi5" path="res://Art/Emeny/pixil-frame-0 (13).png" id="2_ejlwd"]
-[ext_resource type="Texture2D" uid="uid://7io8gqfw5rn2" path="res://Art/itemy/regenerujące się zdrowie.png" id="3_sycly"]
-[ext_resource type="Texture2D" uid="uid://s42k1pv305i7" path="res://Art/itemy/jedno serce które może się regenerotwać w bitwie tak co 10 sekund marek solarz.png" id="4_wo5ke"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7heth"]
 radius = 32.0
@@ -30,17 +28,6 @@ autostart = true
 [node name="Immunity_timer" type="Timer" parent="." groups=["Bullet"]]
 wait_time = 0.2
 autostart = true
-
-[node name="Pixil-frame-0(40)" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-176, 20)
-scale = Vector2(2, 2)
-texture = ExtResource("3_sycly")
-
-[node name="Pixil-frame-0(42)" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-138, 18)
-texture = ExtResource("4_wo5ke")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
