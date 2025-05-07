@@ -120,5 +120,6 @@ scale = Vector2(0.405, 0.405)
 [node name="Safe_Room" parent="." instance=ExtResource("18_r2ac1")]
 position = Vector2(1245, -1224)
 
-[node name="Boss_1" parent="." instance=ExtResource("20_fayjp")]
+[node name="Boss_1" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("20_fayjp")]
 position = Vector2(-1545, -374)
+Player = NodePath("../Player")

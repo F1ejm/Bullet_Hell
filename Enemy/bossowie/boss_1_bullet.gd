@@ -13,10 +13,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	position += Vector2.RIGHT.rotated(rotation) * speed * delta
-	if directon == true:
-		position += Vector2.UP.rotated(rotation) * fall_speed * delta
-	else:
-		position += Vector2.DOWN.rotated(rotation) * fall_speed * delta
+	if move_side == true:
+		if directon == true:
+			position += Vector2.UP.rotated(rotation) * fall_speed * delta
+		else:
+			position += Vector2.DOWN.rotated(rotation) * fall_speed * delta
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and Global.dash_immunity == false and Global.immune == false:
