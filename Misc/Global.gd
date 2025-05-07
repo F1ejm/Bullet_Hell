@@ -59,6 +59,15 @@ var IsRoundPlaying: bool
 var Czas_Rundy: float = 60
 var Generate_wall: bool = false
 
+#Settings
+var current_resolution: Vector2i
+var current_resolution_id: int
+var current_fullscreen_mode: int # 1-windowed, 2-fullscreen, 3-borderless
+
+var current_master_volume: float
+var current_music_volume: float
+var current_sfx_volume: float
+
 #Liczba Przeciwników
 var i: int = -1
 

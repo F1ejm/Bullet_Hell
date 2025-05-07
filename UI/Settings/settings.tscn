@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcjt7iyff2kjg"]
+[gd_scene load_steps=9 format=3 uid="uid://bcjt7iyff2kjg"]
 
 [ext_resource type="Theme" uid="uid://bxkc4jb1w6l8n" path="res://UI/ui_theme.tres" id="1_u23uq"]
+[ext_resource type="Script" uid="uid://bj2gahfarupoh" path="res://UI/Settings/settings.gd" id="1_wnv0n"]
 [ext_resource type="FontFile" uid="uid://d1y8l7j8ou535" path="res://UI/PixelifySans[wght].ttf" id="2_6ukun"]
+[ext_resource type="Texture2D" uid="uid://cmy52wjivuw0f" path="res://Art/UI/menu buttons/back_idle.png" id="3_hfoeg"]
+[ext_resource type="Texture2D" uid="uid://b5ypo1rec14lp" path="res://Art/UI/menu buttons/back_glitch.png" id="4_wnv0n"]
+[ext_resource type="Texture2D" uid="uid://b236o5406pec5" path="res://Art/UI/menu buttons/back_pressed.png" id="5_v3ito"]
+[ext_resource type="Texture2D" uid="uid://whl5qkxy16id" path="res://Art/UI/menu buttons/back_hover.png" id="6_4ang8"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_qx4ph"]
+frames = 2
+frame_0/texture = ExtResource("3_hfoeg")
+frame_0/duration = 1.5
+frame_1/texture = ExtResource("4_wnv0n")
+frame_1/duration = 0.2
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -10,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wnv0n")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -32,10 +45,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -197.0
-offset_top = -138.0
-offset_right = 197.0
-offset_bottom = 138.0
+offset_left = -226.0
+offset_top = -152.0
+offset_right = 226.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -43,66 +56,110 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer2/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("1_u23uq")
+text = "Master Volume"
 
-[node name="HSlider" type="HSlider" parent="MarginContainer2/VBoxContainer"]
+[node name="Master Volume" type="HSlider" parent="MarginContainer2/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 1
 focus_mode = 0
 theme = ExtResource("1_u23uq")
+max_value = 1.0
+step = 0.01
 
 [node name="Label2" type="Label" parent="MarginContainer2/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("1_u23uq")
+text = "
+Music Volume"
 
-[node name="HSlider2" type="HSlider" parent="MarginContainer2/VBoxContainer"]
+[node name="Music Volume" type="HSlider" parent="MarginContainer2/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_u23uq")
+max_value = 1.0
+step = 0.01
 
 [node name="Label3" type="Label" parent="MarginContainer2/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("1_u23uq")
+text = "
+SFX Volume"
 
-[node name="HSlider3" type="HSlider" parent="MarginContainer2/VBoxContainer"]
+[node name="SFX Volume" type="HSlider" parent="MarginContainer2/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_u23uq")
+max_value = 1.0
+step = 0.01
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_top = 116.0
+offset_right = 227.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer3"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="MarginContainer3/VBoxContainer2/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_u23uq")
-text = "Resolution"
+text = "Windowed resolution"
 
-[node name="OptionButton" type="OptionButton" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="resolutions" type="OptionButton" parent="MarginContainer3/VBoxContainer2/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 3
 focus_mode = 0
 theme = ExtResource("1_u23uq")
-item_count = 2
-popup/item_0/text = "aaaaaaaaaaaaaaaaa"
-popup/item_0/id = 0
-popup/item_1/text = "bbbbbbbbbbbbbbbb"
-popup/item_1/id = 1
+fit_to_longest_item = false
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer3/VBoxContainer2"]
 layout_mode = 2
+theme_override_constants/separation = 102
 
-[node name="Label2" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="MarginContainer3/VBoxContainer2/HBoxContainer2"]
+texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_u23uq")
 text = "fullscreen mode"
 
-[node name="OptionButton2" type="OptionButton" parent="MarginContainer2/VBoxContainer/HBoxContainer2"]
+[node name="fullscreen" type="OptionButton" parent="MarginContainer3/VBoxContainer2/HBoxContainer2"]
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 3
 focus_mode = 0
 theme = ExtResource("1_u23uq")
-item_count = 2
-popup/item_0/text = "aaaaaaaaaaaaa"
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "Windowed"
 popup/item_0/id = 0
-popup/item_1/text = "bbbbbbbbbbbbbbbb"
+popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
+popup/item_2/text = "Winowed Borderless"
+popup/item_2/id = 2
 
 [node name="Label" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -117,3 +174,30 @@ theme_override_fonts/normal_font = ExtResource("2_6ukun")
 theme_override_font_sizes/normal_font_size = 128
 text = "SETTINGS"
 fit_content = true
+
+[node name="back" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -89.0
+offset_right = -64.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4, 4)
+size_flags_vertical = 3
+texture_normal = SubResource("AnimatedTexture_qx4ph")
+texture_pressed = ExtResource("5_v3ito")
+texture_hover = ExtResource("6_4ang8")
+
+[connection signal="value_changed" from="MarginContainer2/VBoxContainer/Master Volume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="MarginContainer2/VBoxContainer/Music Volume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="MarginContainer2/VBoxContainer/SFX Volume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="item_selected" from="MarginContainer3/VBoxContainer2/HBoxContainer/resolutions" to="." method="_on_resolutions_item_selected"]
+[connection signal="item_selected" from="MarginContainer3/VBoxContainer2/HBoxContainer2/fullscreen" to="." method="_on_fullscreen_item_selected"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
