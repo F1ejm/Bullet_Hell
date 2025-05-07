@@ -19,6 +19,7 @@ class AktywnyItemek:
 	var integer: int
 
 	var Lista_Aktywnych_Itemków = {}
+	var Lista_Textur = {}
 	var Opisy = {
 		1: "Opis1",
 		2: "Opis2",
@@ -38,6 +39,7 @@ class AktywnyItemek:
 	var opis
 	var cena
 	var lenght
+	var textura
 
 	func _init(p, i):
 		Player = p
@@ -49,10 +51,18 @@ class AktywnyItemek:
 			4: "4",
 			5: "5"
 		}
+		Lista_Textur = {
+			2: preload("res://Art/itemy/naierzanie.png"),
+			5: preload("res://Art/itemy/burza piorunów.png"),
+			3: preload("res://Art/itemy/bomba.png"),
+			4: preload("res://Art/itemy/orbital.png"),
+			1: preload("res://Art/itemy/tarcza.png")
+		}
 		dojscie = Lista_Aktywnych_Itemków[integer]
 		opis = Opisy[integer]
 		cena = Ceny[integer]
 		lenght = Ceny.size()
+		textura = Lista_Textur[integer]
 
 
 class PasywnyItemek:
@@ -60,6 +70,7 @@ class PasywnyItemek:
 	var integer: int
 
 	var Lista_Pasywnych_Itemków = {}
+	var Lista_Textur = {}
 	var Opisy = {
 		1: "Opis1",
 		2: "Opis2",
@@ -85,6 +96,7 @@ class PasywnyItemek:
 	var opis
 	var cena
 	var lenght
+	var textura
 
 	func _init(p, i):
 		Player = p
@@ -99,37 +111,56 @@ class PasywnyItemek:
 			7: "7",
 			8: "8"
 		}
+		Lista_Textur = {
+			8: preload("res://Art/itemy/jedno serce które może się regenerotwać w bitwie tak co 10 sekund marek solarz.png"),
+			1: preload("res://Art/itemy/szybsze bullety.png"),
+			4: preload("res://Art/itemy/szlak.png"),
+			6: preload("res://Art/itemy/przebijający pocisk.png"),
+			3: preload("res://Art/itemy/piorun.png"),
+			5: preload("res://Art/itemy/orbital.png"),
+			7: preload("res://Art/itemy/regenerujące się zdrowie.png"),
+			2: preload("res://Art/Maro/Maro_ZdjęcieOG.png")
+		}
 		dojscie = Lista_Pasywnych_Itemków[integer]
 		opis = Opisy[integer]
 		cena = Ceny[integer]
 		lenght = Ceny.size()
+		textura = Lista_Textur[integer]
 
 class Bron:
 	var Player: CharacterBody2D
 	var integer: int
-
+	
+	var Lista_Textur = {}
 	var Lista_Broni = {
 		1: "Karabin",
 		2: "Pistol",
-		3: "Uzi"
+		3: "Uzi",
+		4: "Minigun",
+		5: "Shotgun"
 	}
 	var Opisy = {
 		1: "opis1",
 		2: "opis2",
-		3: "opis3"
+		3: "opis3",
+		4: "opis4",
+		5: "opis5"
 	}
 	var Ceny = {
 		1: 10,
 		2: 10,
-		3: 10
+		3: 10,
+		4: 10,
+		5: 10
 	}
-
+	
 	var dojscie
 	var funkcja
 	var Nazwa
 	var opis
 	var cena
 	var lenght
+	var textura
 
 	func _init(p, i):
 		Player = p
@@ -138,6 +169,14 @@ class Bron:
 		opis = Opisy[integer]
 		cena = Ceny[integer]
 		lenght = Ceny.size()
+		Lista_Textur = {
+			1: preload("res://Art/Maro/Maro_ZdjęcieOG.png"),
+			2: preload("res://Art/itemy/pistolet.png"),
+			3: preload("res://Art/itemy/pm.png"),
+			4: preload("res://Art/itemy/minugun.png"),
+			5: preload("res://Art/itemy/shotgun.png")
+		}
+		textura = Lista_Textur[integer]
 
 #Zmienne pokazujące co jest w sklepie
 var Bron_Nazwa
@@ -146,19 +185,27 @@ var Bron_Aktywacja
 var Bron_Cena
 var Bron_Opis
 
+var Bron_Textura
+
 
 var Aktywny_Itemek
 var Aktywny_Itemek_Cena
 var Aktywny_Itemek_Opis
+
+var Aktywny_Itemek_Textura
 
 
 var Pasywny_Itemek1
 var Pasywny_Itemek1_Cena
 var Pasywny_Itemek1_Opis
 
+var Pasywny_Itemek1_Textura
+
 var Pasywny_Itemek2
 var Pasywny_Itemek2_Cena
 var Pasywny_Itemek2_Opis
+
+var Pasywny_Itemek2_Textura
 
 func _ready():
 	visible = false
@@ -178,6 +225,8 @@ func Zmiana_Sklepu():
 	Pasywny_Itemek1 = pasywny1.dojscie
 	Pasywny_Itemek1_Cena = pasywny1.cena
 	Pasywny_Itemek1_Opis = pasywny1.opis
+	Pasywny_Itemek1_Textura = pasywny1.textura
+	pasywny_itemek_1_texture.texture = Pasywny_Itemek1_Textura
 	
 	#Pasywny Itemek2
 	var rand2 = randi_range(5,8)
@@ -190,21 +239,26 @@ func Zmiana_Sklepu():
 	Pasywny_Itemek2 = pasywny2.dojscie
 	Pasywny_Itemek2_Cena = pasywny2.cena
 	Pasywny_Itemek2_Opis = pasywny2.opis
+	Pasywny_Itemek2_Textura = pasywny2.textura
+	pasywny_itemek_2_texture.texture = Pasywny_Itemek2_Textura
 	
 	#Aktywny Itemek
-	var rand3 = randi_range(1,2)
+	var rand3 = randi_range(1,5)
 	var aktywny = AktywnyItemek.new(Player,rand3)
 	Aktywny_Itemek = aktywny.dojscie
 	Aktywny_Itemek_Cena = aktywny.cena
 	Aktywny_Itemek_Opis = aktywny.opis
+	Aktywny_Itemek_Textura = aktywny.textura
+	aktywny_itemek_texture.texture = Aktywny_Itemek_Textura
 	
 	#Bron
-	var rand4 = randi_range(1,3)
+	var rand4 = randi_range(1,5)
 	var bron = Bron.new(Player,rand4)
 	Bron_Nazwa = bron.Nazwa
 	Bron_Cena = bron.cena
 	Bron_Opis = bron.opis
-	
+	Bron_Textura = bron.textura
+	weapon_texture.texture = Bron_Textura
 
 
 func _on_weapon_button_pressed() -> void:

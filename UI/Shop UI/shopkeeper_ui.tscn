@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4ule07d21r78"]
+[gd_scene load_steps=4 format=3 uid="uid://b4ule07d21r78"]
 
 [ext_resource type="Script" uid="uid://b1yaqtb71s7g2" path="res://UI/Shop UI/shopkeeper_ui.gd" id="1_ji8f1"]
 [ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="2_au6eo"]
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="3_pnh7f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_clkvv"]
 font_size = 32
@@ -67,10 +66,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -184.0
-offset_top = -241.0
-offset_right = 478.0
-offset_bottom = -19.0
+offset_left = -104.0
+offset_top = -183.0
+offset_right = 400.0
+offset_bottom = -89.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 50
@@ -81,7 +80,7 @@ theme_override_constants/separation = 20
 
 [node name="Weapon_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("3_pnh7f")
+stretch_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -99,7 +98,7 @@ theme_override_constants/separation = 20
 
 [node name="Aktywny_Itemek_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("3_pnh7f")
+stretch_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -117,7 +116,7 @@ theme_override_constants/separation = 20
 
 [node name="Pasywny_Itemek1_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
-texture = ExtResource("3_pnh7f")
+stretch_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
@@ -135,7 +134,7 @@ theme_override_constants/separation = 20
 
 [node name="Pasywny_Itemek2_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer4"]
 layout_mode = 2
-texture = ExtResource("3_pnh7f")
+stretch_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer4"]
 layout_mode = 2
