@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pyqkvufu8hs2"
-path="res://.godot/imported/quit_idle.png-684ac33aa2252e7e634d91a7a4ac4f99.ctex"
+uid="uid://de7qupxpt2vid"
+path="res://.godot/imported/settings_pressed.png-7c306fce4417b01e1592c67a23e65ab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/quit_idle.png"
-dest_files=["res://.godot/imported/quit_idle.png-684ac33aa2252e7e634d91a7a4ac4f99.ctex"]
+source_file="res://Art/UI/menu buttons/settings_pressed.png"
+dest_files=["res://.godot/imported/settings_pressed.png-7c306fce4417b01e1592c67a23e65ab2.ctex"]
 
 [params]
 
