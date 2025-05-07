@@ -1,10 +1,128 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq1hiyg6kas2c"]
+[gd_scene load_steps=17 format=3 uid="uid://cq1hiyg6kas2c"]
 
 [ext_resource type="Script" uid="uid://b81enkr4k51jf" path="res://Enemy/bossowie/boss_1.gd" id="1_fq4hv"]
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_gsppg"]
+[ext_resource type="Texture2D" uid="uid://bplaebdcgs2jh" path="res://Art/Boss/pixil-frame-0 (52).png" id="2_yilr6"]
+[ext_resource type="Texture2D" uid="uid://cqd0wi6nrxho1" path="res://Art/Boss/fram2.png" id="3_tfikl"]
+[ext_resource type="Texture2D" uid="uid://ckmiysgvav2mb" path="res://Art/Boss/fram3.png" id="4_oqjpq"]
+[ext_resource type="Texture2D" uid="uid://casapb8njbfk5" path="res://Art/Boss/fram4.png" id="5_ty3u0"]
+[ext_resource type="Texture2D" uid="uid://1whnhrcvp5ok" path="res://Art/Boss/frame5.png" id="6_y5xyw"]
+[ext_resource type="Texture2D" uid="uid://bdefa28takdo2" path="res://Art/Boss/frame6.png" id="7_6k36i"]
+[ext_resource type="Texture2D" uid="uid://bdpyg22hhv7eg" path="res://Art/Boss/frame7.png" id="8_wpmy5"]
+[ext_resource type="Texture2D" uid="uid://cda8bhamlp3jm" path="res://Art/Boss/frame8.png" id="9_ubxsa"]
+[ext_resource type="Texture2D" uid="uid://ddnkg15nq5ln3" path="res://Art/Boss/frame9.png" id="10_hdjyc"]
+[ext_resource type="Texture2D" uid="uid://dym66do4exim5" path="res://Art/Boss/frame10.png" id="11_ex2bh"]
+[ext_resource type="Texture2D" uid="uid://6bq067e8k4e6" path="res://Art/Boss/anim/NISZCZENIE1.png" id="12_2t1e1"]
+[ext_resource type="Texture2D" uid="uid://d3r6kypbqn7io" path="res://Art/Boss/anim/NISZCZENI2.png" id="13_o8mrx"]
+[ext_resource type="Texture2D" uid="uid://x28aux52aehq" path="res://Art/Boss/anim/NISZCZENIE3.png" id="14_shyof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq4hv"]
 size = Vector2(59, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pmupq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yilr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tfikl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oqjpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ty3u0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y5xyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6k36i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wpmy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ubxsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hdjyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ex2bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hdjyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ubxsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wpmy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y5xyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6k36i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ty3u0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oqjpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tfikl")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_2t1e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_o8mrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_shyof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_o8mrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_shyof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_o8mrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_shyof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_o8mrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_shyof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_o8mrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_shyof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_o8mrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_shyof")
+}],
+"loop": true,
+"name": &"niszczenie",
+"speed": 4.0
+}]
 
 [node name="Boss_1" type="Area2D" groups=["Boss"]]
 script = ExtResource("1_fq4hv")
@@ -22,9 +140,13 @@ offset_right = 59.0
 offset_bottom = -32.0
 show_percentage = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_gsppg")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -4)
+scale = Vector2(7.5, 7.5)
+sprite_frames = SubResource("SpriteFrames_pmupq")
+animation = &"niszczenie"
+frame_progress = 0.668653
 
 [node name="Bullet_Spawn" type="Node2D" parent="."]
 rotation = 0.0174533

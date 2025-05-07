@@ -41,6 +41,8 @@ var can_be_hit: bool = false
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 func _ready() -> void:
+	#animacje
+	$AnimatedSprite2D.play("Idle")
 	#health bar
 	progress_bar.max_value = health
 	
@@ -140,6 +142,7 @@ func Eryk_Atak():
 func _on_cooldown_timer_timeout() -> void:
 	another_atak = true
 	can_be_hit = false
+	$AnimatedSprite2D.play("Idle")
 	x = Generate_Atak(3)
 	match(x):
 		1:
@@ -161,6 +164,7 @@ func _on_circle_lasting_timer_timeout() -> void:
 	can_circle_atak = false
 	another_atak = false
 	can_be_hit = true
+	$AnimatedSprite2D.play("niszczenie")
 	cooldown_timer.start()
 
 #Spray Timery
@@ -168,6 +172,7 @@ func _on_spray_lasting_timer_timeout() -> void:
 	can_spray_atak = false
 	another_atak = false
 	can_be_hit = true
+	$AnimatedSprite2D.play("niszczenie")
 	cooldown_timer.start()
 
 
@@ -183,6 +188,7 @@ func _on_eryczkowy_lasting_timer_timeout() -> void:
 	can_eryczkowy_atak = false
 	another_atak = false
 	can_be_hit = true
+	$AnimatedSprite2D.play("niszczenie")
 	cooldown_timer.start()
 	
 		
