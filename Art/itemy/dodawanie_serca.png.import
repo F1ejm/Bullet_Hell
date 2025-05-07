@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn3674d52pqvk"
-path="res://.godot/imported/PM.png-7231813d9ec84994d1a93274c990f17d.ctex"
+uid="uid://c7ic2k4aehskn"
+path="res://.godot/imported/dodawanie_serca.png-6d834e7389556f55144f86cd7df600d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/PM.png"
-dest_files=["res://.godot/imported/PM.png-7231813d9ec84994d1a93274c990f17d.ctex"]
+source_file="res://Art/itemy/dodawanie_serca.png"
+dest_files=["res://.godot/imported/dodawanie_serca.png-6d834e7389556f55144f86cd7df600d0.ctex"]
 
 [params]
 
