@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ntupq1ioi531"
-path="res://.godot/imported/orbital.png-8e1a449b6685b9c9c0ce77efa40d38c3.ctex"
+uid="uid://bewvdimwnbtay"
+path="res://.godot/imported/rama.png-54477a4b195932159f0e42a13e066d99.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/orbital.png"
-dest_files=["res://.godot/imported/orbital.png-8e1a449b6685b9c9c0ce77efa40d38c3.ctex"]
+source_file="res://Art/health/rama.png"
+dest_files=["res://.godot/imported/rama.png-54477a4b195932159f0e42a13e066d99.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd6t53pgu8ug8"
-path="res://.godot/imported/shotgun.png-7d6baa0e4ec7fdd7020254725fe29220.ctex"
+uid="uid://cy0b7p68k48b1"
+path="res://.godot/imported/przebijanie.png-ea9ac0685697a588a70defba56aa5bc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/shotgun.png"
-dest_files=["res://.godot/imported/shotgun.png-7d6baa0e4ec7fdd7020254725fe29220.ctex"]
+source_file="res://Art/itemy/przebijanie.png"
+dest_files=["res://.godot/imported/przebijanie.png-ea9ac0685697a588a70defba56aa5bc2.ctex"]
 
 [params]
 

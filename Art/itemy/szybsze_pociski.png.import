@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsx65bskiyhp3"
-path="res://.godot/imported/szlak.png-b85c8378106ecfc41a863877acf4ae6f.ctex"
+uid="uid://bapf8tjt5sei8"
+path="res://.godot/imported/szybsze_pociski.png-3e1881e3c80a800c481babb570e3baa2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/szlak.png"
-dest_files=["res://.godot/imported/szlak.png-b85c8378106ecfc41a863877acf4ae6f.ctex"]
+source_file="res://Art/itemy/szybsze_pociski.png"
+dest_files=["res://.godot/imported/szybsze_pociski.png-3e1881e3c80a800c481babb570e3baa2.ctex"]
 
 [params]
 

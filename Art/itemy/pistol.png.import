@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://okrti0cdfwjb"
-path="res://.godot/imported/pixil-frame-0 (55).png-1ce78837b13d51ada3a9ab2fad0ee6eb.ctex"
+uid="uid://ck80y0y5yavlv"
+path="res://.godot/imported/pistol.png-0bc06f20d9154391eba9c3bf8d9a1e05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/health/pixil-frame-0 (55).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (55).png-1ce78837b13d51ada3a9ab2fad0ee6eb.ctex"]
+source_file="res://Art/itemy/pistol.png"
+dest_files=["res://.godot/imported/pistol.png-0bc06f20d9154391eba9c3bf8d9a1e05.ctex"]
 
 [params]
 

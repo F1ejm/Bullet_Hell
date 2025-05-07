@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0un1pbq8ube0"
-path="res://.godot/imported/szybsze bullety.png-dcef2ca9714fab15d5650788b7f86b43.ctex"
+uid="uid://shvpyb37cfuu"
+path="res://.godot/imported/regeneracja.png-d9ff6767cd9dfe097e79325967f5757a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/szybsze bullety.png"
-dest_files=["res://.godot/imported/szybsze bullety.png-dcef2ca9714fab15d5650788b7f86b43.ctex"]
+source_file="res://Art/itemy/regeneracja.png"
+dest_files=["res://.godot/imported/regeneracja.png-d9ff6767cd9dfe097e79325967f5757a.ctex"]
 
 [params]
 

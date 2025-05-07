@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm5gnbbrxv4xc"
-path="res://.godot/imported/pixil-frame-0 (54).png-1d2c80cd4bc48f7bd31f880a226f2218.ctex"
+uid="uid://bkcux5g7xui8v"
+path="res://.godot/imported/usuwanie.png-80c3cf88493589fcdb6a5c4ccdf80115.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/health/pixil-frame-0 (54).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (54).png-1d2c80cd4bc48f7bd31f880a226f2218.ctex"]
+source_file="res://Art/itemy/usuwanie.png"
+dest_files=["res://.godot/imported/usuwanie.png-80c3cf88493589fcdb6a5c4ccdf80115.ctex"]
 
 [params]
 

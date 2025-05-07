@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxf0hw0ma5rbv"
-path="res://.godot/imported/minugun.png-2cffaa4ed58317c4132af2ca31e0adef.ctex"
+uid="uid://cygaj0a3rb1l2"
+path="res://.godot/imported/scieżka.png-4e6e5becf64091cec2f1aff1c6eef2e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/minugun.png"
-dest_files=["res://.godot/imported/minugun.png-2cffaa4ed58317c4132af2ca31e0adef.ctex"]
+source_file="res://Art/itemy/scieżka.png"
+dest_files=["res://.godot/imported/scieżka.png-4e6e5becf64091cec2f1aff1c6eef2e6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ljq6vdl44m47"
-path="res://.godot/imported/bomba.png-d2595a886171f33b2d2be86234d17885.ctex"
+uid="uid://cifkgq8pmrn7n"
+path="res://.godot/imported/serce.png-ebd9bfbe248011f0472014bf9fec4a79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/bomba.png"
-dest_files=["res://.godot/imported/bomba.png-d2595a886171f33b2d2be86234d17885.ctex"]
+source_file="res://Art/health/serce.png"
+dest_files=["res://.godot/imported/serce.png-ebd9bfbe248011f0472014bf9fec4a79.ctex"]
 
 [params]
 

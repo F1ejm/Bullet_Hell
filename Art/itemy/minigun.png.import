@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7io8gqfw5rn2"
-path="res://.godot/imported/regenerujące się zdrowie.png-70fefbc1c942e7570d091958a815b7e9.ctex"
+uid="uid://by7rva6gw2bk"
+path="res://.godot/imported/minigun.png-c1f4992aec9760f9827ede2376554850.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/regenerujące się zdrowie.png"
-dest_files=["res://.godot/imported/regenerujące się zdrowie.png-70fefbc1c942e7570d091958a815b7e9.ctex"]
+source_file="res://Art/itemy/minigun.png"
+dest_files=["res://.godot/imported/minigun.png-c1f4992aec9760f9827ede2376554850.ctex"]
 
 [params]
 

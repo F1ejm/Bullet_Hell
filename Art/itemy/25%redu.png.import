@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3sldyxyden6x"
-path="res://.godot/imported/usuwanie itemków.png-5757603a95a0ca02dd32b3b7a0298ea7.ctex"
+uid="uid://fto45ys83mvl"
+path="res://.godot/imported/25%redu.png-637787e9942e01157a92dca13c60b304.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/usuwanie itemków.png"
-dest_files=["res://.godot/imported/usuwanie itemków.png-5757603a95a0ca02dd32b3b7a0298ea7.ctex"]
+source_file="res://Art/itemy/25%redu.png"
+dest_files=["res://.godot/imported/25%redu.png-637787e9942e01157a92dca13c60b304.ctex"]
 
 [params]
 

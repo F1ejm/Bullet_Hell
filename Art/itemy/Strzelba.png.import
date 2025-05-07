@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq0yuy1l14k84"
-path="res://.godot/imported/przebijający pocisk.png-38449056ce2592e2f4b557ccf76a0955.ctex"
+uid="uid://bidiq8ms5nejv"
+path="res://.godot/imported/Strzelba.png-ffe152c822c8b5ca5528bbf08996eac1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/przebijający pocisk.png"
-dest_files=["res://.godot/imported/przebijający pocisk.png-38449056ce2592e2f4b557ccf76a0955.ctex"]
+source_file="res://Art/itemy/Strzelba.png"
+dest_files=["res://.godot/imported/Strzelba.png-ffe152c822c8b5ca5528bbf08996eac1.ctex"]
 
 [params]
 

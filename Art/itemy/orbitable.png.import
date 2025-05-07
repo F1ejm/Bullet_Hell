@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s42k1pv305i7"
-path="res://.godot/imported/jedno serce które może się regenerotwać w bitwie tak co 10 sekund marek solarz.png-356927680e5cc8800fe59d60ef63de14.ctex"
+uid="uid://c3lbtbcmkcdjq"
+path="res://.godot/imported/orbitable.png-ef808d0411c55b89e5e43746096f4ef9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/jedno serce które może się regenerotwać w bitwie tak co 10 sekund marek solarz.png"
-dest_files=["res://.godot/imported/jedno serce które może się regenerotwać w bitwie tak co 10 sekund marek solarz.png-356927680e5cc8800fe59d60ef63de14.ctex"]
+source_file="res://Art/itemy/orbitable.png"
+dest_files=["res://.godot/imported/orbitable.png-ef808d0411c55b89e5e43746096f4ef9.ctex"]
 
 [params]
 
