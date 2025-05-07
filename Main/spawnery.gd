@@ -87,7 +87,6 @@ func Generate():
 			enemy.Player = Player
 
 func Generate_power_up():
-	Global.i += 1
 	x = randi_range(20,width)
 	y = randi_range(20,height)
 	

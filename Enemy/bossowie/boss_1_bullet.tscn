@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmpdvl0h1813g"]
+
+[ext_resource type="Script" uid="uid://dwic4s8w3cibb" path="res://Enemy/bossowie/boss_1_bullet.gd" id="1_dfdm4"]
+[ext_resource type="Texture2D" uid="uid://c0wx84vri5d5d" path="res://Art/Emeny/pixil-frame-0 (10).png" id="1_ydrek"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dfdm4"]
+radius = 5.80345
+
+[node name="Boss1_Bullet" type="Area2D" groups=["Bullet"]]
+scale = Vector2(5, 5)
+script = ExtResource("1_dfdm4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.98023e-08)
+shape = SubResource("CircleShape2D_dfdm4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.4, 0.4)
+texture = ExtResource("1_ydrek")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

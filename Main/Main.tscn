@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=26 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bnr347aq4tiyo" path="res://Art/TŁO/pixil-frame-0 (9).png" id="15_lrfe7"]
 [ext_resource type="PackedScene" uid="uid://53l1af3v5god" path="res://Main/Rooms/safe_room.tscn" id="18_r2ac1"]
 [ext_resource type="PackedScene" uid="uid://cheolkkekj0pt" path="res://Main/Rooms/Entry.tscn" id="19_d3r6l"]
+[ext_resource type="PackedScene" uid="uid://cq1hiyg6kas2c" path="res://Enemy/bossowie/boss_1.tscn" id="20_fayjp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hh5pf"]
 font_size = 32
@@ -89,7 +90,7 @@ visible = false
 Player = NodePath("../../Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("node_orbitali", "Zycie_UI") instance=ExtResource("1_lxy7q")]
-position = Vector2(-1053, 230)
+position = Vector2(-747, -499)
 node_orbitali = NodePath("../Orbitale")
 Zycie_UI = NodePath("../CanvasLayer/zycie")
 
@@ -97,7 +98,6 @@ Zycie_UI = NodePath("../CanvasLayer/zycie")
 position = Vector2(431, -261)
 
 [node name="Arena" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_qg80j")]
-position = Vector2(-1284, -301)
 Player = NodePath("../Player")
 Podstawowy = ExtResource("11_h5g1y")
 Seryjny = ExtResource("12_qd626")
@@ -118,4 +118,7 @@ position = Vector2(-1301, 18)
 scale = Vector2(0.405, 0.405)
 
 [node name="Safe_Room" parent="." instance=ExtResource("18_r2ac1")]
-position = Vector2(220, -503)
+position = Vector2(1245, -1224)
+
+[node name="Boss_1" parent="." instance=ExtResource("20_fayjp")]
+position = Vector2(-1545, -374)

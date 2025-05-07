@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq1hiyg6kas2c"]
+
+[ext_resource type="Script" uid="uid://b81enkr4k51jf" path="res://Enemy/bossowie/boss_1.gd" id="1_fq4hv"]
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_gsppg"]
+
+[node name="Boss_1" type="Node2D"]
+script = ExtResource("1_fq4hv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gsppg")
+
+[node name="Bullet_Spawn" type="Node2D" parent="."]
+
+[node name="Circle_Atak_Timer" type="Timer" parent="."]
+
+[node name="Circle_Lasting_Timer" type="Timer" parent="."]
+
+[node name="Cooldown_Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Circle_Atak_Timer" to="." method="_on_circle_atak_timer_timeout"]
+[connection signal="timeout" from="Circle_Lasting_Timer" to="." method="_on_circle_lasting_timer_timeout"]
+[connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]
