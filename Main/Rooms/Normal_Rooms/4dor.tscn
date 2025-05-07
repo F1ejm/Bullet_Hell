@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy0nmtb1lvjw6"]
+[gd_scene load_steps=5 format=3 uid="uid://dy0nmtb1lvjw6"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_68wp7"]
 [ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="2_jrt6e"]
+[ext_resource type="PackedScene" uid="uid://b3pce5gyy6w0j" path="res://Main/spawner/spawner.tscn" id="3_q24e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnnyn"]
 size = Vector2(70.9979, 538)
@@ -126,6 +127,10 @@ position = Vector2(2, 653)
 Placeholder = NodePath("../PlaceHolder")
 
 [node name="PlaceHolder" type="Node2D" parent="Template"]
+
+[node name="Arena" parent="Template" instance=ExtResource("3_q24e3")]
+position = Vector2(-576, 1192)
+scale = Vector2(1, 1.755)
 
 [node name="DoorContainer" type="Node2D" parent="."]
 position = Vector2(-646, 5)

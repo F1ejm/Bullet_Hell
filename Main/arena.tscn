@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_hjvuf"]
 [ext_resource type="PackedScene" uid="uid://dutj4ocsn2cb2" path="res://Main/Obstacle/czujka/czujka.tscn" id="2_16kjw"]
-[ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawnery.gd" id="2_66sge"]
+[ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawner/spawnery.gd" id="2_66sge"]
 [ext_resource type="PackedScene" uid="uid://bvxgexgniu3ha" path="res://Main/Pick_up/pick_up_cube.tscn" id="2_nmoe4"]
 [ext_resource type="Script" uid="uid://dm3euhaddxdo0" path="res://Main/Obstacle/obstacle_spawner.gd" id="3_juncb"]
 [ext_resource type="Script" uid="uid://d2mp0xam3t2x" path="res://Main/Obstacle/spawner_controler.gd" id="3_xp4cu"]

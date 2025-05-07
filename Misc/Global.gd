@@ -76,6 +76,9 @@ var can_spawn : int = 0
 
 #Timer Do Staminy
 var timer: float = 0
+
+#nwm co to ale potrzebne
+var player_main
 func _process(delta: float) -> void:
 	if Zycie > Max_Zycie:
 		Zycie = Max_Zycie
