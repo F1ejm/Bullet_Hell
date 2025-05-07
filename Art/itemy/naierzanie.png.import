@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0un1pbq8ube0"
-path="res://.godot/imported/pixil-frame-0 (36).png-89ca5374254d2611d4148acefaf5705d.ctex"
+uid="uid://bj5fgwrxao5ia"
+path="res://.godot/imported/naierzanie.png-df63a0d1334b06ab7b7de85c287d9987.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/pixil-frame-0 (36).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (36).png-89ca5374254d2611d4148acefaf5705d.ctex"]
+source_file="res://Art/itemy/naierzanie.png"
+dest_files=["res://.godot/imported/naierzanie.png-df63a0d1334b06ab7b7de85c287d9987.ctex"]
 
 [params]
 

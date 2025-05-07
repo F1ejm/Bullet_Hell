@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2ksx7rs74ayo"
-path="res://.godot/imported/pixil-frame-0 (35).png-d06530fcd203c862ef4ec5219816c1e9.ctex"
+uid="uid://b0un1pbq8ube0"
+path="res://.godot/imported/szybsze bullety.png-dcef2ca9714fab15d5650788b7f86b43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/pixil-frame-0 (35).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (35).png-d06530fcd203c862ef4ec5219816c1e9.ctex"]
+source_file="res://Art/itemy/szybsze bullety.png"
+dest_files=["res://.godot/imported/szybsze bullety.png-dcef2ca9714fab15d5650788b7f86b43.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxur1o26rywhv"
-path="res://.godot/imported/pixil-frame-0 (33).png-ab6e04c90e82477643fdff7d533da4ae.ctex"
+uid="uid://bsx65bskiyhp3"
+path="res://.godot/imported/szlak.png-b85c8378106ecfc41a863877acf4ae6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/pixil-frame-0 (33).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (33).png-ab6e04c90e82477643fdff7d533da4ae.ctex"]
+source_file="res://Art/itemy/szlak.png"
+dest_files=["res://.godot/imported/szlak.png-b85c8378106ecfc41a863877acf4ae6f.ctex"]
 
 [params]
 

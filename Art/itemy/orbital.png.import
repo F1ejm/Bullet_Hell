@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3sldyxyden6x"
-path="res://.godot/imported/pixil-frame-0 (30).png-469c5124d2dd227e8c75fbefb2eec46d.ctex"
+uid="uid://ntupq1ioi531"
+path="res://.godot/imported/orbital.png-8e1a449b6685b9c9c0ce77efa40d38c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/pixil-frame-0 (30).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (30).png-469c5124d2dd227e8c75fbefb2eec46d.ctex"]
+source_file="res://Art/itemy/orbital.png"
+dest_files=["res://.godot/imported/orbital.png-8e1a449b6685b9c9c0ce77efa40d38c3.ctex"]
 
 [params]
 
