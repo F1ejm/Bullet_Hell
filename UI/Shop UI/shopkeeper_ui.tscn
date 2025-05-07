@@ -51,11 +51,14 @@ texture = ExtResource("2_au6eo")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="visuals"]
-layout_mode = 0
-offset_left = 54.0
-offset_top = 593.0
-offset_right = 271.0
-offset_bottom = 638.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = -45.0
+offset_right = 270.0
+grow_vertical = 0
 text = "Shopkeeper"
 label_settings = SubResource("LabelSettings_clkvv")
 
@@ -66,9 +69,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -104.0
+offset_left = -581.0
 offset_top = -183.0
-offset_right = 400.0
+offset_right = -77.0
 offset_bottom = -89.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -80,6 +83,7 @@ theme_override_constants/separation = 20
 
 [node name="Weapon_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
@@ -98,6 +102,7 @@ theme_override_constants/separation = 20
 
 [node name="Aktywny_Itemek_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+mouse_filter = 2
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
@@ -116,6 +121,7 @@ theme_override_constants/separation = 20
 
 [node name="Pasywny_Itemek1_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
+mouse_filter = 2
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3"]
@@ -134,6 +140,7 @@ theme_override_constants/separation = 20
 
 [node name="Pasywny_Itemek2_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer4"]
 layout_mode = 2
+mouse_filter = 2
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer4"]

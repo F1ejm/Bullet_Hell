@@ -52,7 +52,7 @@ class AktywnyItemek:
 			5: "5"
 		}
 		Lista_Textur = {
-			2: preload("res://Art/Maro/Maro_ZdjęcieOG.png"),
+			2: preload("res://Art/itemy/namierzanie.png"),
 			5: preload("res://Art/itemy/burza.png"),
 			3: preload("res://Art/itemy/AOE.png"),
 			4: preload("res://Art/itemy/orbitable.png"),
@@ -112,14 +112,14 @@ class PasywnyItemek:
 			8: "8"
 		}
 		Lista_Textur = {
-			8: preload("res://Art/Maro/Maro_ZdjęcieOG.png"),
+			8: preload("res://Art/itemy/dodawanie_serca.png"),
 			1: preload("res://Art/itemy/szybsze_pociski.png"),
 			4: preload("res://Art/itemy/scieżka.png"),
 			6: preload("res://Art/itemy/przebijanie.png"),
 			3: preload("res://Art/itemy/piorun.png"),
 			5: preload("res://Art/itemy/orbitable.png"),
 			7: preload("res://Art/itemy/regeneracja.png"),
-			2: preload("res://Art/Maro/Maro_ZdjęcieOG.png")
+			2: preload("res://Art/itemy/25%redu.png")
 		}
 		dojscie = Lista_Pasywnych_Itemków[integer]
 		opis = Opisy[integer]
