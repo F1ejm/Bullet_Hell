@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwh8ai7ug5djn"]
 
-[ext_resource type="Texture2D" uid="uid://mdwhvtwfji0s" path="res://Art/Maro/Serce_maro.png" id="1_f0ub2"]
-[ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="2_d6hny"]
+[ext_resource type="Texture2D" uid="uid://cm5gnbbrxv4xc" path="res://Art/health/pixil-frame-0 (54).png" id="1_f0ub2"]
+[ext_resource type="Texture2D" uid="uid://okrti0cdfwjb" path="res://Art/health/pixil-frame-0 (55).png" id="2_d6hny"]
 
 [node name="Magiczne_Zycie" type="TextureProgressBar"]
 anchors_preset = 1
