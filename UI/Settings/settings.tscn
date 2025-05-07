@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcjt7iyff2kjg"]
 
-[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="1_u23uq"]
+[ext_resource type="Theme" uid="uid://bxkc4jb1w6l8n" path="res://UI/ui_theme.tres" id="1_u23uq"]
 [ext_resource type="FontFile" uid="uid://d1y8l7j8ou535" path="res://UI/PixelifySans[wght].ttf" id="2_6ukun"]
 
 [node name="Settings" type="Control"]
@@ -11,38 +11,109 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_u23uq")
+mouse_filter = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-texture_filter = 1
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.117671, 0.000154211, 0.208903, 1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -138.0
+offset_right = 197.0
+offset_bottom = 138.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(1, 0, 1, 1)
-theme_override_colors/font_selected_color = Color(0, 0, 1, 1)
-theme_override_colors/selection_color = Color(0, 1, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 1, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 0.9605, 0.21, 1)
-theme_override_constants/table_v_separation = 165
-theme_override_constants/table_h_separation = 95
-theme_override_constants/text_highlight_v_padding = 60
-theme_override_constants/text_highlight_h_padding = 45
-theme_override_constants/outline_size = 34
-theme_override_constants/shadow_offset_y = 20
-theme_override_constants/shadow_offset_x = -15
-theme_override_constants/shadow_outline_size = 40
-theme_override_constants/line_separation = -120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="MarginContainer2/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 1
+focus_mode = 0
+theme = ExtResource("1_u23uq")
+
+[node name="Label2" type="Label" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSlider2" type="HSlider" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_u23uq")
+
+[node name="Label3" type="Label" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSlider3" type="HSlider" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_u23uq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_u23uq")
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_u23uq")
+item_count = 2
+popup/item_0/text = "aaaaaaaaaaaaaaaaa"
+popup/item_0/id = 0
+popup/item_1/text = "bbbbbbbbbbbbbbbb"
+popup/item_1/id = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("1_u23uq")
+text = "fullscreen mode"
+
+[node name="OptionButton2" type="OptionButton" parent="MarginContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_u23uq")
+item_count = 2
+popup/item_0/text = "aaaaaaaaaaaaa"
+popup/item_0/id = 0
+popup/item_1/text = "bbbbbbbbbbbbbbbb"
+popup/item_1/id = 1
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -285.5
+offset_right = 285.5
+offset_bottom = 154.0
+grow_horizontal = 2
 theme_override_fonts/normal_font = ExtResource("2_6ukun")
-theme_override_font_sizes/normal_font_size = 296
-text = "SETTIN-
-GS"
+theme_override_font_sizes/normal_font_size = 128
+text = "SETTINGS"
+fit_content = true

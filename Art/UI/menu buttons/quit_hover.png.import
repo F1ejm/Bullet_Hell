@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drsvijtoa4noc"
-path="res://.godot/imported/quit_glitch.png-803abe50c5617eb82432d6a381c06745.ctex"
+uid="uid://4o8jepdxhodw"
+path="res://.godot/imported/quit_hover.png-5f599537e775e75837146088a548cfee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/quit_glitch.png"
-dest_files=["res://.godot/imported/quit_glitch.png-803abe50c5617eb82432d6a381c06745.ctex"]
+source_file="res://Art/UI/menu buttons/quit_hover.png"
+dest_files=["res://.godot/imported/quit_hover.png-5f599537e775e75837146088a548cfee.ctex"]
 
 [params]
 

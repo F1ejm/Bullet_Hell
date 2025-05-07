@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bxkc4jb1w6l8n"]
+
+[ext_resource type="Texture2D" uid="uid://bs3f48dwsxk0h" path="res://Art/UI/slider_grabber_normal.png" id="1_p8160"]
+[ext_resource type="Texture2D" uid="uid://d0o2tqtqyx8e0" path="res://Art/UI/slider_grabber_highlight.png" id="2_6tkuj"]
+[ext_resource type="FontFile" uid="uid://d1y8l7j8ou535" path="res://UI/PixelifySans[wght].ttf" id="3_qbadw"]
+[ext_resource type="Texture2D" uid="uid://dw1btgxko07yw" path="res://Art/UI/option_arrow.png" id="4_s437d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8160"]
+bg_color = Color(0.326895, 0.0097111, 0.496975, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tkuj"]
+bg_color = Color(0.39353, 0.2254, 0.46, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ibwq"]
+bg_color = Color(0.339835, 0.144356, 0.500936, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m23m8"]
+bg_color = Color(0.250714, 0.0979406, 0.375793, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdauq"]
+bg_color = Color(0.25098, 0.0980392, 0.376471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbadw"]
+bg_color = Color(0.341176, 0.145098, 0.501961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s437d"]
+bg_color = Color(0.25098, 0.0980392, 0.376471, 1)
+
+[resource]
+HSlider/icons/grabber = ExtResource("1_p8160")
+HSlider/icons/grabber_highlight = ExtResource("2_6tkuj")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_p8160")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_6tkuj")
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("3_qbadw")
+OptionButton/constants/arrow_margin = 12
+OptionButton/font_sizes/font_size = 20
+OptionButton/fonts/font = ExtResource("3_qbadw")
+OptionButton/icons/arrow = ExtResource("4_s437d")
+OptionButton/styles/hover = SubResource("StyleBoxFlat_5ibwq")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_m23m8")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_xdauq")
+PopupMenu/font_sizes/font_size = 20
+PopupMenu/fonts/font = ExtResource("3_qbadw")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_qbadw")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_s437d")

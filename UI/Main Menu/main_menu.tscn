@@ -1,18 +1,22 @@
-[gd_scene load_steps=17 format=3 uid="uid://b44kfkf5wpld6"]
+[gd_scene load_steps=22 format=3 uid="uid://b44kfkf5wpld6"]
 
 [ext_resource type="Script" uid="uid://dvl3q7u8yrohs" path="res://UI/Main Menu/main_menu.gd" id="1_pfbba"]
-[ext_resource type="Texture2D" uid="uid://g8vdiyeu77y0" path="res://Art/UI/play_idle.png" id="1_qlwe4"]
-[ext_resource type="Texture2D" uid="uid://djpe2y1aunig6" path="res://Art/UI/play_pressed.png" id="2_pfbba"]
-[ext_resource type="Texture2D" uid="uid://cjlaikwk7sso4" path="res://Art/UI/play_glitch.png" id="3_2vg32"]
-[ext_resource type="Texture2D" uid="uid://bcuduegvdw8vu" path="res://Art/UI/settings_idle.png" id="4_rand3"]
-[ext_resource type="Texture2D" uid="uid://cd8qjsgvtc8lg" path="res://Art/UI/play_hover.png" id="5_qlwe4"]
-[ext_resource type="Texture2D" uid="uid://c7rxtrgsoqamh" path="res://Art/UI/settings_glitch.png" id="6_uov5a"]
-[ext_resource type="Texture2D" uid="uid://pyqkvufu8hs2" path="res://Art/UI/quit_idle.png" id="7_ho881"]
-[ext_resource type="Texture2D" uid="uid://de7qupxpt2vid" path="res://Art/UI/settings_pressed.png" id="8_2vg32"]
-[ext_resource type="Texture2D" uid="uid://drsvijtoa4noc" path="res://Art/UI/quit_glitch.png" id="9_l2sjx"]
-[ext_resource type="Texture2D" uid="uid://bgo3bc5r4rte4" path="res://Art/UI/settings_hover.png" id="9_rand3"]
-[ext_resource type="Texture2D" uid="uid://dyh2krtpxq0e8" path="res://Art/UI/quit_pressed.png" id="12_gqi5s"]
-[ext_resource type="Texture2D" uid="uid://4o8jepdxhodw" path="res://Art/UI/quit_hover.png" id="13_uov5a"]
+[ext_resource type="Texture2D" uid="uid://g8vdiyeu77y0" path="res://Art/UI/menu buttons/play_idle.png" id="1_qlwe4"]
+[ext_resource type="Texture2D" uid="uid://djpe2y1aunig6" path="res://Art/UI/menu buttons/play_pressed.png" id="2_pfbba"]
+[ext_resource type="Texture2D" uid="uid://cjlaikwk7sso4" path="res://Art/UI/menu buttons/play_glitch.png" id="3_2vg32"]
+[ext_resource type="Texture2D" uid="uid://bcuduegvdw8vu" path="res://Art/UI/menu buttons/settings_idle.png" id="4_rand3"]
+[ext_resource type="Texture2D" uid="uid://cd8qjsgvtc8lg" path="res://Art/UI/menu buttons/play_hover.png" id="5_qlwe4"]
+[ext_resource type="Texture2D" uid="uid://c7rxtrgsoqamh" path="res://Art/UI/menu buttons/settings_glitch.png" id="6_uov5a"]
+[ext_resource type="Texture2D" uid="uid://pyqkvufu8hs2" path="res://Art/UI/menu buttons/quit_idle.png" id="7_ho881"]
+[ext_resource type="Texture2D" uid="uid://de7qupxpt2vid" path="res://Art/UI/menu buttons/settings_pressed.png" id="8_2vg32"]
+[ext_resource type="Texture2D" uid="uid://drsvijtoa4noc" path="res://Art/UI/menu buttons/quit_glitch.png" id="9_l2sjx"]
+[ext_resource type="Texture2D" uid="uid://bgo3bc5r4rte4" path="res://Art/UI/menu buttons/settings_hover.png" id="9_rand3"]
+[ext_resource type="Texture2D" uid="uid://b6obcw1t8c0jl" path="res://Art/UI/menu buttons/credits_idle.png" id="10_l2sjx"]
+[ext_resource type="Texture2D" uid="uid://cvddrp5hi1m76" path="res://Art/UI/menu buttons/credits_glitch.png" id="11_cchx8"]
+[ext_resource type="Texture2D" uid="uid://dvxq2ourgqrpx" path="res://Art/UI/menu buttons/credits_pressed.png" id="12_73bdd"]
+[ext_resource type="Texture2D" uid="uid://dyh2krtpxq0e8" path="res://Art/UI/menu buttons/quit_pressed.png" id="12_gqi5s"]
+[ext_resource type="Texture2D" uid="uid://c86ojq7qpekcf" path="res://Art/UI/menu buttons/credits_hover.png" id="13_rbd5m"]
+[ext_resource type="Texture2D" uid="uid://4o8jepdxhodw" path="res://Art/UI/menu buttons/quit_hover.png" id="13_uov5a"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_pfbba"]
 frames = 2
@@ -26,6 +30,13 @@ frames = 2
 frame_0/texture = ExtResource("4_rand3")
 frame_0/duration = 1.8
 frame_1/texture = ExtResource("6_uov5a")
+frame_1/duration = 0.2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_gor3d"]
+frames = 2
+frame_0/texture = ExtResource("10_l2sjx")
+frame_0/duration = 1.4
+frame_1/texture = ExtResource("11_cchx8")
 frame_1/duration = 0.2
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_ho881"]
@@ -66,9 +77,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -128.0
-offset_top = -112.0
+offset_top = -128.0
 offset_right = 128.0
-offset_bottom = 112.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -90,6 +101,15 @@ texture_pressed = ExtResource("8_2vg32")
 texture_hover = ExtResource("9_rand3")
 stretch_mode = 0
 
+[node name="Credits" type="TextureButton" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AnimatedTexture_gor3d")
+texture_pressed = ExtResource("12_73bdd")
+texture_hover = ExtResource("13_rbd5m")
+stretch_mode = 0
+
 [node name="Quit" type="TextureButton" parent="VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
@@ -101,4 +121,5 @@ stretch_mode = 0
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
