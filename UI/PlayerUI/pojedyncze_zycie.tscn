@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx7c81s56xj8c"]
 
-[ext_resource type="Texture2D" uid="uid://okrti0cdfwjb" path="res://Art/health/pixil-frame-0 (55).png" id="1_md7sr"]
-[ext_resource type="Texture2D" uid="uid://cm5gnbbrxv4xc" path="res://Art/health/pixil-frame-0 (54).png" id="2_7y6fd"]
+[ext_resource type="Texture2D" uid="uid://bewvdimwnbtay" path="res://Art/health/rama.png" id="1_md7sr"]
+[ext_resource type="Texture2D" uid="uid://cifkgq8pmrn7n" path="res://Art/health/serce.png" id="2_7y6fd"]
 
 [node name="pojedyncze_zycie" type="TextureProgressBar"]
 texture_filter = 1
@@ -10,5 +10,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_over = ExtResource("1_md7sr")
+texture_under = ExtResource("1_md7sr")
 texture_progress = ExtResource("2_7y6fd")

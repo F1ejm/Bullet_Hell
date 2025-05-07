@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwh8ai7ug5djn"]
 
-[ext_resource type="Texture2D" uid="uid://cm5gnbbrxv4xc" path="res://Art/health/pixil-frame-0 (54).png" id="1_f0ub2"]
-[ext_resource type="Texture2D" uid="uid://okrti0cdfwjb" path="res://Art/health/pixil-frame-0 (55).png" id="2_d6hny"]
+[ext_resource type="Texture2D" uid="uid://bewvdimwnbtay" path="res://Art/health/rama.png" id="1_f0ub2"]
+[ext_resource type="Texture2D" uid="uid://cifkgq8pmrn7n" path="res://Art/health/serce.png" id="2_d6hny"]
 
 [node name="Magiczne_Zycie" type="TextureProgressBar"]
 anchors_preset = 1
@@ -10,5 +10,5 @@ anchor_right = 1.0
 offset_left = -143.0
 offset_bottom = 143.0
 grow_horizontal = 0
-texture_over = ExtResource("1_f0ub2")
+texture_under = ExtResource("1_f0ub2")
 texture_progress = ExtResource("2_d6hny")

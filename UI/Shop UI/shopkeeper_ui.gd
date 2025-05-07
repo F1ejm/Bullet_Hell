@@ -52,10 +52,10 @@ class AktywnyItemek:
 			5: "5"
 		}
 		Lista_Textur = {
-			2: preload("res://Art/itemy/naierzanie.png"),
-			5: preload("res://Art/itemy/burza piorunów.png"),
-			3: preload("res://Art/itemy/bomba.png"),
-			4: preload("res://Art/itemy/orbital.png"),
+			2: preload("res://Art/Maro/Maro_ZdjęcieOG.png"),
+			5: preload("res://Art/itemy/burza.png"),
+			3: preload("res://Art/itemy/AOE.png"),
+			4: preload("res://Art/itemy/orbitable.png"),
 			1: preload("res://Art/itemy/tarcza.png")
 		}
 		dojscie = Lista_Aktywnych_Itemków[integer]
@@ -112,13 +112,13 @@ class PasywnyItemek:
 			8: "8"
 		}
 		Lista_Textur = {
-			8: preload("res://Art/itemy/jedno serce które może się regenerotwać w bitwie tak co 10 sekund marek solarz.png"),
-			1: preload("res://Art/itemy/szybsze bullety.png"),
-			4: preload("res://Art/itemy/szlak.png"),
-			6: preload("res://Art/itemy/przebijający pocisk.png"),
+			8: preload("res://Art/Maro/Maro_ZdjęcieOG.png"),
+			1: preload("res://Art/itemy/szybsze_pociski.png"),
+			4: preload("res://Art/itemy/scieżka.png"),
+			6: preload("res://Art/itemy/przebijanie.png"),
 			3: preload("res://Art/itemy/piorun.png"),
-			5: preload("res://Art/itemy/orbital.png"),
-			7: preload("res://Art/itemy/regenerujące się zdrowie.png"),
+			5: preload("res://Art/itemy/orbitable.png"),
+			7: preload("res://Art/itemy/regeneracja.png"),
 			2: preload("res://Art/Maro/Maro_ZdjęcieOG.png")
 		}
 		dojscie = Lista_Pasywnych_Itemków[integer]
@@ -171,10 +171,10 @@ class Bron:
 		lenght = Ceny.size()
 		Lista_Textur = {
 			1: preload("res://Art/Maro/Maro_ZdjęcieOG.png"),
-			2: preload("res://Art/itemy/pistolet.png"),
+			2: preload("res://Art/itemy/pistol.png"),
 			3: preload("res://Art/itemy/pm.png"),
-			4: preload("res://Art/itemy/minugun.png"),
-			5: preload("res://Art/itemy/shotgun.png")
+			4: preload("res://Art/itemy/minigun.png"),
+			5: preload("res://Art/itemy/Strzelba.png")
 		}
 		textura = Lista_Textur[integer]
 
