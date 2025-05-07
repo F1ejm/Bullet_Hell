@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bavxgun4dur0c"]
+[gd_scene load_steps=6 format=3 uid="uid://bavxgun4dur0c"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_8dnt5"]
+[ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="2_8rqoc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rqoc"]
 size = Vector2(75, 760)
@@ -96,6 +97,12 @@ scale = Vector2(0.578125, 6.0625)
 texture = ExtResource("1_8dnt5")
 
 [node name="Template" type="Node2D" parent="."]
+
+[node name="Template_controler" parent="Template" node_paths=PackedStringArray("Placeholder") instance=ExtResource("2_8rqoc")]
+position = Vector2(2, 653)
+Placeholder = NodePath("../PlaceHolder")
+
+[node name="PlaceHolder" type="Node2D" parent="Template"]
 
 [node name="DoorContainer" type="Node2D" parent="."]
 position = Vector2(-646, 5)

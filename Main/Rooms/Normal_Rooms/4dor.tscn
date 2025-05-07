@@ -121,8 +121,11 @@ texture = ExtResource("1_68wp7")
 
 [node name="Template" type="Node2D" parent="."]
 
-[node name="Template_controler" parent="Template" instance=ExtResource("2_jrt6e")]
+[node name="Template_controler" parent="Template" node_paths=PackedStringArray("Placeholder") instance=ExtResource("2_jrt6e")]
 position = Vector2(2, 653)
+Placeholder = NodePath("../PlaceHolder")
+
+[node name="PlaceHolder" type="Node2D" parent="Template"]
 
 [node name="DoorContainer" type="Node2D" parent="."]
 position = Vector2(-646, 5)
