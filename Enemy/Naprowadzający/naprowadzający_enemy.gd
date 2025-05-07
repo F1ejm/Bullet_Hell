@@ -23,10 +23,12 @@ var generate:bool = false
 var health:int = 2
 @onready var progress_bar: ProgressBar = $ProgressBar
 
+
+
 #Dmg jaki zadaje bullet innym przeciwnikom
 var bullet_dmg: int = 2
 
-
+var f = true
 var dir: Vector2 = Vector2(0,0)
 
 func _ready() -> void:
@@ -35,6 +37,10 @@ func _ready() -> void:
 	shoot_timer.start()
 	
 	progress_bar.max_value = health
+	
+	if f != true:
+		Global.can_spawn += 1 
+		queue_free()
 	
 
 func _physics_process(delta: float) -> void:
@@ -47,6 +53,7 @@ func _physics_process(delta: float) -> void:
 	movement(delta)
 
 func movement(delta):
+	
 	#sledzenie 
 	sprite.look_at(Player.global_position)
 	
@@ -78,7 +85,6 @@ func movement(delta):
 			dir = to_local(nav_agent.get_next_path_position()).normalized()
 			velocity = dir * speed * delta
 		move_and_slide()
-		
 
 func make_path():
 	if lang >= 500:
@@ -94,8 +100,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			Death()
 		speed = 0 
 	if body.is_in_group("Wall"):
-		Global.can_spawn += 1 
-		queue_free()
+		f = false
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		speed = 5000

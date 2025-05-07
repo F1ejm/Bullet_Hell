@@ -26,6 +26,8 @@ var dir: Vector2 = Vector2(0,0)
 var health:int = 3
 @onready var progress_bar: ProgressBar = $ProgressBar
 
+var f = true
+
 #sygnał do generowania jeszcze raz
 signal can_not_spawn
 
@@ -35,6 +37,10 @@ func _ready() -> void:
 	shoot_timer.start()
 	
 	progress_bar.max_value = health
+	
+	if f != true:
+		Global.can_spawn += 1 
+		queue_free()
 
 func _physics_process(delta: float) -> void:
 	progress_bar.value = health
@@ -97,8 +103,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			Death()
 		speed = 0 
 	if body.is_in_group("Wall"):
-		Global.can_spawn =+ 1 
-		queue_free()
+		f = false
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
