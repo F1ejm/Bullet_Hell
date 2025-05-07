@@ -1,10 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq1hiyg6kas2c"]
+[gd_scene load_steps=4 format=3 uid="uid://cq1hiyg6kas2c"]
 
 [ext_resource type="Script" uid="uid://b81enkr4k51jf" path="res://Enemy/bossowie/boss_1.gd" id="1_fq4hv"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_gsppg"]
 
-[node name="Boss_1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fq4hv"]
+size = Vector2(59, 59)
+
+[node name="Boss_1" type="Area2D" groups=["Boss"]]
 script = ExtResource("1_fq4hv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_fq4hv")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+offset_left = -59.0
+offset_top = -59.0
+offset_right = 59.0
+offset_bottom = -32.0
+show_percentage = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -17,12 +33,22 @@ rotation = 0.0174533
 position = Vector2(20.9968, -0.366499)
 
 [node name="Circle_Atak_Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Circle_Lasting_Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Spray_Atak_Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Spray_Lasting_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Eryczkowy_Atak_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Eryczkowy_Lasting_Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Cooldown_Timer" type="Timer" parent="."]
 one_shot = true
@@ -32,4 +58,6 @@ autostart = true
 [connection signal="timeout" from="Circle_Lasting_Timer" to="." method="_on_circle_lasting_timer_timeout"]
 [connection signal="timeout" from="Spray_Atak_Timer" to="." method="_on_spray_atak_timer_timeout"]
 [connection signal="timeout" from="Spray_Lasting_Timer" to="." method="_on_spray_lasting_timer_timeout"]
+[connection signal="timeout" from="Eryczkowy_Atak_Timer" to="." method="_on_eryczkowy_atak_timer_timeout"]
+[connection signal="timeout" from="Eryczkowy_Lasting_Timer" to="." method="_on_eryczkowy_lasting_timer_timeout"]
 [connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]

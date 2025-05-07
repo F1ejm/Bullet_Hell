@@ -23,7 +23,7 @@ radius = 52.8764
 size = Vector2(114.286, 61.4286)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
-size = Vector2(23.3671, 22.8571)
+size = Vector2(8.76266, 9.99998)
 
 [sub_resource type="Animation" id="Animation_tok1r"]
 length = 0.001
@@ -144,7 +144,7 @@ position = Vector2(-0.000253816, -67.8571)
 shape = SubResource("RectangleShape2D_q3lat")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9.53674e-07)
+position = Vector2(0, 4.76837e-07)
 scale = Vector2(0.978177, 1)
 shape = SubResource("RectangleShape2D_ddoul")
 

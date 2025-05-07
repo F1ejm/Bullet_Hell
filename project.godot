@@ -42,6 +42,7 @@ Player=""
 Enemy=""
 Wall=""
 Bullet=""
+Boss=""
 
 [input]
 

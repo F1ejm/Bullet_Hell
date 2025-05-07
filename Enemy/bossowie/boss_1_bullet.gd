@@ -7,9 +7,11 @@ var fall_speed = 150
 var directon: bool = true
 @onready var timer: Timer = $Timer
 var move_side: bool
+var change_timer: bool
 
 func _ready() -> void:
-	timer.wait_time = randf_range(0.5,1.5)
+	if change_timer == true:
+		timer.wait_time = randf_range(0.5,1.5)
 
 func _physics_process(delta: float) -> void:
 	position += Vector2.RIGHT.rotated(rotation) * speed * delta
@@ -34,3 +36,7 @@ func _on_timer_timeout() -> void:
 		directon = false
 	else:
 		directon = true
+
+
+func _on_queue_free_timer_timeout() -> void:
+	queue_free()

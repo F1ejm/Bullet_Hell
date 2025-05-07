@@ -24,5 +24,7 @@ func _on_area_entered(area: Area2D) -> void:
 			Pasywny_Item_Piercing = false
 		else:
 			queue_free()
+	if area.is_in_group("Boss") and area.can_be_hit == true:
+		area.health -= dmg
 	if area.is_in_group("Bullet") and PowerUp_Active == true:
 		area.queue_free()
