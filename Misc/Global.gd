@@ -39,7 +39,7 @@ var AtakCooldown: float = 0.4
 var RangeCooldown: float = 2
 
 #Karabin, Pistol, Uzi
-var CurrentWeapon = "Uzi" 
+var CurrentWeapon = "Minigun" 
 var RangeWeaponCooldown: float = 1
 
 #Pieniądze

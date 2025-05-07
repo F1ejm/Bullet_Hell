@@ -328,28 +328,51 @@ func _on_atak_timer_timeout() -> void:
 
 #Atak - Ranged
 func Ranged():
-	var b = bullet_path.instantiate()
-	owner.add_child(b)
-	b.transform = global_transform
-	b.scale.x = 0.5
-	b.scale.y = 0.5
-	b.dmg = dmg_range
-	b.PowerUp_Active = Bullet_PowerUp
-	b.initial_velocity = velocity
-	
-	#Pasywny Itemek - faster_bullets
-	if faster_bullets == true:
-		b.speed = b.speed * 1.5
-		
+	if(not stats.isShotgun):
+		var b = bullet_path.instantiate()
+		owner.add_child(b)
+		b.transform = global_transform
+		b.scale.x = 0.5
+		b.scale.y = 0.5
+		b.dmg = dmg_range
+		b.PowerUp_Active = Bullet_PowerUp
+		b.initial_velocity = velocity
+			#Pasywny Itemek - faster_bullets
+		if faster_bullets == true:
+			b.speed = b.speed * 1.5
+			
+		#Pasywny Itemek - przebicie jednego przeciwnika
+		if Bullet_Piercing_Pasywny == true:
+			b.Pasywny_Item_Piercing = true
+		if(stats.isMinigun):
+			b.rotation = self.rotation - randf_range(-3,3) * 0.1
+	else:
+		for i in range(0,4):
+			var b = bullet_path.instantiate()
+			owner.add_child(b)
+			b.transform = global_transform
+			b.scale.x = 0.5
+			b.scale.y = 0.5
+			b.dmg = dmg_range
+			b.PowerUp_Active = Bullet_PowerUp
+			b.initial_velocity = velocity
+			b.rotation = self.rotation - (2-i*1.5)*0.1
+
+			#Pasywny Itemek - faster_bullets
+			if faster_bullets == true:
+				b.speed = b.speed * 1.5
+
+			#Pasywny Itemek - przebicie jednego przeciwnika
+			if Bullet_Piercing_Pasywny == true:
+				b.Pasywny_Item_Piercing = true
+
 	#Pasywny Itemek - Piorun
 	pasywne_itemki.rotation = randi_range(0,360)
 	if Piorun == true:
 		piorun_rand = randi_range(1,4)
 		if piorun_rand == 1:
 			Func_Piorun()
-	#Pasywny Itemek - przebicie jednego przeciwnika
-	if Bullet_Piercing_Pasywny == true:
-		b.Pasywny_Item_Piercing = true
+
 	
 #Atak - Ranged
 func _on_range_timer_timeout() -> void:

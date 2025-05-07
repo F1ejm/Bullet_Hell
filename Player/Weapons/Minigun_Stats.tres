@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=2 format=3 uid="uid://bxal62ngw0v2b"]
+
+[ext_resource type="Script" uid="uid://xl4k2awifu8w" path="res://Player/Weapons/WeaponStats.gd" id="1_l5khf"]
+
+[resource]
+script = ExtResource("1_l5khf")
+cooldown = 0.13
+dmg = 1
+seria = 1
+isShotgun = false
+isMinigun = true
