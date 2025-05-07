@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=2 format=3 uid="uid://bh5ab1i85s7r6"]
+
+[ext_resource type="Script" uid="uid://xl4k2awifu8w" path="res://Player/Weapons/WeaponStats.gd" id="1_oqn4p"]
+
+[resource]
+script = ExtResource("1_oqn4p")
+cooldown = 1.0
+dmg = 1
+seria = 1
+isShotgun = true
