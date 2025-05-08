@@ -227,6 +227,8 @@ func Zmiana_Sklepu():
 	Pasywny_Itemek1_Opis = pasywny1.opis
 	Pasywny_Itemek1_Textura = pasywny1.textura
 	pasywny_itemek_1_texture.texture = Pasywny_Itemek1_Textura
+	pasywny_itemek_1_texture.tooltip_text = Pasywny_Itemek1_Opis
+	pasywny_itemek_1_button.tooltip_text = str(Pasywny_Itemek1_Cena)
 	
 	#Pasywny Itemek2
 	var rand2 = randi_range(5,8)
@@ -241,6 +243,8 @@ func Zmiana_Sklepu():
 	Pasywny_Itemek2_Opis = pasywny2.opis
 	Pasywny_Itemek2_Textura = pasywny2.textura
 	pasywny_itemek_2_texture.texture = Pasywny_Itemek2_Textura
+	pasywny_itemek_2_texture.tooltip_text = Pasywny_Itemek2_Opis
+	pasywny_itemek_2_button.tooltip_text = str(Pasywny_Itemek2_Cena)
 	
 	#Aktywny Itemek
 	var rand3 = randi_range(1,5)
@@ -250,6 +254,8 @@ func Zmiana_Sklepu():
 	Aktywny_Itemek_Opis = aktywny.opis
 	Aktywny_Itemek_Textura = aktywny.textura
 	aktywny_itemek_texture.texture = Aktywny_Itemek_Textura
+	aktywny_itemek_texture.tooltip_text = Aktywny_Itemek_Opis
+	aktywny_itemek_button.tooltip_text = str(Aktywny_Itemek_Cena)
 	
 	#Bron
 	var rand4 = randi_range(1,5)
@@ -259,6 +265,8 @@ func Zmiana_Sklepu():
 	Bron_Opis = bron.opis
 	Bron_Textura = bron.textura
 	weapon_texture.texture = Bron_Textura
+	weapon_texture.tooltip_text = Bron_Opis
+	weapon_button.tooltip_text = str(Bron_Cena)
 
 
 func _on_weapon_button_pressed() -> void:
