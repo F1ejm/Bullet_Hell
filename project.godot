@@ -46,6 +46,7 @@ Enemy=""
 Wall=""
 Bullet=""
 Boss=""
+Boss_Bullet=""
 
 [input]
 

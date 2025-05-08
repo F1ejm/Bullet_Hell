@@ -154,32 +154,16 @@ rotation = 0.0174533
 [node name="Rotating_Bullet_Spawner" type="Node2D" parent="Bullet_Spawn"]
 position = Vector2(20.9968, -0.366499)
 
-[node name="Circle_Atak_Timer" type="Timer" parent="."]
+[node name="Atak_Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="Circle_Lasting_Timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="Spray_Atak_Timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="Spray_Lasting_Timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="Eryczkowy_Atak_Timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="Eryczkowy_Lasting_Timer" type="Timer" parent="."]
+[node name="Lasting_Timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="Cooldown_Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
 
-[connection signal="timeout" from="Circle_Atak_Timer" to="." method="_on_circle_atak_timer_timeout"]
-[connection signal="timeout" from="Circle_Lasting_Timer" to="." method="_on_circle_lasting_timer_timeout"]
-[connection signal="timeout" from="Spray_Atak_Timer" to="." method="_on_spray_atak_timer_timeout"]
-[connection signal="timeout" from="Spray_Lasting_Timer" to="." method="_on_spray_lasting_timer_timeout"]
-[connection signal="timeout" from="Eryczkowy_Atak_Timer" to="." method="_on_eryczkowy_atak_timer_timeout"]
-[connection signal="timeout" from="Eryczkowy_Lasting_Timer" to="." method="_on_eryczkowy_lasting_timer_timeout"]
+[connection signal="timeout" from="Atak_Timer" to="." method="_on_circle_atak_timer_timeout"]
+[connection signal="timeout" from="Lasting_Timer" to="." method="_on_circle_lasting_timer_timeout"]
 [connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]

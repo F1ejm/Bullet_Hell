@@ -12,25 +12,21 @@ var x: int
 #Timery
 var another_atak: bool = true
 @onready var cooldown_timer: Timer = $Cooldown_Timer
+@onready var lasting_timer: Timer = $Lasting_Timer
+@onready var atak_timer: Timer = $Atak_Timer
 var cooldown_waittime: float = 3
 
 #Circle
-@onready var circle_lasting_timer: Timer = $Circle_Lasting_Timer
-@onready var circle_atak_timer: Timer = $Circle_Atak_Timer
 var circle_atak_waittime: float = 1
 var circle_lasting_waittime: float = 10
 var can_circle_atak: bool = true
 
 #Spray
-@onready var spray_lasting_timer: Timer = $Spray_Lasting_Timer
-@onready var spray_atak_timer: Timer = $Spray_Atak_Timer
-var spray_lasting_waittime: float = 6
+var spray_lasting_waittime: float = 8.5
 var spray_atak_waittime: float = 0.05
 var can_spray_atak: bool = true
 
 #Eryczkowy
-@onready var eryczkowy_atak_timer: Timer = $Eryczkowy_Atak_Timer
-@onready var eryczkowy_lasting_timer: Timer = $Eryczkowy_Lasting_Timer
 var eryczkowy_lasting_waittime: float = 10
 var eryczkowy_atak_waittime: float = 0.05
 var can_eryczkowy_atak: bool = true
@@ -49,18 +45,6 @@ func _ready() -> void:
 	#Timery
 	cooldown_timer.wait_time = cooldown_waittime
 	
-	#Circle Timers
-	circle_atak_timer.wait_time = circle_atak_waittime
-	circle_lasting_timer.wait_time = circle_lasting_waittime
-	
-	#Spray Timer
-	spray_lasting_timer.wait_time = spray_lasting_waittime
-	spray_atak_timer.wait_time = spray_atak_waittime
-	
-	#Eryczkowy Timer
-	eryczkowy_atak_timer.wait_time = eryczkowy_atak_waittime
-	eryczkowy_lasting_timer.wait_time = eryczkowy_lasting_waittime
-	
 func _process(delta: float) -> void:
 	progress_bar.value = health
 	
@@ -74,11 +58,17 @@ func _process(delta: float) -> void:
 	if another_atak == true:
 		match(x):
 			1:
+				atak_timer.wait_time = circle_atak_waittime
 				Circle_Atak()
+				
 			2:
+				atak_timer.wait_time = spray_atak_waittime
 				Spray_Atak()
+				
 			3:
+				atak_timer.wait_time = eryczkowy_atak_waittime
 				Eryk_Atak()
+				
 
 func Generate_Atak(y) -> int:
 	var x = randi_range(1,y)
@@ -103,7 +93,7 @@ func Circle_Atak():
 				bullet.directon = false
 			bullet.scale = Vector2(5,5)
 			
-		circle_atak_timer.start()
+		atak_timer.start()
 		can_circle_atak = false
 
 #Spray Atak
@@ -114,13 +104,12 @@ func Spray_Atak():
 		owner.add_child(bullet)
 		bullet.transform = bullet_spawn.global_transform
 		bullet.rotation = bullet_spawn.rotation+ deg_to_rad(randi_range(-45,45))
-		print(bullet.rotation)
 		bullet.speed = 400
 		bullet.move_side = false
 		bullet.scale = Vector2(2,2)
 		
 		can_spray_atak = false
-		spray_atak_timer.start()
+		atak_timer.start()
 		
 #Eryczkowy Atak
 func Eryk_Atak():
@@ -136,7 +125,7 @@ func Eryk_Atak():
 			bullet.change_timer = false
 			bullet.directon = true
 			bullet.scale = Vector2(3,3)
-		eryczkowy_atak_timer.start()
+		atak_timer.start()
 		can_eryczkowy_atak = false
 
 func _on_cooldown_timer_timeout() -> void:
@@ -146,50 +135,38 @@ func _on_cooldown_timer_timeout() -> void:
 	x = Generate_Atak(3)
 	match(x):
 		1:
-			circle_lasting_timer.start()
 			can_circle_atak = true
+			lasting_timer.wait_time = circle_lasting_waittime
 		2:
-			spray_lasting_timer.start()
 			can_spray_atak = true
+			lasting_timer.wait_time = spray_lasting_waittime
 		3:
-			eryczkowy_lasting_timer.start()
 			can_eryczkowy_atak = true
+			lasting_timer.wait_time = eryczkowy_lasting_waittime
+	lasting_timer.start()
 			
 	
-#Circle Timery
+#Timery
 func _on_circle_atak_timer_timeout() -> void:
-	can_circle_atak = true
+	match(x):
+		1:
+			can_circle_atak = true
+		2:
+			can_spray_atak = true
+		3:
+			can_eryczkowy_atak = true
 
 func _on_circle_lasting_timer_timeout() -> void:
 	can_circle_atak = false
-	another_atak = false
-	can_be_hit = true
-	$AnimatedSprite2D.play("niszczenie")
-	cooldown_timer.start()
-
-#Spray Timery
-func _on_spray_lasting_timer_timeout() -> void:
 	can_spray_atak = false
-	another_atak = false
-	can_be_hit = true
-	$AnimatedSprite2D.play("niszczenie")
-	cooldown_timer.start()
-
-
-func _on_spray_atak_timer_timeout() -> void:
-	can_spray_atak = true
-
-#Eryczek Timer
-func _on_eryczkowy_atak_timer_timeout() -> void:
-	can_eryczkowy_atak = true
-
-
-func _on_eryczkowy_lasting_timer_timeout() -> void:
 	can_eryczkowy_atak = false
 	another_atak = false
 	can_be_hit = true
 	$AnimatedSprite2D.play("niszczenie")
 	cooldown_timer.start()
+	
+	for o in get_tree().get_nodes_in_group("Boss_Bullet"):
+		o.queue_free()
 	
 		
 func Death():

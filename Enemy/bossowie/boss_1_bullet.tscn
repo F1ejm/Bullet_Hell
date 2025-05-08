@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfdm4"]
 radius = 5.80345
 
-[node name="Boss1_Bullet" type="Area2D"]
+[node name="Boss1_Bullet" type="Area2D" groups=["Boss_Bullet"]]
 scale = Vector2(5, 5)
 script = ExtResource("1_dfdm4")
 
