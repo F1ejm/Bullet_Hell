@@ -159,7 +159,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	node_orbitali.global_position = global_position
-
+	$Camera2D.global_position = (self.global_position * 3 +get_global_mouse_position())/4
 
 func _physics_process(delta):
 	if Global.stop == true:
@@ -295,7 +295,7 @@ func _physics_process(delta):
 		var value = animation_player.get_animation("dash").value_track_interpolate(1,current_time)
 		self.position = (self.position + velocity * value.x * delta * 0.028)
 
-	if Input.is_action_just_pressed("dash") and Global.IsDashing == false and Global.Stamina > 0:
+	if Input.is_action_just_pressed("dash") and Global.IsDashing == false and Global.Stamina > 0 and velocity != Vector2(0,0):
 		if Stamina_PowerUp == true:
 			animation_player.play("dash")
 		else:
