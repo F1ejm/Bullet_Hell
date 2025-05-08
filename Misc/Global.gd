@@ -68,6 +68,10 @@ var current_master_volume: float
 var current_music_volume: float
 var current_sfx_volume: float
 
+var is_in_settings := false # dotyczy settingsów w pause menu
+var is_in_game := false
+var is_in_pause_menu := false
+
 #Liczba Przeciwników
 var i: int = -1
 

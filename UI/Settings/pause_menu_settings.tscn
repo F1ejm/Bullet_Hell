@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bm1vquy3vqvrc"]
+[gd_scene load_steps=2 format=3 uid="uid://bm1vquy3vqvrc"]
+
+[ext_resource type="Script" uid="uid://hkmdm5cltr3g" path="res://UI/Settings/pause_menu_settings.gd" id="1_vnph7"]
 
 [node name="Pause Menu Settings" type="Control"]
 layout_mode = 3
@@ -7,3 +9,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vnph7")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 697.0
+offset_top = 278.0
+offset_right = 925.0
+offset_bottom = 309.0
+text = "settingsy w pause menu"
+
+[node name="back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 408.0
+offset_right = 978.0
+offset_bottom = 525.0
+text = "back"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
