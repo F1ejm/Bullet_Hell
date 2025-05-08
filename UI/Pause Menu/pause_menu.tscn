@@ -1,4 +1,38 @@
-[gd_scene format=3 uid="uid://baeffjqt2pip1"]
+[gd_scene load_steps=16 format=3 uid="uid://baeffjqt2pip1"]
+
+[ext_resource type="Script" uid="uid://dfr4ev0ah2rh6" path="res://UI/Pause Menu/pause_menu.gd" id="1_e11wt"]
+[ext_resource type="Texture2D" uid="uid://cgbvsaukwm7d0" path="res://Art/UI/menu buttons/resume_idle.png" id="2_aw2qs"]
+[ext_resource type="Texture2D" uid="uid://ck7ag31qksme1" path="res://Art/UI/menu buttons/resume_glitch.png" id="3_7qhu1"]
+[ext_resource type="Texture2D" uid="uid://d3vgftxl84er3" path="res://Art/UI/menu buttons/resume_pressed.png" id="4_wfk44"]
+[ext_resource type="Texture2D" uid="uid://cpkuut7ae6ngn" path="res://Art/UI/menu buttons/resume_hover.png" id="5_agini"]
+[ext_resource type="Texture2D" uid="uid://bcuduegvdw8vu" path="res://Art/UI/menu buttons/settings_idle.png" id="6_qfyjf"]
+[ext_resource type="Texture2D" uid="uid://c7rxtrgsoqamh" path="res://Art/UI/menu buttons/settings_glitch.png" id="7_et0lo"]
+[ext_resource type="Texture2D" uid="uid://de7qupxpt2vid" path="res://Art/UI/menu buttons/settings_pressed.png" id="8_vqt4l"]
+[ext_resource type="Texture2D" uid="uid://bgo3bc5r4rte4" path="res://Art/UI/menu buttons/settings_hover.png" id="9_0jg3l"]
+[ext_resource type="Texture2D" uid="uid://dwaru5vmaacpl" path="res://Art/UI/menu buttons/menu_idle.png" id="10_df05m"]
+[ext_resource type="Texture2D" uid="uid://b3vwf36g82ka0" path="res://Art/UI/menu buttons/menu_glitch.png" id="11_lgeg3"]
+[ext_resource type="Texture2D" uid="uid://dhxsxsyysbdvq" path="res://Art/UI/menu buttons/menu_pressed.png" id="12_4l17m"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_16jii"]
+frames = 2
+frame_0/texture = ExtResource("2_aw2qs")
+frame_0/duration = 1.6
+frame_1/texture = ExtResource("3_7qhu1")
+frame_1/duration = 0.2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_aw2qs"]
+frames = 2
+frame_0/texture = ExtResource("6_qfyjf")
+frame_0/duration = 1.5
+frame_1/texture = ExtResource("7_et0lo")
+frame_1/duration = 0.2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_wrnib"]
+frames = 2
+frame_0/texture = ExtResource("10_df05m")
+frame_0/duration = 1.6
+frame_1/texture = ExtResource("11_lgeg3")
+frame_1/duration = 0.2
 
 [node name="Pause Menu" type="Control"]
 layout_mode = 3
@@ -7,3 +41,67 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_e11wt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.466667)
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -106.0
+offset_right = 128.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Resume" type="TextureButton" parent="MarginContainer2/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AnimatedTexture_16jii")
+texture_pressed = ExtResource("4_wfk44")
+texture_hover = ExtResource("5_agini")
+stretch_mode = 0
+
+[node name="Settings" type="TextureButton" parent="MarginContainer2/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AnimatedTexture_aw2qs")
+texture_pressed = ExtResource("8_vqt4l")
+texture_hover = ExtResource("9_0jg3l")
+stretch_mode = 0
+
+[node name="Main Menu" type="TextureButton" parent="MarginContainer2/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AnimatedTexture_wrnib")
+texture_pressed = ExtResource("12_4l17m")
+texture_hover = ExtResource("12_4l17m")
+stretch_mode = 0
+
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
