@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvlbbqj5vqmdr"]
+
+[ext_resource type="Script" uid="uid://1bmkuci7h2pq" path="res://Enemy/bossowie/boss_2.gd" id="1_jo0hj"]
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_7aq5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l580o"]
+size = Vector2(59, 59)
+
+[node name="Boss_2" type="Area2D" groups=["Boss"]]
+script = ExtResource("1_jo0hj")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+offset_left = -149.0
+offset_top = -161.0
+offset_right = 149.0
+offset_bottom = -121.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_l580o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7aq5m")
+
+[node name="pierwszy_atak_node" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="pierwszy_atak_node"]
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("2_7aq5m")
+
+[node name="pivot" type="Node2D" parent="pierwszy_atak_node"]
+position = Vector2(12, 0)
+
+[node name="drugi_atak_node" type="Node2D" parent="."]
+
+[node name="Pierwszy" type="Node2D" parent="drugi_atak_node"]
+position = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="drugi_atak_node"]
+position = Vector2(42, -7.62939e-06)
+rotation = 1.5708
+scale = Vector2(0.0351563, 0.652344)
+texture = ExtResource("2_7aq5m")
+
+[node name="drugi_atak_node2" type="Node2D" parent="."]
+
+[node name="Drugi" type="Node2D" parent="drugi_atak_node2"]
+position = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="drugi_atak_node2"]
+position = Vector2(58, 0)
+scale = Vector2(0.928223, 0.0234375)
+texture = ExtResource("2_7aq5m")
+
+[node name="drugi_atak_node3" type="Node2D" parent="."]
+
+[node name="Trzeci" type="Node2D" parent="drugi_atak_node3"]
+position = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="drugi_atak_node3"]
+position = Vector2(58, 0)
+scale = Vector2(0.928223, 0.0234375)
+texture = ExtResource("2_7aq5m")
+
+[node name="drugi_atak_node4" type="Node2D" parent="."]
+
+[node name="Czwarty" type="Node2D" parent="drugi_atak_node4"]
+position = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="drugi_atak_node4"]
+position = Vector2(58, 0)
+scale = Vector2(0.928223, 0.0234375)
+texture = ExtResource("2_7aq5m")
+
+[node name="Bullet_Spawn" type="Node2D" parent="."]
+rotation = 0.0174533
+
+[node name="Rotating_Bullet_Spawner" type="Node2D" parent="Bullet_Spawn"]
+position = Vector2(20.9968, -0.366499)
+
+[node name="Atak_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Lasting_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Cooldown_Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Atak_Timer" to="." method="_on_atak_timer_timeout"]
+[connection signal="timeout" from="Lasting_Timer" to="." method="_on_lasting_timer_timeout"]
+[connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]

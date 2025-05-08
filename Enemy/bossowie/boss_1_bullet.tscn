@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0wx84vri5d5d" path="res://Art/Emeny/pixil-frame-0 (10).png" id="1_ydrek"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfdm4"]
-radius = 5.80345
+radius = 4.6
 
 [node name="Boss1_Bullet" type="Area2D" groups=["Boss_Bullet"]]
 scale = Vector2(5, 5)
