@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3vgftxl84er3" path="res://Art/UI/menu buttons/resume_pressed.png" id="4_wfk44"]
 [ext_resource type="Texture2D" uid="uid://cpkuut7ae6ngn" path="res://Art/UI/menu buttons/resume_hover.png" id="5_agini"]
 [ext_resource type="Texture2D" uid="uid://bvyrw5cmaac4n" path="res://Art/UI/menu buttons/settings_idle2.png" id="6_i831f"]
-[ext_resource type="Texture2D" uid="uid://c7rxtrgsoqamh" path="res://Art/UI/menu buttons/settings_glitch.png" id="7_et0lo"]
+[ext_resource type="Texture2D" uid="uid://crbosqnvisbon" path="res://Art/UI/menu buttons/settings_glitch2.png" id="7_i831f"]
 [ext_resource type="Texture2D" uid="uid://de7qupxpt2vid" path="res://Art/UI/menu buttons/settings_pressed.png" id="8_vqt4l"]
 [ext_resource type="Texture2D" uid="uid://bgo3bc5r4rte4" path="res://Art/UI/menu buttons/settings_hover.png" id="9_0jg3l"]
 [ext_resource type="Texture2D" uid="uid://dwaru5vmaacpl" path="res://Art/UI/menu buttons/menu_idle.png" id="10_df05m"]
@@ -24,7 +24,7 @@ frame_1/duration = 0.2
 frames = 2
 frame_0/texture = ExtResource("6_i831f")
 frame_0/duration = 1.5
-frame_1/texture = ExtResource("7_et0lo")
+frame_1/texture = ExtResource("7_i831f")
 frame_1/duration = 0.2
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_wrnib"]
