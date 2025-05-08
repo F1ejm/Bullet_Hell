@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bnr347aq4tiyo" path="res://Art/TŁO/pixil-frame-0 (9).png" id="15_lrfe7"]
 [ext_resource type="PackedScene" uid="uid://53l1af3v5god" path="res://Main/Rooms/safe_room.tscn" id="18_r2ac1"]
 [ext_resource type="PackedScene" uid="uid://cheolkkekj0pt" path="res://Main/Rooms/Entry.tscn" id="19_d3r6l"]
-[ext_resource type="PackedScene" uid="uid://cq1hiyg6kas2c" path="res://Enemy/bossowie/boss_1.tscn" id="20_fayjp"]
+[ext_resource type="PackedScene" uid="uid://dvlbbqj5vqmdr" path="res://Enemy/bossowie/boss_2.tscn" id="22_j4nmm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hh5pf"]
 font_size = 32
@@ -96,7 +96,7 @@ Player = NodePath("../../Player")
 [node name="Pause Menu Settings" parent="CanvasLayer" instance=ExtResource("9_j4nmm")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("node_orbitali", "Zycie_UI") instance=ExtResource("1_lxy7q")]
-position = Vector2(1871, -474)
+position = Vector2(-947, -447)
 node_orbitali = NodePath("../Orbitale")
 Zycie_UI = NodePath("../CanvasLayer/zycie")
 
@@ -126,6 +126,6 @@ scale = Vector2(0.405, 0.405)
 [node name="Safe_Room" parent="." instance=ExtResource("18_r2ac1")]
 position = Vector2(1245, -1224)
 
-[node name="Boss_1" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("20_fayjp")]
-position = Vector2(-1545, -374)
+[node name="Boss_2" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("22_j4nmm")]
+position = Vector2(-1519, -493)
 Player = NodePath("../Player")

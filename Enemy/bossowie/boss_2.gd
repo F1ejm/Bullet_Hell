@@ -18,6 +18,7 @@ var cooldown_waittime: float = 3
 
 #Pierwszy - Homing
 @onready var pierwszy_atak_node: Node2D = $pierwszy_atak_node
+@onready var pivot: Node2D = $pierwszy_atak_node/pivot
 
 var pierwszy_atak_waittime: float = 1
 var pierwszy_lasting_waittime: float = 10
@@ -42,8 +43,10 @@ var drugi_atak_waittime: float = 0.2
 var can_drugi_atak: bool = true
 
 #trzeci
+var trzeci_node: PackedScene = preload("res://Enemy/bossowie/boss_2_trzeci_atak.tscn")
+
 var trzeci_lasting_waittime: float = 10
-var trzeci_atak_waittime: float = 0.2
+var trzeci_atak_waittime: float = 0.5
 var can_trzeci_atak: bool = true
 
 #Zycie i wszystko do zycia
@@ -63,10 +66,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	progress_bar.value = health
 	
+	bullet_spawn.look_at(Player.global_position)
+	pierwszy_atak_node.look_at(Player.global_position)
+	
 	if another_atak == true:
 		match(x):
 			1:
-				pierwszy_atak_node.global_position += (Player.global_position - pierwszy_atak_node.global_position) * delta * 1/4
+				pierwszy_atak_node.global_position += Vector2.RIGHT.rotated(pierwszy_atak_node.rotation) * 200 * delta
 				atak_timer.wait_time = pierwszy_atak_waittime
 				First_Atak()
 			2:
@@ -76,6 +82,9 @@ func _process(delta: float) -> void:
 				drugi_atak_node_4.rotation += deg_to_rad(-0.8)
 				atak_timer.wait_time = drugi_atak_waittime
 				Second_Atak()
+			3:
+				atak_timer.wait_time = trzeci_atak_waittime
+				Third_Atak()
 				
 func Generate_Atak(y) -> int:
 	var x = randi_range(1,y)
@@ -85,14 +94,13 @@ func Generate_Atak(y) -> int:
 func First_Atak():
 	#wystrzał node'a
 	if can_pierwszy_atak == true:
-		
 		for i in range(1,21):
 			#Spawn Bulletu
 			var bullet = bullet_path.instantiate()
 			owner.add_child(bullet)
 			bullet.transform = pierwszy_atak_node.global_transform
 			bullet.rotation = deg_to_rad(18 * i)
-			bullet.speed = 200
+			bullet.speed = 330
 			bullet.move_side = false
 			bullet.change_timer = false
 			bullet.scale = Vector2(3,3)
@@ -111,7 +119,6 @@ func Second_Atak():
 		bullet.move_side = false
 		bullet.change_timer = false
 		bullet.scale = Vector2(3,3)
-		bullet.timer.wait_time = 0.5
 		
 		var bullet2 = bullet_path.instantiate()
 		owner.add_child(bullet2)
@@ -120,7 +127,6 @@ func Second_Atak():
 		bullet2.move_side = false
 		bullet2.change_timer = false
 		bullet2.scale = Vector2(3,3)
-		bullet2.timer.wait_time = 0.5
 		
 		var bullet3 = bullet_path.instantiate()
 		owner.add_child(bullet3)
@@ -129,7 +135,7 @@ func Second_Atak():
 		bullet3.move_side = false
 		bullet3.change_timer = false
 		bullet3.scale = Vector2(3,3)
-		bullet3.timer.wait_time = 0.5
+		
 		
 		var bullet4 = bullet_path.instantiate()
 		owner.add_child(bullet4)
@@ -138,14 +144,21 @@ func Second_Atak():
 		bullet4.move_side = false
 		bullet4.change_timer = false
 		bullet4.scale = Vector2(3,3)
-		bullet4.timer.wait_time = 0.5
 		
 		atak_timer.start()
 		can_pierwszy_atak = false
 		
 #trzeci atak
 func Third_Atak():
-	pass
+	if can_trzeci_atak == true:
+		#atak w playera
+		var atak = trzeci_node.instantiate()
+		owner.add_child(atak)
+		atak.Player = Player.global_position
+		atak.transform = rotating_bullet_spawner.global_transform
+		
+		can_trzeci_atak = false
+		atak_timer.start()
 
 func _on_cooldown_timer_timeout() -> void:
 	can_pierwszy_atak = true
@@ -153,7 +166,7 @@ func _on_cooldown_timer_timeout() -> void:
 	can_trzeci_atak = true
 	another_atak = true
 	pierwszy_atak_node.global_position = global_position
-	x = Generate_Atak(2)
+	x = Generate_Atak(3)
 	match(x):
 		1:
 			lasting_timer.wait_time = pierwszy_lasting_waittime
@@ -167,7 +180,8 @@ func _on_cooldown_timer_timeout() -> void:
 			drugi_atak_node_3.rotation += deg_to_rad(120)
 			drugi_atak_node_4.rotation -= deg_to_rad(120)
 			lasting_timer.wait_time = drugi_lasting_waittime
-			
+		3:
+			lasting_timer.wait_time = trzeci_lasting_waittime
 	lasting_timer.start()
 		
 func Death():

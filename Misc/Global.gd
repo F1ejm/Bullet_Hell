@@ -118,7 +118,7 @@ func _process(delta: float) -> void:
 		Stamina = 0
 	if Long_Stamina_cdr == true:
 		timer += delta
-	if timer >= 2:
+	if timer >= 1:
 		Long_Stamina_cdr = false
 		timer = 0
 		

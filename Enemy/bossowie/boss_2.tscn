@@ -32,49 +32,25 @@ position = Vector2(0, -5.96046e-08)
 scale = Vector2(0.203125, 0.203125)
 texture = ExtResource("2_7aq5m")
 
-[node name="pivot" type="Node2D" parent="pierwszy_atak_node"]
-position = Vector2(12, 0)
-
 [node name="drugi_atak_node" type="Node2D" parent="."]
 
 [node name="Pierwszy" type="Node2D" parent="drugi_atak_node"]
 position = Vector2(1, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="drugi_atak_node"]
-position = Vector2(42, -7.62939e-06)
-rotation = 1.5708
-scale = Vector2(0.0351563, 0.652344)
-texture = ExtResource("2_7aq5m")
 
 [node name="drugi_atak_node2" type="Node2D" parent="."]
 
 [node name="Drugi" type="Node2D" parent="drugi_atak_node2"]
 position = Vector2(1, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="drugi_atak_node2"]
-position = Vector2(58, 0)
-scale = Vector2(0.928223, 0.0234375)
-texture = ExtResource("2_7aq5m")
-
 [node name="drugi_atak_node3" type="Node2D" parent="."]
 
 [node name="Trzeci" type="Node2D" parent="drugi_atak_node3"]
 position = Vector2(1, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="drugi_atak_node3"]
-position = Vector2(58, 0)
-scale = Vector2(0.928223, 0.0234375)
-texture = ExtResource("2_7aq5m")
-
 [node name="drugi_atak_node4" type="Node2D" parent="."]
 
 [node name="Czwarty" type="Node2D" parent="drugi_atak_node4"]
 position = Vector2(1, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="drugi_atak_node4"]
-position = Vector2(58, 0)
-scale = Vector2(0.928223, 0.0234375)
-texture = ExtResource("2_7aq5m")
 
 [node name="Bullet_Spawn" type="Node2D" parent="."]
 rotation = 0.0174533

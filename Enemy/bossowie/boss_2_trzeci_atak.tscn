@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://drjrgf030343d"]
+
+[ext_resource type="Script" uid="uid://b8xestff2g6oj" path="res://Enemy/bossowie/boss_2_trzeci_atak.gd" id="1_afu7v"]
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_jysse"]
+
+[node name="Boss2_Trzeci_Atak" type="Node2D"]
+script = ExtResource("1_afu7v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.27374e-13, 0)
+scale = Vector2(0.21875, 0.21875)
+texture = ExtResource("2_jysse")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
