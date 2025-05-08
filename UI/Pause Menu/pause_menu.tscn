@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ck7ag31qksme1" path="res://Art/UI/menu buttons/resume_glitch.png" id="3_7qhu1"]
 [ext_resource type="Texture2D" uid="uid://d3vgftxl84er3" path="res://Art/UI/menu buttons/resume_pressed.png" id="4_wfk44"]
 [ext_resource type="Texture2D" uid="uid://cpkuut7ae6ngn" path="res://Art/UI/menu buttons/resume_hover.png" id="5_agini"]
-[ext_resource type="Texture2D" uid="uid://bcuduegvdw8vu" path="res://Art/UI/menu buttons/settings_idle.png" id="6_qfyjf"]
+[ext_resource type="Texture2D" uid="uid://bvyrw5cmaac4n" path="res://Art/UI/menu buttons/settings_idle2.png" id="6_i831f"]
 [ext_resource type="Texture2D" uid="uid://c7rxtrgsoqamh" path="res://Art/UI/menu buttons/settings_glitch.png" id="7_et0lo"]
 [ext_resource type="Texture2D" uid="uid://de7qupxpt2vid" path="res://Art/UI/menu buttons/settings_pressed.png" id="8_vqt4l"]
 [ext_resource type="Texture2D" uid="uid://bgo3bc5r4rte4" path="res://Art/UI/menu buttons/settings_hover.png" id="9_0jg3l"]
@@ -20,9 +20,9 @@ frame_0/duration = 1.6
 frame_1/texture = ExtResource("3_7qhu1")
 frame_1/duration = 0.2
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_aw2qs"]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_i831f"]
 frames = 2
-frame_0/texture = ExtResource("6_qfyjf")
+frame_0/texture = ExtResource("6_i831f")
 frame_0/duration = 1.5
 frame_1/texture = ExtResource("7_et0lo")
 frame_1/duration = 0.2
@@ -35,6 +35,7 @@ frame_1/texture = ExtResource("11_lgeg3")
 frame_1/duration = 0.2
 
 [node name="Pause Menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,10 +86,11 @@ texture_hover = ExtResource("5_agini")
 stretch_mode = 0
 
 [node name="Settings" type="TextureButton" parent="MarginContainer2/VBoxContainer"]
+process_mode = 3
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
-texture_normal = SubResource("AnimatedTexture_aw2qs")
+texture_normal = SubResource("AnimatedTexture_i831f")
 texture_pressed = ExtResource("8_vqt4l")
 texture_hover = ExtResource("9_0jg3l")
 stretch_mode = 0

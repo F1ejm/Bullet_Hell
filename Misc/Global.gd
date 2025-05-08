@@ -72,6 +72,7 @@ var is_in_settings := false # dotyczy settingsów w pause menu
 var is_in_game := false
 var is_in_pause_menu := false
 
+
 #Liczba Przeciwników
 var i: int = -1
 
@@ -83,7 +84,16 @@ var timer: float = 0
 
 #nwm co to ale potrzebne
 var player_main
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 func _process(delta: float) -> void:
+	#Pauzowanie Gry
+	if is_in_game == false:
+		get_tree().paused = true
+	else:
+		get_tree().paused = false
+	
 	if Zycie > Max_Zycie:
 		Zycie = Max_Zycie
 	

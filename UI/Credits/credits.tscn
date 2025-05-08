@@ -1,9 +1,113 @@
-[gd_scene format=3 uid="uid://ccs8hafnc58wy"]
+[gd_scene load_steps=8 format=3 uid="uid://ccs8hafnc58wy"]
+
+[ext_resource type="FontFile" uid="uid://d1y8l7j8ou535" path="res://UI/PixelifySans[wght].ttf" id="1_4i5kg"]
+[ext_resource type="Script" uid="uid://frhse62uc8i5" path="res://UI/Credits/credits.gd" id="1_n4oh0"]
+[ext_resource type="Texture2D" uid="uid://cmy52wjivuw0f" path="res://Art/UI/menu buttons/back_idle.png" id="2_n4oh0"]
+[ext_resource type="Texture2D" uid="uid://b5ypo1rec14lp" path="res://Art/UI/menu buttons/back_glitch.png" id="3_lfta3"]
+[ext_resource type="Texture2D" uid="uid://b236o5406pec5" path="res://Art/UI/menu buttons/back_pressed.png" id="4_30bwe"]
+[ext_resource type="Texture2D" uid="uid://whl5qkxy16id" path="res://Art/UI/menu buttons/back_hover.png" id="5_jjdaq"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ailny"]
+frames = 2
+frame_0/texture = ExtResource("2_n4oh0")
+frame_0/duration = 1.5
+frame_1/texture = ExtResource("3_lfta3")
+frame_1/duration = 0.2
 
 [node name="Credits" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_n4oh0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.117671, 0.000154211, 0.208903, 1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 144.0
+offset_top = 166.0
+offset_right = -144.0
+offset_bottom = -166.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_4i5kg")
+theme_override_fonts/bold_font = ExtResource("1_4i5kg")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[b]Mxels[/b]
+CEO and founder of Solpolex. Led the team and managed the project. Responsible for all graphical assets and overall visual style of the game.
+
+[b]Master[/b]
+Lead programmer. Created the enemy and boss systems, implemented all power-ups and items. Specialized in 2D raycasting and core gameplay mechanics.
+
+[b]F1ejm[/b]
+Programmer. Built the spawning system and implemented the room generation system. Head of debugging and responsible for resolving game-breaking issues and stability problems.
+
+[b]Gigabajt000[/b]
+Head of sound design. Created the entire UI system and all related graphics. Designed and implemented the shop system. Handled all sound effects and audio implementation.
+
+[b]Kamil_owski[/b]
+Programmer. Created the weapon systems and contributed to the design and implementation of various enemies and items. Helped with debugging and gameplay tuning throughout development.
+
+[b]Marek Solarz[/b]
+Master of iteration and recursion, a mentor, an idol, and an enduring inspiration. Through his distinct and disciplined teaching style, he shaped generations of programmers to approach problems with precision, structure, and elegance. His mastery lies not just in knowledge, but in how he instills it — methodically, relentlessly, and with purpose. To be taught by him is to learn how to think."
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -285.5
+offset_right = 285.5
+offset_bottom = 154.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_4i5kg")
+theme_override_font_sizes/normal_font_size = 128
+text = "CREDITS"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="back" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -89.0
+offset_right = -64.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4, 4)
+size_flags_vertical = 3
+texture_normal = SubResource("AnimatedTexture_ailny")
+texture_pressed = ExtResource("4_30bwe")
+texture_hover = ExtResource("5_jjdaq")
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
