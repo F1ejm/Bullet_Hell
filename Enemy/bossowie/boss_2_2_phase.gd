@@ -24,10 +24,11 @@ var can_pierwszy_atak: bool = true
 
 var player_position
 
-
-var drugi_lasting_waittime: float = 5
-var drugi_atak_waittime: float = 0.2
+var drugi_lasting_waittime: float = 6
+var drugi_atak_waittime: float = 1.5
 var can_drugi_atak: bool = true
+
+var homing_missle: PackedScene = preload("res://Enemy/bossowie/boss_2_homing_missle.tscn")
 
 var trzeci_lasting_waittime: float = 10
 var trzeci_atak_waittime: float = 0.5
@@ -60,13 +61,14 @@ func _process(delta: float) -> void:
 			2:
 				atak_timer.wait_time = drugi_atak_waittime
 				Second_Atak()
+				position = position.move_toward(player_position,delta * 1200)
 			3:
 				atak_timer.wait_time = trzeci_atak_waittime
 				Third_Atak()
 				
 				
 func Generate_Atak(y) -> int:
-	var x = randi_range(1,y)
+	var x = randi_range(2,y)
 	return x
 	
 func First_Atak():
@@ -104,7 +106,24 @@ func First_Atak():
 		atak_timer.start()
 
 func Second_Atak():
-	pass
+	if can_drugi_atak == true:
+		player_position = Player.global_position
+		
+		#bullet
+		for i in range(1,21):
+			#Spawn Bulletu
+			var bullet = homing_missle.instantiate()
+			add_child(bullet)
+			bullet.global_transform = global_transform
+			bullet.rotation = deg_to_rad(18 * i)
+			bullet.scale = Vector2(4,4)
+			bullet.atak_timer.wait_time = 0.5 
+			bullet.atak_timer.start()
+			bullet.main = main
+			bullet.Player = Player
+		
+		can_drugi_atak = false
+		atak_timer.start()
 
 func Third_Atak():
 	pass
@@ -115,7 +134,7 @@ func _on_cooldown_timer_timeout() -> void:
 	can_drugi_atak = true
 	can_trzeci_atak = true
 	another_atak = true
-	x = Generate_Atak(1)
+	x = Generate_Atak(2)
 	match(x):
 		1:
 			lasting_timer.wait_time = pierwszy_lasting_waittime

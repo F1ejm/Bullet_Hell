@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy4spr41satha"]
+
+[ext_resource type="Script" uid="uid://buvnqd1xwp8on" path="res://Enemy/bossowie/boss_2_homing_missle.gd" id="1_b7aay"]
+[ext_resource type="Texture2D" uid="uid://c0wx84vri5d5d" path="res://Art/Emeny/pixil-frame-0 (10).png" id="1_yw5bo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7aay"]
+radius = 4.6
+
+[node name="boss2_homing_missle" type="Area2D" groups=["Boss_Bullet"]]
+script = ExtResource("1_b7aay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.98023e-08)
+shape = SubResource("CircleShape2D_b7aay")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.4, 0.4)
+texture = ExtResource("1_yw5bo")
+
+[node name="atak_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="queue_free_timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="atak_timer" to="." method="_on_atak_timer_timeout"]
+[connection signal="timeout" from="queue_free_timer" to="." method="_on_queue_free_timer_timeout"]
