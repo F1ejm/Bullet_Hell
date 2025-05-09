@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b44kfkf5wpld6"]
+[gd_scene load_steps=27 format=3 uid="uid://b44kfkf5wpld6"]
 
 [ext_resource type="Script" uid="uid://dvl3q7u8yrohs" path="res://UI/Main Menu/main_menu.gd" id="1_pfbba"]
 [ext_resource type="Texture2D" uid="uid://g8vdiyeu77y0" path="res://Art/UI/menu buttons/play_idle.png" id="1_qlwe4"]
@@ -17,6 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://dyh2krtpxq0e8" path="res://Art/UI/menu buttons/quit_pressed.png" id="12_gqi5s"]
 [ext_resource type="Texture2D" uid="uid://c86ojq7qpekcf" path="res://Art/UI/menu buttons/credits_hover.png" id="13_rbd5m"]
 [ext_resource type="Texture2D" uid="uid://4o8jepdxhodw" path="res://Art/UI/menu buttons/quit_hover.png" id="13_uov5a"]
+[ext_resource type="Texture2D" uid="uid://7h12xbxda5by" path="res://Art/UI/game_logo1.png" id="18_gor3d"]
+[ext_resource type="Texture2D" uid="uid://dfwuel5hjkpsi" path="res://Art/UI/game_logo2.png" id="19_j66k8"]
+[ext_resource type="Texture2D" uid="uid://bj546cxtsxxg8" path="res://Art/UI/game_logo3.png" id="20_122ck"]
+[ext_resource type="Texture2D" uid="uid://cod0psslg3ab5" path="res://Art/UI/game_logo4.png" id="21_lmq76"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_pfbba"]
 frames = 2
@@ -45,6 +49,21 @@ frame_0/texture = ExtResource("7_ho881")
 frame_0/duration = 1.7
 frame_1/texture = ExtResource("9_l2sjx")
 frame_1/duration = 0.2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ju2or"]
+frames = 6
+frame_0/texture = ExtResource("18_gor3d")
+frame_0/duration = 2.0
+frame_1/texture = ExtResource("19_j66k8")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("18_gor3d")
+frame_2/duration = 0.5
+frame_3/texture = ExtResource("20_122ck")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("18_gor3d")
+frame_4/duration = 0.5
+frame_5/texture = ExtResource("21_lmq76")
+frame_5/duration = 0.1
 
 [node name="Main Menu" type="Control"]
 process_mode = 3
@@ -78,9 +97,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -128.0
-offset_top = -148.0
+offset_top = -36.0
 offset_right = 128.0
-offset_bottom = 148.0
+offset_bottom = 260.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -120,6 +139,22 @@ texture_normal = SubResource("AnimatedTexture_ho881")
 texture_pressed = ExtResource("12_gqi5s")
 texture_hover = ExtResource("13_uov5a")
 stretch_mode = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AnimatedTexture_ju2or")
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
