@@ -2,6 +2,7 @@ extends Area2D
 
 var speed = 700
 
+
 #sideways movement
 var fall_speed = 150
 var directon: bool = true

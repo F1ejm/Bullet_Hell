@@ -6,6 +6,10 @@ extends Area2D
 @onready var rotating_bullet_spawner: Node2D = $Bullet_Spawn/Rotating_Bullet_Spawner
 var bullet_path = preload("res://Enemy/bossowie/boss_1_bullet.tscn")
 
+var second_phase_path = preload("res://Enemy/bossowie/boss_2_2_phase.tscn")
+
+@export var main: Node2D
+
 #variable ktory wybiera ktory atak wyprowadzic
 var x: int
 
@@ -49,8 +53,13 @@ var trzeci_lasting_waittime: float = 10
 var trzeci_atak_waittime: float = 0.5
 var can_trzeci_atak: bool = true
 
+#czwarty
+var czwarty_lasting_waittime: float = 7
+var czwarty_atak_waittime: float = 0.7
+var can_czwarty_atak: bool = true
+
 #Zycie i wszystko do zycia
-var health: int = 200
+var health: int = 1
 @onready var progress_bar: ProgressBar = $ProgressBar
 var can_be_hit: bool = true
 
@@ -65,6 +74,8 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	progress_bar.value = health
+	if health <= 0:
+		Second_Phase()
 	
 	bullet_spawn.look_at(Player.global_position)
 	pierwszy_atak_node.look_at(Player.global_position)
@@ -85,6 +96,9 @@ func _process(delta: float) -> void:
 			3:
 				atak_timer.wait_time = trzeci_atak_waittime
 				Third_Atak()
+			4:
+				atak_timer.wait_time = czwarty_atak_waittime
+				Fourth_Atak()
 				
 func Generate_Atak(y) -> int:
 	var x = randi_range(1,y)
@@ -159,14 +173,34 @@ func Third_Atak():
 		
 		can_trzeci_atak = false
 		atak_timer.start()
+		
+#Czwarty atak
+func Fourth_Atak():
+	if can_czwarty_atak == true:
+		bullet_spawn.rotation += deg_to_rad(60)
+		
+		for i in range(1,12):
+			bullet_spawn.rotation -= deg_to_rad(10)
+			#spawn
+			var bullet = bullet_path.instantiate()
+			owner.add_child(bullet)
+			bullet.transform = rotating_bullet_spawner.global_transform
+			bullet.speed = 500
+			bullet.move_side = false
+			bullet.change_timer = false
+			bullet.scale = Vector2(3,3)
+		
+		can_czwarty_atak = false
+		atak_timer.start()
 
 func _on_cooldown_timer_timeout() -> void:
 	can_pierwszy_atak = true
 	can_drugi_atak = true
 	can_trzeci_atak = true
+	can_czwarty_atak = true
 	another_atak = true
 	pierwszy_atak_node.global_position = global_position
-	x = Generate_Atak(3)
+	x = Generate_Atak(4)
 	match(x):
 		1:
 			lasting_timer.wait_time = pierwszy_lasting_waittime
@@ -182,10 +216,18 @@ func _on_cooldown_timer_timeout() -> void:
 			lasting_timer.wait_time = drugi_lasting_waittime
 		3:
 			lasting_timer.wait_time = trzeci_lasting_waittime
+		4:
+			lasting_timer.wait_time = czwarty_lasting_waittime
 	lasting_timer.start()
 		
-func Death():
+func Second_Phase():
 	# Animacje smierci i sfx etc. TODO
+	var second_phase = second_phase_path.instantiate()
+	owner.add_child(second_phase)
+	second_phase.transform = global_transform
+	second_phase.Player = Player
+	second_phase.main = main
+	
 	queue_free()
 
 #Timery
@@ -197,11 +239,14 @@ func _on_atak_timer_timeout() -> void:
 			can_drugi_atak = true
 		3:
 			can_trzeci_atak = true
+		4:
+			can_czwarty_atak = true
 
 func _on_lasting_timer_timeout() -> void:
 	can_pierwszy_atak = false
 	can_drugi_atak = false
 	can_trzeci_atak = false
+	can_czwarty_atak = false
 	another_atak = false
 	cooldown_timer.start()
 	
