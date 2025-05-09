@@ -79,7 +79,8 @@ class PasywnyItemek:
 		5: "3 Orbitals That Fly Around Your Character Killing Both Enemys And Bullets That Stand In Their Way",
 		6: "Your Bullets Can Pierce Through One Enemy",
 		7: "Your Health Slowly Regenerates",
-		8: "You Gain Additional Special Heart That Regenerates Quite Fast"
+		8: "You Gain Additional Special Heart That Regenerates Quite Fast",
+		9: "Your Bullets Can Fly Through Inner Walls"
 	}
 	var Ceny = {
 		1: 10,
@@ -89,7 +90,8 @@ class PasywnyItemek:
 		5: 20,
 		6: 20,
 		7: 20,
-		8: 20
+		8: 20,
+		9: 10
 	}
 
 	var dojscie
@@ -109,7 +111,8 @@ class PasywnyItemek:
 			5: "5",
 			6: "6",
 			7: "7",
-			8: "8"
+			8: "8",
+			9: "9"
 		}
 		Lista_Textur = {
 			8: preload("res://Art/itemy/dodawanie_serca.png"),
@@ -119,7 +122,8 @@ class PasywnyItemek:
 			3: preload("res://Art/itemy/piorun.png"),
 			5: preload("res://Art/itemy/orbitable.png"),
 			7: preload("res://Art/itemy/regeneracja.png"),
-			2: preload("res://Art/itemy/25%redu.png")
+			2: preload("res://Art/itemy/25%redu.png"),
+			9: preload("res://Art/Maro/Maro_ZdjęcieOG.png")
 		}
 		dojscie = Lista_Pasywnych_Itemków[integer]
 		opis = Opisy[integer]
@@ -193,19 +197,21 @@ var Aktywny_Itemek_Cena
 var Aktywny_Itemek_Opis
 
 var Aktywny_Itemek_Textura
-
+var rand3 
 
 var Pasywny_Itemek1
 var Pasywny_Itemek1_Cena
 var Pasywny_Itemek1_Opis
 
 var Pasywny_Itemek1_Textura
+var rand1
 
 var Pasywny_Itemek2
 var Pasywny_Itemek2_Cena
 var Pasywny_Itemek2_Opis
 
 var Pasywny_Itemek2_Textura
+var rand2
 
 func _ready():
 	visible = false
@@ -220,7 +226,7 @@ func _process(delta: float) -> void:
 
 func Zmiana_Sklepu():
 	#Pasywny Itemek 1
-	var rand1 = randi_range(1,4)
+	rand1 = randi_range(1,4)
 	var pasywny1 = PasywnyItemek.new(Player,rand1)
 	Pasywny_Itemek1 = pasywny1.dojscie
 	Pasywny_Itemek1_Cena = pasywny1.cena
@@ -231,7 +237,7 @@ func Zmiana_Sklepu():
 	pasywny_itemek_1_button.tooltip_text = str(Pasywny_Itemek1_Cena) + " $"
 	
 	#Pasywny Itemek2
-	var rand2 = randi_range(5,8)
+	rand2 = randi_range(5,9)
 	if rand2 == rand1:
 		if rand2 == 8:
 			rand2 -= 1
@@ -247,7 +253,7 @@ func Zmiana_Sklepu():
 	pasywny_itemek_2_button.tooltip_text = str(Pasywny_Itemek2_Cena) + " $"
 	
 	#Aktywny Itemek
-	var rand3 = randi_range(1,5)
+	rand3 = randi_range(1,5)
 	var aktywny = AktywnyItemek.new(Player,rand3)
 	Aktywny_Itemek = aktywny.dojscie
 	Aktywny_Itemek_Cena = aktywny.cena
@@ -270,7 +276,7 @@ func Zmiana_Sklepu():
 
 
 func _on_weapon_button_pressed() -> void:
-	if Global.VDolce >= Bron_Cena:
+	if Global.VDolce >= Bron_Cena and Global.CurrentWeapon != Bron_Nazwa:
 		Global.VDolce -= Bron_Cena
 		Global.CurrentWeapon = Bron_Nazwa
 		Player._on_weapon_changed()
@@ -278,8 +284,7 @@ func _on_weapon_button_pressed() -> void:
 
 
 func _on_aktywny_itemek_button_pressed() -> void:
-	if Global.VDolce >= Aktywny_Itemek_Cena:
-		print(Aktywny_Itemek_Opis)
+	if Global.VDolce >= Aktywny_Itemek_Cena and rand3-1 != Player.Current_Active_Item:
 		Global.VDolce -= Aktywny_Itemek_Cena
 		Player.Can_Use_Tarcza = false
 		Player.Can_Use_Projectiles = false
@@ -307,7 +312,6 @@ func _on_aktywny_itemek_button_pressed() -> void:
 
 func _on_pasywny_itemek_1_button_pressed() -> void:
 	if Global.VDolce >= Pasywny_Itemek1_Cena:
-		print(Pasywny_Itemek1_Opis)
 		Global.VDolce -= Pasywny_Itemek1_Cena
 		match(Pasywny_Itemek1):
 			"1":
@@ -326,12 +330,13 @@ func _on_pasywny_itemek_1_button_pressed() -> void:
 				Player.Regenerating_Health = true
 			"8":
 				Player.Regenerating_Heart = true
+			"9":
+				Player.Ignore_wall_Item = true
 				
 
 
 func _on_pasywny_itemek_2_button_pressed() -> void:
 	if Global.VDolce >= Pasywny_Itemek2_Cena:
-		print(Pasywny_Itemek2_Opis)
 		Global.VDolce -= Pasywny_Itemek2_Cena
 		match(Pasywny_Itemek2):
 			"1":
@@ -350,3 +355,5 @@ func _on_pasywny_itemek_2_button_pressed() -> void:
 				Player.Regenerating_Health = true
 			"8":
 				Player.Regenerating_Heart = true
+			"9":
+				Player.Ignore_wall_Item = true

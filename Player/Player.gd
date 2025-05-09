@@ -40,7 +40,7 @@ var Move_Slower_PowerUp: bool = false
 
 #Itemy Aktywne --------------------------------
 
-var Current_Active_Item: int = 4
+var Current_Active_Item: int
 @onready var trwanie_timer: Timer = $Trwanie_Timer
 @onready var cooldown_timer: Timer = $Cooldown_Timer
 
@@ -115,6 +115,9 @@ var regen: bool = true
 var Regenerating_Heart: bool = false
 var Dodatkowe_Zycie: bool = false
 @export var Zycie_UI: Control
+
+#Pociski przelatują przez ścianę
+var Ignore_wall_Item: bool = false
 
 #------------------------------------------
 
@@ -344,6 +347,10 @@ func Ranged():
 		#Pasywny Itemek - przebicie jednego przeciwnika
 		if Bullet_Piercing_Pasywny == true:
 			b.Pasywny_Item_Piercing = true
+			
+		#Pasywny itemek - przebicie ścian
+		if Ignore_wall_Item == true:
+			b.ignore_walls = true
 		if(stats.isMinigun):
 			b.rotation = self.rotation - randf_range(-3,3) * 0.1
 	else:
@@ -365,6 +372,10 @@ func Ranged():
 			#Pasywny Itemek - przebicie jednego przeciwnika
 			if Bullet_Piercing_Pasywny == true:
 				b.Pasywny_Item_Piercing = true
+				
+			#Pasywny itemek - przebicie ścian
+			if Ignore_wall_Item == true:
+				b.ignore_walls = true
 
 	#Pasywny Itemek - Piorun
 	pasywne_itemki.rotation = randi_range(0,360)

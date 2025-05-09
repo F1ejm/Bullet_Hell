@@ -4,6 +4,8 @@ var initial_velocity = Vector2(0,0)
 var speed = 1400
 var dmg: int
 
+var ignore_walls: bool
+
 var Pasywny_Item_Piercing: bool
 
 var PowerUp_Active: bool
@@ -12,7 +14,7 @@ func _physics_process(delta: float) -> void:
 	position += transform.x * speed * delta
 	position += initial_velocity * delta / 10
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Wall"):
+	if body.is_in_group("Wall") and ignore_walls != true:
 		queue_free()
 
 
