@@ -168,7 +168,25 @@ func _physics_process(delta):
 	if Global.stop == true:
 		return
 	#Power Up'y ----------------------------------------
-	
+	if Global.start_powerup_timer == true:
+		Global.start_powerup_timer = false
+		power_up_timer.start()
+		
+	#Pozytywne
+	#1 Dash Zabija
+	Dash_PowerUp = Global.Dash_PowerUp
+	#2 Nieograniczona Stamina
+	Stamina_PowerUp = Global.Stamina_PowerUp
+	#3 Bullet Przecinający Inne Bullety
+	Bullet_PowerUp = Global.Bullet_PowerUp
+	#Negatywne
+	#1 Nie możesz dashować przez 5 sekund
+	Cant_Dash_PowerUp = Global.Cant_Dash_PowerUp
+	#2 Nie możesz strzelać
+	Cant_Shoot_PowerUp = Global.Cant_Shoot_PowerUp
+	#3 Chodzisz 2 razy wolniej
+	Move_Slower_PowerUp = Global.Move_Slower_PowerUp
+		
 	#Nie możesz dashować
 	if Cant_Dash_PowerUp == true:
 		Global.Stamina = 0
@@ -532,23 +550,23 @@ func _on_fire_trace_timer_timeout() -> void:
 func _on_power_up_timer_timeout() -> void:
 	#Pozytywne
 	#1 Dash Zabija
-	Dash_PowerUp = false
+	Global.Dash_PowerUp = false
 
 	#2 Nieograniczona Stamina
-	Stamina_PowerUp = false
+	Global.Stamina_PowerUp = false
 
 	#3 Bullet Przecinający Inne Bullety
-	Bullet_PowerUp = false
+	Global.Bullet_PowerUp = false
 
 	#Negatywne
 	#1 Nie możesz dashować przez 5 sekund
-	Cant_Dash_PowerUp = false
+	Global.Cant_Dash_PowerUp = false
 	
 	#2 Nie możesz strzelać
-	Cant_Shoot_PowerUp = false
+	Global.Cant_Shoot_PowerUp = false
 
 	#3 Chodzisz 2 razy wolniej
-	Move_Slower_PowerUp = false
+	Global.Move_Slower_PowerUp = false
 
 #Pasywny Itemek timer - regenerujace sie zycie
 func _on_regenerating_timer_timeout() -> void:
