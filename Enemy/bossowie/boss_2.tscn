@@ -35,7 +35,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"smiech",
-"speed": 3.0
+"speed": 5.0
 }]
 
 [node name="Boss_2" type="Area2D" groups=["Boss"]]
@@ -104,8 +104,7 @@ position = Vector2(4, -44)
 scale = Vector2(8.715, 8.715)
 sprite_frames = SubResource("SpriteFrames_myy88")
 animation = &"smiech"
-frame = 1
-frame_progress = 0.584165
+frame_progress = 0.745427
 
 [connection signal="timeout" from="Atak_Timer" to="." method="_on_atak_timer_timeout"]
 [connection signal="timeout" from="Lasting_Timer" to="." method="_on_lasting_timer_timeout"]

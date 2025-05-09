@@ -138,7 +138,6 @@ Player = NodePath("../Player")
 main = NodePath("..")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer2"]
 material = SubResource("ShaderMaterial_o8qko")

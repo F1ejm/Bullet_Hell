@@ -158,6 +158,7 @@ func _on_cooldown_timer_timeout() -> void:
 			
 #Timery
 func _on_atak_timer_timeout() -> void:
+	$AnimatedSprite2D.play("Idle")
 	match(x):
 		1:
 			can_pierwszy_atak = true
