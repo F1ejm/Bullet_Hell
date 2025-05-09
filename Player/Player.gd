@@ -296,7 +296,7 @@ func _physics_process(delta):
 		rotation = lock_rotation
 		var current_time = animation_player.current_animation_position
 		var value = animation_player.get_animation("dash").value_track_interpolate(1,current_time)
-		self.position = (self.position + velocity * value.x * delta * 0.028)
+		self.position = (self.position + velocity * value.x * delta * 0.08)
 
 	if Input.is_action_just_pressed("dash") and Global.IsDashing == false and Global.Stamina > 0 and velocity != Vector2(0,0):
 		if Stamina_PowerUp == true:
