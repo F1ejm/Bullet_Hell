@@ -171,4 +171,5 @@ func _on_circle_lasting_timer_timeout() -> void:
 		
 func Death():
 	# Animacje smierci i sfx etc. TODO
+	Global.VDolce += 20
 	queue_free()

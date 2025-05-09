@@ -167,4 +167,5 @@ func _on_lasting_timer_timeout() -> void:
 
 
 func Death():
+	Global.VDolce += 35
 	queue_free()
