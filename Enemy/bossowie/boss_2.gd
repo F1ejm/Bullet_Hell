@@ -198,6 +198,7 @@ func Fourth_Atak():
 		atak_timer.start()
 
 func _on_cooldown_timer_timeout() -> void:
+	$AnimatedSprite2D.play("Idle")
 	can_pierwszy_atak = true
 	can_drugi_atak = true
 	can_trzeci_atak = true
@@ -236,6 +237,7 @@ func Second_Phase():
 
 #Timery
 func _on_atak_timer_timeout() -> void:
+	$AnimatedSprite2D.play("Idle")
 	match(x):
 		1:
 			can_pierwszy_atak = true
@@ -247,6 +249,7 @@ func _on_atak_timer_timeout() -> void:
 			can_czwarty_atak = true
 
 func _on_lasting_timer_timeout() -> void:
+	$AnimatedSprite2D.play("smiech")
 	can_pierwszy_atak = false
 	can_drugi_atak = false
 	can_trzeci_atak = false

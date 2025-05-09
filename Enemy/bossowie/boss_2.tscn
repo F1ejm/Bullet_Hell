@@ -1,11 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvlbbqj5vqmdr"]
+[gd_scene load_steps=9 format=3 uid="uid://dvlbbqj5vqmdr"]
 
 [ext_resource type="Script" uid="uid://1bmkuci7h2pq" path="res://Enemy/bossowie/boss_2.gd" id="1_jo0hj"]
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_7aq5m"]
 [ext_resource type="Texture2D" uid="uid://cqfm6kqok3pu" path="res://Art/boss2_fire_wall/pixil-frame-0 (78).png" id="3_h22ix"]
+[ext_resource type="Texture2D" uid="uid://nemw34lak3wc" path="res://Art/boss2_fire_wall/frame1.png" id="3_itxqf"]
+[ext_resource type="Texture2D" uid="uid://b0m6svogmio4" path="res://Art/boss2_fire_wall/Frame 2.png" id="4_hcmnd"]
+[ext_resource type="Texture2D" uid="uid://cwl2x5xc5trte" path="res://Art/boss2_fire_wall/frame 3.png" id="5_278ow"]
+[ext_resource type="Texture2D" uid="uid://cm547iyn5rtfa" path="res://Art/boss2_fire_wall/śmiech.png" id="6_760w1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l580o"]
-size = Vector2(59, 59)
+size = Vector2(277, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_myy88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_itxqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hcmnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_278ow")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_itxqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_760w1")
+}],
+"loop": true,
+"name": &"smiech",
+"speed": 3.0
+}]
 
 [node name="Boss_2" type="Area2D" groups=["Boss"]]
 script = ExtResource("1_jo0hj")
@@ -20,11 +51,8 @@ offset_bottom = -121.0
 show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(5.5, -31)
 shape = SubResource("RectangleShape2D_l580o")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_7aq5m")
 
 [node name="pierwszy_atak_node" type="Node2D" parent="."]
 
@@ -69,6 +97,15 @@ one_shot = true
 [node name="Cooldown_Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(4, -44)
+scale = Vector2(8.715, 8.715)
+sprite_frames = SubResource("SpriteFrames_myy88")
+animation = &"smiech"
+frame = 1
+frame_progress = 0.584165
 
 [connection signal="timeout" from="Atak_Timer" to="." method="_on_atak_timer_timeout"]
 [connection signal="timeout" from="Lasting_Timer" to="." method="_on_lasting_timer_timeout"]
