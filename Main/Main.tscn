@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=33 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
@@ -21,7 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://bnr347aq4tiyo" path="res://Art/TŁO/pixil-frame-0 (9).png" id="15_lrfe7"]
 [ext_resource type="PackedScene" uid="uid://53l1af3v5god" path="res://Main/Rooms/safe_room.tscn" id="18_r2ac1"]
 [ext_resource type="PackedScene" uid="uid://cheolkkekj0pt" path="res://Main/Rooms/Entry.tscn" id="19_d3r6l"]
+[ext_resource type="Texture2D" uid="uid://152v13eov1bt" path="res://Art/TŁO/pixil-frame-0 (76).png" id="20_ggtbl"]
 [ext_resource type="PackedScene" uid="uid://dvlbbqj5vqmdr" path="res://Enemy/bossowie/boss_2.tscn" id="22_j4nmm"]
+[ext_resource type="Shader" uid="uid://bd5oxuhpuowhl" path="res://Main/shader/szejder.gdshader" id="24_rii6w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hh5pf"]
 font_size = 32
@@ -41,11 +43,23 @@ texture = ExtResource("15_lrfe7")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rii6w"]
+texture = ExtResource("20_ggtbl")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_j2iu7"]
 tile_size = Vector2i(100, 100)
 sources/0 = SubResource("TileSetAtlasSource_r2ac1")
 sources/1 = SubResource("TileSetAtlasSource_d3r6l")
 sources/2 = SubResource("TileSetAtlasSource_fayjp")
+sources/3 = SubResource("TileSetAtlasSource_rii6w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8qko"]
+shader = ExtResource("24_rii6w")
+
+[sub_resource type="QuadMesh" id="QuadMesh_4npy4"]
+size = Vector2(3840, 22680)
 
 [node name="Main" type="Node2D"]
 
@@ -117,7 +131,7 @@ position = Vector2(-1359, 732)
 scale = Vector2(3.41967, 3.41967)
 tile_set = SubResource("TileSet_j2iu7")
 format = 2
-layer_0/tile_data = PackedInt32Array(-65536, 0, 0, -65534, 0, 0, -131069, 0, 0, -196604, 0, 0, -327678, 0, 0, -393211, 0, 0, -393207, 0, 0, -196598, 0, 0, -131064, 0, 0, -262137, 0, 0, -131066, 0, 0, -65531, 0, 0, -65529, 0, 0, -262135, 0, 0, -196607, 0, 0, -393216, 0, 0, -393204, 0, 0, -65526, 0, 0, -65533, 1, 0, -131067, 1, 0, -196600, 1, 0, -262138, 1, 0, -327676, 1, 0, -393213, 1, 0, -327679, 1, 0, -196608, 1, 0, -131071, 1, 0, -327672, 1, 0, -327674, 1, 0, -393209, 1, 0, -327670, 1, 0, -131063, 1, 0, -262142, 1, 0, -196606, 1, 0, -196601, 1, 0, -196603, 1, 0, -262141, 1, 0, -262139, 1, 0, -65535, 2, 0, -131070, 2, 0, -131072, 2, 0, -262144, 2, 0, -327680, 2, 0, -393214, 2, 0, -327677, 2, 0, -262140, 2, 0, -327673, 2, 0, -262136, 2, 0, -327671, 2, 0, -262134, 2, 0, -196599, 2, 0, -131062, 2, 0, -65528, 2, 0, -393206, 2, 0, -393210, 2, 0, -327675, 2, 0, -196602, 2, 0, -65532, 2, 0, -131065, 2, 0, -393212, 2, 0, -393215, 1, 0, -196605, 1, 0, -65530, 0, 0, -65527, 0, 0, -393208, 0, 0, -262143, 2, 0, -131068, 2, 0)
+layer_0/tile_data = PackedInt32Array(-65536, 3, 0, -65534, 3, 0, -131069, 3, 0, -196604, 3, 0, -327678, 3, 0, -393211, 3, 0, -393207, 3, 0, -196598, 3, 0, -131064, 3, 0, -262137, 3, 0, -131066, 3, 0, -65531, 3, 0, -65529, 3, 0, -262135, 3, 0, -196607, 3, 0, -393216, 3, 0, -393204, 3, 0, -65526, 3, 0, -65533, 3, 0, -131067, 3, 0, -196600, 3, 0, -262138, 3, 0, -327676, 3, 0, -393213, 3, 0, -327679, 3, 0, -196608, 3, 0, -131071, 3, 0, -327672, 3, 0, -327674, 3, 0, -393209, 3, 0, -327670, 3, 0, -131063, 3, 0, -262142, 3, 0, -196606, 3, 0, -196601, 3, 0, -196603, 3, 0, -262141, 3, 0, -262139, 3, 0, -65535, 3, 0, -131070, 3, 0, -131072, 3, 0, -262144, 3, 0, -327680, 3, 0, -393214, 3, 0, -327677, 3, 0, -262140, 3, 0, -327673, 3, 0, -262136, 3, 0, -327671, 3, 0, -262134, 3, 0, -196599, 3, 0, -131062, 3, 0, -65528, 3, 0, -393206, 3, 0, -393210, 3, 0, -327675, 3, 0, -196602, 3, 0, -65532, 3, 0, -131065, 3, 0, -393212, 3, 0, -393215, 3, 0, -196605, 3, 0, -65530, 3, 0, -65527, 3, 0, -393208, 3, 0, -262143, 3, 0, -131068, 3, 0, -131061, 3, 0, -131060, 3, 0, -196596, 3, 0, -262132, 3, 0, -327668, 3, 0, -393205, 3, 0, -327669, 3, 0, -262133, 3, 0, -196597, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 65542, 3, 0, 65543, 3, 0, 65544, 3, 0, 65545, 3, 0, 65546, 3, 0, 10, 3, 0, 65541, 3, 0, 65540, 3, 0, 65539, 3, 0, 2, 3, 0, -327681, 3, 0, -262145, 3, 0, -196609, 3, 0, -131073, 3, 0, -65537, 3, 0, -1, 3, 0, 65535, 3, 0, 0, 3, 0, 65536, 3, 0, 131072, 3, 0, 196608, 3, 0, 196609, 3, 0, 131074, 3, 0, 131075, 3, 0, 1, 3, 0, 65537, 3, 0, 131073, 3, 0, 65538, 3, 0, 196611, 3, 0, 196612, 3, 0, 131076, 3, 0, 131077, 3, 0, 131078, 3, 0, 131079, 3, 0, 131080, 3, 0, 196610, 3, 0, 262148, 3, 0, 262149, 3, 0, 262150, 3, 0, 196615, 3, 0, 196616, 3, 0, 196617, 3, 0, 196618, 3, 0, 196619, 3, 0, 196620, 3, 0, 131084, 3, 0, 65548, 3, 0, 12, 3, 0, -65524, 3, 0, -65525, 3, 0, 11, 3, 0, 65547, 3, 0, 131082, 3, 0, 131081, 3, 0, 196614, 3, 0, 196613, 3, 0, 131083, 3, 0, 131085, 3, 0, -131059, 3, 0, -196595, 3, 0, -262131, 3, 0, -327667, 3, 0, -393203, 3, 0, -458739, 3, 0, -458740, 3, 0, -458741, 3, 0, -458742, 3, 0, -458743, 3, 0, -458744, 3, 0, -458745, 3, 0, -458746, 3, 0, -458747, 3, 0, -458748, 3, 0, -524278, 3, 0, -524277, 3, 0, -524276, 3, 0, -524275, 3, 0, -524274, 3, 0, -524273, 3, 0, -524279, 3, 0, -524280, 3, 0, -524281, 3, 0, -524282, 3, 0, -524283, 3, 0, -524284, 3, 0, -524285, 3, 0, -524286, 3, 0, -524287, 3, 0, -524288, 3, 0, -458753, 3, 0, -458754, 3, 0, -458755, 3, 0, -589821, 3, 0, -589820, 3, 0, -589819, 3, 0, -589818, 3, 0, -589817, 3, 0, -589816, 3, 0, -589815, 3, 0, -589814, 3, 0, -589813, 3, 0, -589812, 3, 0, -458752, 3, 0, -458751, 3, 0, -458750, 3, 0, -458749, 3, 0, -393217, 3, 0)
 
 [node name="Entry" parent="." instance=ExtResource("19_d3r6l")]
 position = Vector2(-1301, 18)
@@ -130,3 +144,10 @@ position = Vector2(1245, -1224)
 position = Vector2(-1519, -493)
 Player = NodePath("../Player")
 main = NodePath("..")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_o8qko")
+position = Vector2(1908, 235)
+mesh = SubResource("QuadMesh_4npy4")
