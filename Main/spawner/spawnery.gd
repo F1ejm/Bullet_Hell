@@ -13,15 +13,22 @@ extends Node2D
 
 @export var czujka : PackedScene
 
+
+@export var ld : Marker2D
+@export var lg : Marker2D
+@export var pd : Marker2D
+@export var pg : Marker2D
+
+
 var Lista: Array = [Podstawowy,Seryjny,Okrągły,Naprowadzający]
 
 
 #Rozmiar areny
 var width = 1050
-var height = 600
+var height = 1000
 
 #koordynaty do spawnu
-var x
+var x 
 var y
 
 #nwm jak to nazwać
@@ -53,10 +60,23 @@ func _on_timer_timeout() -> void:
 	if Global.IsRoundPlaying == true:
 		Generate()
 
+func generate_pos_x():
+	x = randi_range(-1000,width)
+	print("x",x)
+	if x < ld.global_position.x and x > pd.global_position.x:
+		generate_pos_x()
+	
+func generate_pos_y():
+	y = randi_range(-1000,height)
+	print("y",y)
+	if y > lg.global_position.y and y < ld.global_position.y: 
+		generate_pos_y()
+
 func Generate():
 	Global.i += 1
-	x = randi_range(20,width)
-	y = randi_range(20,height)
+	
+	generate_pos_x()
+	generate_pos_y()
 	
 	var losowanie_enemy = randi_range(0,3)
 	
@@ -65,26 +85,30 @@ func Generate():
 			var enemy = Podstawowy.instantiate()
 			owner.add_child(enemy)
 			enemy.main = owner
-			enemy.global_position = Vector2(x,-y)
+			enemy.position = Vector2(x,y)
 			enemy.Player = Player
+			print(Vector2(x,y))
 		1:
 			var enemy = Seryjny.instantiate()
 			owner.add_child(enemy)
 			enemy.main = owner
-			enemy.global_position = Vector2(x,-y)
+			enemy.position = Vector2(x,y)
 			enemy.Player = Player
+			print(Vector2(x,y))
 		2:
 			var enemy = Okrągły.instantiate()
 			owner.add_child(enemy)
 			enemy.main = owner
-			enemy.global_position = Vector2(x,-y)
+			enemy.position = Vector2(x,y)
 			enemy.Player = Player
+			print(Vector2(x,y))
 		3:
 			var enemy = Naprowadzający.instantiate()
 			owner.add_child(enemy)
 			enemy.main = owner
-			enemy.global_position = Vector2(x,-y)
+			enemy.position = Vector2(x,y)
 			enemy.Player = Player
+			print(Vector2(x,y))
 
 func Generate_power_up():
 	x = randi_range(20,width)

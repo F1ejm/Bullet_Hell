@@ -11,12 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="9_12q52"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xp4cu"]
-vertices = PackedVector2Array(1102.76, -447.656, 1112.35, 616.562, 23.3828, 616.562, 20.5, -452.453)
+vertices = PackedVector2Array(1112.35, 616.562, 23.4766, 616.562, 25.3906, -446.578, 1102.76, -447.531)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(8, -466, 1126, -471, 1136, 640, 0, 640)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2, -470, 1126, -471, 1136, 640, 0, 640)])
 agent_radius = 23.44
 
-[node name="Spawner" type="Node2D" node_paths=PackedStringArray("timer_power_up")]
+[node name="Spawner" type="Node2D" node_paths=PackedStringArray("timer_power_up", "ld", "lg", "pd", "pg")]
 script = ExtResource("1_4tvbi")
 timer_power_up = NodePath("Spawnery/Timer_power_up")
 Podstawowy = ExtResource("2_f5u33")
@@ -25,6 +25,10 @@ Seryjny = ExtResource("3_xd47v")
 "Naprowadzający" = ExtResource("5_kut7u")
 power_up = ExtResource("2_jlw8o")
 czujka = ExtResource("3_30bco")
+ld = NodePath("ld")
+lg = NodePath("lg")
+pd = NodePath("pd")
+pg = NodePath("pg")
 
 [node name="Spawnery" type="Node2D" parent="."]
 
@@ -44,11 +48,25 @@ navigation_polygon = SubResource("NavigationPolygon_xp4cu")
 script = ExtResource("5_tvwdq")
 
 [node name="PlaceHolder" type="Node2D" parent="NavigationRegion2D"]
-position = Vector2(535, 52)
+position = Vector2(-2, 3)
 
 [node name="Timer" type="Timer" parent="NavigationRegion2D"]
 wait_time = 5.0
 autostart = true
+
+[node name="ld" type="Marker2D" parent="."]
+position = Vector2(-506, 555)
+rotation = 3.14159
+scale = Vector2(8.53766, 5.36441)
+
+[node name="lg" type="Marker2D" parent="."]
+position = Vector2(-506, -495)
+
+[node name="pd" type="Marker2D" parent="."]
+position = Vector2(577, 564)
+
+[node name="pg" type="Marker2D" parent="."]
+position = Vector2(553, -480)
 
 [connection signal="timeout" from="Spawnery/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawnery/Timer_power_up" to="." method="_on_timer_power_up_timeout"]
