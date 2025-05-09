@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgb00dpnhxwr0"]
+[gd_scene load_steps=6 format=3 uid="uid://bgb00dpnhxwr0"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_q4l37"]
-[ext_resource type="Script" uid="uid://cn3coh5kttl37" path="res://Main/Rooms/Scripts/Room.gd" id="2_xbiwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ieiy"]
 size = Vector2(75, 1063)
@@ -18,7 +17,8 @@ size = Vector2(69.0021, 1404)
 [node name="Entry" type="Node2D"]
 
 [node name="Ściany" type="Node2D" parent="."]
-position = Vector2(67, 712)
+position = Vector2(576, 64)
+rotation = -3.14159
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
 position = Vector2(-142, -69)
@@ -82,9 +82,3 @@ shape = SubResource("RectangleShape2D_akrj6")
 position = Vector2(-26.9964, -643.026)
 scale = Vector2(0.578181, 11.0473)
 texture = ExtResource("1_q4l37")
-
-[node name="DoorContainer" type="Node2D" parent="."]
-script = ExtResource("2_xbiwu")
-
-[node name="Door" type="Node2D" parent="DoorContainer"]
-position = Vector2(637, 786)

@@ -70,6 +70,7 @@ func spawn(DoorContainer,isRoom,Door_Count,is4door) -> void:
 					a = boss.instantiate()
 					DoorContainer.get_child(i).add_child(a)
 					LastDoorContainer = a.get_child(a.get_child_count()-1)
+					room_limit=room_limit+1
 				else:
 					a = end.instantiate()
 					DoorContainer.get_child(i).add_child(a)
