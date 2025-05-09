@@ -23,7 +23,7 @@ func _on_body_entered(body: Node2D) -> void:
 	elif body.is_in_group("Wall"):
 		queue_free()
 	
-	elif body.is_in_group("Enemy"):
+	elif body.is_in_group("Enemy") and immune == false:
 		body.health -= dmg
 		queue_free()
 func _on_area_entered(area: Area2D) -> void:
