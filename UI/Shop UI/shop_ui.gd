@@ -10,7 +10,18 @@ extends Control
 @onready var Regen_Bar: ProgressBar = $"HBoxContainer/Stamina Regen/ProgressBar"
 @onready var Attack_Bar: ProgressBar = $HBoxContainer/Attack/ProgressBar
 
+@onready var texture_rect_health: TextureRect = $HBoxContainer/Health/TextureRect
+@onready var texture_rect_stamina: TextureRect = $"HBoxContainer/Stamina Amount/TextureRect"
+@onready var texture_rect_atak: TextureRect = $HBoxContainer/Attack/TextureRect
+@onready var texture_rect_regen: TextureRect = $"HBoxContainer/Stamina Regen/TextureRect"
+
+
 @export var Zycie_UI: Control
+
+var health_cost: int = 5
+var stamina_cost: int = 5
+var regen_cost: int = 5
+var atak_cost: int = 5
 
 func _ready() -> void:
 	Stamina_Bar.max_value = 3
@@ -28,10 +39,17 @@ func _process(delta: float) -> void:
 		visible = true
 	else:
 		visible = false
+		
+	health_button.tooltip_text = str(health_cost) + " $"
+	stamina_button.tooltip_text = str(stamina_cost) + " $"
+	stamina_regen_button.tooltip_text = str(regen_cost) + " $"
+	attack_speed_button.tooltip_text = str(atak_cost) + " $"
 
 #Pieniądze Trzeba TODO
 func _on_health_button_pressed() -> void:
-	if Health_Bar.value < 3:
+	if Health_Bar.value < 3 and Global.VDolce >= health_cost:
+		Global.VDolce -= health_cost
+		health_cost = health_cost * 2
 		Global.Zycie += 1
 		Global.Max_Zycie += 1
 		Zycie_UI.Spawn_Health(Global.Max_Zycie)
@@ -39,19 +57,25 @@ func _on_health_button_pressed() -> void:
 	
 
 func _on_stamina_button_pressed() -> void:
-	if Stamina_Bar.value < 3:
+	if Stamina_Bar.value < 3 and Global.VDolce >= stamina_cost:
+		Global.VDolce -= stamina_cost
+		stamina_cost = stamina_cost * 2
 		Global.Stamina += 50
 		Global.Max_Stamina += 50
 		Stamina_Bar.value += 1
 
 
 func _on_stamina_regen_button_pressed() -> void:
-	if Regen_Bar.value < 3:
+	if Regen_Bar.value < 3 and Global.VDolce >= regen_cost:
+		Global.VDolce -= regen_cost
+		regen_cost = regen_cost * 2
 		Global.Stamina_Regen += 0.2
 		Regen_Bar.value += 1
 
 
 func _on_attack_speed_button_pressed() -> void:
-	if Attack_Bar.value < 3:
+	if Attack_Bar.value < 3 and Global.VDolce >= atak_cost:
+		Global.VDolce -= atak_cost
+		atak_cost = atak_cost * 2
 		Global.RangeCooldown -= 0.35
 		Attack_Bar.value += 1

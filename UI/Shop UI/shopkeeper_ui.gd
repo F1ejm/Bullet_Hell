@@ -21,11 +21,11 @@ class AktywnyItemek:
 	var Lista_Aktywnych_Itemków = {}
 	var Lista_Textur = {}
 	var Opisy = {
-		1: "Opis1",
-		2: "Opis2",
-		3: "Opis3",
-		4: "Opis4",
-		5: "Opis5"
+		1: "Creates A Shield Around You For 5 Seconds That Stops All Bullets Coming Your Way",
+		2: "Creates A Homing Missile For Every Enemy In Large Area Around You",
+		3: "Creates A Small Shockwave Around You That Kills Every Enemy And Destroys Every Bullet",
+		4: "Clear Every Enemy Bullet In The Map",
+		5: "Creates A Lighting Storm In Your Mouse's Place"
 	}
 	var Ceny = {
 		1: 10,
@@ -55,7 +55,7 @@ class AktywnyItemek:
 			2: preload("res://Art/itemy/namierzanie.png"),
 			5: preload("res://Art/itemy/burza.png"),
 			3: preload("res://Art/itemy/AOE.png"),
-			4: preload("res://Art/itemy/orbitable.png"),
+			4: preload("res://Art/itemy/usuwanie.png"),
 			1: preload("res://Art/itemy/tarcza.png")
 		}
 		dojscie = Lista_Aktywnych_Itemków[integer]
@@ -72,14 +72,14 @@ class PasywnyItemek:
 	var Lista_Pasywnych_Itemków = {}
 	var Lista_Textur = {}
 	var Opisy = {
-		1: "Opis1",
-		2: "Opis2",
-		3: "Opis3",
-		4: "Opis4",
-		5: "Opis5",
-		6: "Opis6",
-		7: "Opis7",
-		8: "Opis8"
+		1: "Your Bullets Fly Faster",
+		2: "You Have 25% Chance To Not Take Damage After You Get Hit",
+		3: "Every Time You Shoot, You Have 25% Chance To Fire A Lighting In Random Direction",
+		4: "Every Time You Walk You Leave A Trace Behind That Kills Enemys",
+		5: "3 Orbitals That Fly Around Your Character Killing Both Enemys And Bullets That Stand In Their Way",
+		6: "Your Bullets Can Pierce Through One Enemy",
+		7: "Your Health Slowly Regenerates",
+		8: "You Gain Additional Special Heart That Regenerates Quite Fast"
 	}
 	var Ceny = {
 		1: 10,
@@ -140,11 +140,11 @@ class Bron:
 		5: "Shotgun"
 	}
 	var Opisy = {
-		1: "opis1",
-		2: "opis2",
-		3: "opis3",
-		4: "opis4",
-		5: "opis5"
+		1: "Automatic Rifle, Bad Damage and Decent Attack Speed",
+		2: "Pistol, Not a Very Effective Choice , Bad Damage and Bad Attack Speed",
+		3: "Submachine Gun, Fires in Bursts, Very Good Dmg but Very Bad Attack Speed",
+		4: "Minigun, Very High Attack Speed but Low Damage and Quite Innacurate",
+		5: "Shotgun, Fires a Bunch of Bullets at Once, Good Damage but Bad Attack Speed"
 	}
 	var Ceny = {
 		1: 10,
@@ -228,7 +228,7 @@ func Zmiana_Sklepu():
 	Pasywny_Itemek1_Textura = pasywny1.textura
 	pasywny_itemek_1_texture.texture = Pasywny_Itemek1_Textura
 	pasywny_itemek_1_texture.tooltip_text = Pasywny_Itemek1_Opis
-	pasywny_itemek_1_button.tooltip_text = str(Pasywny_Itemek1_Cena)
+	pasywny_itemek_1_button.tooltip_text = str(Pasywny_Itemek1_Cena) + " $"
 	
 	#Pasywny Itemek2
 	var rand2 = randi_range(5,8)
@@ -244,7 +244,7 @@ func Zmiana_Sklepu():
 	Pasywny_Itemek2_Textura = pasywny2.textura
 	pasywny_itemek_2_texture.texture = Pasywny_Itemek2_Textura
 	pasywny_itemek_2_texture.tooltip_text = Pasywny_Itemek2_Opis
-	pasywny_itemek_2_button.tooltip_text = str(Pasywny_Itemek2_Cena)
+	pasywny_itemek_2_button.tooltip_text = str(Pasywny_Itemek2_Cena) + " $"
 	
 	#Aktywny Itemek
 	var rand3 = randi_range(1,5)
@@ -255,7 +255,7 @@ func Zmiana_Sklepu():
 	Aktywny_Itemek_Textura = aktywny.textura
 	aktywny_itemek_texture.texture = Aktywny_Itemek_Textura
 	aktywny_itemek_texture.tooltip_text = Aktywny_Itemek_Opis
-	aktywny_itemek_button.tooltip_text = str(Aktywny_Itemek_Cena)
+	aktywny_itemek_button.tooltip_text = str(Aktywny_Itemek_Cena) + " $"
 	
 	#Bron
 	var rand4 = randi_range(1,5)
@@ -266,7 +266,7 @@ func Zmiana_Sklepu():
 	Bron_Textura = bron.textura
 	weapon_texture.texture = Bron_Textura
 	weapon_texture.tooltip_text = Bron_Opis
-	weapon_button.tooltip_text = str(Bron_Cena)
+	weapon_button.tooltip_text = str(Bron_Cena) + " $"
 
 
 func _on_weapon_button_pressed() -> void:

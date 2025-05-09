@@ -49,6 +49,8 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	progress_bar.value = health
+	if health <= 0:
+		Death()
 	
 	bullet_spawn.look_at(Player.global_position)
 	
@@ -68,7 +70,7 @@ func _process(delta: float) -> void:
 				
 				
 func Generate_Atak(y) -> int:
-	var x = randi_range(2,y)
+	var x = randi_range(1,y)
 	return x
 	
 func First_Atak():
@@ -130,6 +132,8 @@ func Third_Atak():
 
 	
 func _on_cooldown_timer_timeout() -> void:
+	for o in get_tree().get_nodes_in_group("Boss_Bullet"):
+		o.queue_free()
 	can_pierwszy_atak = true
 	can_drugi_atak = true
 	can_trzeci_atak = true
@@ -160,3 +164,7 @@ func _on_lasting_timer_timeout() -> void:
 	can_trzeci_atak = false
 	another_atak = false
 	cooldown_timer.start()
+
+
+func Death():
+	queue_free()

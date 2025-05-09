@@ -55,7 +55,7 @@ var Tarcza_Cooldown: float = 15
 var Can_Use_Projectiles: bool = false
 var Projectiles: bool
 var Projectiles_Trwanie: float = 1
-var Projectiles_Cooldown: float = 5
+var Projectiles_Cooldown: float = 10
 @onready var projectiles_area: Area2D = $Projectiles_Area
 
 #3 AOE w Okół Gracza
@@ -75,7 +75,7 @@ var Clear_Cooldown: float = 20
 var Can_Use_Pioruny: bool = false
 var Pioruny: bool
 var Pioruny_Trwanie: float = 5
-var Pioruny_Cooldown: float = 10
+var Pioruny_Cooldown: float = 15
 @onready var raycast_pioruny: RayCast2D = $Raycast_Pioruny
 var pioruny_path = preload("res://Player/pioruny_aktywny_item.tscn")
 var pioruny_burza

@@ -12,9 +12,16 @@ font_size = 32
 
 [node name="shop ui" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -648.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
 mouse_filter = 2
 script = ExtResource("1_0qc3d")
 
@@ -33,7 +40,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -753.0
 offset_top = -259.0
+offset_right = 696.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -44,9 +53,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 25.0
+offset_left = -315.0
 offset_top = -234.0
-offset_right = 294.0
+offset_right = -46.0
 offset_bottom = -58.0
 grow_vertical = 0
 mouse_filter = 2
@@ -55,24 +64,26 @@ expand_mode = 1
 
 [node name="Label" type="Label" parent="visuals"]
 layout_mode = 0
-offset_left = 54.0
+offset_left = -286.0
 offset_top = 593.0
-offset_right = 271.0
+offset_right = -69.0
 offset_bottom = 638.0
 text = "Shop Vender"
 label_settings = SubResource("LabelSettings_y03ah")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 305.0
-offset_top = 419.0
-offset_right = -9.0
-offset_bottom = -19.0
+offset_left = -535.0
+offset_top = -226.0
+offset_right = 187.0
+offset_bottom = -23.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 mouse_filter = 2
 theme_override_constants/separation = 50
 alignment = 1
@@ -83,7 +94,8 @@ mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Health"]
 layout_mode = 2
-mouse_filter = 2
+tooltip_text = "Gives You an Additional Heart"
+mouse_filter = 0
 texture = ExtResource("3_40xpq")
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Health"]
@@ -104,6 +116,8 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Stamina Amount"]
 layout_mode = 2
+tooltip_text = "Expands Your Stamina Bar"
+mouse_filter = 0
 texture = ExtResource("4_ybqa0")
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Stamina Amount"]
@@ -123,6 +137,8 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Stamina Regen"]
 layout_mode = 2
+tooltip_text = "Improves Your Stamina Regenaration"
+mouse_filter = 0
 texture = ExtResource("5_d8ich")
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Stamina Regen"]
@@ -142,6 +158,8 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Attack"]
 layout_mode = 2
+tooltip_text = "Increases Your Attack Speed With Ranged Weapons"
+mouse_filter = 0
 texture = ExtResource("6_0kvjv")
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Attack"]

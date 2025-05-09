@@ -5,13 +5,13 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ysni"]
 radius = 91.4286
-height = 454.286
+height = 651.429
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tok1r"]
 radius = 71.4429
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ddoul"]
-radius = 134.293
+radius = 164.385
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ysni"]
 radius = 397.207
@@ -104,6 +104,7 @@ wait_time = 13.029
 position = Vector2(0, -208.571)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pasywne_Itemki/Piorun_Area"]
+position = Vector2(0, -105.715)
 shape = SubResource("CapsuleShape2D_6ysni")
 
 [node name="Tarcza_Item_Area" type="Area2D" parent="."]

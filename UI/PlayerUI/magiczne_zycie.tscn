@@ -4,11 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://cifkgq8pmrn7n" path="res://Art/health/serce.png" id="2_d6hny"]
 
 [node name="Magiczne_Zycie" type="TextureProgressBar"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -143.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 292.0
+offset_right = 435.0
 offset_bottom = 143.0
-grow_horizontal = 0
+grow_horizontal = 2
 texture_under = ExtResource("1_f0ub2")
 texture_progress = ExtResource("2_d6hny")
