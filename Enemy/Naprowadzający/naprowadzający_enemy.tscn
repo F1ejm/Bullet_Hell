@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cot52aa5y87c6"]
+[gd_scene load_steps=7 format=3 uid="uid://cot52aa5y87c6"]
 
 [ext_resource type="Script" uid="uid://d0wwik5db7tdx" path="res://Enemy/Naprowadzający/naprowadzający_enemy.gd" id="1_em4cq"]
 [ext_resource type="PackedScene" uid="uid://04k2bfngq2n6" path="res://Enemy/Naprowadzający/Bullets/naprowadzający_bullet.tscn" id="2_y6jkd"]
@@ -6,11 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://cmd4fsfv6pq6u" path="res://Art/Emeny/broń.png" id="4_y6jkd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hrbuo"]
-radius = 62.0
-height = 124.0
+radius = 54.0
+height = 108.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hrbuo"]
+radius = 24.0832
 
 [node name="Naprowadzający_Enemy" type="CharacterBody2D" node_paths=PackedStringArray("shoot_timer") groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_em4cq")
 Bullet = ExtResource("2_y6jkd")
 shoot_timer = NodePath("shoot_timer")
@@ -53,6 +58,9 @@ offset_top = -84.0
 offset_right = 52.0
 offset_bottom = -57.0
 show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hrbuo")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
