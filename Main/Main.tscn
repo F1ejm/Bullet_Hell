@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=29 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://baeffjqt2pip1" path="res://UI/Pause Menu/pause_menu.tscn" id="8_j2iu7"]
 [ext_resource type="PackedScene" uid="uid://dodlbirgod1bs" path="res://Player/orbitale.tscn" id="8_lrfe7"]
 [ext_resource type="PackedScene" uid="uid://cdp8nop01h20c" path="res://Main/arena.tscn" id="8_qg80j"]
-[ext_resource type="PackedScene" uid="uid://cot52aa5y87c6" path="res://Enemy/Naprowadzający/naprowadzający_enemy.tscn" id="9_bor5n"]
 [ext_resource type="PackedScene" uid="uid://bm1vquy3vqvrc" path="res://UI/Settings/pause_menu_settings.tscn" id="9_j4nmm"]
 [ext_resource type="Texture2D" uid="uid://djn0tmuhxcann" path="res://Art/TŁO/pixil-frame-0 (7).png" id="13_6ivxk"]
 [ext_resource type="Texture2D" uid="uid://c5waigc2cw3ht" path="res://Art/TŁO/pixil-frame-0 (8).png" id="14_6yo1i"]
@@ -116,10 +115,6 @@ position = Vector2(431, -261)
 
 [node name="Arena" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_qg80j")]
 Player = NodePath("../Player")
-Podstawowy = ExtResource("9_bor5n")
-Seryjny = ExtResource("9_bor5n")
-"Okrągły" = ExtResource("9_bor5n")
-"Naprowadzający" = ExtResource("9_bor5n")
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
