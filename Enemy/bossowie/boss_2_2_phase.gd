@@ -30,8 +30,8 @@ var can_drugi_atak: bool = true
 
 var homing_missle: PackedScene = preload("res://Enemy/bossowie/boss_2_homing_missle.tscn")
 
-var trzeci_lasting_waittime: float = 10
-var trzeci_atak_waittime: float = 0.5
+var trzeci_lasting_waittime: float = 6
+var trzeci_atak_waittime: float = 1.5
 var can_trzeci_atak: bool = true
 
 #Zycie i wszystko do zycia
@@ -51,6 +51,10 @@ func _process(delta: float) -> void:
 	progress_bar.value = health
 	if health <= 0:
 		Death()
+	if x == 3:
+		for o in get_overlapping_bodies():
+			if o.is_in_group("Player") and Global.IsDashing != true and Global.immune != true:
+				o.Dmg_Func(1)
 	
 	bullet_spawn.look_at(Player.global_position)
 	
@@ -67,7 +71,7 @@ func _process(delta: float) -> void:
 			3:
 				atak_timer.wait_time = trzeci_atak_waittime
 				Third_Atak()
-				
+				position = position.move_toward(player_position,delta * 1500)
 				
 func Generate_Atak(y) -> int:
 	var x = randi_range(1,y)
@@ -128,7 +132,11 @@ func Second_Atak():
 		atak_timer.start()
 
 func Third_Atak():
-	pass
+	if can_trzeci_atak == true:
+		player_position = Player.global_position
+		
+		can_trzeci_atak = false
+		atak_timer.start()
 
 	
 func _on_cooldown_timer_timeout() -> void:
@@ -138,7 +146,7 @@ func _on_cooldown_timer_timeout() -> void:
 	can_drugi_atak = true
 	can_trzeci_atak = true
 	another_atak = true
-	x = Generate_Atak(2)
+	x = Generate_Atak(3)
 	match(x):
 		1:
 			lasting_timer.wait_time = pierwszy_lasting_waittime
