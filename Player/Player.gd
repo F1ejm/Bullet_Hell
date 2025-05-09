@@ -161,6 +161,7 @@ func _ready() -> void:
 	regenerating_timer.wait_time = regenerating_wait_time
 
 func _process(delta: float) -> void:
+	Global.player_main = $"."
 	node_orbitali.global_position = global_position
 	$Camera2D.global_position = (self.global_position * 3 +get_global_mouse_position())/4
 

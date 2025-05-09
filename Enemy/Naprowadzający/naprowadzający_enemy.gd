@@ -42,6 +42,7 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	Player = Global.player_main
 	progress_bar.value = health
 	if health <= 0:
 		Death()

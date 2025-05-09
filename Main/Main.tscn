@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=28 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://b4ule07d21r78" path="res://UI/Shop UI/shopkeeper_ui.tscn" id="7_d3r6l"]
 [ext_resource type="PackedScene" uid="uid://baeffjqt2pip1" path="res://UI/Pause Menu/pause_menu.tscn" id="8_j2iu7"]
 [ext_resource type="PackedScene" uid="uid://dodlbirgod1bs" path="res://Player/orbitale.tscn" id="8_lrfe7"]
-[ext_resource type="PackedScene" uid="uid://cdp8nop01h20c" path="res://Main/arena.tscn" id="8_qg80j"]
 [ext_resource type="PackedScene" uid="uid://bm1vquy3vqvrc" path="res://UI/Settings/pause_menu_settings.tscn" id="9_j4nmm"]
 [ext_resource type="Texture2D" uid="uid://djn0tmuhxcann" path="res://Art/TŁO/pixil-frame-0 (7).png" id="13_6ivxk"]
 [ext_resource type="Texture2D" uid="uid://c5waigc2cw3ht" path="res://Art/TŁO/pixil-frame-0 (8).png" id="14_6yo1i"]
@@ -106,15 +105,12 @@ Player = NodePath("../../Player")
 [node name="Pause Menu Settings" parent="CanvasLayer" instance=ExtResource("9_j4nmm")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("node_orbitali", "Zycie_UI") instance=ExtResource("1_lxy7q")]
-position = Vector2(846, -220)
+position = Vector2(-1015, 178)
 node_orbitali = NodePath("../Orbitale")
 Zycie_UI = NodePath("../CanvasLayer/zycie")
 
 [node name="Orbitale" parent="." instance=ExtResource("8_lrfe7")]
 position = Vector2(431, -261)
-
-[node name="Arena" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("8_qg80j")]
-Player = NodePath("../Player")
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
@@ -138,7 +134,6 @@ Player = NodePath("../Player")
 main = NodePath("..")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer2"]
 material = SubResource("ShaderMaterial_o8qko")
