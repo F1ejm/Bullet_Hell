@@ -1,16 +1,56 @@
-[gd_scene load_steps=4 format=3 uid="uid://derip5h7iktpg"]
+[gd_scene load_steps=7 format=3 uid="uid://derip5h7iktpg"]
 
 [ext_resource type="Script" uid="uid://bu3gjk7c70dqu" path="res://Enemy/bossowie/boss_2_2_phase.gd" id="1_8hvru"]
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_tisu8"]
+[ext_resource type="Texture2D" uid="uid://t8ow553a2fqq" path="res://Art/boss2_fire_wall/boss2_faza.png" id="2_8hvru"]
+[ext_resource type="Texture2D" uid="uid://3iu3j57f27jr" path="res://Art/boss2_fire_wall/frame2.png" id="3_1ohns"]
+[ext_resource type="Texture2D" uid="uid://ylxmh30jmlqg" path="res://Art/boss2_fire_wall/frame3.png" id="4_mo5t6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hvru"]
 size = Vector2(128, 127)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_mntxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8hvru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1ohns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mo5t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1ohns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1ohns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8hvru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mo5t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1ohns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mo5t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8hvru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1ohns")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
 [node name="Boss2_2phase" type="Area2D" groups=["Boss"]]
 script = ExtResource("1_8hvru")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_tisu8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -39,6 +79,13 @@ show_percentage = false
 
 [node name="Rotating_Bullet_Spawner" type="Node2D" parent="Bullet_Spawn"]
 position = Vector2(0, -1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_mntxk")
+animation = &"Idle"
+frame_progress = 0.37918
 
 [connection signal="timeout" from="Atak_Timer" to="." method="_on_atak_timer_timeout"]
 [connection signal="timeout" from="Lasting_Timer" to="." method="_on_lasting_timer_timeout"]
