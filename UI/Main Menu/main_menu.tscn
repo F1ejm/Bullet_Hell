@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b44kfkf5wpld6"]
+[gd_scene load_steps=32 format=3 uid="uid://b44kfkf5wpld6"]
 
 [ext_resource type="Script" uid="uid://dvl3q7u8yrohs" path="res://UI/Main Menu/main_menu.gd" id="1_pfbba"]
 [ext_resource type="Texture2D" uid="uid://g8vdiyeu77y0" path="res://Art/UI/menu buttons/play_idle.png" id="1_qlwe4"]
@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://dfwuel5hjkpsi" path="res://Art/UI/game_logo2.png" id="19_j66k8"]
 [ext_resource type="Texture2D" uid="uid://bj546cxtsxxg8" path="res://Art/UI/game_logo3.png" id="20_122ck"]
 [ext_resource type="Texture2D" uid="uid://cod0psslg3ab5" path="res://Art/UI/game_logo4.png" id="21_lmq76"]
+[ext_resource type="Texture2D" uid="uid://sqhy5vbvksj0" path="res://Art/UI/Solpolex_logo.png" id="22_j66k8"]
+[ext_resource type="AudioStream" uid="uid://hor6agbc311y" path="res://Audio/SFX/misc/logo_intro.mp3" id="23_122ck"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_pfbba"]
 frames = 2
@@ -64,6 +66,67 @@ frame_4/texture = ExtResource("18_gor3d")
 frame_4/duration = 0.5
 frame_5/texture = ExtResource("21_lmq76")
 frame_5/duration = 0.1
+
+[sub_resource type="Animation" id="Animation_122ck"]
+resource_name = "Logo"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Solpolex Logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Solpolex Logo/MarginContainer/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lmq76"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Solpolex Logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Solpolex Logo/MarginContainer/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ju2or"]
+_data = {
+&"Logo": SubResource("Animation_122ck"),
+&"RESET": SubResource("Animation_lmq76")
+}
 
 [node name="Main Menu" type="Control"]
 process_mode = 3
@@ -155,6 +218,42 @@ mouse_filter = 2
 texture_filter = 1
 layout_mode = 2
 texture = SubResource("AnimatedTexture_ju2or")
+
+[node name="logo" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ju2or")
+}
+
+[node name="Solpolex Logo" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Solpolex Logo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Solpolex Logo/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Solpolex Logo/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("22_j66k8")
+
+[node name="LogoIntro" type="AudioStreamPlayer" parent="Solpolex Logo"]
+stream = ExtResource("23_122ck")
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
