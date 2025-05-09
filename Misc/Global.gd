@@ -1,4 +1,6 @@
 extends Node
+#Logo
+var play_intro := true
 #Player Powerups
 var start_powerup_timer: bool = false
 #Pozytywne
