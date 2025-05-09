@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch2islx706iga"]
+
+[ext_resource type="Texture2D" uid="uid://cqfm6kqok3pu" path="res://Art/boss2_fire_wall/pixil-frame-0 (78).png" id="1_5r770"]
+[ext_resource type="Script" uid="uid://cdh1ncsgjlnik" path="res://Enemy/bossowie/boss_2_bullet.gd" id="1_pknsr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pknsr"]
+radius = 4.6
+
+[node name="boss_2_bullet" type="Area2D" groups=["Boss_Bullet"]]
+script = ExtResource("1_pknsr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.98023e-08)
+shape = SubResource("CircleShape2D_pknsr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.4, 0.4)
+rotation = -1.5708
+texture = ExtResource("1_5r770")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="queue_free_timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="queue_free_timer" to="." method="_on_queue_free_timer_timeout"]
