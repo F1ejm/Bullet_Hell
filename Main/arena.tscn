@@ -1,12 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdp8nop01h20c"]
+[gd_scene load_steps=17 format=3 uid="uid://cdp8nop01h20c"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_hjvuf"]
+[ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Podstawowy/Podstawowy_Enemy.tscn" id="2_1idfb"]
 [ext_resource type="PackedScene" uid="uid://dutj4ocsn2cb2" path="res://Main/Obstacle/czujka/czujka.tscn" id="2_16kjw"]
 [ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawner/spawnery.gd" id="2_66sge"]
 [ext_resource type="PackedScene" uid="uid://bvxgexgniu3ha" path="res://Main/Pick_up/pick_up_cube.tscn" id="2_nmoe4"]
 [ext_resource type="Script" uid="uid://dm3euhaddxdo0" path="res://Main/Obstacle/obstacle_spawner.gd" id="3_juncb"]
+[ext_resource type="PackedScene" uid="uid://c202ehhkt6j32" path="res://Enemy/Seryjny/Seryjny_Przeciwnik.tscn" id="3_ugng4"]
 [ext_resource type="Script" uid="uid://d2mp0xam3t2x" path="res://Main/Obstacle/spawner_controler.gd" id="3_xp4cu"]
+[ext_resource type="PackedScene" uid="uid://cne0e6ok8lj6l" path="res://Enemy/Okręgowy/Okręgowy_Enemy.tscn" id="4_58tgm"]
 [ext_resource type="PackedScene" uid="uid://hm4hwehos4pe" path="res://Main/Obstacle/obstacle.tscn" id="4_xp4cu"]
+[ext_resource type="PackedScene" uid="uid://cot52aa5y87c6" path="res://Enemy/Naprowadzający/naprowadzający_enemy.tscn" id="5_f2orc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66sge"]
 size = Vector2(75, 760)
@@ -29,6 +33,10 @@ agent_radius = 23.44
 [node name="Arena2" type="Node2D" node_paths=PackedStringArray("timer_power_up")]
 script = ExtResource("2_66sge")
 timer_power_up = NodePath("Spawnery/Timer_power_up")
+Podstawowy = ExtResource("2_1idfb")
+Seryjny = ExtResource("3_ugng4")
+"Okrągły" = ExtResource("4_58tgm")
+"Naprowadzający" = ExtResource("5_f2orc")
 power_up = ExtResource("2_nmoe4")
 czujka = ExtResource("2_16kjw")
 
@@ -99,176 +107,6 @@ script = ExtResource("3_xp4cu")
 
 [node name="Marker2D" type="Marker2D" parent="NavigationRegion2D"]
 position = Vector2(504, 328)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D2" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(376, 328)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D3" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(272, 328)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D4" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(144, 328)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D5" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(32, 328)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D6" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(513, 409)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D7" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(385, 409)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D8" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(281, 409)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D9" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(153, 409)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D10" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(41, 409)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D11" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(514, 375)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D12" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(386, 375)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D13" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(282, 375)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D14" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(154, 375)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D15" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(42, 375)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D16" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(516, 460)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D17" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(388, 460)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D18" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(284, 460)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D19" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(156, 460)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D20" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(44, 460)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D21" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(523, 513)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D22" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(395, 513)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D23" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(291, 513)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D24" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(163, 513)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D25" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(51, 513)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D26" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(518, 560)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D27" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(390, 560)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D28" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(286, 560)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D29" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(158, 560)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D30" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(46, 560)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D31" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(518, 560)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D32" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(390, 560)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D33" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(286, 560)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D34" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(158, 560)
-script = ExtResource("3_juncb")
-obstacle = ExtResource("4_xp4cu")
-
-[node name="Marker2D35" type="Marker2D" parent="NavigationRegion2D"]
-position = Vector2(46, 560)
 script = ExtResource("3_juncb")
 obstacle = ExtResource("4_xp4cu")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cne0e6ok8lj6l"]
+[gd_scene load_steps=7 format=3 uid="uid://cne0e6ok8lj6l"]
 
 [ext_resource type="Script" uid="uid://u0nsxavg73xq" path="res://Enemy/Okręgowy/Okręgowy_Enemy.gd" id="1_7tp5r"]
 [ext_resource type="PackedScene" uid="uid://c8eugx1okbj2e" path="res://Enemy/Okręgowy/Bullets/Okręgowy_Bullet.tscn" id="2_t6qk3"]
@@ -8,6 +8,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vonkd"]
 radius = 62.0
 height = 124.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_38dq1"]
+radius = 24.0832
 
 [node name="Okręgowy_Enemy" type="CharacterBody2D" node_paths=PackedStringArray("shoot_timer", "Marker") groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
@@ -56,6 +59,9 @@ offset_top = -60.0
 offset_right = 52.0
 offset_bottom = -33.0
 show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_38dq1")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

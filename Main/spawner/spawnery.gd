@@ -93,7 +93,7 @@ func Generate_power_up():
 	var enemy = power_up.instantiate()
 	owner.add_child(enemy)
 	enemy.global_position = Vector2(x,-y)
-	enemy.Player = Player
+
 
 
 

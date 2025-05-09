@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c202ehhkt6j32"]
+[gd_scene load_steps=7 format=3 uid="uid://c202ehhkt6j32"]
 
 [ext_resource type="Script" uid="uid://b4qhlkk4prgp5" path="res://Enemy/Seryjny/Seryjny_Przeciwnik.gd" id="1_vjau5"]
 [ext_resource type="PackedScene" uid="uid://vpbbnspwva3d" path="res://Enemy/Seryjny/Bullets/Seryjny_Bullet.tscn" id="2_qh03a"]
@@ -8,6 +8,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bat1y"]
 radius = 62.0
 height = 124.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bat1y"]
+radius = 24.0832
 
 [node name="Seryjny_Przeciwnik" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
@@ -52,6 +55,9 @@ offset_top = -98.0
 offset_right = 50.0
 offset_bottom = -71.0
 show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bat1y")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
