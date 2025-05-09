@@ -6,7 +6,7 @@ var main: Node2D
 @onready var bullet_spawn: Node2D = $Bullet_Spawn
 @onready var rotating_bullet_spawner: Node2D = $Bullet_Spawn/Rotating_Bullet_Spawner
 
-var bullet_path = preload("res://Enemy/bossowie/boss_1_bullet.tscn")
+var bullet_path = preload("res://Enemy/bossowie/boss_2_bullet.tscn")
 
 #Timery
 var another_atak: bool = true

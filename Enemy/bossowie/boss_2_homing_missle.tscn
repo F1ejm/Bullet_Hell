@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cy4spr41satha"]
 
 [ext_resource type="Script" uid="uid://buvnqd1xwp8on" path="res://Enemy/bossowie/boss_2_homing_missle.gd" id="1_b7aay"]
-[ext_resource type="Texture2D" uid="uid://c0wx84vri5d5d" path="res://Art/Emeny/pixil-frame-0 (10).png" id="1_yw5bo"]
+[ext_resource type="Texture2D" uid="uid://cqfm6kqok3pu" path="res://Art/boss2_fire_wall/pixil-frame-0 (78).png" id="2_b7aay"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b7aay"]
 radius = 4.6
@@ -16,7 +16,8 @@ shape = SubResource("CircleShape2D_b7aay")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-0.4, 0.4)
-texture = ExtResource("1_yw5bo")
+rotation = -1.5708
+texture = ExtResource("2_b7aay")
 
 [node name="atak_timer" type="Timer" parent="."]
 one_shot = true

@@ -4,7 +4,7 @@ extends Area2D
 
 @onready var bullet_spawn: Node2D = $Bullet_Spawn
 @onready var rotating_bullet_spawner: Node2D = $Bullet_Spawn/Rotating_Bullet_Spawner
-var bullet_path = preload("res://Enemy/bossowie/boss_1_bullet.tscn")
+var bullet_path = preload("res://Enemy/bossowie/boss_2_bullet.tscn")
 
 var second_phase_path = preload("res://Enemy/bossowie/boss_2_2_phase.tscn")
 
@@ -79,6 +79,10 @@ func _process(delta: float) -> void:
 	
 	bullet_spawn.look_at(Player.global_position)
 	pierwszy_atak_node.look_at(Player.global_position)
+	if x == 1:
+		pierwszy_atak_node.visible = true
+	else:
+		pierwszy_atak_node.visible = false
 	
 	if another_atak == true:
 		match(x):

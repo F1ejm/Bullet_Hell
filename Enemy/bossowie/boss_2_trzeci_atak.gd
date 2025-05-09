@@ -2,7 +2,7 @@ extends Node2D
 
 var Player
 var speed: int = 400
-var bullet_path = preload("res://Enemy/bossowie/boss_1_bullet.tscn")
+var bullet_path = preload("res://Enemy/bossowie/boss_2_bullet.tscn")
 
 @onready var node_2d: Node2D = $Node2D
 

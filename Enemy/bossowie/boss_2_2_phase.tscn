@@ -40,10 +40,6 @@ show_percentage = false
 [node name="Rotating_Bullet_Spawner" type="Node2D" parent="Bullet_Spawn"]
 position = Vector2(0, -1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Bullet_Spawn"]
-scale = Vector2(0.0625, 0.078125)
-texture = ExtResource("1_tisu8")
-
 [connection signal="timeout" from="Atak_Timer" to="." method="_on_atak_timer_timeout"]
 [connection signal="timeout" from="Lasting_Timer" to="." method="_on_lasting_timer_timeout"]
 [connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]
