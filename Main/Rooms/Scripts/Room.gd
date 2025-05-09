@@ -51,15 +51,15 @@ func spawn(DoorContainer,isRoom,Door_Count,is4door) -> void:
 			for i in range(0,Door_Count):
 				if(room_limit<3):
 					print(room_limit)
-					match(randi_range(1,2-d)):
-						1:
+					match(randi_range(1+d,1+d)):
+						2:
 							a = door2.instantiate()
 							DoorContainer.get_child(i).add_child(a)
 							LastDoorContainer = a.get_child(a.get_child_count()-1)
 							room_limit=room_limit+1
 							spawn(LastDoorContainer,true,1,false)
 
-						2:
+						1:
 							a = door4.instantiate()
 							DoorContainer.get_child(i).add_child(a)
 							LastDoorContainer = a.get_child(a.get_child_count()-1)
