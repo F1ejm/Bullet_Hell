@@ -6,6 +6,7 @@ var corridor_right = preload("res://Main/Rooms/Halls/Hall_Corner_Right.tscn")
 var corridor_left = preload("res://Main/Rooms/Halls/Hall_Corner_Left.tscn")
 var door2 = preload("res://Main/Rooms/Normal_Rooms/2dor.tscn")
 var door4 = preload("res://Main/Rooms/Normal_Rooms/4dor.tscn")
+var boss = preload("res://Main/Rooms/Boss_Room.tscn")
 var end = preload("res://Main/Rooms/Normal_Rooms/End.tscn")
 var a 
 var LastDoorContainer
@@ -65,6 +66,11 @@ func spawn(DoorContainer,isRoom,Door_Count,is4door) -> void:
 							room_limit=room_limit+1
 							d=d+1
 							spawn(LastDoorContainer,true,3,true)
+				elif(room_limit==3):
+					a = boss.instantiate()
+					DoorContainer.get_child(i).add_child(a)
+					LastDoorContainer = a.get_child(a.get_child_count()-1)
+					room_limit=room_limit+1
 				else:
 					a = end.instantiate()
 					DoorContainer.get_child(i).add_child(a)
