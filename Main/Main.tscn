@@ -96,7 +96,7 @@ Player = NodePath("../../Player")
 [node name="Pause Menu Settings" parent="CanvasLayer" instance=ExtResource("9_j4nmm")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("node_orbitali", "Zycie_UI") instance=ExtResource("1_lxy7q")]
-position = Vector2(1764, -591)
+position = Vector2(-1077, 238)
 node_orbitali = NodePath("../Orbitale")
 Zycie_UI = NodePath("../CanvasLayer/zycie")
 
