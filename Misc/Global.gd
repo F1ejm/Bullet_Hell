@@ -1,5 +1,21 @@
 extends Node
+#Player Powerups
+var start_powerup_timer: bool = false
+#Pozytywne
+#1 Dash Zabija
+var Dash_PowerUp: bool = false
+#2 Nieograniczona Stamina
+var Stamina_PowerUp: bool = false
+#3 Bullet Przecinający Inne Bullety
+var Bullet_PowerUp: bool = false
+#Negatywne
+#1 Nie możesz dashować przez 5 sekund
+var Cant_Dash_PowerUp: bool = false
+#2 Nie możesz strzelać
+var Cant_Shoot_PowerUp: bool = false
 
+#3 Chodzisz 2 razy wolniej
+var Move_Slower_PowerUp: bool = false
 #Player Speed
 var speed: int = 600
 var normal_speed: int = speed
