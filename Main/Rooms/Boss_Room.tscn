@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_q4l37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ieiy"]
-size = Vector2(75, 1063)
+size = Vector2(75, 1320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjhdu"]
-size = Vector2(70.9979, 681)
+size = Vector2(70.9979, 780.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utnkw"]
 size = Vector2(74, 1026)
@@ -17,49 +17,51 @@ size = Vector2(69.0021, 1404)
 [node name="Entry" type="Node2D"]
 
 [node name="Ściany" type="Node2D" parent="."]
-position = Vector2(576, 64)
 rotation = -3.14159
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(-142, -69)
+position = Vector2(-804, -155)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
-position = Vector2(-27.5, -474.5)
+position = Vector2(-27.5, -603)
 shape = SubResource("RectangleShape2D_3ieiy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D"]
-position = Vector2(-27, -468.5)
-scale = Vector2(0.578125, 8.32031)
+position = Vector2(-27, -600.545)
+scale = Vector2(0.578125, 10.3835)
 texture = ExtResource("1_q4l37")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(-4, 5)
+position = Vector2(-572, -86.0001)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D2"]
-position = Vector2(25.4993, -140.5)
+position = Vector2(26.9997, -91.0001)
 shape = SubResource("RectangleShape2D_xjhdu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D2"]
-position = Vector2(27.0339, -140.854)
-scale = Vector2(0.577595, 5.31492)
+position = Vector2(27.0339, -91.2504)
+scale = Vector2(0.577595, 6.08998)
 texture = ExtResource("1_q4l37")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(730, 2)
+position = Vector2(162, -89.0001)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D5"]
-position = Vector2(24.999, -277)
+position = Vector2(24.999, -326.75)
 shape = SubResource("RectangleShape2D_xjhdu")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D5"]
-position = Vector2(27.0339, -278.354)
-scale = Vector2(0.577595, 5.3493)
+position = Vector2(27.0339, -325.3)
+scale = Vector2(0.577595, 6.08283)
 texture = ExtResource("1_q4l37")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(1294, -67)
+position = Vector2(813, -114)
+scale = Vector2(1, 1.28962)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D3"]
 position = Vector2(27, -503)
@@ -71,8 +73,9 @@ scale = Vector2(0.578125, 8.39844)
 texture = ExtResource("1_q4l37")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(-70, -1021)
+position = Vector2(-756, -1369)
 rotation = 1.5708
+scale = Vector2(1, 1.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D4"]
 position = Vector2(-24.501, -648)
