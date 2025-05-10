@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="3_t1atg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4aqf"]
-size = Vector2(1290, 892)
+size = Vector2(1290, 739)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5bqf"]
 size = Vector2(75, 718)
@@ -22,7 +22,7 @@ position = Vector2(1, 4)
 script = ExtResource("2_j8x40")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fog/Area2D"]
-position = Vector2(1, 342)
+position = Vector2(1, 418.5)
 shape = SubResource("RectangleShape2D_v4aqf")
 
 [node name="ColorRect" type="ColorRect" parent="Fog"]

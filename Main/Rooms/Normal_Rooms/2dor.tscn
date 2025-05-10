@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="2_8rqoc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aps5"]
-size = Vector2(1290, 892)
+size = Vector2(1290, 732)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rqoc"]
 size = Vector2(75, 760)
@@ -29,7 +29,7 @@ position = Vector2(579, -717)
 script = ExtResource("1_lyj31")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/Fog/Area2D"]
-position = Vector2(1, 342)
+position = Vector2(1, 422)
 shape = SubResource("RectangleShape2D_3aps5")
 
 [node name="ColorRect" type="ColorRect" parent="Ściany/Fog"]

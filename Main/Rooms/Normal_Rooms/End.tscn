@@ -17,7 +17,7 @@ size = Vector2(74, 648)
 size = Vector2(69.0021, 1263)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hjwj"]
-size = Vector2(1290, 892)
+size = Vector2(1290, 734)
 
 [node name="End" type="Node2D"]
 
@@ -99,7 +99,7 @@ position = Vector2(579, -717)
 script = ExtResource("2_pv3t5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fog/Area2D"]
-position = Vector2(1, 342)
+position = Vector2(1, 421)
 shape = SubResource("RectangleShape2D_5hjwj")
 
 [node name="ColorRect" type="ColorRect" parent="Fog"]
