@@ -59,7 +59,7 @@ var czwarty_atak_waittime: float = 0.7
 var can_czwarty_atak: bool = true
 
 #Zycie i wszystko do zycia
-var health: int = 100
+var health: float = 100
 @onready var progress_bar: ProgressBar = $ProgressBar
 var can_be_hit: bool = true
 

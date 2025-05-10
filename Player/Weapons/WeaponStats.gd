@@ -6,3 +6,4 @@ extends Resource
 @export var seria: int = 1
 @export var isShotgun: bool = false
 @export var isMinigun: bool = false
+@export var WeapomImage: Texture

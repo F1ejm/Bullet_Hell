@@ -14,4 +14,6 @@ func Cast_Piorun():
 	for o in piorun.get_overlapping_areas():
 		if o.is_in_group("Enemy"):
 			o.owner.Death()
+		if o.is_in_group("Boss") and o.can_be_hit == true:
+			o.health -= 3
 	

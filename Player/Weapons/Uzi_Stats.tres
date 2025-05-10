@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="WeaponStats" load_steps=2 format=3 uid="uid://bhu36rufgopx7"]
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=3 format=3 uid="uid://bhu36rufgopx7"]
 
+[ext_resource type="Texture2D" uid="uid://bn3674d52pqvk" path="res://Art/itemy/pm.png" id="1_8j1sc"]
 [ext_resource type="Script" uid="uid://xl4k2awifu8w" path="res://Player/Weapons/WeaponStats.gd" id="1_vncn0"]
 
 [resource]
@@ -7,3 +8,6 @@ script = ExtResource("1_vncn0")
 cooldown = 1.0
 dmg = 2
 seria = 3
+isShotgun = false
+isMinigun = false
+WeapomImage = ExtResource("1_8j1sc")

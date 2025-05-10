@@ -40,7 +40,7 @@ var Move_Slower_PowerUp: bool = false
 
 #Itemy Aktywne --------------------------------
 
-var Current_Active_Item: int = 2
+var Current_Active_Item: int = 1
 @onready var trwanie_timer: Timer = $Trwanie_Timer
 @onready var cooldown_timer: Timer = $Cooldown_Timer
 
@@ -52,14 +52,14 @@ var Tarcza_Cooldown: float = 15
 @onready var tarcza_item_area: Area2D = $Tarcza_Item_Area
 
 #2 Pociski namierzające
-var Can_Use_Projectiles: bool = false
+var Can_Use_Projectiles: bool = true
 var Projectiles: bool
-var Projectiles_Trwanie: float = 1
+var Projectiles_Trwanie: float = 5
 var Projectiles_Cooldown: float = 10
 @onready var projectiles_area: Area2D = $Projectiles_Area
 
 #3 AOE w Okół Gracza
-var Can_Use_AOE: bool = true
+var Can_Use_AOE: bool = false
 var AOE: bool
 var AOE_Trwanie: float = 1
 var AOE_Cooldown: float = 15
@@ -125,9 +125,6 @@ var Ignore_wall_Item: bool = false
 #Zmienna Określająca czy collision shape do zabijania jest aktywny
 var collision_atak: bool = false
 
-#Zmienna Okreslajaca czy atak jest na cooldawnie: False-możesz atakować -- Melee
-var atak_cooldown: bool = false
-
 #Zmienna Okreslajaca czy atak jest na cooldawnie: False-możesz atakować -- Ranged
 var range_cooldown: bool = false
 var bullet_path = preload("res://Player/player_bullet.tscn")
@@ -161,11 +158,19 @@ func _ready() -> void:
 	regenerating_timer.wait_time = regenerating_wait_time
 
 func _process(delta: float) -> void:
+	$Sprite2D.global_rotation = 0
 	Global.player_main = $"."
 	node_orbitali.global_position = global_position
 	$Camera2D.global_position = (self.global_position * 3 +get_global_mouse_position())/4
 
+	if(rotation>PI/2 or rotation<PI/-2):
+		$WeaponSprite.scale.y=-2
+
+	else:
+		$WeaponSprite.scale.y=2
+
 func _physics_process(delta):
+	
 	if Global.stop == true:
 		return
 	#Power Up'y ----------------------------------------
@@ -219,10 +224,10 @@ func _physics_process(delta):
 			trwanie_timer.wait_time = Projectiles_Trwanie
 			cooldown_timer.wait_time = Projectiles_Cooldown
 		2:
-			trwanie_timer.wait_time = AOE_Trwanie
+			trwanie_timer.wait_time = delta
 			cooldown_timer.wait_time = AOE_Cooldown
 		3:
-			trwanie_timer.wait_time = Clear_Trwanie
+			trwanie_timer.wait_time = delta
 			cooldown_timer.wait_time = Clear_Cooldown
 		4:
 			trwanie_timer.wait_time = Pioruny_Trwanie
@@ -257,10 +262,10 @@ func _physics_process(delta):
 		
 	#Projectiles
 	if Input.is_action_just_pressed("active_item") and Can_Use_Projectiles == true:
-		print("NIgger")
 		Projectiles = true
 		Can_Use_Projectiles = false
 		trwanie_timer.start()
+		
 	
 	if Projectiles == true:
 		cooldown_timer.start()
@@ -279,23 +284,6 @@ func _physics_process(delta):
 	if Pioruny == true:
 		cooldown_timer.start()
 	
-	#Atak - Melee ------------------------------------------------
-	atak_timer.wait_time = Global.AtakCooldown
-	
-	
-	
-	if Input.is_action_just_pressed("atak") and atak_cooldown == false and Tarcza != true:
-		atak_timer.stop()
-		atak_timer.start()
-		timer.stop()
-		timer.start()
-		collision_atak = true
-		atak_cooldown = true
-		
-	if collision_atak == true:
-		sprite_2d.visible = true #Zamiast Tego Animacja TODO
-		parry_area.monitoring = true
-		Atak()
 		
 	#Range Atak --------------------------------------------
 	if Input.is_action_pressed("range_atak") and range_cooldown == false and Tarcza != true and Cant_Shoot_PowerUp != true:
@@ -333,27 +321,13 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-#Atak - melee
-func Atak():
-	#Zabijanie Przeciwnika
-	for o in melee_attack_area.get_overlapping_areas():
-		if o.is_in_group("Enemy"):
-			#Animacja I SFX Obrazen przeciwnika TODO
-			o.owner.health -= dmg_melee
-#Atak - melee
-func _on_timer_timeout() -> void:
-	sprite_2d.visible = false #Zamiast Tego Animacja TODO
-	parry_area.monitoring = false
-	collision_atak = false
-func _on_atak_timer_timeout() -> void:
-	atak_cooldown = false
 
 #Atak - Ranged
 func Ranged():
 	if(not stats.isShotgun):
 		var b = bullet_path.instantiate()
 		owner.add_child(b)
-		b.transform = global_transform
+		b.transform = $WeaponSprite/BulletSpacing.global_transform
 		b.scale.x = 0.5
 		b.scale.y = 0.5
 		b.dmg = dmg_range
@@ -376,7 +350,7 @@ func Ranged():
 		for i in range(0,4):
 			var b = bullet_path.instantiate()
 			owner.add_child(b)
-			b.transform = global_transform
+			b.transform = $WeaponSprite/BulletSpacing.global_transform
 			b.scale.x = 0.5
 			b.scale.y = 0.5
 			b.dmg = dmg_range
@@ -434,14 +408,9 @@ func _on_weapon_changed() -> void:
 	Global.RangeWeaponCooldown = stats.cooldown
 	dmg_range = stats.dmg
 	CurrentSeriaNumber = stats.seria
+	$WeaponSprite.texture=stats.WeapomImage
 	
 	
-
-#Parry
-func _on_parry_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Bullet"):
-		area.queue_free()
-		
 #Otrzymywanie Dmg'u
 func Dmg_Func(x):
 	if immunity_chance == true:
@@ -510,11 +479,13 @@ func Func_AOE():
 			o.queue_free()
 		if o.is_in_group("Enemy"):
 			o.owner.Death()
-		if o.is_in_group("Boss"):
+		if o.is_in_group("Boss") and o.can_be_hit == true:
 			o.health -= 5
 #Clear
 func Func_Clear():
 	for o in get_tree().get_nodes_in_group("Bullet"):
+		o.queue_free()
+	for o in get_tree().get_nodes_in_group("Boss_Bullet"):
 		o.queue_free()
 
 var b1_path = preload("res://Player/Naprowadzający_Bullet_Playera/naprowadzający_playera.tscn")
@@ -523,14 +494,13 @@ var b1_path = preload("res://Player/Naprowadzający_Bullet_Playera/naprowadzają
 func Func_Projectiles():
 	Projectiles = false
 	for o in projectiles_area.get_overlapping_areas():
-		if o.is_in_group("Enemy"):
+		if o.is_in_group("Enemy") or o.is_in_group("Boss"):
 			var b1 = b1_path.instantiate()
 			b1.global_transform = global_transform
-			b1.global_position.y += 40
 			b1.enemy = o
 			b1.dmg = 3
 			owner.add_child(b1)
-			
+		
 
 #Piorun - Pasywny Itemek
 func Func_Piorun():
@@ -538,6 +508,9 @@ func Func_Piorun():
 	for o in piorun_area.get_overlapping_areas():
 		if o.is_in_group("Enemy"):
 			o.owner.Death()
+		if o.is_in_group("Boss") and o.can_be_hit == true:
+			print("NIGGER")
+			o.health -= 3
 
 #Fire Trace - Pasywny Itemek
 func _on_fire_trace_timer_timeout() -> void:
