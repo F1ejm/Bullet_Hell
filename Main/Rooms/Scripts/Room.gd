@@ -20,11 +20,17 @@ var right = 0
 func _ready():
 	LastDoorContainer = self
 	spawn(LastDoorContainer,true,1,false)
+	$"..".rotation= (randi_range(1,4)/2) * PI
 	print("a")
 	
 func _reset() -> void:
-	self.remove_child(self.get_child(1))
+	print(self.get_child(0).get_child(0))
+	self.get_child(0).get_child(0).queue_free()
 	LastDoorContainer = self
+	d = 0
+	room_limit = 0
+	left = 0
+	right = 0
 	spawn(LastDoorContainer,true,1,false)
 	
 func spawn(DoorContainer,isRoom,Door_Count,is4door) -> void:

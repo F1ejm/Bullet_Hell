@@ -108,4 +108,4 @@ texture = ExtResource("1_mg6r4")
 
 [node name="Door" type="Node2D" parent="DoorContainer"]
 position = Vector2(691, 676)
-rotation = 1.5708
+rotation = -1.5708
