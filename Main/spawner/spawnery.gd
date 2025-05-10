@@ -45,6 +45,45 @@ func _ready() -> void:
 	rotation = rotation - global_rotation
 	$NavigationRegion2D.rotation = $NavigationRegion2D.rotation - $NavigationRegion2D.global_rotation
 	
+	var markers = get_rotated_markers(rotation_degrees)
+	for i in markers:
+	var marker_ld = markers["ld"]
+	var marker_lg = markers["lg"]
+	var marker_pd = markers["pd"]
+	var marker_pg = markers["pg"]
+
+func get_rotated_markers(angle: int):
+	var normalized_angle = int(round(angle)) % 360
+
+	match normalized_angle:
+		0:
+			return {
+				"ld": ld,
+				"lg": lg,
+				"pd": pd,
+				"pg": pg,
+			}
+		90:
+			return {
+				"ld": lg,
+				"lg": pg,
+				"pd": ld,
+				"pg": pd,
+			}
+		180:
+			return {
+				"ld": pg,
+				"lg": pd,
+				"pd": lg,
+				"pg": ld,
+			}
+		270:
+			return {
+				"ld": pd,
+				"lg": ld,
+				"pd": pg,
+				"pg": lg,
+			}
 
 func _process(delta: float) -> void:
 	global_rotation = 0
