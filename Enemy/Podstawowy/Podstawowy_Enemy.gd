@@ -39,6 +39,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	Player = Global.player_main
+	$Sprite2D/Marker2D.look_at(Player.global_position)
 	progress_bar.value = health
 	if health <= 0:
 		Death()
@@ -63,14 +64,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		if body.Dash_PowerUp == true and Global.IsDashing == true:
 			Death()
-		speed = 0 
 
 func can_shoot() -> void:
 	shoot_available = true
 	shoot()
 
 func shoot():
-	if shoot_available and lang > 150:
+	if shoot_available : 
 		shoot_available = false
 		var b = Bullet.instantiate()
 		main.add_child(b)
