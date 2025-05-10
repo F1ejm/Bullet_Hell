@@ -1,25 +1,42 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=16 format=3 uid="uid://bavxgun4dur0c"]
+=======
+[gd_scene load_steps=18 format=4 uid="uid://bavxgun4dur0c"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_8dnt5"]
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="1_lyj31"]
 [ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="1_xnnyn"]
 [ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="2_8rqoc"]
+[ext_resource type="Texture2D" uid="uid://cv6nare2clauc" path="res://Art/TŁO/sciana nr1.png" id="3_ljwap"]
+[ext_resource type="Texture2D" uid="uid://cuf75hcy7ysr3" path="res://Art/TŁO/sciana nr2.png" id="4_fwppr"]
 [ext_resource type="Script" uid="uid://b1t6gilm08w2d" path="res://Main/Rooms/Normal_Rooms/node_2d.gd" id="5_cr3jh"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://buw7aci8wawo3" path="res://Main/Rooms/Normal_Rooms/door.gd" id="6_pvetk"]
 [ext_resource type="Script" uid="uid://bt8qq8vmx8irc" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="7_ljwap"]
 [ext_resource type="Texture2D" uid="uid://c8gtuuxttw4sb" path="res://Art/DRZWI/DRZWI.png" id="7_pvetk"]
+=======
+[ext_resource type="Script" path="res://Main/Rooms/Normal_Rooms/door.gd" id="6_pvetk"]
+[ext_resource type="Script" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="7_ljwap"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aps5"]
 size = Vector2(1290, 732)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rqoc"]
-size = Vector2(75, 1023)
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xijto"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnnyn"]
-size = Vector2(70.9979, 538)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2k8bf"]
+texture = ExtResource("3_ljwap")
+0:0/0 = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyj31"]
-size = Vector2(74, 993)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pl012"]
+texture = ExtResource("4_fwppr")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qafyq"]
+sources/0 = SubResource("TileSetScenesCollectionSource_xijto")
+sources/1 = SubResource("TileSetAtlasSource_2k8bf")
+sources/2 = SubResource("TileSetAtlasSource_pl012")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwppr"]
 size = Vector2(262, 74)
@@ -33,10 +50,10 @@ size = Vector2(88, 226)
 [node name="2Dor" type="Node2D"]
 
 [node name="Ściany" type="Node2D" parent="."]
-position = Vector2(-579, 717)
 
 [node name="Fog" type="Node2D" parent="Ściany"]
-visible = false
+position = Vector2(-577, 769)
+metadata/_edit_group_ = true
 
 [node name="Area2D" type="Area2D" parent="Ściany/Fog"]
 position = Vector2(579, -717)
@@ -63,84 +80,11 @@ offset_bottom = -590.0
 texture = ExtResource("1_xnnyn")
 expand_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
-position = Vector2(-27.5, -191.5)
-shape = SubResource("RectangleShape2D_8rqoc")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D"]
-position = Vector2(-27, -184)
-scale = Vector2(0.578125, 8.14062)
-texture = ExtResource("1_8dnt5")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(-2, 321)
-rotation = 1.5708
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D2"]
-position = Vector2(25.4991, -212)
-shape = SubResource("RectangleShape2D_xnnyn")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D2"]
-position = Vector2(27.0339, -208.504)
-scale = Vector2(0.577595, 4.25789)
-texture = ExtResource("1_8dnt5")
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(732, 318)
-rotation = 1.5708
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D5"]
-position = Vector2(25.4991, -212)
-shape = SubResource("RectangleShape2D_xnnyn")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D5"]
-position = Vector2(27.0339, -208.504)
-scale = Vector2(0.577595, 4.25789)
-texture = ExtResource("1_8dnt5")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(1, -697)
-rotation = 1.5708
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D4"]
-position = Vector2(25.4991, -212)
-shape = SubResource("RectangleShape2D_xnnyn")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D4"]
-position = Vector2(27.0339, -208.504)
-scale = Vector2(0.577595, 4.25789)
-texture = ExtResource("1_8dnt5")
-
-[node name="StaticBody2D6" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(735, -700)
-rotation = 1.5708
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D6"]
-position = Vector2(25.4991, -212)
-shape = SubResource("RectangleShape2D_xnnyn")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D6"]
-position = Vector2(27.0339, -208.504)
-scale = Vector2(0.577595, 4.25789)
-texture = ExtResource("1_8dnt5")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(1152, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D3"]
-position = Vector2(27, -141.5)
-shape = SubResource("RectangleShape2D_lyj31")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D3"]
-position = Vector2(27, -173)
-scale = Vector2(0.578125, 8.42188)
-texture = ExtResource("1_8dnt5")
+[node name="TileMapLayer" type="TileMapLayer" parent="Ściany"]
+texture_filter = 1
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAABAAAAAgAAAAAAAAD+/wAAAgAAAAAAAAD+/w0AAgAAAAAAAAABAA0AAgAAAAAAAAD9/wAAAQAAAAAAAFD8/wAAAQAAAAAAAFD7/wAAAQAAAAAAAFD6/wAAAQAAAAAAAFD5/wAAAQAAAAAAAFACAAAAAQAAAAAAAFADAAAAAQAAAAAAAFAEAAAAAQAAAAAAAFAFAAAAAQAAAAAAAFAGAAAAAQAAAAAAAFACAA0AAQAAAAAAAFADAA0AAQAAAAAAAFAEAA0AAQAAAAAAAFAFAA0AAQAAAAAAAFAGAA0AAQAAAAAAAFD9/w0AAQAAAAAAAFD8/w0AAQAAAAAAAFD7/w0AAQAAAAAAAFD6/w0AAQAAAAAAAFD5/w0AAQAAAAAAAFAHAA0AAgAAAAAAAAD4/w0AAgAAAAAAAAD4/wAAAgAAAAAAAAAHAAAAAgAAAAAAAAD4/wwAAQAAAAAAAAD4/wsAAQAAAAAAAAD4/woAAQAAAAAAAAD4/wkAAQAAAAAAAAD4/wgAAQAAAAAAAAD4/wcAAQAAAAAAAAD4/wYAAQAAAAAAAAD4/wUAAQAAAAAAAAD4/wQAAQAAAAAAAAD4/wMAAQAAAAAAAAD4/wIAAQAAAAAAAAD4/wEAAQAAAAAAAAAHAAEAAQAAAAAAAAAHAAIAAQAAAAAAAAAHAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAHAAUAAQAAAAAAAAAHAAYAAQAAAAAAAAAHAAcAAQAAAAAAAAAHAAgAAQAAAAAAAAAHAAkAAQAAAAAAAAAHAAoAAQAAAAAAAAAHAAsAAQAAAAAAAAAHAAwAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_qafyq")
 
 [node name="Template" type="Node2D" parent="."]
 

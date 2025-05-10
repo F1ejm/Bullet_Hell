@@ -43,7 +43,6 @@ size = Vector2(61, 226)
 [node name="2Dor2" type="Node2D"]
 
 [node name="Fog" type="Node2D" parent="."]
-visible = false
 z_index = 2
 position = Vector2(-577, 761)
 metadata/_edit_group_ = true
