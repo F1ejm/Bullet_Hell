@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=31 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://bnr347aq4tiyo" path="res://Art/TŁO/pixil-frame-0 (9).png" id="15_lrfe7"]
 [ext_resource type="PackedScene" uid="uid://cheolkkekj0pt" path="res://Main/Rooms/Entry.tscn" id="19_d3r6l"]
 [ext_resource type="Texture2D" uid="uid://152v13eov1bt" path="res://Art/TŁO/pixil-frame-0 (76).png" id="20_ggtbl"]
-[ext_resource type="Texture2D" uid="uid://bcoa6j7ic2ovy" path="res://Art/TŁO/sciana.png" id="21_j2iu7"]
 [ext_resource type="Shader" uid="uid://bd5oxuhpuowhl" path="res://Main/shader/szejder.gdshader" id="24_rii6w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o8qko"]
@@ -67,13 +66,6 @@ sources/3 = SubResource("TileSetAtlasSource_rii6w")
 [sub_resource type="LabelSettings" id="LabelSettings_j2iu7"]
 font = ExtResource("2_j2iu7")
 font_size = 30
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j4nmm"]
-texture = ExtResource("21_j2iu7")
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_ggtbl"]
-sources/0 = SubResource("TileSetAtlasSource_j4nmm")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fayjp")
@@ -191,12 +183,5 @@ grow_vertical = 2
 text = "Beaware, A Grave Danger Lies Ahead"
 label_settings = SubResource("LabelSettings_j2iu7")
 script = ExtResource("4_j4nmm")
-
-[node name="TileMap2" type="TileMap" parent="."]
-texture_filter = 1
-scale = Vector2(10, 10)
-tile_set = SubResource("TileSet_ggtbl")
-format = 2
-layer_0/tile_data = PackedInt32Array(-1, 0, 0, 65535, 0, 0, 65534, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, 262141, 0, 0, 262140, 0, 0, 262139, 0, 0, 262138, 0, 0, 262137, 0, 0, -65537, 0, 0, -131073, 0, 0, -196609, 0, 0, -262145, 0, 0, -262146, 0, 0, -262147, 0, 0, -262148, 0, 0, -262149, 0, 0, -262150, 0, 0, -262151, 0, 0, -327687, 0, 0, -393223, 0, 0, -458759, 0, 0, -589831, 0, 0, -655367, 0, 0, -655368, 0, 0, -655369, 0, 0, -655370, 0, 0, -655371, 0, 0, -655372, 0, 0, -655373, 0, 0, -589837, 0, 0, -524301, 0, 0, -458765, 0, 0, -458764, 0, 0, -458763, 0, 0, -458762, 0, 0, -393226, 0, 0, -327690, 0, 0, -262154, 0, 0, -196618, 0, 0, -131082, 0, 0, -131081, 0, 0, -131080, 0, 0, -131079, 0, 0, -131078, 0, 0, -131077, 0, 0, -65541, 0, 0, -5, 0, 0, 65531, 0, 0, 65530, 0, 0, 65529, 0, 0, 65528, 0, 0, 65527, 0, 0, 131062, 0, 0, -458758, 0, 0, -458757, 0, 0, -458756, 0, 0, -458755, 0, 0, -458754, 0, 0, -589830, 0, 0, -589829, 0, 0, -720903, 0, 0, -786439, 0, 0, -851975, 0, 0, -851974, 0, 0, -851973, 0, 0, -851972, 0, 0, -851971, 0, 0, -851970, 0, 0, -851969, 0, 0, -917504, 0, 0, -851968, 0, 0, -786432, 0, 0, -720896, 0, 0, -655360, 0, 0, -589825, 0, 0, -589826, 0, 0, -655359, 0, 0, -655358, 0, 0, -655357, 0, 0, -655356, 0, 0, -524284, 0, 0, -458748, 0, 0, -393212, 0, 0, -327676, 0, 0, -327677, 0, 0, -327678, 0, 0, -327679, 0, 0, -327680, 0, 0, -589820, 0, 0)
 
 [connection signal="timeout" from="random_event_timer" to="." method="_on_random_event_timer_timeout"]
