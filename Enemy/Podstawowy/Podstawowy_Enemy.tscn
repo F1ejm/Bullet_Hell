@@ -12,13 +12,14 @@ height = 124.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_62bfm"]
 radius = 24.0832
 
-[node name="Podstawowy_Przeciwnik" type="CharacterBody2D" node_paths=PackedStringArray("shoot_timer") groups=["Enemy"]]
+[node name="Podstawowy_Przeciwnik" type="CharacterBody2D" node_paths=PackedStringArray("shoot_timer", "nav_timer") groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_epr5s")
 Bullet = ExtResource("2_vso2s")
 shoot_timer = NodePath("shoot_timer")
+nav_timer = NodePath("nav_timer")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
 
@@ -42,7 +43,7 @@ texture = ExtResource("4_62bfm")
 debug_enabled = true
 
 [node name="nav_timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.026
 autostart = true
 
 [node name="shoot_timer" type="Timer" parent="."]
@@ -63,7 +64,6 @@ show_percentage = false
 shape = SubResource("CircleShape2D_62bfm")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="nav_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="nav_timer" to="." method="_on_nav_timer_timeout"]
 [connection signal="timeout" from="shoot_timer" to="." method="can_shoot"]
 [connection signal="timeout" from="another_timer" to="." method="_on_another_timer_timeout"]

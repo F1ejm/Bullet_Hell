@@ -105,6 +105,7 @@ shape = SubResource("CapsuleShape2D_6ysni")
 [node name="Tarcza_Item_Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tarcza_Item_Area"]
+position = Vector2(-1.42857, 2.85714)
 shape = SubResource("CircleShape2D_tok1r")
 
 [node name="AOE_Item_Area" type="Area2D" parent="."]
