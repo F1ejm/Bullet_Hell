@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn3674d52pqvk"
-path="res://.godot/imported/PM.png-7231813d9ec84994d1a93274c990f17d.ctex"
+uid="uid://c8gtuuxttw4sb"
+path="res://.godot/imported/DRZWI.png-62e5f30540e7b19766daa6c0be8dd2cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/PM.png"
-dest_files=["res://.godot/imported/PM.png-7231813d9ec84994d1a93274c990f17d.ctex"]
+source_file="res://Art/DRZWI/DRZWI.png"
+dest_files=["res://.godot/imported/DRZWI.png-62e5f30540e7b19766daa6c0be8dd2cc.ctex"]
 
 [params]
 

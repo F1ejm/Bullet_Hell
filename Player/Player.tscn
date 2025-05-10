@@ -125,7 +125,7 @@ shape = SubResource("RectangleShape2D_ddoul")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(7.881, 7.897)
+scale = Vector2(6, 6.012)
 texture = ExtResource("3_tok1r")
 
 [node name="Marker2D" type="Marker2D" parent="."]
