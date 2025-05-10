@@ -100,16 +100,15 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		f = false
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		speed = 10000
+	pass
 
 
 func shoot():
-	if shoot_available and lang > 150:
+	if shoot_available :
 		shoot_available = false
 		var b = Bullet.instantiate()
 		main.add_child(b)
-		b.transform = $Sprite2D/Marker2D.global_transform
+		b.global_transform = $Sprite2D/Marker2D.global_transform
 		shoot_timer.start()
 		b.scale.x = 0.5
 		b.scale.y = 0.5

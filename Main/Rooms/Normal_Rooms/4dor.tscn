@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dy0nmtb1lvjw6"]
+[gd_scene load_steps=13 format=3 uid="uid://dy0nmtb1lvjw6"]
 
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="1_7k6xl"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_68wp7"]
 [ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="2_n8o2q"]
 [ext_resource type="PackedScene" uid="uid://b3pce5gyy6w0j" path="res://Main/spawner/spawner.tscn" id="3_q24e3"]
 [ext_resource type="Script" uid="uid://b1t6gilm08w2d" path="res://Main/Rooms/Normal_Rooms/node_2d.gd" id="5_1o5pf"]
-[ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Podstawowy/Podstawowy_Enemy.tscn" id="5_3qs3m"]
 [ext_resource type="Script" uid="uid://buw7aci8wawo3" path="res://Main/Rooms/Normal_Rooms/door.gd" id="5_n8o2q"]
 [ext_resource type="Script" uid="uid://bt8qq8vmx8irc" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="6_wkt05"]
 
@@ -172,9 +171,6 @@ texture = ExtResource("1_68wp7")
 
 [node name="spawner" parent="Template" instance=ExtResource("3_q24e3")]
 position = Vector2(-1, 623)
-Seryjny = ExtResource("5_3qs3m")
-"Okrągły" = ExtResource("5_3qs3m")
-"Naprowadzający" = ExtResource("5_3qs3m")
 
 [node name="Door" type="Node2D" parent="Template"]
 script = ExtResource("5_1o5pf")
