@@ -37,6 +37,8 @@ var health: int = 50
 var can_be_hit: bool = false
 @onready var progress_bar: ProgressBar = $ProgressBar
 
+var teleport = preload("res://Main/teleport.tscn")
+
 func _ready() -> void:
 	rotation = rotation - global_rotation
 	#animacje
@@ -175,4 +177,7 @@ func _on_circle_lasting_timer_timeout() -> void:
 func Death():
 	# Animacje smierci i sfx etc. TODO
 	Global.VDolce += 20
+	var teleportacja = teleport.instantiate()
+	main.add_child(teleportacja)
+	teleportacja.global_position = self.global_position
 	queue_free()

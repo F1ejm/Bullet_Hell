@@ -3,6 +3,8 @@ extends Area2D
 var Player: CharacterBody2D
 var main: Node2D
 
+var teleport = preload("res://Main/teleport.tscn")
+
 @onready var bullet_spawn: Node2D = $Bullet_Spawn
 @onready var rotating_bullet_spawner: Node2D = $Bullet_Spawn/Rotating_Bullet_Spawner
 
@@ -178,4 +180,7 @@ func _on_lasting_timer_timeout() -> void:
 
 func Death():
 	Global.VDolce += 35
+	var teleportacja = teleport.instantiate()
+	main.add_child(teleportacja)
+	teleportacja.global_position = self.global_position
 	queue_free()
