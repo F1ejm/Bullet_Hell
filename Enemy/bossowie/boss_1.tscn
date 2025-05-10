@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://x28aux52aehq" path="res://Art/Boss/anim/NISZCZENIE3.png" id="14_shyof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq4hv"]
-size = Vector2(59, 59)
+size = Vector2(110, 109)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pmupq"]
 animations = [{
@@ -137,7 +137,7 @@ offset_bottom = -154.0
 show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(2, 4.5)
 shape = SubResource("RectangleShape2D_fq4hv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

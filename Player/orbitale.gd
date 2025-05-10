@@ -27,20 +27,27 @@ func Func_Orbitals(delta):
 
 	orbitals.visible = true
 	orbitals.global_rotation += (1.5 * delta) 
-		
-	for o in orbital_1_area.get_overlapping_areas():
-		if o.is_in_group("Bullet"):
-			o.queue_free()
-		if o.is_in_group("Enemy"):
-			o.owner.Death()
-	for o in orbital_2_area.get_overlapping_areas():
-		if o.is_in_group("Bullet"):
-			o.queue_free()
-		if o.is_in_group("Enemy"):
-			o.owner.Death()
-	for o in orbital_3_area.get_overlapping_areas():
-		if o.is_in_group("Bullet"):
-			o.queue_free()
-		if o.is_in_group("Enemy"):
-			o.owner.Death()
-		
+
+func _on_orbital_area_entered(o: Area2D) -> void:
+	if o.is_in_group("Bullet"):
+		o.queue_free()
+	if o.is_in_group("Enemy"):
+		o.owner.Death()
+	if o.is_in_group("Boss") and o.can_be_hit == true:
+		o.health -= 1
+
+func _on_orbital_2_area_entered(o: Area2D) -> void:
+	if o.is_in_group("Bullet"):
+		o.queue_free()
+	if o.is_in_group("Enemy"):
+		o.owner.Death()
+	if o.is_in_group("Boss") and o.can_be_hit == true:
+		o.health -= 1
+
+func _on_orbital_3_area_entered(o: Area2D) -> void:
+	if o.is_in_group("Bullet"):
+		o.queue_free()
+	if o.is_in_group("Enemy"):
+		o.owner.Death()
+	if o.is_in_group("Boss") and o.can_be_hit == true:
+		o.health -= 1

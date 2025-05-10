@@ -40,7 +40,7 @@ var Move_Slower_PowerUp: bool = false
 
 #Itemy Aktywne --------------------------------
 
-var Current_Active_Item: int = 2
+var Current_Active_Item: int = 0
 @onready var trwanie_timer: Timer = $Trwanie_Timer
 @onready var cooldown_timer: Timer = $Cooldown_Timer
 
@@ -54,12 +54,12 @@ var Tarcza_Cooldown: float = 15
 #2 Pociski namierzające
 var Can_Use_Projectiles: bool = false
 var Projectiles: bool
-var Projectiles_Trwanie: float = 1
+var Projectiles_Trwanie: float = 5
 var Projectiles_Cooldown: float = 10
 @onready var projectiles_area: Area2D = $Projectiles_Area
 
 #3 AOE w Okół Gracza
-var Can_Use_AOE: bool = true
+var Can_Use_AOE: bool = false
 var AOE: bool
 var AOE_Trwanie: float = 1
 var AOE_Cooldown: float = 15
@@ -95,11 +95,11 @@ var piorun_rand
 @onready var piorun_area: Area2D = $Pasywne_Itemki/Piorun_Area
 
 # Szlak za playerem
-var Trace: bool = false
+var Trace: bool = true
 var trac_fire_path = preload("res://Player/player_fire_trace.tscn")
 
 # Orbitale
-var Orbitale: bool = false
+var Orbitale: bool = true
 @export var node_orbitali: Node2D
 
 #Przebicie jednego przeciwnika przez bullety
@@ -166,6 +166,7 @@ func _process(delta: float) -> void:
 	$Camera2D.global_position = (self.global_position * 3 +get_global_mouse_position())/4
 
 func _physics_process(delta):
+	
 	if Global.stop == true:
 		return
 	#Power Up'y ----------------------------------------
@@ -219,10 +220,10 @@ func _physics_process(delta):
 			trwanie_timer.wait_time = Projectiles_Trwanie
 			cooldown_timer.wait_time = Projectiles_Cooldown
 		2:
-			trwanie_timer.wait_time = AOE_Trwanie
+			trwanie_timer.wait_time = delta
 			cooldown_timer.wait_time = AOE_Cooldown
 		3:
-			trwanie_timer.wait_time = Clear_Trwanie
+			trwanie_timer.wait_time = delta
 			cooldown_timer.wait_time = Clear_Cooldown
 		4:
 			trwanie_timer.wait_time = Pioruny_Trwanie
@@ -257,13 +258,12 @@ func _physics_process(delta):
 		
 	#Projectiles
 	if Input.is_action_just_pressed("active_item") and Can_Use_Projectiles == true:
-		print("NIgger")
 		Projectiles = true
 		Can_Use_Projectiles = false
 		trwanie_timer.start()
+		cooldown_timer.start()
 	
 	if Projectiles == true:
-		cooldown_timer.start()
 		Func_Projectiles()
 	
 	#Pioruny
@@ -510,11 +510,13 @@ func Func_AOE():
 			o.queue_free()
 		if o.is_in_group("Enemy"):
 			o.owner.Death()
-		if o.is_in_group("Boss"):
+		if o.is_in_group("Boss") and o.can_be_hit == true:
 			o.health -= 5
 #Clear
 func Func_Clear():
 	for o in get_tree().get_nodes_in_group("Bullet"):
+		o.queue_free()
+	for o in get_tree().get_nodes_in_group("Boss_Bullet"):
 		o.queue_free()
 
 var b1_path = preload("res://Player/Naprowadzający_Bullet_Playera/naprowadzający_playera.tscn")
@@ -523,14 +525,13 @@ var b1_path = preload("res://Player/Naprowadzający_Bullet_Playera/naprowadzają
 func Func_Projectiles():
 	Projectiles = false
 	for o in projectiles_area.get_overlapping_areas():
-		if o.is_in_group("Enemy"):
+		if o.is_in_group("Enemy") or o.is_in_group("Boss"):
 			var b1 = b1_path.instantiate()
 			b1.global_transform = global_transform
-			b1.global_position.y += 40
 			b1.enemy = o
 			b1.dmg = 3
 			owner.add_child(b1)
-			
+		
 
 #Piorun - Pasywny Itemek
 func Func_Piorun():
@@ -538,6 +539,8 @@ func Func_Piorun():
 	for o in piorun_area.get_overlapping_areas():
 		if o.is_in_group("Enemy"):
 			o.owner.Death()
+		if o.is_in_group("Boss") and o.can_be_hit == true:
+			o.health -= 3
 
 #Fire Trace - Pasywny Itemek
 func _on_fire_trace_timer_timeout() -> void:

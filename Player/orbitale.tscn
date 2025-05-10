@@ -93,3 +93,7 @@ position = Vector2(1.42857, -0.204)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_ehx4b")
 frame_progress = 0.937487
+
+[connection signal="area_entered" from="Orbitals/Node2D/Orbital" to="." method="_on_orbital_area_entered"]
+[connection signal="area_entered" from="Orbitals/Node2D2/Orbital2" to="." method="_on_orbital_2_area_entered"]
+[connection signal="area_entered" from="Orbitals/Node2D3/Orbital3" to="." method="_on_orbital_3_area_entered"]

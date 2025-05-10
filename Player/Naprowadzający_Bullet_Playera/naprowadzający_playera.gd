@@ -17,7 +17,9 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		area.owner.health -= dmg
 		queue_free()
-
+	if area.is_in_group("Boss") and area.can_be_hit == true:
+		area.health -= 5
+		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Wall"):
