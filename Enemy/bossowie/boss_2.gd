@@ -65,6 +65,7 @@ var can_be_hit: bool = true
 
 func _ready() -> void:
 	#animacje TODO
+	rotation = rotation - global_rotation
 	#health bar
 	progress_bar.max_value = health
 	
@@ -116,7 +117,7 @@ func First_Atak():
 		for i in range(1,21):
 			#Spawn Bulletu
 			var bullet = bullet_path.instantiate()
-			owner.add_child(bullet)
+			main.add_child(bullet)
 			bullet.transform = pierwszy_atak_node.global_transform
 			bullet.rotation = deg_to_rad(18 * i)
 			bullet.speed = 330
@@ -132,7 +133,7 @@ func Second_Atak():
 	if can_drugi_atak == true:
 		#bullet spawn
 		var bullet = bullet_path.instantiate()
-		owner.add_child(bullet)
+		main.add_child(bullet)
 		bullet.transform = pierwszy.global_transform
 		bullet.speed = 1000
 		bullet.move_side = false
@@ -140,7 +141,7 @@ func Second_Atak():
 		bullet.scale = Vector2(3,3)
 		
 		var bullet2 = bullet_path.instantiate()
-		owner.add_child(bullet2)
+		main.add_child(bullet2)
 		bullet2.transform = drugi.global_transform
 		bullet2.speed = 1000
 		bullet2.move_side = false
@@ -148,7 +149,7 @@ func Second_Atak():
 		bullet2.scale = Vector2(3,3)
 		
 		var bullet3 = bullet_path.instantiate()
-		owner.add_child(bullet3)
+		main.add_child(bullet3)
 		bullet3.transform = trzeci.global_transform
 		bullet3.speed = 1000
 		bullet3.move_side = false
@@ -157,7 +158,7 @@ func Second_Atak():
 		
 		
 		var bullet4 = bullet_path.instantiate()
-		owner.add_child(bullet4)
+		main.add_child(bullet4)
 		bullet4.transform = czwarty.global_transform
 		bullet4.speed = 1000
 		bullet4.move_side = false
@@ -172,7 +173,7 @@ func Third_Atak():
 	if can_trzeci_atak == true:
 		#atak w playera
 		var atak = trzeci_node.instantiate()
-		owner.add_child(atak)
+		main.add_child(atak)
 		atak.Player = Player.global_position
 		atak.transform = rotating_bullet_spawner.global_transform
 		
@@ -188,7 +189,7 @@ func Fourth_Atak():
 			bullet_spawn.rotation -= deg_to_rad(10)
 			#spawn
 			var bullet = bullet_path.instantiate()
-			owner.add_child(bullet)
+			main.add_child(bullet)
 			bullet.transform = rotating_bullet_spawner.global_transform
 			bullet.speed = 500
 			bullet.move_side = false
@@ -229,7 +230,7 @@ func _on_cooldown_timer_timeout() -> void:
 func Second_Phase():
 	# Animacje smierci i sfx etc. TODO
 	var second_phase = second_phase_path.instantiate()
-	owner.add_child(second_phase)
+	main.add_child(second_phase)
 	second_phase.transform = global_transform
 	second_phase.Player = Player
 	second_phase.main = main

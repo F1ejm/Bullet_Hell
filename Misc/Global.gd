@@ -27,6 +27,8 @@ var stop: bool = false
 #Interaction
 var show_interaction: bool = false
 
+var label_boss: bool = false
+
 #Shop
 var shop_can_interact: bool = false
 var shop_ui_visible: bool = false

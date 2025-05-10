@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var Player: CharacterBody2D
+var main
 
 @onready var bullet_spawn: Node2D = $Bullet_Spawn
 @onready var rotating_bullet_spawner: Node2D = $Bullet_Spawn/Rotating_Bullet_Spawner
@@ -32,11 +33,12 @@ var eryczkowy_atak_waittime: float = 0.05
 var can_eryczkowy_atak: bool = true
 
 #Zycie i wszystko do zycia
-var health: int = 100
+var health: int = 50
 var can_be_hit: bool = false
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 func _ready() -> void:
+	rotation = rotation - global_rotation
 	#animacje
 	$AnimatedSprite2D.play("Idle")
 	#health bar
@@ -81,7 +83,7 @@ func Circle_Atak():
 		for i in range(1,21):
 			#Spawn Bulletu
 			var bullet = bullet_path.instantiate()
-			owner.add_child(bullet)
+			main.add_child(bullet)
 			bullet.transform = bullet_spawn.global_transform
 			bullet.rotation = deg_to_rad(18 * i)
 			bullet.speed = 200
@@ -102,7 +104,7 @@ func Spray_Atak():
 	if can_spray_atak == true:
 		#Spawn Bulletu
 		var bullet = bullet_path.instantiate()
-		owner.add_child(bullet)
+		main.add_child(bullet)
 		bullet.transform = bullet_spawn.global_transform
 		bullet.rotation = bullet_spawn.rotation+ deg_to_rad(randi_range(-45,45))
 		bullet.speed = 400
@@ -118,7 +120,7 @@ func Eryk_Atak():
 		for i in range(1,5):
 			#Spawn Bulletu
 			var bullet = bullet_path.instantiate()
-			owner.add_child(bullet)
+			main.add_child(bullet)
 			bullet.transform = bullet_spawn.global_transform
 			bullet.rotation = bullet_spawn.rotation + deg_to_rad(90 * i)
 			bullet.speed = 200

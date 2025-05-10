@@ -48,9 +48,9 @@ func Choose_Event():
 			shader_material.set_shader_parameter("vignette_power", 2.0)
 			shader_material.set_shader_parameter("vignette_divisor", 1.0)
 		3:
-			Engine.time_scale = 1.4
+			Engine.time_scale = 1.3
 		4:
-			Engine.time_scale = 0.6
+			Engine.time_scale = 0.7
 		5:
 			#SFX i Wizualnie tu Trzeba TODO
 			Health_Taken()
