@@ -13,6 +13,8 @@ var a
 var LastDoorContainer
 var d = 0
 var room_limit = 0
+var left = 0
+var right = 0
 
 
 func _ready():
@@ -29,25 +31,27 @@ func spawn(DoorContainer,isRoom,Door_Count,is4door) -> void:
 	if(not is4door):
 		if(isRoom):
 			for i in range(0,Door_Count):
-				match(randi_range(1,5)):
-					1,2,3:
+				match(randi_range(1+right,5-left)):
+					2,3,4:
 						a = corridor_strait.instantiate()
 						DoorContainer.get_child(i).add_child(a)
 						LastDoorContainer = a.get_child(a.get_child_count()-1)
 						spawn(LastDoorContainer,false,1,false)
 						
 
-					4:
+					1:
 						a = corridor_right.instantiate()
 						DoorContainer.get_child(i).add_child(a)
 						LastDoorContainer = a.get_child(a.get_child_count()-1)
 						spawn(LastDoorContainer,false,1,false)
+						right=1
 
 					5:
 						a = corridor_left.instantiate()
 						DoorContainer.get_child(i).add_child(a)
 						LastDoorContainer = a.get_child(a.get_child_count()-1)
 						spawn(LastDoorContainer,false,1,false)
+						left=1
 		else:
 			for i in range(0,Door_Count):
 				if(room_limit<3):
