@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ht7qibk0wg3t"]
+[gd_scene load_steps=5 format=3 uid="uid://ht7qibk0wg3t"]
 
 [ext_resource type="Script" uid="uid://gyplfx1rlksc" path="res://UI/PlayerUI/stamina.gd" id="1_elmnx"]
+[ext_resource type="Texture2D" uid="uid://cp3jmfur0pwox" path="res://Art/stamina/stamina_bar_back.png" id="2_1w4li"]
+[ext_resource type="Texture2D" uid="uid://d886ddnl1bvs" path="res://Art/stamina/stamina_bar_over.png" id="3_i32s7"]
+[ext_resource type="Texture2D" uid="uid://dih4jsq8dahom" path="res://Art/stamina/stamina_bar_fill.png" id="4_dauc4"]
 
 [node name="Stamina" type="Control"]
 layout_mode = 3
@@ -11,12 +14,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_elmnx")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
 offset_top = 128.0
 offset_right = 514.0
-offset_bottom = 155.0
-show_percentage = false
+offset_bottom = 159.0
+nine_patch_stretch = true
+stretch_margin_left = 90
+stretch_margin_top = 65
+stretch_margin_right = 90
+texture_under = ExtResource("2_1w4li")
+texture_over = ExtResource("3_i32s7")
+texture_progress = ExtResource("4_dauc4")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
