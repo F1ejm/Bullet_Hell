@@ -52,24 +52,26 @@ func movement(delta):
 	sprite.look_at(Player.global_position)
 	
 	#obliczanie odległości 
-	distance = Player.global_position - position
+	distance = Player.global_position - global_position
 	lang = distance[1]*distance[1] + distance[0]*distance[0]
 	lang = sqrt(lang)
-	
+
 	#poruszanie 
 	if lang >= 500:
 		generate = true
 		speed = 7000
-		var dir = to_local(nav_agent.get_next_path_position()).normalized()
+		var dir = nav_agent.get_next_path_position()-global_position.normalized()
 		velocity = dir * speed * delta
 		move_and_slide()
+		print(dir)
 		
 	if lang < 270:	
 		generate = true
 		speed = 7000
-		var dir = to_local(nav_agent.get_next_path_position()).normalized()
+		var dir = nav_agent.get_next_path_position()-global_position.normalized()
 		velocity = dir * speed * delta
 		move_and_slide()
+		print(dir)
 		
 	elif lang > 300 and lang < 500:
 		#Poruszanie Na Boki TODO
@@ -113,10 +115,11 @@ func shoot():
 		shoot_available = false
 		var b = Bullet.instantiate()
 		main.add_child(b)
-		b.transform = $Sprite2D/Marker2D.global_transform
+		b.global_transform = $Sprite2D/Marker2D.global_transform
 		shoot_timer.start()
 		b.scale.x = 0.5
 		b.scale.y = 0.5
+
 
 func Generate():
 	x = randi_range(-400,400)

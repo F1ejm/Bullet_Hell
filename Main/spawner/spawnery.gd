@@ -38,6 +38,8 @@ func _ready() -> void:
 	c = Global.can_spawn
 	timer_power_up.wait_time = randi_range(10,20)
 	timer_power_up.start()
+	rotation = rotation - global_rotation
+	$NavigationRegion2D.rotation = $NavigationRegion2D.rotation - $NavigationRegion2D.global_rotation
 	
 
 func _process(delta: float) -> void:
