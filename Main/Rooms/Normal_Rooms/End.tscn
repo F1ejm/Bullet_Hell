@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://dnbf0c4gd58pa"]
+[gd_scene load_steps=12 format=4 uid="uid://dnbf0c4gd58pa"]
 
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="2_pv3t5"]
 [ext_resource type="PackedScene" uid="uid://b3pce5gyy6w0j" path="res://Main/spawner/spawner.tscn" id="3_5hjwj"]
-[ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="3_pfmx6"]
 [ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="3_rcbs6"]
 [ext_resource type="Texture2D" uid="uid://cv6nare2clauc" path="res://Art/TŁO/sciana nr1.png" id="4_5hjwj"]
 [ext_resource type="Texture2D" uid="uid://cuf75hcy7ysr3" path="res://Art/TŁO/sciana nr2.png" id="5_pfmx6"]
@@ -71,27 +70,9 @@ shape = SubResource("RectangleShape2D_rcbs6")
 
 [node name="Template" type="Node2D" parent="."]
 
-[node name="Template_controler" parent="Template" instance=ExtResource("3_pfmx6")]
-
-[node name="Spawner" parent="Template" node_paths=PackedStringArray("ld", "lg", "pd", "pg") instance=ExtResource("3_5hjwj")]
+[node name="Spawner" parent="Template" instance=ExtResource("3_5hjwj")]
 position = Vector2(-2, 402)
 scale = Vector2(0.98, 0.562)
-ld = NodePath("Marker2D2")
-lg = NodePath("Marker2D")
-pd = NodePath("Marker2D4")
-pg = NodePath("Marker2D3")
-
-[node name="Marker2D" type="Marker2D" parent="Template/Spawner"]
-position = Vector2(-540.816, -514.235)
-
-[node name="Marker2D2" type="Marker2D" parent="Template/Spawner"]
-position = Vector2(-536.735, 510.676)
-
-[node name="Marker2D3" type="Marker2D" parent="Template/Spawner"]
-position = Vector2(538.776, -507.117)
-
-[node name="Marker2D4" type="Marker2D" parent="Template/Spawner"]
-position = Vector2(538.776, 510.676)
 
 [node name="Fog" type="Node2D" parent="."]
 visible = false

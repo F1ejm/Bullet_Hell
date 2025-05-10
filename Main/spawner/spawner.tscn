@@ -19,7 +19,7 @@ agent_radius = 23.44
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12q52"]
 size = Vector2(1130, 1086)
 
-[node name="Spawner" type="Node2D" node_paths=PackedStringArray("timer_power_up", "ld", "lg", "pd", "pg")]
+[node name="Spawner" type="Node2D" node_paths=PackedStringArray("timer_power_up")]
 script = ExtResource("1_4tvbi")
 timer_power_up = NodePath("Spawnery/Timer_power_up")
 Podstawowy = ExtResource("2_f5u33")
@@ -28,10 +28,6 @@ Seryjny = ExtResource("3_xd47v")
 "Naprowadzający" = ExtResource("5_kut7u")
 power_up = ExtResource("2_jlw8o")
 czujka = ExtResource("3_30bco")
-ld = NodePath("ld")
-lg = NodePath("lg")
-pd = NodePath("pd")
-pg = NodePath("pg")
 
 [node name="Spawnery" type="Node2D" parent="."]
 

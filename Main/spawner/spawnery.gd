@@ -14,10 +14,10 @@ extends Node2D
 @export var czujka : PackedScene
 
 
-@export var ld : Marker2D
-@export var lg : Marker2D
-@export var pd : Marker2D
-@export var pg : Marker2D
+@onready var ld : Marker2D = $ld
+@onready var lg : Marker2D = $lg
+@onready var pd : Marker2D = $pd
+@onready var pg : Marker2D = $pg
 
 
 var Lista: Array = [Podstawowy,Seryjny,Okrągły,Naprowadzający]
@@ -35,6 +35,11 @@ var y
 var c
 
 
+var marker_ld
+var marker_lg
+var marker_pd
+var marker_pg 
+
 func _ready() -> void:
 	Global.i = -1
 	Global.IsRoundPlaying = false
@@ -44,46 +49,33 @@ func _ready() -> void:
 	timer_power_up.start()
 	rotation = rotation - global_rotation
 	$NavigationRegion2D.rotation = $NavigationRegion2D.rotation - $NavigationRegion2D.global_rotation
-	
 	var markers = get_rotated_markers(rotation_degrees)
-	for i in markers:
-	var marker_ld = markers["ld"]
-	var marker_lg = markers["lg"]
-	var marker_pd = markers["pd"]
-	var marker_pg = markers["pg"]
 
+	
 func get_rotated_markers(angle: int):
-	var normalized_angle = int(round(angle)) % 360
-
+	var normalized_angle = abs(int(round(angle)) % 360)
+	print(ld)
 	match normalized_angle:
 		0:
-			return {
-				"ld": ld,
-				"lg": lg,
-				"pd": pd,
-				"pg": pg,
-			}
+			marker_ld=ld
+			marker_lg=lg
+			marker_pd=pd
+			marker_pg=pg
 		90:
-			return {
-				"ld": lg,
-				"lg": pg,
-				"pd": ld,
-				"pg": pd,
-			}
+			marker_ld=lg
+			marker_lg=pg
+			marker_pd=ld
+			marker_pg=pd
 		180:
-			return {
-				"ld": pg,
-				"lg": pd,
-				"pd": lg,
-				"pg": ld,
-			}
+			marker_ld=pg
+			marker_lg=pd
+			marker_pd=lg
+			marker_pg=ld
 		270:
-			return {
-				"ld": pd,
-				"lg": ld,
-				"pd": pg,
-				"pg": lg,
-			}
+			marker_ld=pd
+			marker_lg=ld
+			marker_pd=pg
+			marker_pg=lg
 
 func _process(delta: float) -> void:
 	global_rotation = 0

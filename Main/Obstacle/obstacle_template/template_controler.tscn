@@ -5,13 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://d1veoygbq57d0" path="res://Main/Obstacle/obstacle_template/obstacle_template_2.tscn" id="3_ktpfk"]
 [ext_resource type="PackedScene" uid="uid://c4dgwhdyqk3ur" path="res://Main/Obstacle/obstacle_template/obstacle_template_3.tscn" id="4_bwni5"]
 
-[node name="Template_controler" type="Node2D" node_paths=PackedStringArray("timer", "midle")]
+[node name="Template_controler" type="Node2D" node_paths=PackedStringArray("timer", "midle", "Placeholder")]
 script = ExtResource("1_1ifxb")
 timer = NodePath("Timer")
 midle = NodePath("Marker2D")
 template_1 = ExtResource("2_gs1nb")
 template_2 = ExtResource("3_ktpfk")
 template_3 = ExtResource("4_bwni5")
+Placeholder = NodePath("Node2D")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -19,5 +20,7 @@ one_shot = true
 autostart = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="timeout"]
