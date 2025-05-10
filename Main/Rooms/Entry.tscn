@@ -18,7 +18,7 @@ size = Vector2(69.0021, 1263)
 [node name="Entry" type="Node2D"]
 
 [node name="Ściany" type="Node2D" parent="."]
-position = Vector2(67, 712)
+position = Vector2(-571, 302)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
 
@@ -85,6 +85,7 @@ scale = Vector2(0.578181, 9.99495)
 texture = ExtResource("1_it17s")
 
 [node name="DoorContainer" type="Node2D" parent="."]
+position = Vector2(-638, -410)
 script = ExtResource("1_3ieiy")
 
 [node name="Door" type="Node2D" parent="DoorContainer"]
