@@ -43,7 +43,6 @@ size = Vector2(61, 226)
 [node name="2Dor2" type="Node2D"]
 
 [node name="Fog" type="Node2D" parent="."]
-visible = false
 z_index = 2
 position = Vector2(-577, 761)
 metadata/_edit_group_ = true
@@ -152,7 +151,7 @@ shape = SubResource("RectangleShape2D_n8o2q")
 root_node = NodePath("../../../..")
 
 [node name="Door_out" type="StaticBody2D" parent="Template/Door"]
-position = Vector2(-611, 637)
+position = Vector2(-640, 640)
 script = ExtResource("6_wkt05")
 metadata/_edit_group_ = true
 
@@ -202,13 +201,12 @@ scale = Vector2(8.5, 8.898)
 texture = ExtResource("8_nvq7c")
 
 [node name="DoorContainer" type="Node2D" parent="."]
-position = Vector2(-646, 5)
 
 [node name="Door" type="Node2D" parent="DoorContainer"]
-position = Vector2(645, 1256)
+position = Vector2(640, 640)
 
 [node name="Door2" type="Node2D" parent="DoorContainer"]
-position = Vector2(4, 634)
+position = Vector2(0, 1280)
 rotation = 1.5708
 
 [node name="Door3" type="Node2D" parent="DoorContainer"]
