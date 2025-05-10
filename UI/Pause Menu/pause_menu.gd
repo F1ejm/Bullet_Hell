@@ -27,6 +27,8 @@ func _on_settings_pressed() -> void:
 	Global.is_in_pause_menu = false
 
 func _on_main_menu_pressed() -> void:
+	Transition.transition()
+	await Transition.on_transition_finished
 	Global.is_in_game = false
 	Global.is_in_pause_menu = false
 	Global.is_in_settings = false

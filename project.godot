@@ -18,6 +18,7 @@ config/icon="res://Art/icon.svg"
 [autoload]
 
 Global="*res://Misc/Global.gd"
+Transition="*res://Misc/transition/transition.tscn"
 
 [display]
 

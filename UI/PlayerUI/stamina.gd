@@ -1,6 +1,6 @@
 extends Control
 
-@onready var progress_bar: ProgressBar = $ProgressBar
+@onready var progress_bar: TextureProgressBar = $ProgressBar
 @onready var timer: Timer = $Timer
 
 var dash:bool = false
