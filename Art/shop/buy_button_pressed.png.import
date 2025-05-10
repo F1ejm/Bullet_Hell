@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbvfjqfjbk22d"
-path="res://.godot/imported/buy_progress_bar_progress.png-c123593fd99453340c9afd042060bc19.ctex"
+uid="uid://c3j22shvwsely"
+path="res://.godot/imported/buy_button_pressed.png-15d622e968cf426d5af496d01da09e80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/buy_progress_bar_progress.png"
-dest_files=["res://.godot/imported/buy_progress_bar_progress.png-c123593fd99453340c9afd042060bc19.ctex"]
+source_file="res://Art/shop/buy_button_pressed.png"
+dest_files=["res://.godot/imported/buy_button_pressed.png-15d622e968cf426d5af496d01da09e80.ctex"]
 
 [params]
 

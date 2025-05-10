@@ -1,14 +1,14 @@
 extends Control
 
-@onready var health_button: Button = $HBoxContainer/Health/Health_Button
-@onready var stamina_button: Button = $"HBoxContainer/Stamina Amount/Stamina_Button"
-@onready var stamina_regen_button: Button = $"HBoxContainer/Stamina Regen/Stamina_Regen_Button"
-@onready var attack_speed_button: Button = $HBoxContainer/Attack/Attack_Speed_Button
+@onready var health_button: TextureButton = $HBoxContainer/Health/Health_Button
+@onready var stamina_button: TextureButton = $"HBoxContainer/Stamina Amount/Stamina_Button"
+@onready var stamina_regen_button: TextureButton = $"HBoxContainer/Stamina Regen/Stamina_Regen_Button"
+@onready var attack_speed_button: TextureButton = $HBoxContainer/Attack/Attack_Speed_Button
 
-@onready var Stamina_Bar: ProgressBar = $"HBoxContainer/Stamina Amount/ProgressBar"
-@onready var Health_Bar: ProgressBar = $HBoxContainer/Health/ProgressBar
-@onready var Regen_Bar: ProgressBar = $"HBoxContainer/Stamina Regen/ProgressBar"
-@onready var Attack_Bar: ProgressBar = $HBoxContainer/Attack/ProgressBar
+@onready var Stamina_Bar: TextureProgressBar = $"HBoxContainer/Stamina Amount/ProgressBar"
+@onready var Health_Bar: TextureProgressBar = $HBoxContainer/Health/ProgressBar
+@onready var Regen_Bar: TextureProgressBar = $"HBoxContainer/Stamina Regen/ProgressBar"
+@onready var Attack_Bar: TextureProgressBar = $HBoxContainer/Attack/ProgressBar
 
 @onready var texture_rect_health: TextureRect = $HBoxContainer/Health/TextureRect
 @onready var texture_rect_stamina: TextureRect = $"HBoxContainer/Stamina Amount/TextureRect"
@@ -39,11 +39,49 @@ func _process(delta: float) -> void:
 		visible = true
 	else:
 		visible = false
-		
-	health_button.tooltip_text = str(health_cost) + " $"
-	stamina_button.tooltip_text = str(stamina_cost) + " $"
-	stamina_regen_button.tooltip_text = str(regen_cost) + " $"
-	attack_speed_button.tooltip_text = str(atak_cost) + " $"
+	
+	
+	
+	if Global.VDolce < health_cost and Health_Bar.value != 3:
+		health_button.tooltip_text = "Not enough money"
+		health_button.disabled = true
+	elif Health_Bar.value != 3 and Global.VDolce > health_cost:
+		health_button.tooltip_text = str(health_cost) + " $"
+	elif Health_Bar.value == 3:
+		health_button.tooltip_text = ""
+	else:
+		health_button.disabled = false
+	
+	if Global.VDolce < regen_cost and Regen_Bar.value != 3:
+		stamina_regen_button.tooltip_text = "Not enough money"
+		stamina_regen_button.disabled = true
+	elif Regen_Bar.value != 3 and Global.VDolce > regen_cost:
+		stamina_regen_button.tooltip_text = str(regen_cost) + " $"
+	elif Regen_Bar.value == 3:
+		stamina_regen_button.tooltip_text = ""
+	else:
+		stamina_regen_button.disabled = false
+	
+	if Global.VDolce < stamina_cost and Stamina_Bar.value != 3:
+		stamina_button.tooltip_text = "Not enough money"
+		stamina_button.disabled = true
+	elif Stamina_Bar.value != 3 and Global.VDolce > stamina_cost:
+		stamina_button.tooltip_text = str(stamina_cost) + " $"
+	elif Stamina_Bar.value == 3:
+		stamina_button.tooltip_text = ""
+	else:
+		stamina_button.disabled = false
+	
+	if Global.VDolce < atak_cost and Attack_Bar.value != 3:
+		attack_speed_button.tooltip_text = "Not enough money"
+		attack_speed_button.disabled = true
+	elif Attack_Bar.value != 3 and Global.VDolce > atak_cost:
+		attack_speed_button.tooltip_text = str(atak_cost) + " $"
+	elif Attack_Bar.value == 3:
+		attack_speed_button.tooltip_text = ""
+	else:
+		attack_speed_button.disabled = false
+	
 
 #Pieniądze Trzeba TODO
 func _on_health_button_pressed() -> void:
