@@ -1,21 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4awnekqqieck"]
+[gd_scene load_steps=10 format=4 uid="uid://c4awnekqqieck"]
 
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_ligoj"]
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="2_jbptl"]
 [ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="3_mqj4i"]
+[ext_resource type="Texture2D" uid="uid://cv6nare2clauc" path="res://Art/TŁO/sciana nr1.png" id="4_gmhek"]
+[ext_resource type="Texture2D" uid="uid://cuf75hcy7ysr3" path="res://Art/TŁO/sciana nr2.png" id="5_schoc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmhek"]
 size = Vector2(292, 745)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qw0rs"]
-size = Vector2(75, 450)
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_hgv0y"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gtbl"]
-size = Vector2(74, 375)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rw8b"]
+texture = ExtResource("4_gmhek")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x4sis"]
+texture = ExtResource("5_schoc")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_11mak"]
+sources/0 = SubResource("TileSetScenesCollectionSource_hgv0y")
+sources/1 = SubResource("TileSetAtlasSource_2rw8b")
+sources/2 = SubResource("TileSetAtlasSource_x4sis")
 
 [node name="HallStrait" type="Node2D"]
 
 [node name="Fog" type="Node2D" parent="."]
+visible = false
 
 [node name="Area2D" type="Area2D" parent="Fog"]
 position = Vector2(1, 4)
@@ -46,31 +57,14 @@ expand_mode = 1
 position = Vector2(-574, -65)
 metadata/_edit_group_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(463, 769)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
-position = Vector2(-27.5, -478)
-shape = SubResource("RectangleShape2D_qw0rs")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D"]
-position = Vector2(-27, -479)
-scale = Vector2(0.578125, 3.53125)
-texture = ExtResource("1_ligoj")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(678, 775)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D3"]
-position = Vector2(27, -450.5)
-shape = SubResource("RectangleShape2D_8gtbl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D3"]
-position = Vector2(27, -488)
-scale = Vector2(0.578125, 3.5)
-texture = ExtResource("1_ligoj")
+[node name="TileMapLayer" type="TileMapLayer" parent="Ściany"]
+texture_filter = 1
+position = Vector2(574, 62.9999)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAD+/wUAAQAAAAAAAAD+/wQAAQAAAAAAAAD+/wMAAQAAAAAAAAD+/wIAAQAAAAAAAAD+/wEAAQAAAAAAAAD+/wAAAQAAAAAAAAABAAUAAQAAAAAAAAABAAQAAQAAAAAAAAABAAMAAQAAAAAAAAABAAIAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_11mak")
 
 [node name="DoorContainer" type="Node2D" parent="."]
 
 [node name="Door" type="Node2D" parent="DoorContainer"]
-position = Vector2(-2, 453)
+position = Vector2(0, 480)

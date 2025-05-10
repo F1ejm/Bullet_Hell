@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://djji2dlhfwgs" path="res://Art/shop/attack_speed.png" id="7_flvfe"]
 [ext_resource type="Texture2D" uid="uid://bbvfjqfjbk22d" path="res://Art/shop/buy_progress_bar_progress.png" id="7_ql46n"]
 [ext_resource type="Texture2D" uid="uid://c87g38wylllrs" path="res://Art/shop/buy_button_normal.png" id="8_6kory"]
-[ext_resource type="Theme" uid="uid://bvldoxdx3m17j" path="res://UI/popup_theme.tres" id="8_fjj0y"]
+[ext_resource type="Theme" uid="uid://b51k2g4a0lyg6" path="res://UI/popup_theme.tres" id="8_fjj0y"]
 [ext_resource type="Texture2D" uid="uid://c3j22shvwsely" path="res://Art/shop/buy_button_pressed.png" id="9_214iy"]
 [ext_resource type="Texture2D" uid="uid://cf7p85hssgkio" path="res://Art/shop/buy_button_hover.png" id="10_tco3n"]
 [ext_resource type="Texture2D" uid="uid://cq4hkx7u44ly6" path="res://Art/shop/buy_button_not_enough.png" id="11_qqb53"]

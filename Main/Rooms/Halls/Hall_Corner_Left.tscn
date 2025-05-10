@@ -1,21 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr4jfmri6funb"]
+[gd_scene load_steps=10 format=4 uid="uid://dr4jfmri6funb"]
 
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_tcijn"]
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="2_j8x40"]
 [ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="3_t1atg"]
+[ext_resource type="Texture2D" uid="uid://cv6nare2clauc" path="res://Art/TŁO/sciana nr1.png" id="3_v4aqf"]
+[ext_resource type="Texture2D" uid="uid://cuf75hcy7ysr3" path="res://Art/TŁO/sciana nr2.png" id="4_atynv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4aqf"]
 size = Vector2(273, 739)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5bqf"]
-size = Vector2(75, 846.922)
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_t6x0o"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwtsx"]
-size = Vector2(74, 524)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5j2ma"]
+texture = ExtResource("3_v4aqf")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iwymr"]
+texture = ExtResource("4_atynv")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_763t4"]
+sources/0 = SubResource("TileSetScenesCollectionSource_t6x0o")
+sources/1 = SubResource("TileSetAtlasSource_5j2ma")
+sources/2 = SubResource("TileSetAtlasSource_iwymr")
 
 [node name="HallCornerLeft" type="Node2D"]
 
 [node name="Fog" type="Node2D" parent="."]
+visible = false
 scale = Vector2(1.12, 1)
 
 [node name="Area2D" type="Area2D" parent="Fog"]
@@ -49,61 +60,16 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-611, 1190)
 rotation = -1.5708
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(375.998, 598.001)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
-position = Vector2(-27.4999, -283)
-shape = SubResource("RectangleShape2D_y5bqf")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D"]
-position = Vector2(-27, -285.767)
-scale = Vector2(0.578125, 6.16298)
-texture = ExtResource("1_tcijn")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(862, 1092)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D2"]
-position = Vector2(-107.503, -343.997)
+[node name="TileMapLayer" type="TileMapLayer" parent="Ściany"]
+texture_filter = 1
+position = Vector2(1509, 611.005)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_y5bqf")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D2"]
-position = Vector2(-108.501, -346)
-rotation = 1.5708
-scale = Vector2(0.578125, 6.88283)
-texture = ExtResource("1_tcijn")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(1128, 816)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D4"]
-position = Vector2(-186.002, -346.997)
-rotation = 1.5708
-scale = Vector2(1, 0.585)
-shape = SubResource("RectangleShape2D_y5bqf")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D4"]
-position = Vector2(-188.428, -346)
-rotation = 1.5708
-scale = Vector2(0.578125, 3.86833)
-texture = ExtResource("1_tcijn")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(624.998, 619.002)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D3"]
-position = Vector2(26.9999, -376)
-shape = SubResource("RectangleShape2D_lwtsx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D3"]
-position = Vector2(27, -414.48)
-scale = Vector2(0.578125, 4.64875)
-texture = ExtResource("1_tcijn")
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAABAAQAAQAAAAAAAAD+/wQAAQAAAAAAAAD+/wUAAQAAAAAAAAD+/wYAAQAAAAAAAAD+/wcAAQAAAAAAAAD+/wgAAQAAAAAAAAD+/wkAAQAAAAAAAAD4/w4AAQAAAAAAAFD5/w4AAQAAAAAAAFD6/w4AAQAAAAAAAFD7/w4AAQAAAAAAAFD8/w4AAQAAAAAAAFD9/w4AAQAAAAAAAFD+/w4AAQAAAAAAAFD//w4AAQAAAAAAAFAAAA4AAQAAAAAAAFABAA0AAQAAAAAAAAABAAwAAQAAAAAAAAABAAsAAQAAAAAAAAABAAoAAQAAAAAAAAABAAkAAQAAAAAAAAABAAgAAQAAAAAAAAABAAcAAQAAAAAAAAABAAYAAQAAAAAAAAABAAUAAQAAAAAAAAD+/woAAQAAAAAAAAABAA4AAgAAAAAAAAD9/wsAAQAAAAAAAFD8/wsAAQAAAAAAAFD7/wsAAQAAAAAAAFD6/wsAAQAAAAAAAFD5/wsAAQAAAAAAAFD4/wsAAQAAAAAAAFD+/wsAAgAAAAAAAAD3/wsAAQAAAAAAAFD3/w4AAQAAAAAAAFA=")
+tile_set = SubResource("TileSet_763t4")
 
 [node name="DoorContainer" type="Node2D" parent="."]
 
 [node name="Door" type="Node2D" parent="DoorContainer"]
-position = Vector2(-704, 679)
+position = Vector2(-720, 720)
 rotation = 1.5708
