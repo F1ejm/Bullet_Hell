@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_m1tfj"]
 radius = 32.0
 
-[node name="Naprowadzający_Playera" type="Area2D" groups=["Bullet"]]
+[node name="Naprowadzający_Playera" type="Area2D"]
 script = ExtResource("1_m1tfj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

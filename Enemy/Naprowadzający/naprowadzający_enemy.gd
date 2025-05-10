@@ -106,7 +106,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		speed = 5000
+		speed = 500
 
 func shoot():
 	if shoot_available and lang > 150:

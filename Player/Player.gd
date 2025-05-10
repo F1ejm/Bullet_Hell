@@ -509,7 +509,6 @@ func Func_Piorun():
 		if o.is_in_group("Enemy"):
 			o.owner.Death()
 		if o.is_in_group("Boss") and o.can_be_hit == true:
-			print("NIGGER")
 			o.health -= 3
 
 #Fire Trace - Pasywny Itemek
