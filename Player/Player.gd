@@ -143,6 +143,8 @@ var dmg_melee: int = 1
 var dmg_range: int = 1
 
 #Audio
+@onready var dash: AudioStreamPlayer = $Sound/Dash
+
 
 func _ready() -> void:
 	atak_timer.wait_time = Global.AtakCooldown
@@ -306,6 +308,7 @@ func _physics_process(delta):
 		self.position = (self.position + velocity * value.x * delta * 0.08)
 
 	if Input.is_action_just_pressed("dash") and Global.IsDashing == false and Global.Stamina > 0 and velocity != Vector2(0,0):
+		dash.play()
 		if Stamina_PowerUp == true:
 			animation_player.play("dash")
 		else:

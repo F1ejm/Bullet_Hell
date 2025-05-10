@@ -202,4 +202,6 @@ texture_hover = ExtResource("6_4ang8")
 [connection signal="value_changed" from="MarginContainer2/VBoxContainer/SFX Volume" to="." method="_on_sfx_volume_value_changed"]
 [connection signal="item_selected" from="MarginContainer3/VBoxContainer2/HBoxContainer/resolutions" to="." method="_on_resolutions_item_selected"]
 [connection signal="item_selected" from="MarginContainer3/VBoxContainer2/HBoxContainer2/fullscreen" to="." method="_on_fullscreen_item_selected"]
+[connection signal="button_down" from="back" to="." method="_on_back_button_down"]
+[connection signal="button_up" from="back" to="." method="_on_back_button_up"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

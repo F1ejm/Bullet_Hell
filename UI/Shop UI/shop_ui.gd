@@ -85,6 +85,13 @@ func _process(delta: float) -> void:
 
 #Pieniądze Trzeba TODO
 func _on_health_button_pressed() -> void:
+	var x = randi_range(0, 1)
+	match(x):
+		0:
+			AudioManager.buy_1.play()
+		1:
+			AudioManager.buy_2.play()
+	
 	if Health_Bar.value < 3 and Global.VDolce >= health_cost:
 		Global.VDolce -= health_cost
 		health_cost = health_cost * 2
@@ -95,6 +102,13 @@ func _on_health_button_pressed() -> void:
 	
 
 func _on_stamina_button_pressed() -> void:
+	var x = randi_range(0, 1)
+	match(x):
+		0:
+			AudioManager.buy_1.play()
+		1:
+			AudioManager.buy_2.play()
+	
 	if Stamina_Bar.value < 3 and Global.VDolce >= stamina_cost:
 		Global.VDolce -= stamina_cost
 		stamina_cost = stamina_cost * 2
@@ -104,6 +118,13 @@ func _on_stamina_button_pressed() -> void:
 
 
 func _on_stamina_regen_button_pressed() -> void:
+	var x = randi_range(0, 1)
+	match(x):
+		0:
+			AudioManager.buy_1.play()
+		1:
+			AudioManager.buy_2.play()
+	
 	if Regen_Bar.value < 3 and Global.VDolce >= regen_cost:
 		Global.VDolce -= regen_cost
 		regen_cost = regen_cost * 2
@@ -112,6 +133,13 @@ func _on_stamina_regen_button_pressed() -> void:
 
 
 func _on_attack_speed_button_pressed() -> void:
+	var x = randi_range(0, 1)
+	match(x):
+		0:
+			AudioManager.buy_1.play()
+		1:
+			AudioManager.buy_2.play()
+	
 	if Attack_Bar.value < 3 and Global.VDolce >= atak_cost:
 		Global.VDolce -= atak_cost
 		atak_cost = atak_cost * 2

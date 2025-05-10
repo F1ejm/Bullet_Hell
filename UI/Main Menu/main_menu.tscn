@@ -167,7 +167,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Play" type="TextureButton" parent="VBoxContainer"]
+[node name="Play" type="TextureButton" parent="VBoxContainer" groups=["button"]]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -176,7 +176,7 @@ texture_pressed = ExtResource("2_pfbba")
 texture_hover = ExtResource("5_qlwe4")
 stretch_mode = 0
 
-[node name="Settings" type="TextureButton" parent="VBoxContainer"]
+[node name="Settings" type="TextureButton" parent="VBoxContainer" groups=["button"]]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -185,7 +185,7 @@ texture_pressed = ExtResource("8_2vg32")
 texture_hover = ExtResource("9_rand3")
 stretch_mode = 0
 
-[node name="Credits" type="TextureButton" parent="VBoxContainer"]
+[node name="Credits" type="TextureButton" parent="VBoxContainer" groups=["button"]]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -194,7 +194,7 @@ texture_pressed = ExtResource("12_73bdd")
 texture_hover = ExtResource("13_rbd5m")
 stretch_mode = 0
 
-[node name="Quit" type="TextureButton" parent="VBoxContainer"]
+[node name="Quit" type="TextureButton" parent="VBoxContainer" groups=["button"]]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -218,11 +218,6 @@ mouse_filter = 2
 texture_filter = 1
 layout_mode = 2
 texture = SubResource("AnimatedTexture_ju2or")
-
-[node name="logo" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ju2or")
-}
 
 [node name="Solpolex Logo" type="Control" parent="."]
 layout_mode = 1
@@ -254,6 +249,11 @@ texture = ExtResource("22_j66k8")
 
 [node name="LogoIntro" type="AudioStreamPlayer" parent="Solpolex Logo"]
 stream = ExtResource("23_122ck")
+
+[node name="logo" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ju2or")
+}
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]

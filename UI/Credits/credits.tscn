@@ -110,4 +110,6 @@ texture_normal = SubResource("AnimatedTexture_ailny")
 texture_pressed = ExtResource("4_30bwe")
 texture_hover = ExtResource("5_jjdaq")
 
+[connection signal="button_down" from="back" to="." method="_on_back_button_down"]
+[connection signal="button_up" from="back" to="." method="_on_back_button_up"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

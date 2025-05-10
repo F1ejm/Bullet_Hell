@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dn4sqx4suowf1"]
+[gd_scene load_steps=13 format=3 uid="uid://dn4sqx4suowf1"]
 
 [ext_resource type="Script" uid="uid://hms7joihh6ve" path="res://Player/Player.gd" id="1_q3lat"]
+[ext_resource type="AudioStream" uid="uid://brh8l0yf3hjcw" path="res://Audio/SFX/player/dash.mp3" id="3_8g4oa"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="3_ddoul"]
 [ext_resource type="Texture2D" uid="uid://cysjcm5jrpds7" path="res://Art/player/pixil-frame-0 (75).png" id="3_tok1r"]
 
@@ -147,6 +148,10 @@ wait_time = 0.05
 [node name="Range_Timer" type="Timer" parent="."]
 
 [node name="Sound" type="Node2D" parent="."]
+
+[node name="Dash" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("3_8g4oa")
+volume_db = -15.0
 
 [node name="WeaponSprite" type="Sprite2D" parent="."]
 texture_filter = 1

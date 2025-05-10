@@ -219,6 +219,7 @@ func _process(delta: float) -> void:
 		
 	else:
 		visible = false
+	
 
 func Zmiana_Sklepu():
 	#Pasywny Itemek 1
@@ -280,6 +281,13 @@ func Zmiana_Sklepu():
 
 
 func _on_weapon_button_pressed() -> void:
+	var x = randi_range(0, 1)
+	match(x):
+		0:
+			AudioManager.buy_1.play()
+		1:
+			AudioManager.buy_2.play()
+	
 	if Global.VDolce >= Bron_Cena and Global.CurrentWeapon != Bron_Nazwa:
 		Global.VDolce -= Bron_Cena
 		Global.CurrentWeapon = Bron_Nazwa
@@ -288,6 +296,13 @@ func _on_weapon_button_pressed() -> void:
 
 
 func _on_aktywny_itemek_button_pressed() -> void:
+	var x = randi_range(0, 1)
+	match(x):
+		0:
+			AudioManager.buy_1.play()
+		1:
+			AudioManager.buy_2.play()
+	
 	if Global.VDolce >= Aktywny_Itemek_Cena and rand3-1 != Player.Current_Active_Item:
 		Global.VDolce -= Aktywny_Itemek_Cena
 		Player.Can_Use_Tarcza = false
@@ -315,6 +330,13 @@ func _on_aktywny_itemek_button_pressed() -> void:
 
 
 func _on_pasywny_itemek_1_button_pressed() -> void:
+	var x = randi_range(0, 1)
+	match(x):
+		0:
+			AudioManager.buy_1.play()
+		1:
+			AudioManager.buy_2.play()
+	
 	if Global.VDolce >= Pasywny_Itemek1_Cena:
 		Global.VDolce -= Pasywny_Itemek1_Cena
 		match(Pasywny_Itemek1):
@@ -340,6 +362,13 @@ func _on_pasywny_itemek_1_button_pressed() -> void:
 
 
 func _on_pasywny_itemek_2_button_pressed() -> void:
+	var x = randi_range(0, 1)
+	match(x):
+		0:
+			AudioManager.buy_1.play()
+		1:
+			AudioManager.buy_2.play()
+	
 	if Global.VDolce >= Pasywny_Itemek2_Cena:
 		Global.VDolce -= Pasywny_Itemek2_Cena
 		match(Pasywny_Itemek2):

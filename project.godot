@@ -19,6 +19,7 @@ config/icon="res://Art/icon.svg"
 
 Global="*res://Misc/Global.gd"
 Transition="*res://Misc/transition/transition.tscn"
+AudioManager="*res://Misc/audio_manager/audio_manager.tscn"
 
 [display]
 
@@ -48,6 +49,7 @@ Wall=""
 Bullet=""
 Boss=""
 Boss_Bullet=""
+button=""
 
 [gui]
 

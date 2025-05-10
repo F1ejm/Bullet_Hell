@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://vx8qnbcmqaja"]
+
+[ext_resource type="AudioStream" uid="uid://bgu0fccgfbqta" path="res://Audio/SFX/misc/menu button down.mp3" id="1_eoxc6"]
+[ext_resource type="Script" uid="uid://bkgc4omcr0b38" path="res://Misc/audio_manager/audio_manager.gd" id="1_tjl6i"]
+[ext_resource type="AudioStream" uid="uid://baupph2381qt3" path="res://Audio/SFX/misc/buy1.mp3" id="2_oeafg"]
+[ext_resource type="AudioStream" uid="uid://cb0iiqvnook7m" path="res://Audio/SFX/misc/menu button up.mp3" id="2_tjl6i"]
+[ext_resource type="AudioStream" uid="uid://d0vg3lpp1es3a" path="res://Audio/SFX/misc/buy2.mp3" id="3_vqqbq"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_tjl6i")
+
+[node name="Buy1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_oeafg")
+volume_db = -15.0
+
+[node name="Buy2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vqqbq")
+volume_db = -15.0
+
+[node name="MenuButtonDown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_eoxc6")
+
+[node name="MenuButtonUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tjl6i")

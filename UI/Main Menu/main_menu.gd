@@ -6,6 +6,10 @@ extends Control
 
 
 func _ready() -> void:
+	for button in get_tree().get_nodes_in_group("button"):
+		button.button_down.connect(_on_button_down)
+		button.button_up.connect(_on_button_up)
+	
 	if Global.play_intro == true:
 		logo.play("Logo")
 		logo_intro.play()
@@ -17,6 +21,12 @@ func _ready() -> void:
 		solpolex_logo.queue_free()
 		logo.queue_free()
 		
+func _on_button_down():
+	AudioManager.menu_button_down.play()
+
+func _on_button_up():
+	AudioManager.menu_button_up.play()
+
 
 func _on_play_pressed() -> void:
 	Transition.transition()
