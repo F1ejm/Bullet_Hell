@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=16 format=3 uid="uid://bavxgun4dur0c"]
-=======
-[gd_scene load_steps=18 format=4 uid="uid://bavxgun4dur0c"]
->>>>>>> Stashed changes
+[gd_scene load_steps=18 format=4 uid="uid://c8pl6xpbc05il"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_8dnt5"]
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="1_lyj31"]
@@ -11,14 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cv6nare2clauc" path="res://Art/TŁO/sciana nr1.png" id="3_ljwap"]
 [ext_resource type="Texture2D" uid="uid://cuf75hcy7ysr3" path="res://Art/TŁO/sciana nr2.png" id="4_fwppr"]
 [ext_resource type="Script" uid="uid://b1t6gilm08w2d" path="res://Main/Rooms/Normal_Rooms/node_2d.gd" id="5_cr3jh"]
-<<<<<<< Updated upstream
-[ext_resource type="Script" uid="uid://buw7aci8wawo3" path="res://Main/Rooms/Normal_Rooms/door.gd" id="6_pvetk"]
-[ext_resource type="Script" uid="uid://bt8qq8vmx8irc" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="7_ljwap"]
-[ext_resource type="Texture2D" uid="uid://c8gtuuxttw4sb" path="res://Art/DRZWI/DRZWI.png" id="7_pvetk"]
-=======
 [ext_resource type="Script" path="res://Main/Rooms/Normal_Rooms/door.gd" id="6_pvetk"]
 [ext_resource type="Script" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="7_ljwap"]
->>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aps5"]
 size = Vector2(1290, 732)
@@ -107,10 +97,7 @@ position = Vector2(2, 49)
 shape = SubResource("RectangleShape2D_fwppr")
 
 [node name="Sprite2D" type="Sprite2D" parent="Template/Node2D/Door/StaticBody2D"]
-position = Vector2(1.59872e-13, 45)
-rotation = 1.5708
-scale = Vector2(8.5, 8.5)
-texture = ExtResource("7_pvetk")
+texture = ExtResource("1_8dnt5")
 
 [node name="in" type="Area2D" parent="Template/Node2D/Door"]
 
@@ -134,10 +121,9 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_2k8bf")
 
 [node name="Sprite2D" type="Sprite2D" parent="Template/Node2D/Door_out3/StaticBody2D"]
-position = Vector2(-6, -19)
-rotation = 1.5708
-scale = Vector2(8.5, 8.5)
-texture = ExtResource("7_pvetk")
+position = Vector2(-6, 0)
+scale = Vector2(1.00401, 1.05097)
+texture = ExtResource("1_8dnt5")
 
 [node name="DoorContainer" type="Node2D" parent="."]
 position = Vector2(-646, 5)
