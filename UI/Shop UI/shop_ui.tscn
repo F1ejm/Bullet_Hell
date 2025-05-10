@@ -1,14 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckn81yvwna77p"]
+[gd_scene load_steps=16 format=3 uid="uid://ckn81yvwna77p"]
 
 [ext_resource type="Script" uid="uid://fyehnsobw802" path="res://UI/Shop UI/shop_ui.gd" id="1_0qc3d"]
 [ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="2_ck7jg"]
-[ext_resource type="Texture2D" uid="uid://mdwhvtwfji0s" path="res://Art/Maro/Serce_maro.png" id="3_40xpq"]
-[ext_resource type="Texture2D" uid="uid://dyk16oftjoirt" path="res://Art/Maro/stamina_maro.png" id="4_ybqa0"]
-[ext_resource type="Texture2D" uid="uid://f74hss5ejnxi" path="res://Art/Maro/Stamina_regenaracja_maro.png" id="5_d8ich"]
-[ext_resource type="Texture2D" uid="uid://bh4p6dwv0p5t5" path="res://Art/Maro/Atak_maro.png" id="6_0kvjv"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_y03ah"]
-font_size = 32
+[ext_resource type="Texture2D" uid="uid://3ei8q4eum24b" path="res://Art/shop/upgrade_shop.png" id="2_ybqa0"]
+[ext_resource type="Texture2D" uid="uid://qq4kdmfjh73y" path="res://Art/shop/serce_full.png" id="4_d8ich"]
+[ext_resource type="Texture2D" uid="uid://du8exxbupx5qn" path="res://Art/shop/stamina_icon.png" id="5_0kvjv"]
+[ext_resource type="Texture2D" uid="uid://vpyybhvapleg" path="res://Art/shop/buy_progress_bar_back.png" id="5_yt86v"]
+[ext_resource type="Texture2D" uid="uid://c61dw3d4550xw" path="res://Art/shop/buy_progress_bar_over.png" id="6_fjj0y"]
+[ext_resource type="Texture2D" uid="uid://cdyg2ri6kekvt" path="res://Art/shop/stamina_regen_icon.png" id="6_y03ah"]
+[ext_resource type="Texture2D" uid="uid://djji2dlhfwgs" path="res://Art/shop/attack_speed.png" id="7_flvfe"]
+[ext_resource type="Texture2D" uid="uid://bbvfjqfjbk22d" path="res://Art/shop/buy_progress_bar_progress.png" id="7_ql46n"]
+[ext_resource type="Texture2D" uid="uid://c87g38wylllrs" path="res://Art/shop/buy_button_normal.png" id="8_6kory"]
+[ext_resource type="Theme" uid="uid://bvldoxdx3m17j" path="res://UI/popup_theme.tres" id="8_fjj0y"]
+[ext_resource type="Texture2D" uid="uid://c3j22shvwsely" path="res://Art/shop/buy_button_pressed.png" id="9_214iy"]
+[ext_resource type="Texture2D" uid="uid://cf7p85hssgkio" path="res://Art/shop/buy_button_hover.png" id="10_tco3n"]
+[ext_resource type="Texture2D" uid="uid://cq4hkx7u44ly6" path="res://Art/shop/buy_button_not_enough.png" id="11_qqb53"]
 
 [node name="shop ui" type="Control"]
 layout_mode = 3
@@ -34,42 +40,33 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="visuals"]
+[node name="ColorRect" type="TextureRect" parent="visuals"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -753.0
+offset_left = -384.0
 offset_top = -259.0
-offset_right = 696.0
+offset_right = 384.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
-color = Color(0, 0, 0, 0.556863)
+texture = ExtResource("2_ybqa0")
 
 [node name="TextureRect" type="TextureRect" parent="visuals"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -315.0
-offset_top = -234.0
-offset_right = -46.0
-offset_bottom = -58.0
+offset_left = -351.0
+offset_top = -222.0
+offset_right = -139.0
+offset_bottom = -38.0
 grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("2_ck7jg")
 expand_mode = 1
-
-[node name="Label" type="Label" parent="visuals"]
-layout_mode = 0
-offset_left = -286.0
-offset_top = 593.0
-offset_right = -69.0
-offset_bottom = 638.0
-text = "Shop Vender"
-label_settings = SubResource("LabelSettings_y03ah")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -78,101 +75,160 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -535.0
-offset_top = -226.0
-offset_right = 187.0
-offset_bottom = -23.0
+offset_left = -148.0
+offset_top = -244.0
+offset_right = 785.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 100
 alignment = 1
 
 [node name="Health" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Health"]
+texture_filter = 1
 layout_mode = 2
+size_flags_vertical = 3
 tooltip_text = "Gives You an Additional Heart"
 mouse_filter = 0
-texture = ExtResource("3_40xpq")
+texture = ExtResource("4_d8ich")
+stretch_mode = 4
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Health"]
+[node name="ProgressBar" type="TextureProgressBar" parent="HBoxContainer/Health"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 2
-max_value = 4.0
-step = 1.0
+max_value = 3.0
 value = 1.0
-show_percentage = false
+texture_under = ExtResource("5_yt86v")
+texture_over = ExtResource("6_fjj0y")
+texture_progress = ExtResource("7_ql46n")
 
-[node name="Health_Button" type="Button" parent="HBoxContainer/Health"]
+[node name="Health_Button" type="TextureButton" parent="HBoxContainer/Health"]
+texture_filter = 1
 layout_mode = 2
-text = "Buy"
+size_flags_horizontal = 4
+theme = ExtResource("8_fjj0y")
+texture_normal = ExtResource("8_6kory")
+texture_pressed = ExtResource("9_214iy")
+texture_hover = ExtResource("10_tco3n")
+texture_disabled = ExtResource("11_qqb53")
+
+[node name="Label" type="Label" parent="HBoxContainer/Health/Health_Button"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 2.0
+offset_right = 122.0
+offset_bottom = 26.0
 
 [node name="Stamina Amount" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Stamina Amount"]
+texture_filter = 1
 layout_mode = 2
+size_flags_vertical = 3
 tooltip_text = "Expands Your Stamina Bar"
 mouse_filter = 0
-texture = ExtResource("4_ybqa0")
+texture = ExtResource("5_0kvjv")
+stretch_mode = 4
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Stamina Amount"]
+[node name="ProgressBar" type="TextureProgressBar" parent="HBoxContainer/Stamina Amount"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-max_value = 4.0
-step = 1.0
+size_flags_horizontal = 4
+max_value = 3.0
 value = 1.0
-show_percentage = false
+texture_under = ExtResource("5_yt86v")
+texture_over = ExtResource("6_fjj0y")
+texture_progress = ExtResource("7_ql46n")
 
-[node name="Stamina_Button" type="Button" parent="HBoxContainer/Stamina Amount"]
+[node name="Stamina_Button" type="TextureButton" parent="HBoxContainer/Stamina Amount"]
+texture_filter = 1
 layout_mode = 2
-text = "Buy"
+size_flags_horizontal = 4
+theme = ExtResource("8_fjj0y")
+texture_normal = ExtResource("8_6kory")
+texture_pressed = ExtResource("9_214iy")
+texture_hover = ExtResource("10_tco3n")
+texture_disabled = ExtResource("11_qqb53")
 
 [node name="Stamina Regen" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Stamina Regen"]
+texture_filter = 1
 layout_mode = 2
+size_flags_vertical = 3
 tooltip_text = "Improves Your Stamina Regenaration"
 mouse_filter = 0
-texture = ExtResource("5_d8ich")
+texture = ExtResource("6_y03ah")
+stretch_mode = 4
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Stamina Regen"]
+[node name="ProgressBar" type="TextureProgressBar" parent="HBoxContainer/Stamina Regen"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-max_value = 4.0
-step = 1.0
+size_flags_horizontal = 4
+max_value = 3.0
 value = 1.0
-show_percentage = false
+texture_under = ExtResource("5_yt86v")
+texture_over = ExtResource("6_fjj0y")
+texture_progress = ExtResource("7_ql46n")
 
-[node name="Stamina_Regen_Button" type="Button" parent="HBoxContainer/Stamina Regen"]
+[node name="Stamina_Regen_Button" type="TextureButton" parent="HBoxContainer/Stamina Regen"]
+texture_filter = 1
 layout_mode = 2
-text = "Buy"
+size_flags_horizontal = 4
+theme = ExtResource("8_fjj0y")
+texture_normal = ExtResource("8_6kory")
+texture_pressed = ExtResource("9_214iy")
+texture_hover = ExtResource("10_tco3n")
+texture_disabled = ExtResource("11_qqb53")
 
 [node name="Attack" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Attack"]
+texture_filter = 1
 layout_mode = 2
+size_flags_vertical = 3
 tooltip_text = "Increases Your Attack Speed With Ranged Weapons"
 mouse_filter = 0
-texture = ExtResource("6_0kvjv")
+texture = ExtResource("7_flvfe")
+stretch_mode = 4
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Attack"]
+[node name="ProgressBar" type="TextureProgressBar" parent="HBoxContainer/Attack"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-max_value = 4.0
-step = 1.0
+size_flags_horizontal = 4
+max_value = 3.0
 value = 1.0
-show_percentage = false
+texture_under = ExtResource("5_yt86v")
+texture_over = ExtResource("6_fjj0y")
+texture_progress = ExtResource("7_ql46n")
 
-[node name="Attack_Speed_Button" type="Button" parent="HBoxContainer/Attack"]
+[node name="Attack_Speed_Button" type="TextureButton" parent="HBoxContainer/Attack"]
+texture_filter = 1
 layout_mode = 2
-text = "Buy"
+size_flags_horizontal = 4
+theme = ExtResource("8_fjj0y")
+texture_normal = ExtResource("8_6kory")
+texture_pressed = ExtResource("9_214iy")
+texture_hover = ExtResource("10_tco3n")
+texture_disabled = ExtResource("11_qqb53")
 
 [connection signal="pressed" from="HBoxContainer/Health/Health_Button" to="." method="_on_health_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Stamina Amount/Stamina_Button" to="." method="_on_stamina_button_pressed"]
