@@ -158,9 +158,16 @@ func _ready() -> void:
 	regenerating_timer.wait_time = regenerating_wait_time
 
 func _process(delta: float) -> void:
+	$Sprite2D.global_rotation = 0
 	Global.player_main = $"."
 	node_orbitali.global_position = global_position
 	$Camera2D.global_position = (self.global_position * 3 +get_global_mouse_position())/4
+
+	if(rotation>PI/2 or rotation<PI/-2):
+		$WeaponSprite.scale.y=-2
+
+	else:
+		$WeaponSprite.scale.y=2
 
 func _physics_process(delta):
 	
@@ -320,7 +327,7 @@ func Ranged():
 	if(not stats.isShotgun):
 		var b = bullet_path.instantiate()
 		owner.add_child(b)
-		b.transform = global_transform
+		b.transform = $WeaponSprite/BulletSpacing.global_transform
 		b.scale.x = 0.5
 		b.scale.y = 0.5
 		b.dmg = dmg_range
@@ -343,7 +350,7 @@ func Ranged():
 		for i in range(0,4):
 			var b = bullet_path.instantiate()
 			owner.add_child(b)
-			b.transform = global_transform
+			b.transform = $WeaponSprite/BulletSpacing.global_transform
 			b.scale.x = 0.5
 			b.scale.y = 0.5
 			b.dmg = dmg_range
@@ -401,6 +408,7 @@ func _on_weapon_changed() -> void:
 	Global.RangeWeaponCooldown = stats.cooldown
 	dmg_range = stats.dmg
 	CurrentSeriaNumber = stats.seria
+	$WeaponSprite.texture=stats.WeapomImage
 	
 	
 #Otrzymywanie Dmg'u

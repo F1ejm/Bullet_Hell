@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dn4sqx4suowf1"]
+[gd_scene load_steps=12 format=3 uid="uid://dn4sqx4suowf1"]
 
 [ext_resource type="Script" uid="uid://hms7joihh6ve" path="res://Player/Player.gd" id="1_q3lat"]
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="3_ddoul"]
 [ext_resource type="Texture2D" uid="uid://cysjcm5jrpds7" path="res://Art/player/pixil-frame-0 (75).png" id="3_tok1r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ysni"]
@@ -123,7 +124,6 @@ shape = SubResource("RectangleShape2D_ddoul")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -57.143)
 scale = Vector2(7.881, 7.897)
 texture = ExtResource("3_tok1r")
 
@@ -146,6 +146,15 @@ wait_time = 0.05
 [node name="Range_Timer" type="Timer" parent="."]
 
 [node name="Sound" type="Node2D" parent="."]
+
+[node name="WeaponSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(94.2857, 5.71429)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ddoul")
+
+[node name="BulletSpacing" type="Node2D" parent="WeaponSprite"]
+position = Vector2(15.7143, -3.57143)
 
 [connection signal="timeout" from="PowerUp_Timer" to="." method="_on_power_up_timer_timeout"]
 [connection signal="timeout" from="Regenerating_Timer" to="." method="_on_regenerating_timer_timeout"]
