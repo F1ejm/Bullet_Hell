@@ -48,6 +48,10 @@ Bullet=""
 Boss=""
 Boss_Bullet=""
 
+[gui]
+
+timers/tooltip_delay_sec=0.0
+
 [input]
 
 W={
@@ -108,5 +112,6 @@ next_round_button={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

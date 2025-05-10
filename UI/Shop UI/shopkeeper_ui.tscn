@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4ule07d21r78"]
+[gd_scene load_steps=9 format=3 uid="uid://b4ule07d21r78"]
 
 [ext_resource type="Script" uid="uid://b1yaqtb71s7g2" path="res://UI/Shop UI/shopkeeper_ui.gd" id="1_ji8f1"]
 [ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="2_au6eo"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_clkvv"]
-font_size = 32
+[ext_resource type="Texture2D" uid="uid://dui06aw47ji3v" path="res://Art/shop/item_shop.png" id="2_ji8f1"]
+[ext_resource type="Theme" uid="uid://bxkc4jb1w6l8n" path="res://UI/ui_theme.tres" id="4_lbab3"]
+[ext_resource type="Texture2D" uid="uid://c87g38wylllrs" path="res://Art/shop/buy_button_normal.png" id="5_00l7t"]
+[ext_resource type="Texture2D" uid="uid://c3j22shvwsely" path="res://Art/shop/buy_button_pressed.png" id="6_0vti0"]
+[ext_resource type="Texture2D" uid="uid://cf7p85hssgkio" path="res://Art/shop/buy_button_hover.png" id="7_0nnyu"]
+[ext_resource type="Texture2D" uid="uid://cq4hkx7u44ly6" path="res://Art/shop/buy_button_not_enough.png" id="8_pyvl5"]
 
 [node name="shopkeeper_ui" type="Control"]
 layout_mode = 3
@@ -24,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="visuals"]
+[node name="ColorRect" type="TextureRect" parent="visuals"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -34,7 +37,7 @@ offset_top = -259.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
-color = Color(0, 0, 0, 0.556863)
+texture = ExtResource("2_ji8f1")
 
 [node name="TextureRect" type="TextureRect" parent="visuals"]
 layout_mode = 1
@@ -44,23 +47,11 @@ anchor_bottom = 1.0
 offset_left = 25.0
 offset_top = -234.0
 offset_right = 294.0
-offset_bottom = -58.0
+offset_bottom = -34.0
 grow_vertical = 0
 mouse_filter = 2
 texture = ExtResource("2_au6eo")
 expand_mode = 1
-
-[node name="Label" type="Label" parent="visuals"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 53.0
-offset_top = -45.0
-offset_right = 270.0
-grow_vertical = 0
-text = "Shopkeeper"
-label_settings = SubResource("LabelSettings_clkvv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -69,13 +60,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -581.0
-offset_top = -183.0
-offset_right = -77.0
-offset_bottom = -89.0
+offset_left = -172.0
+offset_top = -141.0
+offset_right = 698.0
+offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 50
+theme_override_constants/separation = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -89,14 +80,21 @@ mouse_filter = 0
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("4_lbab3")
 text = "   Weapon    "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Weapon_Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Weapon_Button" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-text = "Buy"
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_00l7t")
+texture_pressed = ExtResource("6_0vti0")
+texture_hover = ExtResource("7_0nnyu")
+texture_disabled = ExtResource("8_pyvl5")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -108,14 +106,21 @@ mouse_filter = 0
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("4_lbab3")
 text = "Active Item"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Aktywny_Itemek_Button" type="Button" parent="HBoxContainer/VBoxContainer2"]
+[node name="Aktywny_Itemek_Button" type="TextureButton" parent="HBoxContainer/VBoxContainer2"]
+texture_filter = 1
 layout_mode = 2
-text = "Buy"
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_00l7t")
+texture_pressed = ExtResource("6_0vti0")
+texture_hover = ExtResource("7_0nnyu")
+texture_disabled = ExtResource("8_pyvl5")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -127,14 +132,21 @@ mouse_filter = 0
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("4_lbab3")
 text = "Passive Item"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Pasywny_Itemek1_Button" type="Button" parent="HBoxContainer/VBoxContainer3"]
+[node name="Pasywny_Itemek1_Button" type="TextureButton" parent="HBoxContainer/VBoxContainer3"]
+texture_filter = 1
 layout_mode = 2
-text = "Buy"
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_00l7t")
+texture_pressed = ExtResource("6_0vti0")
+texture_hover = ExtResource("7_0nnyu")
+texture_disabled = ExtResource("8_pyvl5")
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -146,14 +158,21 @@ mouse_filter = 0
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer4"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("4_lbab3")
 text = "Passive Item"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Pasywny_Itemek2_Button" type="Button" parent="HBoxContainer/VBoxContainer4"]
+[node name="Pasywny_Itemek2_Button" type="TextureButton" parent="HBoxContainer/VBoxContainer4"]
+texture_filter = 1
 layout_mode = 2
-text = "Buy"
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_00l7t")
+texture_pressed = ExtResource("6_0vti0")
+texture_hover = ExtResource("7_0nnyu")
+texture_disabled = ExtResource("8_pyvl5")
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Weapon_Button" to="." method="_on_weapon_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/Aktywny_Itemek_Button" to="." method="_on_aktywny_itemek_button_pressed"]
