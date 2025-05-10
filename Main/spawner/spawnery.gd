@@ -34,7 +34,10 @@ var y
 #nwm jak to nazwać
 var c
 
+
 func _ready() -> void:
+	Global.i = -1
+	Global.IsRoundPlaying = false
 	global_rotation = 0
 	c = Global.can_spawn
 	timer_power_up.wait_time = randi_range(10,20)
@@ -70,7 +73,9 @@ func _on_timer_timeout() -> void:
 
 func Generate():
 	Global.i += 1
-
+	
+	x = randi_range(int(ld.global_position.x)+30,int(pd.global_position.x)-30)
+	y = randi_range(int(ld.global_position.y)+30,int(lg.global_position.y)-30)
 	
 	var losowanie_enemy = randi_range(0,3)
 	

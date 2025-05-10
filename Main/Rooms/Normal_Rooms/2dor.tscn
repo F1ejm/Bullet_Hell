@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c8pl6xpbc05il"]
+[gd_scene load_steps=20 format=4 uid="uid://c8pl6xpbc05il"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_8dnt5"]
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="1_lyj31"]
@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cv6nare2clauc" path="res://Art/TŁO/sciana nr1.png" id="3_ljwap"]
 [ext_resource type="Texture2D" uid="uid://cuf75hcy7ysr3" path="res://Art/TŁO/sciana nr2.png" id="4_fwppr"]
 [ext_resource type="Script" uid="uid://b1t6gilm08w2d" path="res://Main/Rooms/Normal_Rooms/node_2d.gd" id="5_cr3jh"]
-[ext_resource type="Script" path="res://Main/Rooms/Normal_Rooms/door.gd" id="6_pvetk"]
-[ext_resource type="Script" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="7_ljwap"]
+[ext_resource type="Script" uid="uid://buw7aci8wawo3" path="res://Main/Rooms/Normal_Rooms/door.gd" id="6_pvetk"]
+[ext_resource type="Script" uid="uid://bt8qq8vmx8irc" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="7_ljwap"]
+[ext_resource type="PackedScene" uid="uid://b3pce5gyy6w0j" path="res://Main/spawner/spawner.tscn" id="10_fwppr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aps5"]
 size = Vector2(1290, 732)
@@ -45,6 +46,7 @@ size = Vector2(88, 226)
 [node name="Ściany" type="Node2D" parent="."]
 
 [node name="Fog" type="Node2D" parent="Ściany"]
+visible = false
 position = Vector2(-577, 769)
 metadata/_edit_group_ = true
 
@@ -112,55 +114,59 @@ shape = SubResource("RectangleShape2D_ljwap")
 [node name="Template" type="Node2D" parent="."]
 
 [node name="Template_controler" parent="Template" node_paths=PackedStringArray("Placeholder") instance=ExtResource("2_8rqoc")]
-position = Vector2(2, 653)
+position = Vector2(0, 567)
 Placeholder = NodePath("../PlaceHolder")
 
 [node name="PlaceHolder" type="Node2D" parent="Template"]
 
-[node name="Node2D" type="Node2D" parent="Template"]
+[node name="Door" type="Node2D" parent="Template"]
 script = ExtResource("5_cr3jh")
 
-[node name="Door" type="StaticBody2D" parent="Template/Node2D"]
+[node name="Door" type="StaticBody2D" parent="Template/Door"]
 script = ExtResource("6_pvetk")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Template/Node2D/Door"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Template/Door/Door"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Node2D/Door/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Door/Door/StaticBody2D"]
 position = Vector2(2, 49)
 shape = SubResource("RectangleShape2D_fwppr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Template/Node2D/Door/StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Template/Door/Door/StaticBody2D"]
 texture = ExtResource("1_8dnt5")
 
-[node name="in" type="Area2D" parent="Template/Node2D/Door"]
+[node name="in" type="Area2D" parent="Template/Door/Door"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Node2D/Door/in"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Door/Door/in"]
 position = Vector2(4, 175)
 shape = SubResource("RectangleShape2D_xijto")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Template/Node2D/Door"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Template/Door/Door"]
 root_node = NodePath("../../../../..")
 
-[node name="Door_out3" type="StaticBody2D" parent="Template/Node2D"]
+[node name="Door_out3" type="StaticBody2D" parent="Template/Door"]
 position = Vector2(7, 1088)
 script = ExtResource("7_ljwap")
 metadata/_edit_group_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Template/Node2D/Door_out3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Template/Door/Door_out3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Node2D/Door_out3/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Door/Door_out3/StaticBody2D"]
 position = Vector2(-8, -20)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_2k8bf")
 
-[node name="Sprite2D" type="Sprite2D" parent="Template/Node2D/Door_out3/StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Template/Door/Door_out3/StaticBody2D"]
 position = Vector2(-6, 0)
 scale = Vector2(1.00401, 1.05097)
 texture = ExtResource("1_8dnt5")
+
+[node name="Spawner" parent="Template" instance=ExtResource("10_fwppr")]
+position = Vector2(0, 566)
+scale = Vector2(0.958, 0.87)
 
 [node name="DoorContainer" type="Node2D" parent="."]
 
 [node name="Door" type="Node2D" parent="DoorContainer"]
 position = Vector2(0, 1120)
 
-[connection signal="body_entered" from="Template/Node2D/Door/in" to="Template/Node2D/Door" method="_on_in_body_entered"]
+[connection signal="body_entered" from="Template/Door/Door/in" to="Template/Door/Door" method="_on_in_body_entered"]
