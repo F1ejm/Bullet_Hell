@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b3pce5gyy6w0j" path="res://Main/spawner/spawner.tscn" id="3_q24e3"]
 [ext_resource type="Texture2D" uid="uid://cv6nare2clauc" path="res://Art/TŁO/sciana nr1.png" id="4_nvq7c"]
 [ext_resource type="Script" uid="uid://b1t6gilm08w2d" path="res://Main/Rooms/Normal_Rooms/node_2d.gd" id="5_1o5pf"]
-[ext_resource type="Script" path="res://Main/Rooms/Normal_Rooms/door.gd" id="5_n8o2q"]
+[ext_resource type="Script" uid="uid://buw7aci8wawo3" path="res://Main/Rooms/Normal_Rooms/door.gd" id="5_n8o2q"]
 [ext_resource type="Texture2D" uid="uid://cuf75hcy7ysr3" path="res://Art/TŁO/sciana nr2.png" id="5_vh80h"]
-[ext_resource type="Script" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="6_wkt05"]
+[ext_resource type="Script" uid="uid://bt8qq8vmx8irc" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="6_wkt05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkt05"]
 size = Vector2(1290, 1201)
