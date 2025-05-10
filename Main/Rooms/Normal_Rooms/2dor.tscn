@@ -45,6 +45,7 @@ size = Vector2(88, 226)
 [node name="Ściany" type="Node2D" parent="."]
 
 [node name="Fog" type="Node2D" parent="Ściany"]
+visible = false
 position = Vector2(-577, 769)
 metadata/_edit_group_ = true
 
@@ -159,9 +160,8 @@ scale = Vector2(1.00401, 1.05097)
 texture = ExtResource("1_8dnt5")
 
 [node name="DoorContainer" type="Node2D" parent="."]
-position = Vector2(-646, 5)
 
 [node name="Door" type="Node2D" parent="DoorContainer"]
-position = Vector2(643, 1086)
+position = Vector2(0, 1120)
 
 [connection signal="body_entered" from="Template/Node2D/Door/in" to="Template/Node2D/Door" method="_on_in_body_entered"]
