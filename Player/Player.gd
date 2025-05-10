@@ -40,7 +40,7 @@ var Move_Slower_PowerUp: bool = false
 
 #Itemy Aktywne --------------------------------
 
-var Current_Active_Item: int
+var Current_Active_Item: int = 2
 @onready var trwanie_timer: Timer = $Trwanie_Timer
 @onready var cooldown_timer: Timer = $Cooldown_Timer
 
@@ -59,7 +59,7 @@ var Projectiles_Cooldown: float = 10
 @onready var projectiles_area: Area2D = $Projectiles_Area
 
 #3 AOE w Okół Gracza
-var Can_Use_AOE: bool = false
+var Can_Use_AOE: bool = true
 var AOE: bool
 var AOE_Trwanie: float = 1
 var AOE_Cooldown: float = 15
@@ -499,18 +499,19 @@ func _on_cooldown_timer_timeout() -> void:
 #Tarcza
 func Func_Tarcza():
 	for o in tarcza_item_area.get_overlapping_areas():
-		if o.is_in_group("Bullet"):
+		if o.is_in_group("Bullet") or o.is_in_group("Boss_Bullet"):
 			o.queue_free()
 
 	
 #AOE
 func Func_AOE():
 	for o in aoe_item_area.get_overlapping_areas():
-		if o.is_in_group("Bullet"):
+		if o.is_in_group("Bullet") or o.is_in_group("Boss_Bullet"):
 			o.queue_free()
 		if o.is_in_group("Enemy"):
 			o.owner.Death()
-			
+		if o.is_in_group("Boss"):
+			o.health -= 5
 #Clear
 func Func_Clear():
 	for o in get_tree().get_nodes_in_group("Bullet"):

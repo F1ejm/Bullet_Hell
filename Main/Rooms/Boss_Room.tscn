@@ -111,7 +111,7 @@ visible = false
 script = ExtResource("3_fq74j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Get_Out"]
-position = Vector2(-1.5, 119)
+position = Vector2(0, 163)
 shape = SubResource("RectangleShape2D_8ekmj")
 
 [node name="Door" type="StaticBody2D" parent="."]
