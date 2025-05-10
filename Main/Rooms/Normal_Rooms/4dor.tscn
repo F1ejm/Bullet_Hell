@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="2_n8o2q"]
 [ext_resource type="PackedScene" uid="uid://b3pce5gyy6w0j" path="res://Main/spawner/spawner.tscn" id="3_q24e3"]
 [ext_resource type="Script" uid="uid://b1t6gilm08w2d" path="res://Main/Rooms/Normal_Rooms/node_2d.gd" id="5_1o5pf"]
-[ext_resource type="Script" uid="uid://buw7aci8wawo3" path="res://Main/Rooms/Normal_Rooms/door.gd" id="5_n8o2q"]
-[ext_resource type="Script" uid="uid://bt8qq8vmx8irc" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="6_wkt05"]
+[ext_resource type="Script" path="res://Main/Rooms/Normal_Rooms/door.gd" id="5_n8o2q"]
+[ext_resource type="Script" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="6_wkt05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkt05"]
 size = Vector2(1290, 1201)
@@ -199,6 +199,7 @@ root_node = NodePath("../../../..")
 [node name="Door_out" type="StaticBody2D" parent="Template/Node2D"]
 position = Vector2(-611, 637)
 script = ExtResource("6_wkt05")
+metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Template/Node2D/Door_out"]
 
@@ -207,6 +208,39 @@ position = Vector2(15, 1)
 shape = SubResource("RectangleShape2D_3qs3m")
 
 [node name="Sprite2D" type="Sprite2D" parent="Template/Node2D/Door_out/StaticBody2D"]
+position = Vector2(-6, 0)
+scale = Vector2(1.00401, 1.05097)
+texture = ExtResource("1_68wp7")
+
+[node name="Door_out2" type="StaticBody2D" parent="Template/Node2D"]
+position = Vector2(606, 637)
+script = ExtResource("6_wkt05")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Template/Node2D/Door_out2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Node2D/Door_out2/StaticBody2D"]
+position = Vector2(-30, 1)
+shape = SubResource("RectangleShape2D_3qs3m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Template/Node2D/Door_out2/StaticBody2D"]
+position = Vector2(-6, 0)
+scale = Vector2(1.00401, 1.05097)
+texture = ExtResource("1_68wp7")
+
+[node name="Door_out3" type="StaticBody2D" parent="Template/Node2D"]
+position = Vector2(7, 1238)
+script = ExtResource("6_wkt05")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Template/Node2D/Door_out3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Node2D/Door_out3/StaticBody2D"]
+position = Vector2(-8, -20)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_3qs3m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Template/Node2D/Door_out3/StaticBody2D"]
 position = Vector2(-6, 0)
 scale = Vector2(1.00401, 1.05097)
 texture = ExtResource("1_68wp7")
