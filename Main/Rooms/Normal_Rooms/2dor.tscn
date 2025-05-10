@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bavxgun4dur0c"]
+[gd_scene load_steps=9 format=3 uid="uid://bavxgun4dur0c"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_8dnt5"]
+[ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="1_lyj31"]
+[ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="1_xnnyn"]
 [ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="2_8rqoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3aps5"]
+size = Vector2(1290, 892)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rqoc"]
 size = Vector2(75, 760)
@@ -16,6 +21,33 @@ size = Vector2(74, 648)
 
 [node name="Ściany" type="Node2D" parent="."]
 position = Vector2(-579, 717)
+
+[node name="Fog" type="Node2D" parent="Ściany"]
+
+[node name="Area2D" type="Area2D" parent="Ściany/Fog"]
+position = Vector2(579, -717)
+script = ExtResource("1_lyj31")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/Fog/Area2D"]
+position = Vector2(1, 342)
+shape = SubResource("RectangleShape2D_3aps5")
+
+[node name="ColorRect" type="ColorRect" parent="Ściany/Fog"]
+z_index = 1
+offset_left = -67.0
+offset_top = -590.0
+offset_right = 1225.0
+offset_bottom = 73.0
+color = Color(0.0313726, 0.0392157, 0.0588235, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Ściany/Fog"]
+z_index = 1
+offset_left = -68.0
+offset_top = -821.0
+offset_right = 1225.0
+offset_bottom = -590.0
+texture = ExtResource("1_xnnyn")
+expand_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
 

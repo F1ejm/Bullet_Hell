@@ -1,6 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnbdgyxcr1sdj"]
+[gd_scene load_steps=7 format=3 uid="uid://cnbdgyxcr1sdj"]
 
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_mg6r4"]
+[ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="2_t5jew"]
+[ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="3_dspk1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jet1c"]
+size = Vector2(1290, 892)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mg581"]
 size = Vector2(75, 718)
@@ -9,6 +14,33 @@ size = Vector2(75, 718)
 size = Vector2(74, 375)
 
 [node name="HallCornerRight" type="Node2D"]
+
+[node name="Fog" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Fog"]
+position = Vector2(1, 4)
+script = ExtResource("2_t5jew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fog/Area2D"]
+position = Vector2(1, 342)
+shape = SubResource("RectangleShape2D_jet1c")
+
+[node name="ColorRect" type="ColorRect" parent="Fog"]
+z_index = 1
+offset_left = -645.0
+offset_top = 131.0
+offset_right = 647.0
+offset_bottom = 794.0
+color = Color(0.0313726, 0.0392157, 0.0588235, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Fog"]
+z_index = 1
+offset_left = -646.0
+offset_top = -100.0
+offset_right = 647.0
+offset_bottom = 131.0
+texture = ExtResource("3_dspk1")
+expand_mode = 1
 
 [node name="Ściany" type="Node2D" parent="."]
 position = Vector2(-574, -65)

@@ -124,6 +124,14 @@ layer_0/tile_data = PackedInt32Array(-65536, 3, 0, -65534, 3, 0, -131069, 3, 0, 
 [node name="Entry" parent="." instance=ExtResource("19_d3r6l")]
 position = Vector2(-1898, -291)
 
+[node name="ColorRect" type="ColorRect" parent="Entry"]
+z_index = -1
+offset_left = -3717.0
+offset_top = -1639.0
+offset_right = 3330.0
+offset_bottom = 4609.0
+color = Color(0.0313726, 0.0392157, 0.0588235, 1)
+
 [node name="Safe_Room" parent="." instance=ExtResource("18_r2ac1")]
 position = Vector2(1245, -1224)
 
