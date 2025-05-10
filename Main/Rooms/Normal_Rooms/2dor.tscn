@@ -9,13 +9,13 @@
 size = Vector2(1290, 732)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rqoc"]
-size = Vector2(75, 760)
+size = Vector2(75, 1023)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnnyn"]
 size = Vector2(70.9979, 538)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyj31"]
-size = Vector2(74, 648)
+size = Vector2(74, 993)
 
 [node name="2Dor" type="Node2D"]
 
@@ -37,7 +37,7 @@ z_index = 1
 offset_left = -67.0
 offset_top = -590.0
 offset_right = 1225.0
-offset_bottom = 73.0
+offset_bottom = 385.0
 color = Color(0.0313726, 0.0392157, 0.0588235, 1)
 
 [node name="TextureRect" type="TextureRect" parent="Ściany/Fog"]
@@ -52,16 +52,16 @@ expand_mode = 1
 [node name="StaticBody2D" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
-position = Vector2(-27.5, -323)
+position = Vector2(-27.5, -191.5)
 shape = SubResource("RectangleShape2D_8rqoc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D"]
-position = Vector2(-27, -320.5)
-scale = Vector2(0.578125, 6.00781)
+position = Vector2(-27, -184)
+scale = Vector2(0.578125, 8.14062)
 texture = ExtResource("1_8dnt5")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(-4, 5)
+position = Vector2(-2, 321)
 rotation = 1.5708
 metadata/_edit_group_ = true
 
@@ -75,7 +75,7 @@ scale = Vector2(0.577595, 4.25789)
 texture = ExtResource("1_8dnt5")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
-position = Vector2(730, 2)
+position = Vector2(732, 318)
 rotation = 1.5708
 metadata/_edit_group_ = true
 
@@ -120,12 +120,12 @@ texture = ExtResource("1_8dnt5")
 position = Vector2(1152, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D3"]
-position = Vector2(27, -314)
+position = Vector2(27, -141.5)
 shape = SubResource("RectangleShape2D_lyj31")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ściany/StaticBody2D3"]
-position = Vector2(27, -324)
-scale = Vector2(0.578125, 6.0625)
+position = Vector2(27, -173)
+scale = Vector2(0.578125, 8.42188)
 texture = ExtResource("1_8dnt5")
 
 [node name="Template" type="Node2D" parent="."]
@@ -140,4 +140,4 @@ Placeholder = NodePath("../PlaceHolder")
 position = Vector2(-646, 5)
 
 [node name="Door" type="Node2D" parent="DoorContainer"]
-position = Vector2(637, 786)
+position = Vector2(643, 1086)
