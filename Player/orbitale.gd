@@ -29,7 +29,7 @@ func Func_Orbitals(delta):
 	orbitals.global_rotation += (1.5 * delta) 
 
 func _on_orbital_area_entered(o: Area2D) -> void:
-	if o.is_in_group("Bullet"):
+	if o.is_in_group("Bullet") or o.is_in_group("Boss_Bullet"):
 		o.queue_free()
 	if o.is_in_group("Enemy"):
 		o.owner.Death()
@@ -37,7 +37,7 @@ func _on_orbital_area_entered(o: Area2D) -> void:
 		o.health -= 1
 
 func _on_orbital_2_area_entered(o: Area2D) -> void:
-	if o.is_in_group("Bullet"):
+	if o.is_in_group("Bullet") or o.is_in_group("Boss_Bullet"):
 		o.queue_free()
 	if o.is_in_group("Enemy"):
 		o.owner.Death()
@@ -45,7 +45,7 @@ func _on_orbital_2_area_entered(o: Area2D) -> void:
 		o.health -= 1
 
 func _on_orbital_3_area_entered(o: Area2D) -> void:
-	if o.is_in_group("Bullet"):
+	if o.is_in_group("Bullet") or o.is_in_group("Boss_Bullet"):
 		o.queue_free()
 	if o.is_in_group("Enemy"):
 		o.owner.Death()

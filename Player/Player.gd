@@ -40,7 +40,7 @@ var Move_Slower_PowerUp: bool = false
 
 #Itemy Aktywne --------------------------------
 
-var Current_Active_Item: int = 0
+var Current_Active_Item: int = 1
 @onready var trwanie_timer: Timer = $Trwanie_Timer
 @onready var cooldown_timer: Timer = $Cooldown_Timer
 
@@ -52,7 +52,7 @@ var Tarcza_Cooldown: float = 15
 @onready var tarcza_item_area: Area2D = $Tarcza_Item_Area
 
 #2 Pociski namierzające
-var Can_Use_Projectiles: bool = false
+var Can_Use_Projectiles: bool = true
 var Projectiles: bool
 var Projectiles_Trwanie: float = 5
 var Projectiles_Cooldown: float = 10
@@ -95,11 +95,11 @@ var piorun_rand
 @onready var piorun_area: Area2D = $Pasywne_Itemki/Piorun_Area
 
 # Szlak za playerem
-var Trace: bool = true
+var Trace: bool = false
 var trac_fire_path = preload("res://Player/player_fire_trace.tscn")
 
 # Orbitale
-var Orbitale: bool = true
+var Orbitale: bool = false
 @export var node_orbitali: Node2D
 
 #Przebicie jednego przeciwnika przez bullety
@@ -124,9 +124,6 @@ var Ignore_wall_Item: bool = false
 
 #Zmienna Określająca czy collision shape do zabijania jest aktywny
 var collision_atak: bool = false
-
-#Zmienna Okreslajaca czy atak jest na cooldawnie: False-możesz atakować -- Melee
-var atak_cooldown: bool = false
 
 #Zmienna Okreslajaca czy atak jest na cooldawnie: False-możesz atakować -- Ranged
 var range_cooldown: bool = false
@@ -261,9 +258,10 @@ func _physics_process(delta):
 		Projectiles = true
 		Can_Use_Projectiles = false
 		trwanie_timer.start()
-		cooldown_timer.start()
+		
 	
 	if Projectiles == true:
+		cooldown_timer.start()
 		Func_Projectiles()
 	
 	#Pioruny
@@ -279,23 +277,6 @@ func _physics_process(delta):
 	if Pioruny == true:
 		cooldown_timer.start()
 	
-	#Atak - Melee ------------------------------------------------
-	atak_timer.wait_time = Global.AtakCooldown
-	
-	
-	
-	if Input.is_action_just_pressed("atak") and atak_cooldown == false and Tarcza != true:
-		atak_timer.stop()
-		atak_timer.start()
-		timer.stop()
-		timer.start()
-		collision_atak = true
-		atak_cooldown = true
-		
-	if collision_atak == true:
-		sprite_2d.visible = true #Zamiast Tego Animacja TODO
-		parry_area.monitoring = true
-		Atak()
 		
 	#Range Atak --------------------------------------------
 	if Input.is_action_pressed("range_atak") and range_cooldown == false and Tarcza != true and Cant_Shoot_PowerUp != true:
@@ -333,20 +314,6 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-#Atak - melee
-func Atak():
-	#Zabijanie Przeciwnika
-	for o in melee_attack_area.get_overlapping_areas():
-		if o.is_in_group("Enemy"):
-			#Animacja I SFX Obrazen przeciwnika TODO
-			o.owner.health -= dmg_melee
-#Atak - melee
-func _on_timer_timeout() -> void:
-	sprite_2d.visible = false #Zamiast Tego Animacja TODO
-	parry_area.monitoring = false
-	collision_atak = false
-func _on_atak_timer_timeout() -> void:
-	atak_cooldown = false
 
 #Atak - Ranged
 func Ranged():
@@ -436,12 +403,6 @@ func _on_weapon_changed() -> void:
 	CurrentSeriaNumber = stats.seria
 	
 	
-
-#Parry
-func _on_parry_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Bullet"):
-		area.queue_free()
-		
 #Otrzymywanie Dmg'u
 func Dmg_Func(x):
 	if immunity_chance == true:
@@ -540,6 +501,7 @@ func Func_Piorun():
 		if o.is_in_group("Enemy"):
 			o.owner.Death()
 		if o.is_in_group("Boss") and o.can_be_hit == true:
+			print("NIGGER")
 			o.health -= 3
 
 #Fire Trace - Pasywny Itemek
