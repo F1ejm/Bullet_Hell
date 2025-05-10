@@ -45,7 +45,6 @@ size = Vector2(88, 226)
 [node name="Ściany" type="Node2D" parent="."]
 
 [node name="Fog" type="Node2D" parent="Ściany"]
-visible = false
 position = Vector2(-577, 769)
 metadata/_edit_group_ = true
 

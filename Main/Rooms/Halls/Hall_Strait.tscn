@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c4awnekqqieck"]
+[gd_scene load_steps=11 format=4 uid="uid://c4awnekqqieck"]
 
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="2_jbptl"]
 [ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="3_mqj4i"]
@@ -23,10 +23,12 @@ sources/0 = SubResource("TileSetScenesCollectionSource_hgv0y")
 sources/1 = SubResource("TileSetAtlasSource_2rw8b")
 sources/2 = SubResource("TileSetAtlasSource_x4sis")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqj4i"]
+size = Vector2(560, 80)
+
 [node name="HallStrait" type="Node2D"]
 
 [node name="Fog" type="Node2D" parent="."]
-visible = false
 
 [node name="Area2D" type="Area2D" parent="Fog"]
 position = Vector2(1, 4)
@@ -54,15 +56,27 @@ texture = ExtResource("3_mqj4i")
 expand_mode = 1
 
 [node name="Ściany" type="Node2D" parent="."]
-position = Vector2(-574, -65)
 metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Ściany"]
 texture_filter = 1
-position = Vector2(574, 62.9999)
 scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAD+/wUAAQAAAAAAAAD+/wQAAQAAAAAAAAD+/wMAAQAAAAAAAAD+/wIAAQAAAAAAAAD+/wEAAQAAAAAAAAD+/wAAAQAAAAAAAAABAAUAAQAAAAAAAAABAAQAAQAAAAAAAAABAAMAAQAAAAAAAAABAAIAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_11mak")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ściany"]
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
+position = Vector2(120, 240)
+rotation = 1.5708
+scale = Vector2(0.858, 1)
+shape = SubResource("RectangleShape2D_mqj4i")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
+position = Vector2(-120, 240)
+rotation = 1.5708
+scale = Vector2(0.858, 1)
+shape = SubResource("RectangleShape2D_mqj4i")
 
 [node name="DoorContainer" type="Node2D" parent="."]
 

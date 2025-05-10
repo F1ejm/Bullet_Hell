@@ -204,14 +204,14 @@ texture = ExtResource("8_nvq7c")
 
 [node name="Door" type="Node2D" parent="DoorContainer"]
 position = Vector2(640, 640)
+rotation = -1.5708
 
 [node name="Door2" type="Node2D" parent="DoorContainer"]
 position = Vector2(0, 1280)
-rotation = 1.5708
 
 [node name="Door3" type="Node2D" parent="DoorContainer"]
-position = Vector2(1279, 634)
-rotation = 4.71239
+position = Vector2(-640, 640)
+rotation = 1.5708
 
 [connection signal="body_entered" from="Template/Door/Door/in" to="Template/Door/Door" method="_on_in_body_entered"]
 [connection signal="body_entered" from="Template/Door/Door/in" to="Template/Door/Door_out" method="_on_in_body_entered"]
