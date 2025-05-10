@@ -74,6 +74,7 @@ func _process(delta: float) -> void:
 				position = position.move_toward(player_position,delta * 1500)
 				
 func Generate_Atak(y) -> int:
+	randomize()
 	var x = randi_range(1,y)
 	return x
 	

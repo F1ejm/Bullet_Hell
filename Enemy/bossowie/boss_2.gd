@@ -105,6 +105,7 @@ func _process(delta: float) -> void:
 				Fourth_Atak()
 				
 func Generate_Atak(y) -> int:
+	randomize()
 	var x = randi_range(1,y)
 	return x
 	
