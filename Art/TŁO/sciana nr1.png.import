@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b108b02isjo03"
-path="res://.godot/imported/scianna.png-8a02726fd9f3f62d8603f8aa2fced903.ctex"
+uid="uid://cv6nare2clauc"
+path="res://.godot/imported/sciana nr1.png-44fc92ad21542ce7efc3975d4d11041c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/TŁO/scianna.png"
-dest_files=["res://.godot/imported/scianna.png-8a02726fd9f3f62d8603f8aa2fced903.ctex"]
+source_file="res://Art/TŁO/sciana nr1.png"
+dest_files=["res://.godot/imported/sciana nr1.png-44fc92ad21542ce7efc3975d4d11041c.ctex"]
 
 [params]
 
