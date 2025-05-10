@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ipk517dm6cow"]
 
 [ext_resource type="Script" uid="uid://bv82h34r6ha0a" path="res://Main/teleport.gd" id="1_72sut"]
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_sao66"]
+[ext_resource type="Texture2D" uid="uid://ctp7v3fanftx3" path="res://Art/DRZWI/portal.png" id="2_72sut"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sao66"]
 size = Vector2(128, 128)
@@ -10,7 +10,9 @@ size = Vector2(128, 128)
 script = ExtResource("1_72sut")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_sao66")
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("2_72sut")
 
 [node name="Area2D" type="Area2D" parent="."]
 
