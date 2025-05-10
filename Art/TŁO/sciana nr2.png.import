@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt6ljpc2y08ff"
-path="res://.godot/imported/wypolerowana ściana.png-b82fe2aa24c628eb9d01bfcef30695d9.ctex"
+uid="uid://cuf75hcy7ysr3"
+path="res://.godot/imported/sciana nr2.png-ce992692d47fc18a34a0c62fb2bf782a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/TŁO/wypolerowana ściana.png"
-dest_files=["res://.godot/imported/wypolerowana ściana.png-b82fe2aa24c628eb9d01bfcef30695d9.ctex"]
+source_file="res://Art/TŁO/sciana nr2.png"
+dest_files=["res://.godot/imported/sciana nr2.png-ce992692d47fc18a34a0c62fb2bf782a.ctex"]
 
 [params]
 
