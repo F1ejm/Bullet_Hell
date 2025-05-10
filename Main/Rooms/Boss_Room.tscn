@@ -11,28 +11,13 @@
 size = Vector2(224, 580)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpvir"]
-size = Vector2(645, 137)
+size = Vector2(549, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ekmj"]
-size = Vector2(325, 31)
+size = Vector2(325, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0f0p"]
 size = Vector2(233.5, 54)
-
-[sub_resource type="Animation" id="Animation_3luy5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Door:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_w4jvg"]
 resource_name = "close"
@@ -47,6 +32,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(216, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3luy5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_jwwgx"]
@@ -100,18 +100,17 @@ position = Vector2(0, 142)
 script = ExtResource("2_68v5t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_Spawn"]
-position = Vector2(-0.5, 24.5)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_xpvir")
 
 [node name="Node2D" type="Node2D" parent="Boss_Spawn"]
 position = Vector2(0, 573)
 
 [node name="Get_Out" type="Area2D" parent="."]
-visible = false
 script = ExtResource("3_fq74j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Get_Out"]
-position = Vector2(-1.5, 112.5)
+position = Vector2(-1.5, 111.5)
 shape = SubResource("RectangleShape2D_8ekmj")
 
 [node name="Door" type="StaticBody2D" parent="."]
