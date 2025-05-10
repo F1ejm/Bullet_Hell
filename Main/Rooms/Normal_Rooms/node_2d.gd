@@ -8,6 +8,5 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	if Global.Czas_Rundy == 1 :
-		print("nigger")
-	print(Global.Czas_Rundy)
+	if Global.Czas_Rundy < 1 :
+		queue_free()

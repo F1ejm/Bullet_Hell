@@ -54,7 +54,7 @@ func Spawn_Health(i):
 	dictionary1["health" + str(i)] = i
 	dictionary2["health_" + str(i)] = health
 	health.max_value = 1
-	health.scale = Vector2(3,3)
+	health.scale = Vector2(18,18)
 
 func Remove_Max_Health(i):
 	dictionary1.erase("health" + str(i))
