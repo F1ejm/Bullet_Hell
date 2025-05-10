@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
 @export var Bullet : PackedScene
-@export var Player : CharacterBody2D
+@onready var Player : CharacterBody2D = Global.player_main
 @export var shoot_timer : Timer
 
 var main: Node2D
 
 @onready var nav_agent := $NavigationAgent2D as  NavigationAgent2D
+@export var nav_timer : Timer
 @onready var sprite: Sprite2D = $Sprite2D
 
 var speed = 3000
@@ -34,9 +35,7 @@ func _ready() -> void:
 	
 	progress_bar.max_value = health
 	
-	if f != true:
-		Global.can_spawn += 1 
-		queue_free()
+	nav_agent.target_position = Player.global_position
 
 func _physics_process(delta: float) -> void:
 	Player = Global.player_main
@@ -45,66 +44,26 @@ func _physics_process(delta: float) -> void:
 		Death()
 	if generate == true:
 		Generate()
+	
 	movement(delta)
 
 func movement(delta):
-	#sledzenie 
-	sprite.look_at(Player.global_position)
-	
-	#obliczanie odległości 
-	distance = Player.global_position - global_position
-	lang = distance[1]*distance[1] + distance[0]*distance[0]
-	lang = sqrt(lang)
-
 	#poruszanie 
-	if lang >= 500:
-		generate = true
-		speed = 7000
-		var dir = nav_agent.get_next_path_position()-global_position.normalized()
-		velocity = dir * speed * delta
+	if !nav_agent.is_target_reached():
+		var nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
+		velocity = nav_point_direction * speed * delta
 		move_and_slide()
-		print(dir)
-		
-	if lang < 270:	
-		generate = true
-		speed = 7000
-		var dir = nav_agent.get_next_path_position()-global_position.normalized()
-		velocity = dir * speed * delta
-		move_and_slide()
-		print(dir)
-		
-	elif lang > 300 and lang < 500:
-		#Poruszanie Na Boki TODO
-		generate = false
-		speed = 7000
-		if -dir != to_local(nav_agent.get_next_path_position()).normalized():
-			dir = to_local(nav_agent.get_next_path_position()).normalized()
-			velocity = dir * speed * delta
-		move_and_slide()
-		
 
-func make_path():
-	if lang >= 500:
+func _on_nav_timer_timeout() -> void:
+	if nav_agent.target_position != Player.global_position:
 		nav_agent.target_position = Player.global_position
-	elif lang >= 70 and lang <= 300:
-		nav_agent.target_position = global_position + (global_position - Player.global_position)
-	else: 
-		nav_agent.target_position = Player.global_position + Vector2(x,y)
-
-func _on_timer_timeout() -> void:
-	make_path()
+	nav_timer.start()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		if body.Dash_PowerUp == true and Global.IsDashing == true:
 			Death()
 		speed = 0 
-	if body.is_in_group("Wall"):
-		f = false
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		speed = 7000
 
 func can_shoot() -> void:
 	shoot_available = true

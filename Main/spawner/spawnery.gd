@@ -35,6 +35,7 @@ var y
 var c
 
 func _ready() -> void:
+	global_rotation = 0
 	c = Global.can_spawn
 	timer_power_up.wait_time = randi_range(10,20)
 	timer_power_up.start()
@@ -43,6 +44,7 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
+	global_rotation = 0
 	if Global.can_spawn != c:
 		c = Global.can_spawn
 		Generate()
@@ -60,8 +62,8 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	if Global.IsRoundPlaying == true:
-		x = randi_range(int(ld.global_position.x)+5,int(pd.global_position.x)-5)
-		y = randi_range(int(ld.global_position.y)+5,int(lg.global_position.y)-5)
+		x = randi_range(int(ld.global_position.x)+30,int(pd.global_position.x)-30)
+		y = randi_range(int(ld.global_position.y)+30,int(lg.global_position.y)-30)
 		Generate()
 
 
@@ -79,28 +81,25 @@ func Generate():
 			enemy.main = owner
 			enemy.global_position = Vector2(x,y)
 			enemy.Player = Player
-			print(Vector2(x,y))
 		1:
 			var enemy = Seryjny.instantiate()
 			add_child(enemy)
 			enemy.main = owner
 			enemy.global_position = Vector2(x,y)
 			enemy.Player = Player
-			print(Vector2(x,y))
 		2:
 			var enemy = Okrągły.instantiate()
 			add_child(enemy)
 			enemy.main = owner
 			enemy.global_position = Vector2(x,y)
 			enemy.Player = Player
-			print(Vector2(x,y))
 		3:
 			var enemy = Naprowadzający.instantiate()
 			add_child(enemy)
 			enemy.main = owner
 			enemy.global_position = Vector2(x,y)
 			enemy.Player = Player
-			print(Vector2(x,y))
+
 
 func Generate_power_up():
 	x = randi_range(20,width)
