@@ -51,10 +51,6 @@ func _physics_process(delta: float) -> void:
 		Generate()
 	movement(delta)
 	
-#	if n == false: 
-#		n = true
-#		Global.can_spawn += 1 
-#		queue_free()
 	
 
 func movement(delta):
@@ -75,7 +71,7 @@ func movement(delta):
 		velocity = dir * speed * delta
 		move_and_slide()
 		
-	if lang < 270:	
+	if lang < 270:
 		generate = true
 		speed = 5000
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
@@ -117,7 +113,7 @@ func shoot():
 		shoot_available = false
 		var b = Bullet.instantiate()
 		main.add_child(b)
-		b.transform = $Sprite2D/Marker2D.global_transform
+		b.global_transform = $Sprite2D/Marker2D.global_transform
 		b.enemy = Player
 		b.dmg = bullet_dmg
 		shoot_timer.start()

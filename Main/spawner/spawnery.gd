@@ -58,8 +58,8 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	if Global.IsRoundPlaying == true:
-		x = randi_range(int(ld.global_position.x),int(pd.global_position.x))
-		y = randi_range(int(ld.global_position.y),int(lg.global_position.y))
+		x = randi_range(int(ld.global_position.x)+5,int(pd.global_position.x)-5)
+		y = randi_range(int(ld.global_position.y)+5,int(lg.global_position.y)-5)
 		Generate()
 
 

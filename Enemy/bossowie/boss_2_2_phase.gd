@@ -37,7 +37,7 @@ var trzeci_atak_waittime: float = 1.5
 var can_trzeci_atak: bool = true
 
 #Zycie i wszystko do zycia
-var health: int = 100
+var health: float = 100
 @onready var progress_bar: ProgressBar = $ProgressBar
 var can_be_hit: bool = true
 

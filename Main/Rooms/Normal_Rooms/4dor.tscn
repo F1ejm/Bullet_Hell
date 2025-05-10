@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy0nmtb1lvjw6"]
+[gd_scene load_steps=8 format=3 uid="uid://dy0nmtb1lvjw6"]
 
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="1_7k6xl"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_68wp7"]
 [ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="2_n8o2q"]
 [ext_resource type="PackedScene" uid="uid://b3pce5gyy6w0j" path="res://Main/spawner/spawner.tscn" id="3_q24e3"]
+[ext_resource type="PackedScene" uid="uid://cot52aa5y87c6" path="res://Enemy/Naprowadzający/naprowadzający_enemy.tscn" id="5_n8o2q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkt05"]
 size = Vector2(1290, 1201)
@@ -158,6 +159,9 @@ texture = ExtResource("1_68wp7")
 
 [node name="spawner" parent="Template" instance=ExtResource("3_q24e3")]
 position = Vector2(-37, 614)
+Podstawowy = ExtResource("5_n8o2q")
+Seryjny = ExtResource("5_n8o2q")
+"Okrągły" = ExtResource("5_n8o2q")
 
 [node name="DoorContainer" type="Node2D" parent="."]
 position = Vector2(-646, 5)

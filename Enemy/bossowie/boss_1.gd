@@ -33,7 +33,7 @@ var eryczkowy_atak_waittime: float = 0.05
 var can_eryczkowy_atak: bool = true
 
 #Zycie i wszystko do zycia
-var health: int = 50
+var health: float = 50
 var can_be_hit: bool = false
 @onready var progress_bar: ProgressBar = $ProgressBar
 
