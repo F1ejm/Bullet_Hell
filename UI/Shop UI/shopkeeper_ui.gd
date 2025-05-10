@@ -138,24 +138,21 @@ class Bron:
 	var Lista_Textur = {}
 	var Lista_Broni = {
 		1: "Karabin",
-		2: "Pistol",
-		3: "Uzi",
-		4: "Minigun",
-		5: "Shotgun"
+		2: "Uzi",
+		3: "Minigun",
+		4: "Shotgun"
 	}
 	var Opisy = {
 		1: "Automatic Rifle, Bad Damage and Decent Attack Speed",
-		2: "Pistol, Not a Very Effective Choice , Bad Damage and Bad Attack Speed",
-		3: "Submachine Gun, Fires in Bursts, Very Good Dmg but Very Bad Attack Speed",
-		4: "Minigun, Very High Attack Speed but Low Damage and Quite Innacurate",
-		5: "Shotgun, Fires a Bunch of Bullets at Once, Good Damage but Bad Attack Speed"
+		2: "Submachine Gun, Fires in Bursts, Very Good Dmg but Very Bad Attack Speed",
+		3: "Minigun, Very High Attack Speed but Low Damage and Quite Innacurate",
+		4: "Shotgun, Fires a Bunch of Bullets at Once, Good Damage but Bad Attack Speed"
 	}
 	var Ceny = {
 		1: 10,
 		2: 10,
 		3: 10,
-		4: 10,
-		5: 10
+		4: 10
 	}
 	
 	var dojscie
@@ -175,10 +172,9 @@ class Bron:
 		lenght = Ceny.size()
 		Lista_Textur = {
 			1: preload("res://Art/Maro/Maro_ZdjęcieOG.png"),
-			2: preload("res://Art/itemy/pistol.png"),
-			3: preload("res://Art/itemy/pm.png"),
-			4: preload("res://Art/itemy/minigun.png"),
-			5: preload("res://Art/itemy/Strzelba.png")
+			2: preload("res://Art/itemy/pm.png"),
+			3: preload("res://Art/itemy/minigun.png"),
+			4: preload("res://Art/itemy/Strzelba.png")
 		}
 		textura = Lista_Textur[integer]
 
@@ -264,7 +260,7 @@ func Zmiana_Sklepu():
 	aktywny_itemek_button.tooltip_text = str(Aktywny_Itemek_Cena) + " $"
 	
 	#Bron
-	var rand4 = randi_range(1,5)
+	var rand4 = randi_range(1,4)
 	var bron = Bron.new(Player,rand4)
 	Bron_Nazwa = bron.Nazwa
 	Bron_Cena = bron.cena

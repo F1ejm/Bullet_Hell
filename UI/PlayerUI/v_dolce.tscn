@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://diugecwtbpsr7"]
+[gd_scene load_steps=5 format=3 uid="uid://diugecwtbpsr7"]
 
 [ext_resource type="Script" uid="uid://b7hyuhncr7lu8" path="res://UI/PlayerUI/v_dolce.gd" id="1_tqnuy"]
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="2_uwwjy"]
+[ext_resource type="Texture2D" uid="uid://drbgivg1qqvn2" path="res://Art/niestabilna Materia karola i słoik do siedzenia dla ostópki/pixil-frame-0 (12).png" id="2_7miqy"]
+[ext_resource type="FontFile" uid="uid://d1y8l7j8ou535" path="res://UI/PixelifySans[wght].ttf" id="3_scp8i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a7a52"]
+font = ExtResource("3_scp8i")
+font_size = 24
 
 [node name="V-Dolce" type="Control"]
 layout_mode = 3
@@ -13,6 +18,7 @@ grow_vertical = 2
 script = ExtResource("1_tqnuy")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -21,7 +27,7 @@ offset_left = -96.0
 offset_right = -53.0
 offset_bottom = 43.0
 grow_horizontal = 0
-texture = ExtResource("2_uwwjy")
+texture = ExtResource("2_7miqy")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
@@ -34,3 +40,4 @@ offset_top = 10.0
 offset_right = -6.0
 offset_bottom = 33.0
 grow_horizontal = 0
+label_settings = SubResource("LabelSettings_a7a52")

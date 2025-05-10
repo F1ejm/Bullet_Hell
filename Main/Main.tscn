@@ -136,7 +136,7 @@ Player = NodePath("../../Player")
 [node name="Pause Menu Settings" parent="CanvasLayer" instance=ExtResource("9_j4nmm")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("node_orbitali", "Zycie_UI") instance=ExtResource("1_lxy7q")]
-position = Vector2(-1015, 178)
+position = Vector2(-2588, -53.0001)
 node_orbitali = NodePath("../Orbitale")
 Zycie_UI = NodePath("../CanvasLayer/zycie")
 
@@ -167,7 +167,7 @@ color = Color(0.0313726, 0.0392157, 0.0588235, 1)
 position = Vector2(1245, -1224)
 
 [node name="Boss_2" parent="." node_paths=PackedStringArray("Player", "main") instance=ExtResource("22_j4nmm")]
-position = Vector2(-1519, -493)
+position = Vector2(-3570, -26)
 Player = NodePath("../Player")
 main = NodePath("..")
 

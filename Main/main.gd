@@ -40,7 +40,7 @@ func Choose_Event():
 	
 	label.visible = true
 	
-	x = randi_range(2,3)
+	x = randi_range(1,5)
 	match(x):
 		1:
 			Camera_Shake()
