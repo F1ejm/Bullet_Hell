@@ -3,16 +3,16 @@ extends Control
 @export var Player: CharacterBody2D
 
 @onready var weapon_texture: TextureRect = $HBoxContainer/VBoxContainer/Weapon_Texture
-@onready var weapon_button: Button = $HBoxContainer/VBoxContainer/Weapon_Button
+@onready var weapon_button: TextureButton = $HBoxContainer/VBoxContainer/Weapon_Button
 
 @onready var aktywny_itemek_texture: TextureRect = $HBoxContainer/VBoxContainer2/Aktywny_Itemek_Texture
-@onready var aktywny_itemek_button: Button = $HBoxContainer/VBoxContainer2/Aktywny_Itemek_Button
+@onready var aktywny_itemek_button: TextureButton = $HBoxContainer/VBoxContainer2/Aktywny_Itemek_Button
 
 @onready var pasywny_itemek_1_texture: TextureRect = $HBoxContainer/VBoxContainer3/Pasywny_Itemek1_Texture
-@onready var pasywny_itemek_1_button: Button = $HBoxContainer/VBoxContainer3/Pasywny_Itemek1_Button
+@onready var pasywny_itemek_1_button: TextureButton = $HBoxContainer/VBoxContainer3/Pasywny_Itemek1_Button
 
 @onready var pasywny_itemek_2_texture: TextureRect = $HBoxContainer/VBoxContainer4/Pasywny_Itemek2_Texture
-@onready var pasywny_itemek_2_button: Button = $HBoxContainer/VBoxContainer4/Pasywny_Itemek2_Button
+@onready var pasywny_itemek_2_button: TextureButton = $HBoxContainer/VBoxContainer4/Pasywny_Itemek2_Button
 
 class AktywnyItemek:
 	var Player: CharacterBody2D
@@ -228,7 +228,9 @@ func Zmiana_Sklepu():
 	Pasywny_Itemek1_Cena = pasywny1.cena
 	Pasywny_Itemek1_Opis = pasywny1.opis
 	Pasywny_Itemek1_Textura = pasywny1.textura
-	pasywny_itemek_1_texture.texture = Pasywny_Itemek1_Textura
+	var passive_image_1 = Pasywny_Itemek1_Textura.get_image()
+	passive_image_1.resize(128, 128, Image.INTERPOLATE_LANCZOS)
+	pasywny_itemek_1_texture.texture = ImageTexture.create_from_image(passive_image_1)
 	pasywny_itemek_1_texture.tooltip_text = Pasywny_Itemek1_Opis
 	pasywny_itemek_1_button.tooltip_text = str(Pasywny_Itemek1_Cena) + " $"
 	
@@ -244,7 +246,9 @@ func Zmiana_Sklepu():
 	Pasywny_Itemek2_Cena = pasywny2.cena
 	Pasywny_Itemek2_Opis = pasywny2.opis
 	Pasywny_Itemek2_Textura = pasywny2.textura
-	pasywny_itemek_2_texture.texture = Pasywny_Itemek2_Textura
+	var passive_image_2 = Pasywny_Itemek2_Textura.get_image()
+	passive_image_2.resize(128, 128, Image.INTERPOLATE_LANCZOS)
+	pasywny_itemek_2_texture.texture = ImageTexture.create_from_image(passive_image_2)
 	pasywny_itemek_2_texture.tooltip_text = Pasywny_Itemek2_Opis
 	pasywny_itemek_2_button.tooltip_text = str(Pasywny_Itemek2_Cena) + " $"
 	
@@ -255,7 +259,9 @@ func Zmiana_Sklepu():
 	Aktywny_Itemek_Cena = aktywny.cena
 	Aktywny_Itemek_Opis = aktywny.opis
 	Aktywny_Itemek_Textura = aktywny.textura
-	aktywny_itemek_texture.texture = Aktywny_Itemek_Textura
+	var active_image = Aktywny_Itemek_Textura.get_image()
+	active_image.resize(128, 128, Image.INTERPOLATE_LANCZOS)
+	aktywny_itemek_texture.texture = ImageTexture.create_from_image(active_image)
 	aktywny_itemek_texture.tooltip_text = Aktywny_Itemek_Opis
 	aktywny_itemek_button.tooltip_text = str(Aktywny_Itemek_Cena) + " $"
 	
@@ -266,7 +272,9 @@ func Zmiana_Sklepu():
 	Bron_Cena = bron.cena
 	Bron_Opis = bron.opis
 	Bron_Textura = bron.textura
-	weapon_texture.texture = Bron_Textura
+	var bron_image = Bron_Textura.get_image()
+	bron_image.resize(128, 128, Image.INTERPOLATE_LANCZOS)
+	weapon_texture.texture = ImageTexture.create_from_image(bron_image)
 	weapon_texture.tooltip_text = Bron_Opis
 	weapon_button.tooltip_text = str(Bron_Cena) + " $"
 
