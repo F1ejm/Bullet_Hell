@@ -203,9 +203,9 @@ rotation = 1.5708
 scale = Vector2(8.5, 8.898)
 texture = ExtResource("8_nvq7c")
 
-[node name="music" type="Area2D" parent="Template" groups=["battle_music"]]
+[node name="music" type="Area2D" parent="Template/Door" groups=["battle_music"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/music"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Door/music"]
 position = Vector2(5.5, 641.5)
 shape = SubResource("RectangleShape2D_vh80h")
 

@@ -32,7 +32,7 @@ func _on_button_up():
 
 
 func _on_play_pressed() -> void:
-	AudioManager.play_dungeon_and_shop_music(-30)
+	AudioManager.play_dungeon_and_shop_music(-20)
 	Global.reset()
 	Transition.transition()
 	await Transition.on_transition_finished

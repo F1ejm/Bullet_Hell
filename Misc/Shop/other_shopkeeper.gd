@@ -13,6 +13,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		Global.show_shopkeeper = false
 
 func _process(delta: float) -> void:
+	global_rotation = 0 
 	if Global.show_shopkeeper == true:
 		Global.show_interaction = true
 	else:
