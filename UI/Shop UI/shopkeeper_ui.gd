@@ -221,6 +221,18 @@ func _process(delta: float) -> void:
 	else:
 		visible = false
 	
+	if Bron_Cena > Global.VDolce:
+		weapon_button.disabled = true
+		weapon_button.tooltip_text = "Not Enough Money"
+	if Aktywny_Itemek_Cena > Global.VDolce:
+		aktywny_itemek_button.disabled = true
+		weapon_button.tooltip_text = "Not Enough Money"
+	if Pasywny_Itemek1_Cena > Global.VDolce:
+		pasywny_itemek_1_button.disabled = true
+		weapon_button.tooltip_text = "Not Enough Money"
+	if Pasywny_Itemek2_Cena > Global.VDolce:
+		pasywny_itemek_2_button.disabled = true
+		weapon_button.tooltip_text = "Not Enough Money"
 
 func Zmiana_Sklepu():
 	#Pasywny Itemek 1
