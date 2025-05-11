@@ -165,11 +165,11 @@ func reset():
 	Tarcza = false
 	Can_Use_Projectiles = false
 	Projectiles = false
-	Can_Use_AOE = false
+	Can_Use_AOE = true
 	AOE = false
 	Can_Use_Clear = false
 	Clear = false
-	Can_Use_Pioruny = true
+	Can_Use_Pioruny = false
 	Pioruny = false
 	
 	# Itemy pasywne
@@ -228,8 +228,12 @@ func _process(delta: float) -> void:
 		if boss_present:
 			AudioManager.play_boss_music()
 		else:
-			AudioManager.play_random_battle_track()
-			
+			AudioManager.play_dungeon_and_shop_music()
+	
+	if Tarcza == true:
+		$Tarcza_Item_Area/Sprite2D.visible = true
+	else:
+		$Tarcza_Item_Area/Sprite2D.visible = false
 	
 	if piorun_timer == true:
 		time_pioruna -= delta
@@ -336,6 +340,7 @@ func _physics_process(delta):
 	
 	#AOE
 	if Input.is_action_just_pressed("active_item") and Can_Use_AOE == true:
+		$AOE_Item_Area/CPUParticles2D.emitting = true
 		AOE = true
 		Can_Use_AOE = false
 		trwanie_timer.start()
@@ -651,7 +656,7 @@ func _on_regenerating_timer_timeout() -> void:
 
 var play_battle_music: bool = false
 func _on_music_detection_area_entered(area: Area2D) -> void:
-	if area.is_in_group("battle_music") and Global.IsRoundPlaying == true:
+	if area.is_in_group("battle_music"):
 		AudioManager.play_random_battle_track(-30)
 
 func _on_music_detection_area_exited(area: Area2D) -> void:
