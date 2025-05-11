@@ -213,7 +213,6 @@ var cos := false
 var boss_present := false
 
 func _process(delta: float) -> void:
-	current_audio_to_play()
 	if cos and not Global.IsRoundPlaying:
 		_on_disabled_triggered()
 	cos = Global.IsRoundPlaying  # Update the previous state
@@ -243,6 +242,7 @@ func _process(delta: float) -> void:
 		$Pasywne_Itemki/Sprite2D.visible = false
 	
 	if Global.Zycie <= 0: 
+		AudioManager.player_death.play()
 		get_tree().change_scene_to_file("res://Misc/Death Screen/death screen.tscn")
 	
 	#Active Item Progress Bar
@@ -393,6 +393,23 @@ func _physics_process(delta):
 			range_timer.start()
 			range_cooldown = true
 			Ranged()
+			var curent = Global.CurrentWeapon
+			var rand_pitch = randf_range(0.95, 1.05)
+			if  curent ==  "Karabin":
+				$Karabin.pitch_scale = rand_pitch
+				$Karabin.play()
+			elif curent == "Pistol":
+				$Pistol.pitch_scale = rand_pitch
+				$Pistol.play()
+			elif  curent == "Uzi":
+				$Uzi.pitch_scale = rand_pitch
+				$Uzi.play()
+			elif  curent == "Minigun":
+				$Minigun.pitch_scale = rand_pitch
+				$Minigun.play()
+			elif curent == "Shotgun":
+				$Shotgun.pitch_scale = rand_pitch
+				$Shotgun.play()
 	
 	#Dash
 	if Global.IsDashing:
@@ -512,6 +529,9 @@ func _on_weapon_changed() -> void:
 #Otrzymywanie Dmg'u
 func Dmg_Func(x):
 	$Node2D/Camera2D.screen_shake(15,0.5)
+	var rand_pitch = randf_range(0.95, 1.05)
+	$PlayerHurt.pitch_scale = rand_pitch
+	$PlayerHurt.play()
 	if immunity_chance == true:
 		var y = randi_range(1,4)
 		if y == 1:
@@ -663,37 +683,3 @@ func _on_music_detection_area_exited(area: Area2D) -> void:
 
 func _on_disabled_triggered() -> void:
 	AudioManager.play_dungeon_and_shop_music(-20)
-
-#Karabin, Pistol, Uzi, Minigun, Shotgun 
-func current_audio_to_play():
-	var curent = Global.CurrentWeapon
-	if Input.is_action_just_pressed("range_atak"):
-		if range_cooldown == true: 
-			pass
-		elif  curent ==  "Karabin" :
-			$Karabin.play()
-		elif curent == "Pistol" :
-			$Pistol.play()
-		elif  curent == "Uzi" :
-			$Uzi.play()
-		elif  curent == "Minigun" :
-			$Minigun.play()
-		elif curent == "Shotgun"  :
-			$Shotgun.play()
-
-
-func finished() -> void:
-	var curent = Global.CurrentWeapon
-	if Input.is_action_just_pressed("range_atak"):
-		if range_cooldown == true: 
-			pass
-		elif  curent ==  "Karabin" :
-			$Karabin.play()
-		elif curent == "Pistol" :
-			$Pistol.play()
-		elif  curent == "Uzi" :
-			$Uzi.play()
-		elif  curent == "Minigun" :
-			$Minigun.play()
-		elif curent == "Shotgun"  :
-			$Shotgun.play()

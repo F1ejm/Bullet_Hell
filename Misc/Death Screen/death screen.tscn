@@ -1,20 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7pc140h8dlby"]
+[gd_scene load_steps=10 format=3 uid="uid://c7pc140h8dlby"]
 
 [ext_resource type="Script" uid="uid://docnaijqrupbm" path="res://Misc/Death Screen/death_screen.gd" id="1_ceykj"]
-[ext_resource type="Texture2D" uid="uid://dwaru5vmaacpl" path="res://Art/UI/menu buttons/menu_idle.png" id="2_ikrit"]
 [ext_resource type="Texture2D" uid="uid://buc64vp5eeupd" path="res://Art/UI/menu buttons/reset_normal.png" id="2_k5lcc"]
 [ext_resource type="Texture2D" uid="uid://c3xhfpllns8lh" path="res://Art/UI/menu buttons/reset_pressed.png" id="3_k5lcc"]
 [ext_resource type="Texture2D" uid="uid://bc7ufmoxyeccl" path="res://Art/UI/menu buttons/reset_hover.png" id="4_ovuto"]
-[ext_resource type="Texture2D" uid="uid://b3vwf36g82ka0" path="res://Art/UI/menu buttons/menu_glitch.png" id="6_toukc"]
-[ext_resource type="Texture2D" uid="uid://6hdld88odugk" path="res://Art/UI/menu buttons/menu_hover.png" id="7_k5lcc"]
+[ext_resource type="Texture2D" uid="uid://knu2wsb76eyj" path="res://Art/UI/menu buttons/menu_idle2.png" id="5_ovuto"]
+[ext_resource type="Texture2D" uid="uid://cmmknfnjnosis" path="res://Art/UI/menu buttons/menu_pressed2.png" id="6_akqtq"]
+[ext_resource type="Texture2D" uid="uid://bn4b1rsqrgbxr" path="res://Art/UI/menu buttons/menu_hover2.png" id="7_toukc"]
 [ext_resource type="FontFile" uid="uid://d1y8l7j8ou535" path="res://UI/PixelifySans[wght].ttf" id="8_ovuto"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_akqtq"]
 font = ExtResource("8_ovuto")
 font_size = 140
-
-[sub_resource type="LabelSettings" id="LabelSettings_ovuto"]
-font = ExtResource("8_ovuto")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -37,10 +34,13 @@ color = Color(0.117671, 0.000154211, 0.208903, 1)
 
 [node name="Restart" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 728.0
+offset_left = 707.0
 offset_top = 445.0
-offset_right = 1192.0
-offset_bottom = 573.0
+offset_right = 771.0
+offset_bottom = 461.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
 texture_normal = ExtResource("2_k5lcc")
 texture_pressed = ExtResource("3_k5lcc")
 texture_hover = ExtResource("4_ovuto")
@@ -48,13 +48,16 @@ stretch_mode = 0
 
 [node name="Main_menu" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 728.0
+offset_left = 707.0
 offset_top = 629.0
-offset_right = 1192.0
-offset_bottom = 765.0
-texture_normal = ExtResource("2_ikrit")
-texture_pressed = ExtResource("6_toukc")
-texture_hover = ExtResource("7_k5lcc")
+offset_right = 771.0
+offset_bottom = 645.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+texture_normal = ExtResource("5_ovuto")
+texture_pressed = ExtResource("6_akqtq")
+texture_hover = ExtResource("7_toukc")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="."]
@@ -70,18 +73,8 @@ offset_right = 284.0
 offset_bottom = -229.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "You died "
+text = "You died !"
 label_settings = SubResource("LabelSettings_akqtq")
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = -3.0
-offset_top = 68.0
-offset_right = 208.0
-offset_bottom = 91.0
-rotation = -0.337658
-text = "yczek pozdrawia z rodzinką"
-label_settings = SubResource("LabelSettings_ovuto")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0

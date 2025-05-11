@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dn4sqx4suowf1"]
+[gd_scene load_steps=22 format=3 uid="uid://dn4sqx4suowf1"]
 
 [ext_resource type="Script" uid="uid://hms7joihh6ve" path="res://Player/Player.gd" id="1_q3lat"]
 [ext_resource type="Texture2D" uid="uid://6ttwqpyw8f5n" path="res://Art/itemy/piorun2.png" id="2_6ysni"]
@@ -11,7 +11,6 @@
 [ext_resource type="AudioStream" uid="uid://c10bgywk44isj" path="res://Audio/SFX/guns/laser_shotgun.mp3" id="8_s1rgi"]
 [ext_resource type="AudioStream" uid="uid://dgxirhssrtykx" path="res://Audio/SFX/guns/laser_pm.mp3" id="9_v0k0e"]
 [ext_resource type="AudioStream" uid="uid://c74kmmvhsehct" path="res://Audio/SFX/guns/laser_minigun.mp3" id="10_v0k0e"]
-[ext_resource type="AudioStream" uid="uid://c8sod7ur70v0x" path="res://Audio/SFX/player/player_hurt.mp3" id="12_5wa8t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ysni"]
 radius = 91.4286
@@ -231,9 +230,6 @@ stream = ExtResource("10_v0k0e")
 
 [node name="Shotgun" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_s1rgi")
-
-[node name="PlayerHurt" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_5wa8t")
 
 [connection signal="timeout" from="PowerUp_Timer" to="." method="_on_power_up_timer_timeout"]
 [connection signal="timeout" from="Regenerating_Timer" to="." method="_on_regenerating_timer_timeout"]

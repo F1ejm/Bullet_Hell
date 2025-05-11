@@ -4,6 +4,9 @@ extends Node
 @onready var buy_2: AudioStreamPlayer = $Buy2
 @onready var menu_button_down: AudioStreamPlayer = $MenuButtonDown
 @onready var menu_button_up: AudioStreamPlayer = $MenuButtonUp
+@onready var player_death: AudioStreamPlayer = $PlayerDeath
+@onready var enemy_death_1: AudioStreamPlayer = $EnemyDeath1
+@onready var enemy_death_2: AudioStreamPlayer = $EnemyDeath2
 
 
 # AudioStreamPlayer nodes for each track
@@ -28,6 +31,14 @@ extends Node
 @onready var boss_tracks: Array[AudioStreamPlayer] = [
 	$"music/01-U_n_OwenWasHer"
 ]
+
+func enemy_death():
+	var rand_sound = randi_range(0, 1)
+	match(rand_sound):
+		0:
+			enemy_death_1.play()
+		1:
+			enemy_death_2.play()
 
 # Currently playing track
 var current_track: AudioStreamPlayer = null
