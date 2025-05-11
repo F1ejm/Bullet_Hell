@@ -415,6 +415,7 @@ func Ranged():
 			#Pasywny itemek - przebicie ścian
 			if Ignore_wall_Item == true:
 				b.ignore_walls = true
+	$Node2D/Camera2D.screen_shake(4,0.5)
 
 	#Pasywny Itemek - Piorun
 	pasywne_itemki.rotation = randi_range(0,360)
@@ -459,7 +460,7 @@ func _on_weapon_changed() -> void:
 	
 #Otrzymywanie Dmg'u
 func Dmg_Func(x):
-	$Node2D/Camera2D.screen_shake(5,1)
+	$Node2D/Camera2D.screen_shake(7,1.5)
 	if immunity_chance == true:
 		var y = randi_range(1,4)
 		if y == 1:
