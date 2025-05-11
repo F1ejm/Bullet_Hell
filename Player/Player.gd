@@ -206,7 +206,7 @@ func _process(delta: float) -> void:
 	$Sprite2D.global_rotation = 0
 	Global.player_main = $"."
 	node_orbitali.global_position = global_position
-	$Camera2D.global_position = (self.global_position * 3 +get_global_mouse_position())/4
+	$Node2D/Camera2D.global_position = (self.global_position * 3 + get_global_mouse_position())/4
 
 	if(rotation>PI/2 or rotation<PI/-2):
 		$WeaponSprite.scale.y=-2
@@ -459,6 +459,7 @@ func _on_weapon_changed() -> void:
 	
 #Otrzymywanie Dmg'u
 func Dmg_Func(x):
+	$Node2D/Camera2D.screen_shake(5,1)
 	if immunity_chance == true:
 		var y = randi_range(1,4)
 		if y == 1:

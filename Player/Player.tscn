@@ -164,7 +164,6 @@ position = Vector2(15.7143, -3.57143)
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="Node2D"]
-scale = Vector2(1, 1)
 script = ExtResource("3_6ysni")
 
 [connection signal="timeout" from="PowerUp_Timer" to="." method="_on_power_up_timer_timeout"]
