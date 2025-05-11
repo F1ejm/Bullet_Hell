@@ -43,8 +43,8 @@ var marker_pg
 
 func _ready() -> void:
 	Global.i = -1
-	Global.IsRoundPlaying = false
 	global_rotation = 0
+	Global.IsRoundPlaying = false
 	c = Global.can_spawn
 	timer_power_up.wait_time = randi_range(10,20)
 	timer_power_up.start()
@@ -99,8 +99,8 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	if active:
 		if Global.IsRoundPlaying == true:
-			x = randi_range(int(ld.global_position.x)+30,int(pd.global_position.x)-30)
-			y = randi_range(int(ld.global_position.y)+30,int(lg.global_position.y)-30)
+			x = randi_range(int(ld.global_position.x),int(pd.global_position.x))
+			y = randi_range(int(ld.global_position.y),int(lg.global_position.y))
 			Generate()
 
 
@@ -108,8 +108,8 @@ func _on_timer_timeout() -> void:
 func Generate():
 	Global.i += 1
 	
-	x = randi_range(int(ld.global_position.x)+30,int(pd.global_position.x)-30)
-	y = randi_range(int(ld.global_position.y)+30,int(lg.global_position.y)-30)
+	x = randi_range(int(ld.global_position.x),int(pd.global_position.x))
+	y = randi_range(int(ld.global_position.y),int(lg.global_position.y))
 	
 	var losowanie_enemy = randi_range(0,3)
 	

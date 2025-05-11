@@ -2,6 +2,7 @@ extends StaticBody2D
 
 var i 
 
+
 func _ready() -> void:
 	$StaticBody2D.position = Vector2(-236,51)
 	

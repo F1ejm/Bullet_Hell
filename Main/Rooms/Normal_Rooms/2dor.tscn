@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cuf75hcy7ysr3" path="res://Art/TŁO/sciana nr2.png" id="4_fwppr"]
 [ext_resource type="Script" uid="uid://b1t6gilm08w2d" path="res://Main/Rooms/Normal_Rooms/node_2d.gd" id="5_cr3jh"]
 [ext_resource type="Script" uid="uid://buw7aci8wawo3" path="res://Main/Rooms/Normal_Rooms/door.gd" id="6_pvetk"]
-[ext_resource type="Script" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="7_ljwap"]
-[ext_resource type="PackedScene" uid="uid://b3pce5gyy6w0j" path="res://Main/spawner/spawner.tscn" id="10_fwppr"]
+[ext_resource type="Script" uid="uid://bt8qq8vmx8irc" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="7_ljwap"]
+[ext_resource type="PackedScene" uid="uid://cw0ma1k8hdhai" path="res://Main/spawner/spawne_2dorr.tscn" id="9_ljwap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aps5"]
 size = Vector2(1290, 732)
@@ -45,6 +45,7 @@ size = Vector2(88, 226)
 [node name="Ściany" type="Node2D" parent="."]
 
 [node name="Fog" type="Node2D" parent="Ściany"]
+visible = false
 position = Vector2(-577, 769)
 metadata/_edit_group_ = true
 
@@ -152,8 +153,8 @@ position = Vector2(-6, 0)
 scale = Vector2(1.00401, 1.05097)
 texture = ExtResource("1_8dnt5")
 
-[node name="Spawner" parent="Template" instance=ExtResource("10_fwppr")]
-position = Vector2(0, 566)
+[node name="Spawner" parent="Template" instance=ExtResource("9_ljwap")]
+position = Vector2(7, 568)
 
 [node name="DoorContainer" type="Node2D" parent="."]
 

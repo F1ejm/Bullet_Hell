@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxylfbi30cvhw"]
+
+[ext_resource type="PackedScene" uid="uid://b5jpw76kwfuor" path="res://Main/Obstacle/obstacle_spawner.tscn" id="1_hwepb"]
+
+[node name="Obstacle_template_3" type="Marker2D"]
+
+[node name="obstacle_spawner" parent="." instance=ExtResource("1_hwepb")]
+position = Vector2(0, -106)

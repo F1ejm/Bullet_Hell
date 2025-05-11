@@ -42,6 +42,8 @@ func generate():
 			var b = template_3.instantiate()
 			Placeholder.add_child(b)
 			b.global_position = midle.global_position
+	
+	emit_signal("nic")
 
 
 
@@ -56,7 +58,7 @@ func start_rundy():
 
 func _process(delta: float) -> void:
 	start_rundy()
-	emit_signal("nic")
+	
 
 func timeout() -> void:
 	Placeholder.get_child(0).queue_free()

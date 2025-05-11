@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=4 uid="uid://dnbf0c4gd58pa"]
 
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="2_pv3t5"]
-[ext_resource type="PackedScene" uid="uid://b3pce5gyy6w0j" path="res://Main/spawner/spawner.tscn" id="3_5hjwj"]
+[ext_resource type="PackedScene" uid="uid://dqkpfqj6dxyd8" path="res://Main/spawner/spawner_end.tscn" id="3_inkkk"]
 [ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="3_rcbs6"]
 [ext_resource type="Texture2D" uid="uid://cv6nare2clauc" path="res://Art/TŁO/sciana nr1.png" id="4_5hjwj"]
 [ext_resource type="Script" uid="uid://b1t6gilm08w2d" path="res://Main/Rooms/Normal_Rooms/node_2d.gd" id="4_xqjwp"]
@@ -79,11 +79,12 @@ shape = SubResource("RectangleShape2D_rcbs6")
 
 [node name="Template" type="Node2D" parent="."]
 
-[node name="Spawner" parent="Template" instance=ExtResource("3_5hjwj")]
-position = Vector2(-2, 402)
+[node name="Spawner" parent="Template" instance=ExtResource("3_inkkk")]
+position = Vector2(-5, 416)
 
 [node name="Door" type="Node2D" parent="Template"]
-position = Vector2(2, 63)
+position = Vector2(3, 62)
+rotation = 3.14159
 script = ExtResource("4_xqjwp")
 metadata/_edit_group_ = true
 

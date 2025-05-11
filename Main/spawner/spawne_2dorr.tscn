@@ -1,33 +1,33 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3pce5gyy6w0j"]
+[gd_scene load_steps=12 format=3 uid="uid://cw0ma1k8hdhai"]
 
-[ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawner/spawnery.gd" id="1_4tvbi"]
-[ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Podstawowy/Podstawowy_Enemy.tscn" id="2_f5u33"]
-[ext_resource type="PackedScene" uid="uid://bvxgexgniu3ha" path="res://Main/Pick_up/pick_up_cube.tscn" id="2_jlw8o"]
-[ext_resource type="PackedScene" uid="uid://dutj4ocsn2cb2" path="res://Main/Obstacle/czujka/czujka.tscn" id="3_30bco"]
-[ext_resource type="PackedScene" uid="uid://c202ehhkt6j32" path="res://Enemy/Seryjny/Seryjny_Przeciwnik.tscn" id="3_xd47v"]
-[ext_resource type="PackedScene" uid="uid://cne0e6ok8lj6l" path="res://Enemy/Okręgowy/Okręgowy_Enemy.tscn" id="4_vsm8q"]
-[ext_resource type="PackedScene" uid="uid://cot52aa5y87c6" path="res://Enemy/Naprowadzający/naprowadzający_enemy.tscn" id="5_kut7u"]
-[ext_resource type="Script" uid="uid://d2mp0xam3t2x" path="res://Main/Obstacle/spawner_controler.gd" id="5_tvwdq"]
-[ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="9_12q52"]
+[ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawner/spawnery.gd" id="1_mb0sf"]
+[ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Podstawowy/Podstawowy_Enemy.tscn" id="2_t2v5x"]
+[ext_resource type="PackedScene" uid="uid://c202ehhkt6j32" path="res://Enemy/Seryjny/Seryjny_Przeciwnik.tscn" id="3_uqa5w"]
+[ext_resource type="PackedScene" uid="uid://cne0e6ok8lj6l" path="res://Enemy/Okręgowy/Okręgowy_Enemy.tscn" id="4_mnkbw"]
+[ext_resource type="PackedScene" uid="uid://cot52aa5y87c6" path="res://Enemy/Naprowadzający/naprowadzający_enemy.tscn" id="5_acwpm"]
+[ext_resource type="PackedScene" uid="uid://bvxgexgniu3ha" path="res://Main/Pick_up/pick_up_cube.tscn" id="6_7my8h"]
+[ext_resource type="PackedScene" uid="uid://dutj4ocsn2cb2" path="res://Main/Obstacle/czujka/czujka.tscn" id="7_lmnvw"]
+[ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="8_5gany"]
+[ext_resource type="Script" uid="uid://d2mp0xam3t2x" path="res://Main/Obstacle/spawner_controler.gd" id="9_2nwa7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xp4cu"]
-vertices = PackedVector2Array(1076.53, 571.531, -6.5625, 570.578, -6.5625, -467.562, 1075.58, -467.562)
+vertices = PackedVector2Array(1054.38, 507.312, 12.4609, 496.789, 13.4219, -403.562, 1047.73, -403.562)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1100, -491, 1099, -491, -30, -491, -30, 594, 1100, 595)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1071, -427, -10, -427, -11, 520, 1078, 531)])
 agent_radius = 23.44
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12q52"]
-size = Vector2(1130, 1086)
+size = Vector2(1082, 1050)
 
 [node name="Spawner" type="Node2D" node_paths=PackedStringArray("timer_power_up")]
-script = ExtResource("1_4tvbi")
+script = ExtResource("1_mb0sf")
 timer_power_up = NodePath("Spawnery/Timer_power_up")
-Podstawowy = ExtResource("2_f5u33")
-Seryjny = ExtResource("3_xd47v")
-"Okrągły" = ExtResource("4_vsm8q")
-"Naprowadzający" = ExtResource("5_kut7u")
-power_up = ExtResource("2_jlw8o")
-czujka = ExtResource("3_30bco")
+Podstawowy = ExtResource("2_t2v5x")
+Seryjny = ExtResource("3_uqa5w")
+"Okrągły" = ExtResource("4_mnkbw")
+"Naprowadzający" = ExtResource("5_acwpm")
+power_up = ExtResource("6_7my8h")
+czujka = ExtResource("7_lmnvw")
 
 [node name="Spawnery" type="Node2D" parent="."]
 
@@ -37,14 +37,14 @@ autostart = true
 [node name="Timer_power_up" type="Timer" parent="Spawnery"]
 wait_time = 20.0
 
-[node name="Template_controler" parent="." node_paths=PackedStringArray("nav", "Placeholder") instance=ExtResource("9_12q52")]
+[node name="Template_controler" parent="." node_paths=PackedStringArray("nav", "Placeholder") instance=ExtResource("8_5gany")]
 nav = NodePath("../NavigationRegion2D")
 Placeholder = NodePath("../NavigationRegion2D/PlaceHolder")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(-535, -52)
 navigation_polygon = SubResource("NavigationPolygon_xp4cu")
-script = ExtResource("5_tvwdq")
+script = ExtResource("9_2nwa7")
 
 [node name="PlaceHolder" type="Node2D" parent="NavigationRegion2D"]
 position = Vector2(-2, 3)
