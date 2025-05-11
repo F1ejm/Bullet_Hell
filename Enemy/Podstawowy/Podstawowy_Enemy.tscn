@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxcd4bfk2fee7"]
+[gd_scene load_steps=8 format=3 uid="uid://bxcd4bfk2fee7"]
 
 [ext_resource type="Script" uid="uid://m2npcd1yeoyq" path="res://Enemy/Podstawowy/Podstawowy_Enemy.gd" id="1_epr5s"]
 [ext_resource type="PackedScene" uid="uid://diikl76jay5oc" path="res://Enemy/Podstawowy/Bullets/Podstawowy_Bullet.tscn" id="2_vso2s"]
@@ -11,6 +11,9 @@ height = 124.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62bfm"]
 radius = 24.0832
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jkq42"]
+radius = 206.243
 
 [node name="Podstawowy_Przeciwnik" type="CharacterBody2D" node_paths=PackedStringArray("shoot_timer", "nav_timer") groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
@@ -63,7 +66,14 @@ show_percentage = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_62bfm")
 
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_jkq42")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="nav_timer" to="." method="_on_nav_timer_timeout"]
 [connection signal="timeout" from="shoot_timer" to="." method="can_shoot"]
 [connection signal="timeout" from="another_timer" to="." method="_on_another_timer_timeout"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]

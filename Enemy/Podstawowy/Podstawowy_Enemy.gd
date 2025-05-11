@@ -28,6 +28,8 @@ var health:int = 1
 
 var f = true
 
+var in_ = false
+
 func _ready() -> void:
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
@@ -39,6 +41,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	Player = Global.player_main
+	if in_ == true:
+		speed *= -1
+	else : 
+		speed = abs(speed)
+		
 	$Sprite2D/Marker2D.look_at(Player.global_position)
 	progress_bar.value = health
 	if health <= 0:
@@ -90,3 +97,13 @@ func Death():
 	var monetki = randi_range(0,2)
 	Global.VDolce += monetki
 	queue_free()
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		in_ = true
+
+
+func _on_area_2d_2_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		in_ =false
