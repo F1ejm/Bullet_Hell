@@ -612,3 +612,12 @@ func _on_regenerating_timer_timeout() -> void:
 	if Global.IsRoundPlaying == true:
 		regen = true
 		Global.Zycie += 1
+
+var play_battle_music: bool = false
+func _on_music_detection_area_entered(area: Area2D) -> void:
+	if area.is_in_group("battle_music"):
+		play_battle_music = true
+
+func _on_music_detection_area_exited(area: Area2D) -> void:
+	if area.is_in_group("battle_music"):
+		play_battle_music = false

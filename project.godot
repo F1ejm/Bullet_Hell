@@ -51,6 +51,7 @@ Boss=""
 Boss_Bullet=""
 button=""
 Pick_Up_Objects=""
+battle_music=""
 
 [gui]
 

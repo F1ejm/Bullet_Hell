@@ -32,7 +32,7 @@ func _on_button_up():
 
 
 func _on_play_pressed() -> void:
-	AudioManager.fade_out(AudioManager.main_menu, 1.0)
+	AudioManager.stop_music(1.0)
 	Global.reset()
 	Transition.transition()
 	await Transition.on_transition_finished

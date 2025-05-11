@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dnbf0c4gd58pa"]
+[gd_scene load_steps=18 format=4 uid="uid://dnbf0c4gd58pa"]
 
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="2_pv3t5"]
 [ext_resource type="PackedScene" uid="uid://dqkpfqj6dxyd8" path="res://Main/spawner/spawner_end.tscn" id="3_inkkk"]
@@ -32,6 +32,9 @@ size = Vector2(262, 74)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bit3d"]
 size = Vector2(267, 70.9986)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inkkk"]
+size = Vector2(1195, 722)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hjwj"]
 size = Vector2(1290, 734)
@@ -110,6 +113,12 @@ shape = SubResource("RectangleShape2D_bit3d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Template/Door/Door"]
 root_node = NodePath("../../../..")
+
+[node name="music" type="Area2D" parent="Template" groups=["battle_music"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/music"]
+position = Vector2(-2.5, 402)
+shape = SubResource("RectangleShape2D_inkkk")
 
 [node name="Fog" type="Node2D" parent="."]
 visible = false
