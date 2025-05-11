@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://divjj2xl1j2sh"]
 
 [ext_resource type="Script" uid="uid://b0di2g6m3baao" path="res://Misc/Shop/shop_vendor.gd" id="1_n55vs"]
-[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="2_n55vs"]
+[ext_resource type="Texture2D" uid="uid://c0yg5on8te2bm" path="res://Art/UI/shop.png" id="2_n55vs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n55vs"]
 radius = 233.283
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrktd"]
-size = Vector2(140, 140)
+size = Vector2(179, 100)
 
 [node name="Shop Vendor" type="StaticBody2D"]
 script = ExtResource("1_n55vs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.98, 0.7)
+scale = Vector2(5.575, 3.982)
 texture = ExtResource("2_n55vs")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -22,6 +22,7 @@ texture = ExtResource("2_n55vs")
 shape = SubResource("CircleShape2D_n55vs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_wrktd")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
