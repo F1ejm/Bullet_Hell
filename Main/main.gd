@@ -17,6 +17,7 @@ var zycie_restored: int = 0
 
 func _ready() -> void:
 	Timer_()
+	AudioManager.play_random_battle_track(-30)
 
 func _process(delta: float) -> void:
 	if label.visible == true:

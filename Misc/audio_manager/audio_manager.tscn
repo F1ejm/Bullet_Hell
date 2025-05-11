@@ -1,13 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://vx8qnbcmqaja"]
+[gd_scene load_steps=20 format=3 uid="uid://vx8qnbcmqaja"]
 
 [ext_resource type="AudioStream" uid="uid://bgu0fccgfbqta" path="res://Audio/SFX/misc/menu button down.mp3" id="1_eoxc6"]
 [ext_resource type="Script" uid="uid://bkgc4omcr0b38" path="res://Misc/audio_manager/audio_manager.gd" id="1_tjl6i"]
 [ext_resource type="AudioStream" uid="uid://baupph2381qt3" path="res://Audio/SFX/misc/buy1.mp3" id="2_oeafg"]
 [ext_resource type="AudioStream" uid="uid://cb0iiqvnook7m" path="res://Audio/SFX/misc/menu button up.mp3" id="2_tjl6i"]
 [ext_resource type="AudioStream" uid="uid://d0vg3lpp1es3a" path="res://Audio/SFX/misc/buy2.mp3" id="3_vqqbq"]
+[ext_resource type="AudioStream" uid="uid://chvy4svw3rmw0" path="res://Audio/Music/01 - U.N. Owen Was Her.mp3" id="6_qcdol"]
 [ext_resource type="AudioStream" uid="uid://bs5iq7qbcmct8" path="res://Audio/Music/main_menu.mp3" id="6_vqqbq"]
+[ext_resource type="AudioStream" uid="uid://jxcv5xfhdka0" path="res://Audio/Music/02 - Nuclear Fusion.mp3" id="7_kq5r2"]
+[ext_resource type="AudioStream" uid="uid://bcmsqwba3771" path="res://Audio/Music/03 - Lunar Clock Luna Dial (feat. James Fraser).mp3" id="8_q40tu"]
+[ext_resource type="AudioStream" uid="uid://bofwd8cwsq0sv" path="res://Audio/Music/04 - Lunatic Princess.mp3" id="9_84pmh"]
+[ext_resource type="AudioStream" uid="uid://dvbvd1yks0s6" path="res://Audio/Music/05 - Flowering Night.mp3" id="10_541kk"]
+[ext_resource type="AudioStream" uid="uid://dhtvjgvchqa1y" path="res://Audio/Music/06 - Native Faith.mp3" id="11_l0luo"]
+[ext_resource type="AudioStream" uid="uid://cnwl3ms6x2qrw" path="res://Audio/Music/07 - Septette for the Dead Princess (feat. Jonathan Parecki).mp3" id="12_nnd8a"]
+[ext_resource type="AudioStream" uid="uid://diwu3q3f8f7fv" path="res://Audio/Music/08 - Reach for the Moon, Immortal Smoke (feat. Alejandro Hernández).mp3" id="13_jmgit"]
+[ext_resource type="AudioStream" uid="uid://c4u1x7jjvj3l2" path="res://Audio/Music/09 - Beloved Tomboyish Daughter.mp3" id="14_mrwof"]
+[ext_resource type="AudioStream" uid="uid://cti1bk4nb3wx4" path="res://Audio/Music/10 - Necrofantasia.mp3" id="15_k3iyu"]
+[ext_resource type="AudioStream" uid="uid://b8viiyfqjf81h" path="res://Audio/Music/11 - Love Coloured Master Spark.mp3" id="16_6sljd"]
+[ext_resource type="AudioStream" uid="uid://mvaxvekymvr0" path="res://Audio/Music/12 - Primoridal Beat (feat. Jerod Collins).mp3" id="17_6ycmn"]
+[ext_resource type="AudioStream" uid="uid://iwtf8qkd2s51" path="res://Audio/Music/13 - Border of Life.mp3" id="18_jjf00"]
 
 [node name="AudioManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_tjl6i")
 
 [node name="Buy1" type="AudioStreamPlayer" parent="."]
@@ -25,6 +39,45 @@ stream = ExtResource("1_eoxc6")
 stream = ExtResource("2_tjl6i")
 
 [node name="music" type="Node" parent="."]
+
+[node name="01-U_n_OwenWasHer" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("6_qcdol")
+
+[node name="02-NuclearFusion" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("7_kq5r2")
+
+[node name="03-LunarClockLunaDial(feat_JamesFraser)" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("8_q40tu")
+
+[node name="04-LunaticPrincess" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("9_84pmh")
+
+[node name="05-FloweringNight" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("10_541kk")
+
+[node name="06-NativeFaith" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("11_l0luo")
+
+[node name="07-SeptetteForTheDeadPrincess(feat_JonathanParecki)" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("12_nnd8a")
+
+[node name="08-ReachForTheMoon,ImmortalSmoke(feat_AlejandroHernández)" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("13_jmgit")
+
+[node name="09-BelovedTomboyishDaughter" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("14_mrwof")
+
+[node name="10-Necrofantasia" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("15_k3iyu")
+
+[node name="11-LoveColouredMasterSpark" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("16_6sljd")
+
+[node name="12-PrimoridalBeat(feat_JerodCollins)" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("17_6ycmn")
+
+[node name="13-BorderOfLife" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("18_jjf00")
 
 [node name="MainMenu" type="AudioStreamPlayer" parent="music"]
 stream = ExtResource("6_vqqbq")
