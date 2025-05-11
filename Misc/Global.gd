@@ -232,10 +232,7 @@ func _process(delta: float) -> void:
 		Zycie = Max_Zycie
 	
 	#System Rund
-	if  IsRoundPlaying != true:
-		IsRoundPlaying = true
-		Czas_Rundy = 60
-	if IsRoundPlaying == true:
+	if IsRoundPlaying == true and is_in_game != false:
 		Czas_Rundy -= delta
 	if Czas_Rundy <= 0:
 		IsRoundPlaying = false

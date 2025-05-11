@@ -32,7 +32,7 @@ var c
 func _ready() -> void:
 	Player = Global.player_main
 	c = Global.can_spawn
-	timer_power_up.wait_time = randi_range(10,20)
+	timer_power_up.wait_time = 5
 	timer_power_up.start()
 	
 
@@ -43,15 +43,10 @@ func _process(delta: float) -> void:
 		Generate()
 	
 	if Global.IsRoundPlaying == true:
-		if Global.i == 0:
+		if Global.i <= Global.Runda:
 			Generate()
 		
-		if Global.i*Global.i - Global.Runda < 0:
-			Generate()
-		elif Global.i*Global.i - Global.Runda > 0 and Global.i*Global.i - Global.Runda < 8:
-			timer.wait_time = Global.i*Global.i - Global.Runda
-		else:
-			timer.wait_time = 8
+		
 
 func _on_timer_timeout() -> void:
 	if Global.IsRoundPlaying == true:
