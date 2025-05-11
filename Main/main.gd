@@ -20,6 +20,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#AudioManager.
+	if Global.IsRoundPlaying == false:
+		Global.Zycie += zycie_restored
+		Global.Unstable_World = true
+		zycie_restored = 0
+		shader_material.set_shader_parameter("vignette_power", 12.0)
+		shader_material.set_shader_parameter("vignette_divisor", 10.0)
+		Engine.time_scale = 1
+		label.visible = true 
 	
 	if label.visible == true:
 		time += delta
@@ -54,7 +62,7 @@ func Choose_Event():
 				Camera_Shake()
 				unstable_label_2.text = "The System Erupts"
 			2:
-				shader_material.set_shader_parameter("vignette_power", 2.0)
+				shader_material.set_shader_parameter("vignette_power", 4.0)
 				shader_material.set_shader_parameter("vignette_divisor", 1.0)
 				unstable_label_2.text = "The System Covers Itself With Immense Fog"
 			3:

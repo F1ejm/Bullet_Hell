@@ -165,11 +165,11 @@ func reset():
 	Tarcza = false
 	Can_Use_Projectiles = false
 	Projectiles = false
-	Can_Use_AOE = false
+	Can_Use_AOE = true
 	AOE = false
 	Can_Use_Clear = false
 	Clear = false
-	Can_Use_Pioruny = true
+	Can_Use_Pioruny = false
 	Pioruny = false
 	
 	# Itemy pasywne
@@ -210,12 +210,28 @@ func _ready() -> void:
 	regenerating_timer.wait_time = regenerating_wait_time
 
 var cos := false
+var boss_present := false
 
 func _process(delta: float) -> void:
 	if cos and not Global.IsRoundPlaying:
 		_on_disabled_triggered()
-
 	cos = Global.IsRoundPlaying  # Update the previous state
+	
+	
+	var boss_now = get_tree().get_nodes_in_group("boss").size() > 0
+
+	if boss_now != boss_present:
+		boss_present = boss_now
+
+		if boss_present:
+			AudioManager.play_boss_music()
+		else:
+			AudioManager.play_random_battle_track()
+	
+	if Tarcza == true:
+		$Tarcza_Item_Area/Sprite2D.visible = true
+	else:
+		$Tarcza_Item_Area/Sprite2D.visible = false
 	
 	if piorun_timer == true:
 		time_pioruna -= delta
@@ -322,6 +338,7 @@ func _physics_process(delta):
 	
 	#AOE
 	if Input.is_action_just_pressed("active_item") and Can_Use_AOE == true:
+		$AOE_Item_Area/CPUParticles2D.emitting = true
 		AOE = true
 		Can_Use_AOE = false
 		trwanie_timer.start()
@@ -636,7 +653,7 @@ func _on_regenerating_timer_timeout() -> void:
 
 var play_battle_music: bool = false
 func _on_music_detection_area_entered(area: Area2D) -> void:
-	if area.is_in_group("battle_music"):
+	if area.is_in_group("battle_music") and Global.IsRoundPlaying == true:
 		AudioManager.play_random_battle_track(-30)
 
 func _on_music_detection_area_exited(area: Area2D) -> void:
