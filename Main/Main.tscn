@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://baeffjqt2pip1" path="res://UI/Pause Menu/pause_menu.tscn" id="8_j2iu7"]
 [ext_resource type="PackedScene" uid="uid://dodlbirgod1bs" path="res://Player/orbitale.tscn" id="8_lrfe7"]
 [ext_resource type="PackedScene" uid="uid://bm1vquy3vqvrc" path="res://UI/Settings/pause_menu_settings.tscn" id="9_j4nmm"]
-[ext_resource type="Script" path="res://Main/tutorial_text.gd" id="12_ggtbl"]
+[ext_resource type="Script" uid="uid://cchfpfmk8hbnu" path="res://Main/tutorial_text.gd" id="12_ggtbl"]
 [ext_resource type="Texture2D" uid="uid://djn0tmuhxcann" path="res://Art/TŁO/pixil-frame-0 (7).png" id="13_6ivxk"]
 [ext_resource type="Theme" uid="uid://bxkc4jb1w6l8n" path="res://UI/ui_theme.tres" id="13_rii6w"]
 [ext_resource type="Texture2D" uid="uid://c5waigc2cw3ht" path="res://Art/TŁO/pixil-frame-0 (8).png" id="14_6yo1i"]
