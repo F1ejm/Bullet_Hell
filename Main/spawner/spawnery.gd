@@ -103,8 +103,6 @@ func _on_timer_timeout() -> void:
 			y = randi_range(int(ld.global_position.y),int(lg.global_position.y))
 			Generate()
 
-
-
 func Generate():
 	Global.i += 1
 	
@@ -142,8 +140,8 @@ func Generate():
 
 func Generate_power_up():
 	if active:
-		x = randi_range(20,width)
-		y = randi_range(20,height)
+		x = randi_range(int(ld.global_position.x),int(pd.global_position.x))
+		y = randi_range(int(ld.global_position.y),int(lg.global_position.y))
 		
 		var enemy = power_up.instantiate()
 		owner.add_child(enemy)

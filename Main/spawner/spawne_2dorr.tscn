@@ -35,6 +35,7 @@ czujka = ExtResource("7_lmnvw")
 [node name="Spawnery" type="Node2D" parent="."]
 
 [node name="Timer" type="Timer" parent="Spawnery"]
+wait_time = 0.5
 autostart = true
 
 [node name="Timer_power_up" type="Timer" parent="Spawnery"]
