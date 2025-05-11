@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dn4sqx4suowf1"]
+[gd_scene load_steps=17 format=3 uid="uid://dn4sqx4suowf1"]
 
 [ext_resource type="Script" uid="uid://hms7joihh6ve" path="res://Player/Player.gd" id="1_q3lat"]
 [ext_resource type="Texture2D" uid="uid://6ttwqpyw8f5n" path="res://Art/itemy/piorun2.png" id="2_6ysni"]
 [ext_resource type="Script" uid="uid://c245k6bycio8f" path="res://Player/camera_2d.gd" id="3_6ysni"]
 [ext_resource type="AudioStream" uid="uid://brh8l0yf3hjcw" path="res://Audio/SFX/player/dash.mp3" id="3_8g4oa"]
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="3_ddoul"]
 [ext_resource type="Texture2D" uid="uid://cysjcm5jrpds7" path="res://Art/player/pixil-frame-0 (75).png" id="3_tok1r"]
+[ext_resource type="Texture2D" uid="uid://ghe20h6yxce8" path="res://Art/itemy/tarcza_najdzer2.png" id="3_vlldt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ysni"]
 radius = 91.4286
@@ -16,6 +16,10 @@ radius = 97.1849
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ddoul"]
 radius = 281.722
+
+[sub_resource type="Curve" id="Curve_s1rgi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.993421, 0.382023), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ysni"]
 radius = 547.62
@@ -126,10 +130,31 @@ position = Vector2(310, 0)
 position = Vector2(-1.42857, 2.85714)
 shape = SubResource("CircleShape2D_tok1r")
 
+[node name="Sprite2D" type="Sprite2D" parent="Tarcza_Item_Area"]
+visible = false
+position = Vector2(2.85714, 10)
+scale = Vector2(5.89732, 5.89732)
+texture = ExtResource("3_vlldt")
+
 [node name="AOE_Item_Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AOE_Item_Area"]
 shape = SubResource("CircleShape2D_ddoul")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="AOE_Item_Area"]
+emitting = false
+amount = 300
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 367.82
+initial_velocity_max = 633.34
+scale_amount_min = 10.0
+scale_amount_max = 16.0
+scale_amount_curve = SubResource("Curve_s1rgi")
+color = Color(0.190762, 0.190762, 0.190762, 1)
 
 [node name="Projectiles_Area" type="Area2D" parent="."]
 
@@ -172,7 +197,6 @@ volume_db = -15.0
 texture_filter = 1
 position = Vector2(94.2857, 5.71429)
 scale = Vector2(2, 2)
-texture = ExtResource("3_ddoul")
 
 [node name="BulletSpacing" type="Node2D" parent="WeaponSprite"]
 position = Vector2(15.7143, -3.57143)
