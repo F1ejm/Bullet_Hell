@@ -55,6 +55,16 @@ mouse_filter = 2
 texture = ExtResource("2_au6eo")
 expand_mode = 1
 
+[node name="Reset_Button" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 1757.0
+offset_top = 1007.0
+offset_right = 1879.0
+offset_bottom = 1038.0
+tooltip_text = "5$ To Reset The Offer"
+text = "Reset"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -180,6 +190,7 @@ texture_pressed = ExtResource("6_0vti0")
 texture_hover = ExtResource("7_0nnyu")
 texture_disabled = ExtResource("8_pyvl5")
 
+[connection signal="pressed" from="Reset_Button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/Weapon_Button" to="." method="_on_weapon_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/Aktywny_Itemek_Button" to="." method="_on_aktywny_itemek_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer3/Pasywny_Itemek1_Button" to="." method="_on_pasywny_itemek_1_button_pressed"]

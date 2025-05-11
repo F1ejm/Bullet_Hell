@@ -14,6 +14,8 @@ extends Control
 @onready var pasywny_itemek_2_texture: TextureRect = $HBoxContainer/VBoxContainer4/Pasywny_Itemek2_Texture
 @onready var pasywny_itemek_2_button: TextureButton = $HBoxContainer/VBoxContainer4/Pasywny_Itemek2_Button
 
+@onready var reset_button: Button = $Reset_Button
+
 class AktywnyItemek:
 	var Player: CharacterBody2D
 	var integer: int
@@ -222,16 +224,38 @@ func _process(delta: float) -> void:
 	
 	if Bron_Cena > Global.VDolce:
 		weapon_button.disabled = true
-		weapon_button.tooltip_text = "Not Enough Money"
+		weapon_button.tooltip_text = str(Bron_Cena) + "$ " + "Not Enough Money"  
+	else:
+		weapon_button.disabled = false
+		weapon_button.tooltip_text = str(Bron_Cena) + "$ "
+		
 	if Aktywny_Itemek_Cena > Global.VDolce:
 		aktywny_itemek_button.disabled = true
-		aktywny_itemek_texture.tooltip_text = "Not Enough Money"
+		aktywny_itemek_texture.tooltip_text = str(Aktywny_Itemek_Cena) + "$ " + "Not Enough Money"
+	else:
+		aktywny_itemek_button.disabled = false
+		aktywny_itemek_texture.tooltip_text = str(Aktywny_Itemek_Cena) + "$ "
+		
 	if Pasywny_Itemek1_Cena > Global.VDolce:
 		pasywny_itemek_1_button.disabled = true
-		pasywny_itemek_1_texture.tooltip_text = "Not Enough Money"
+		pasywny_itemek_1_texture.tooltip_text = str(Pasywny_Itemek1_Cena) + "$ " + "Not Enough Money"
+	else:
+		pasywny_itemek_1_button.disabled = false
+		pasywny_itemek_1_texture.tooltip_text = str(Pasywny_Itemek1_Cena) + "$ "
+		
 	if Pasywny_Itemek2_Cena > Global.VDolce:
 		pasywny_itemek_2_button.disabled = true
-		pasywny_itemek_2_texture.tooltip_text = "Not Enough Money"
+		pasywny_itemek_2_texture.tooltip_text = str(Pasywny_Itemek2_Cena) + "$ " + "Not Enough Money"
+	else:
+		pasywny_itemek_2_button.disabled = false
+		pasywny_itemek_2_texture.tooltip_text = str(Pasywny_Itemek2_Cena) + "$ "
+		
+	if 5 > Global.VDolce:
+		reset_button.disabled = true
+		reset_button.tooltip_text = "5$ " + "Not Enough Money"
+	else:
+		reset_button.disabled = false
+		reset_button.tooltip_text = "5$ "
 
 func Zmiana_Sklepu():
 	#Pasywny Itemek 1
@@ -406,3 +430,9 @@ func _on_pasywny_itemek_2_button_pressed() -> void:
 				Player.Regenerating_Heart = true
 			"9":
 				Player.Ignore_wall_Item = true
+
+
+func _on_reset_button_pressed() -> void:
+	if Global.VDolce > 5:
+		Global.VDolce -= 5
+		Zmiana_Sklepu()
