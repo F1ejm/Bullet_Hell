@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c4u1x7jjvj3l2"
+path="res://.godot/imported/09 - Beloved Tomboyish Daughter.mp3-551d9276dda9d72645f95b6f249f284f.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/09 - Beloved Tomboyish Daughter.mp3"
+dest_files=["res://.godot/imported/09 - Beloved Tomboyish Daughter.mp3-551d9276dda9d72645f95b6f249f284f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
