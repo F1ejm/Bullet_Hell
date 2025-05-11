@@ -8,7 +8,7 @@ radius = 31.0
 height = 178.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vgnl"]
-size = Vector2(208, 80)
+size = Vector2(138, 56)
 
 [node name="obstacle" type="StaticBody2D" groups=["Wall"]]
 script = ExtResource("1_4vgnl")
@@ -19,7 +19,7 @@ shape = SubResource("CapsuleShape2D_eit18")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(9.53674e-06, 0)
-scale = Vector2(20.5, 2.375)
+scale = Vector2(17.25, 3.5)
 texture = ExtResource("2_4vgnl")
 
 [node name="Area2D" type="Area2D" parent="."]

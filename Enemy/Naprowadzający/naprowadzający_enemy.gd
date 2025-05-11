@@ -34,6 +34,7 @@ var bullet_dmg: int = 2
 var f = true
 var n = true
 var dir: Vector2 = Vector2(0,0)
+var in_ : bool
 
 func _ready() -> void:
 	x = randi_range(-400,400)
@@ -46,6 +47,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	Player = Global.player_main
+	if in_ == true:
+		speed = 0 
+	elif in_ == false:
+		speed = 1500
+	
 	progress_bar.value = health
 	if health <= 0:
 		Death()
@@ -144,3 +150,12 @@ func Death():
 
 func _on_can_shoot_timer_timeout() -> void:
 	can_shoot_timer = true
+
+
+func d_2_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		in_ = true
+
+func d_2_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		in_ = false

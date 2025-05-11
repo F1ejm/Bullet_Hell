@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c202ehhkt6j32"]
+[gd_scene load_steps=8 format=3 uid="uid://c202ehhkt6j32"]
 
 [ext_resource type="Script" uid="uid://b4qhlkk4prgp5" path="res://Enemy/Seryjny/Seryjny_Przeciwnik.gd" id="1_vjau5"]
 [ext_resource type="PackedScene" uid="uid://vpbbnspwva3d" path="res://Enemy/Seryjny/Bullets/Seryjny_Bullet.tscn" id="2_qh03a"]
@@ -11,6 +11,9 @@ height = 124.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bat1y"]
 radius = 24.0832
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u872d"]
+radius = 124.258
 
 [node name="Seryjny_Przeciwnik" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.5, 0.5)
@@ -62,8 +65,15 @@ shape = SubResource("CircleShape2D_bat1y")
 one_shot = true
 autostart = true
 
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_u872d")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="nav_timer" to="." method="_on_nav_timer_timeout"]
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="Can_Shoot_Timer" to="." method="_on_can_shoot_timer_timeout"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]

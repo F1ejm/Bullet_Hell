@@ -29,6 +29,7 @@ var health:int = 2
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 var f = true
+var in_ = false
 
 
 func _ready() -> void:
@@ -139,3 +140,13 @@ func _on_nav_timer_timeout() -> void:
 
 func _on_can_shoot_timer_timeout() -> void:
 	can_shoot_timer = true
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		in_ = true
+
+
+func _on_area_2d_2_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		in_ = false
