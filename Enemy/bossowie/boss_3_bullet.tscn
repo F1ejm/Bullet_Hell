@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://s6wcj003g2fm"]
+
+[ext_resource type="Texture2D" uid="uid://cy6a4gn3twbi5" path="res://Art/Emeny/pixil-frame-0 (13).png" id="1_ocdol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4cepr"]
+radius = 4.6
+
+[node name="Boss3_bullet" type="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.98023e-08)
+shape = SubResource("CircleShape2D_4cepr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.4, 0.4)
+texture = ExtResource("1_ocdol")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="queue_free_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
