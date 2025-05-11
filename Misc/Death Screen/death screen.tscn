@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7pc140h8dlby"]
+[gd_scene load_steps=11 format=3 uid="uid://c7pc140h8dlby"]
 
 [ext_resource type="Script" uid="uid://docnaijqrupbm" path="res://Misc/Death Screen/death_screen.gd" id="1_ceykj"]
 [ext_resource type="Texture2D" uid="uid://dwaru5vmaacpl" path="res://Art/UI/menu buttons/menu_idle.png" id="2_ikrit"]
@@ -11,7 +11,10 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_akqtq"]
 font = ExtResource("8_ovuto")
-font_size = 101
+font_size = 140
+
+[sub_resource type="LabelSettings" id="LabelSettings_ovuto"]
+font = ExtResource("8_ovuto")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -22,30 +25,22 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_ceykj")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3074.0
-offset_top = -1686.0
-offset_right = 6176.0
-offset_bottom = 4220.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
-layout_mode = 2
 mouse_filter = 2
 color = Color(0.117671, 0.000154211, 0.208903, 1)
 
 [node name="Restart" type="TextureButton" parent="."]
 layout_mode = 2
 offset_left = 728.0
-offset_top = 344.0
+offset_top = 445.0
 offset_right = 1192.0
-offset_bottom = 472.0
+offset_bottom = 573.0
 texture_normal = ExtResource("2_k5lcc")
 texture_pressed = ExtResource("3_k5lcc")
 texture_hover = ExtResource("4_ovuto")
@@ -54,9 +49,9 @@ stretch_mode = 0
 [node name="Main_menu" type="TextureButton" parent="."]
 layout_mode = 2
 offset_left = 728.0
-offset_top = 528.0
+offset_top = 629.0
 offset_right = 1192.0
-offset_bottom = 664.0
+offset_bottom = 765.0
 texture_normal = ExtResource("2_ikrit")
 texture_pressed = ExtResource("6_toukc")
 texture_hover = ExtResource("7_k5lcc")
@@ -64,17 +59,34 @@ stretch_mode = 0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 784.0
-offset_top = 128.0
-offset_right = 784.0
-offset_bottom = 128.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -398.0
+offset_right = 284.0
+offset_bottom = -229.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "You died "
 label_settings = SubResource("LabelSettings_akqtq")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 68.0
+offset_right = 208.0
+offset_bottom = 91.0
+rotation = -0.337658
+text = "yczek pozdrawia z rodzinką"
+label_settings = SubResource("LabelSettings_ovuto")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="button_up" from="Restart" to="." method="_on_restart_button_up"]
 [connection signal="button_up" from="Main_menu" to="." method="_on_main_menu_button_up"]
