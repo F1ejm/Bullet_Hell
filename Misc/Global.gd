@@ -1,4 +1,19 @@
 extends Node
+#Tutorial
+var Start_Tutorial: bool = true
+
+var Pierwszy_Pokój: bool = false
+var Show_Pierwszy_Pokój: bool = true
+
+var Unstable_World: bool = false
+var Show_Unstable_World: bool = true
+
+var Shop1: bool = false
+var Show_Shop1: bool = true
+
+var Shopkeeper: bool = false
+var Show_Shopkeeper: bool = true
+
 #Logo
 var play_intro := true
 #Player Powerups
@@ -105,9 +120,25 @@ var timer: float = 0
 #nwm co to ale potrzebne
 var player_main
 func _ready() -> void:
+	Start_Tutorial = true
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 func reset():
+	#Tutorial
+	Start_Tutorial = true
+
+	Pierwszy_Pokój = false
+	Show_Pierwszy_Pokój = true
+
+	Unstable_World = false
+	Show_Unstable_World = true
+
+	Shop1 = false
+	Show_Shop1 = true
+
+	Shopkeeper = false
+	Show_Shopkeeper = true
+	
 	# Logo
 	play_intro = false
 

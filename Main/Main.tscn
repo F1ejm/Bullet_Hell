@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=37 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
@@ -15,7 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://baeffjqt2pip1" path="res://UI/Pause Menu/pause_menu.tscn" id="8_j2iu7"]
 [ext_resource type="PackedScene" uid="uid://dodlbirgod1bs" path="res://Player/orbitale.tscn" id="8_lrfe7"]
 [ext_resource type="PackedScene" uid="uid://bm1vquy3vqvrc" path="res://UI/Settings/pause_menu_settings.tscn" id="9_j4nmm"]
+[ext_resource type="Script" uid="uid://cchfpfmk8hbnu" path="res://Main/tutorial_text.gd" id="12_ggtbl"]
 [ext_resource type="Texture2D" uid="uid://djn0tmuhxcann" path="res://Art/TŁO/pixil-frame-0 (7).png" id="13_6ivxk"]
+[ext_resource type="Theme" uid="uid://bxkc4jb1w6l8n" path="res://UI/ui_theme.tres" id="13_rii6w"]
 [ext_resource type="Texture2D" uid="uid://c5waigc2cw3ht" path="res://Art/TŁO/pixil-frame-0 (8).png" id="14_6yo1i"]
 [ext_resource type="Texture2D" uid="uid://bnr347aq4tiyo" path="res://Art/TŁO/pixil-frame-0 (9).png" id="15_lrfe7"]
 [ext_resource type="PackedScene" uid="uid://cheolkkekj0pt" path="res://Main/Rooms/Entry.tscn" id="19_d3r6l"]
@@ -44,6 +46,10 @@ font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_hh5pf"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8qko"]
+font = ExtResource("2_j2iu7")
+font_size = 40
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r2ac1"]
 texture = ExtResource("13_6ivxk")
@@ -188,6 +194,53 @@ Player = NodePath("../../Player")
 
 [node name="Pause Menu Settings" parent="CanvasLayer" instance=ExtResource("9_j4nmm")]
 
+[node name="Tutorial_Text" type="Label" parent="CanvasLayer"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -314.0
+offset_top = -174.5
+offset_right = 314.0
+offset_bottom = 174.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_o8qko")
+autowrap_mode = 3
+script = ExtResource("12_ggtbl")
+
+[node name="TextureRect" type="ColorRect" parent="CanvasLayer/Tutorial_Text"]
+modulate = Color(100, 100, 100, 0.414)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -643.0
+offset_top = -368.0
+offset_right = 645.0
+offset_bottom = 371.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(100, 100, 100, 0.265)
+
+[node name="Button" type="Button" parent="CanvasLayer/Tutorial_Text"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("13_rii6w")
+text = "OK"
+
 [node name="Player" parent="." node_paths=PackedStringArray("node_orbitali", "Zycie_UI") instance=ExtResource("1_lxy7q")]
 position = Vector2(-1953, -295)
 node_orbitali = NodePath("../Orbitale")
@@ -235,3 +288,4 @@ label_settings = SubResource("LabelSettings_j2iu7")
 script = ExtResource("4_j4nmm")
 
 [connection signal="timeout" from="random_event_timer" to="." method="_on_random_event_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Tutorial_Text/Button" to="CanvasLayer/Tutorial_Text" method="_on_button_pressed"]
