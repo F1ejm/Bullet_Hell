@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn3674d52pqvk"
-path="res://.godot/imported/PM.png-7231813d9ec84994d1a93274c990f17d.ctex"
+uid="uid://blltoeun2esyi"
+path="res://.godot/imported/chmurki.png-5c1edfe13eb08781eb2a5a80ae291dd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/itemy/PM.png"
-dest_files=["res://.godot/imported/PM.png-7231813d9ec84994d1a93274c990f17d.ctex"]
+source_file="res://Art/itemy/chmurki.png"
+dest_files=["res://.godot/imported/chmurki.png-5c1edfe13eb08781eb2a5a80ae291dd8.ctex"]
 
 [params]
 
