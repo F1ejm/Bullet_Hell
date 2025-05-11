@@ -154,7 +154,6 @@ texture = ExtResource("1_8dnt5")
 
 [node name="Spawner" parent="Template" instance=ExtResource("10_fwppr")]
 position = Vector2(0, 566)
-scale = Vector2(0.958, 0.87)
 
 [node name="DoorContainer" type="Node2D" parent="."]
 
