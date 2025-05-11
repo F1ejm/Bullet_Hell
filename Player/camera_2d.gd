@@ -1,9 +1,9 @@
 extends Camera2D
 
-var shake_intensity: float = 0.0
+var shake_intensity: float = 0
 var active_shake_time: float = 0.0
 
-var shake_decay: float = 5.0
+var shake_decay: float = 5
 
 var shake_time: float = 0.0
 var shake_time_speed: float = 20.0
