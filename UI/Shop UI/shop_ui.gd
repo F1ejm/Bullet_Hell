@@ -15,7 +15,6 @@ extends Control
 @onready var texture_rect_atak: TextureRect = $HBoxContainer/Attack/TextureRect
 @onready var texture_rect_regen: TextureRect = $"HBoxContainer/Stamina Regen/TextureRect"
 
-
 @export var Zycie_UI: Control
 
 var health_cost: int = 5
