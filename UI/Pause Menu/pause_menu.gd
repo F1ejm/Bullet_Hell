@@ -1,6 +1,17 @@
 extends Control
 
-	
+func _ready() -> void:
+	for button in get_tree().get_nodes_in_group("button"):
+		button.button_down.connect(_on_button_down)
+		button.button_up.connect(_on_button_up)
+
+func _on_button_down():
+	AudioManager.menu_button_down.play()
+
+func _on_button_up():
+	AudioManager.menu_button_up.play()
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("back") and Global.is_in_game == true:
 		Global.is_in_game = false

@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4ule07d21r78"]
+[gd_scene load_steps=10 format=3 uid="uid://b4ule07d21r78"]
 
+[ext_resource type="Theme" uid="uid://b51k2g4a0lyg6" path="res://UI/popup_theme.tres" id="1_00l7t"]
 [ext_resource type="Script" uid="uid://b1yaqtb71s7g2" path="res://UI/Shop UI/shopkeeper_ui.gd" id="1_ji8f1"]
 [ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="2_au6eo"]
 [ext_resource type="Texture2D" uid="uid://dui06aw47ji3v" path="res://Art/shop/item_shop.png" id="2_ji8f1"]
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_00l7t")
 script = ExtResource("1_ji8f1")
 
 [node name="visuals" type="Control" parent="."]
