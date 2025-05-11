@@ -40,47 +40,49 @@ func _process(delta: float) -> void:
 	else:
 		visible = false
 	
-	
-	
-	if Global.VDolce < health_cost and Health_Bar.value != 3:
-		health_button.tooltip_text = "Not enough money"
+	if Health_Bar.value == 3:
+		health_button.tooltip_text = "can't buy"
 		health_button.disabled = true
-	elif Health_Bar.value != 3 and Global.VDolce > health_cost:
-		health_button.tooltip_text = str(health_cost) + " $"
-	elif Health_Bar.value == 3:
-		health_button.tooltip_text = ""
 	else:
-		health_button.disabled = false
+		if Global.VDolce < health_cost:
+			health_button.tooltip_text = "Not enough money"
+			health_button.disabled = true
+		else:
+			health_button.tooltip_text = str(health_cost) + "$"
+			health_button.disabled = false
 	
-	if Global.VDolce < regen_cost and Regen_Bar.value != 3:
-		stamina_regen_button.tooltip_text = "Not enough money"
+	if Regen_Bar.value == 3:
+		stamina_regen_button.tooltip_text = "can't buy"
 		stamina_regen_button.disabled = true
-	elif Regen_Bar.value != 3 and Global.VDolce > regen_cost:
-		stamina_regen_button.tooltip_text = str(regen_cost) + " $"
-	elif Regen_Bar.value == 3:
-		stamina_regen_button.tooltip_text = ""
 	else:
-		stamina_regen_button.disabled = false
+		if Global.VDolce < regen_cost:
+			stamina_regen_button.tooltip_text = "Not enough money"
+			stamina_regen_button.disabled = true
+		else:
+			stamina_regen_button.tooltip_text = str(regen_cost) + "$"
+			stamina_regen_button.disabled = false
 	
-	if Global.VDolce < stamina_cost and Stamina_Bar.value != 3:
-		stamina_button.tooltip_text = "Not enough money"
+	if Stamina_Bar.value == 3:
+		stamina_button.tooltip_text = "can't buy"
 		stamina_button.disabled = true
-	elif Stamina_Bar.value != 3 and Global.VDolce > stamina_cost:
-		stamina_button.tooltip_text = str(stamina_cost) + " $"
-	elif Stamina_Bar.value == 3:
-		stamina_button.tooltip_text = ""
 	else:
-		stamina_button.disabled = false
+		if Global.VDolce < stamina_cost:
+			stamina_button.tooltip_text = "Not enough money"
+			stamina_button.disabled = true
+		else:
+			stamina_button.tooltip_text = str(stamina_cost) + "$"
+			stamina_button.disabled = false
 	
-	if Global.VDolce < atak_cost and Attack_Bar.value != 3:
-		attack_speed_button.tooltip_text = "Not enough money"
+	if Attack_Bar.value == 3:
+		attack_speed_button.tooltip_text = "can't buy"
 		attack_speed_button.disabled = true
-	elif Attack_Bar.value != 3 and Global.VDolce > atak_cost:
-		attack_speed_button.tooltip_text = str(atak_cost) + " $"
-	elif Attack_Bar.value == 3:
-		attack_speed_button.tooltip_text = ""
 	else:
-		attack_speed_button.disabled = false
+		if Global.VDolce < atak_cost:
+			attack_speed_button.tooltip_text = "Not enough money"
+			attack_speed_button.disabled = true
+		else:
+			attack_speed_button.tooltip_text = str(atak_cost) + "$"
+			attack_speed_button.disabled = false
 	
 
 #Pieniądze Trzeba TODO
