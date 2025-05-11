@@ -147,7 +147,6 @@ var dmg_range: int = 1
 
 
 func _ready() -> void:
-	atak_timer.wait_time = Global.AtakCooldown
 	_on_weapon_changed()
 	
 	#fire trace - pasywny itemek

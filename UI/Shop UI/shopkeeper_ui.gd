@@ -123,7 +123,7 @@ class PasywnyItemek:
 			5: preload("res://Art/itemy/orbitable.png"),
 			7: preload("res://Art/itemy/regeneracja.png"),
 			2: preload("res://Art/itemy/25%redu.png"),
-			9: preload("res://Art/Maro/Maro_ZdjęcieOG.png")
+			9: preload("res://Art/itemy/przebijanie.png")
 		}
 		dojscie = Lista_Pasywnych_Itemków[integer]
 		opis = Opisy[integer]
@@ -171,7 +171,7 @@ class Bron:
 		cena = Ceny[integer]
 		lenght = Ceny.size()
 		Lista_Textur = {
-			1: preload("res://Art/Maro/Maro_ZdjęcieOG.png"),
+			1: preload("res://Art/itemy/kałach.png"),
 			2: preload("res://Art/itemy/pm.png"),
 			3: preload("res://Art/itemy/minigun.png"),
 			4: preload("res://Art/itemy/Strzelba.png")
