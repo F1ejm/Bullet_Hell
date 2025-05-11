@@ -63,7 +63,12 @@ show_percentage = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_38dq1")
 
+[node name="Can_Shoot_Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="nav_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="shoot_timer" to="." method="can_shoot"]
+[connection signal="timeout" from="Can_Shoot_Timer" to="." method="_on_can_shoot_timer_timeout"]

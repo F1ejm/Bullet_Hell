@@ -74,7 +74,7 @@ var dash_immunity: bool = false
 var dash_imm_timer: float = 0
 
 #Rundy
-var Runda: int = 0
+var Runda: int = 1
 var IsRoundPlaying: bool
 var Czas_Rundy: float = 60
 var Generate_wall: bool = false

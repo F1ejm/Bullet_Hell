@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var Player : CharacterBody2D
 @export var shoot_timer : Timer
 
+#variable potrzebny do tego aby przeciwnicy nie atakowali odrazu jak sie zrespią
+var can_shoot_timer: bool = false
+
 var main: Node2D
 
 @onready var nav_agent := $NavigationAgent2D as  NavigationAgent2D
@@ -109,7 +112,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		speed = 500
 
 func shoot():
-	if shoot_available and lang > 150:
+	if shoot_available and lang > 150 and can_shoot_timer == true:
 		shoot_available = false
 		var b = Bullet.instantiate()
 		main.add_child(b)
@@ -137,3 +140,7 @@ func Death():
 	var monetki = randi_range(0,2)
 	Global.VDolce += monetki
 	queue_free()
+
+
+func _on_can_shoot_timer_timeout() -> void:
+	can_shoot_timer = true

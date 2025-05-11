@@ -24,6 +24,10 @@ Bullet = ExtResource("2_vso2s")
 shoot_timer = NodePath("shoot_timer")
 nav_timer = NodePath("nav_timer")
 
+[node name="Can_Shoot_Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
@@ -71,6 +75,7 @@ shape = SubResource("CircleShape2D_62bfm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource("CircleShape2D_jkq42")
 
+[connection signal="timeout" from="Can_Shoot_Timer" to="." method="_on_can_shoot_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="nav_timer" to="." method="_on_nav_timer_timeout"]
 [connection signal="timeout" from="shoot_timer" to="." method="can_shoot"]
