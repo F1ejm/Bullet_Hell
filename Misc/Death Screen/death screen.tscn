@@ -1,9 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7pc140h8dlby"]
+[gd_scene load_steps=3 format=3 uid="uid://c7pc140h8dlby"]
 
+[ext_resource type="Script" uid="uid://docnaijqrupbm" path="res://Misc/Death Screen/death_screen.gd" id="1_ceykj"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_mfqt8"]
 
-[node name="DeathScreen" type="Node2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ceykj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(750, 478)
-texture = ExtResource("1_mfqt8")
+[node name="Restart" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 239.0
+offset_right = 710.0
+offset_bottom = 387.0
+texture_normal = ExtResource("1_mfqt8")
+
+[node name="Main_menu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 449.0
+offset_right = 569.0
+offset_bottom = 577.0
+texture_normal = ExtResource("1_mfqt8")
+
+[connection signal="button_up" from="Restart" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="Main_menu" to="." method="_on_main_menu_button_up"]
