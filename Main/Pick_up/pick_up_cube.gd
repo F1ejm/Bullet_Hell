@@ -7,7 +7,7 @@ func _ready():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		var x = randi_range(1,6)
+		var x = randi_range(1,12)
 		match(x):
 			1:
 				Global.Dash_PowerUp = true
@@ -27,6 +27,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			6:
 				Global.Move_Slower_PowerUp = true
 				label.text = "You Became Unstable You Move Slower"
+			_:
+				Global.Zycie += randi_range(1,2)
+				label.text = "You Became Unstable You Regained Some Health"
 		Global.start_powerup_timer = true
 		label.visible = true
 		queue_free()

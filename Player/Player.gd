@@ -92,7 +92,10 @@ var immunity_chance: bool = false
 
 # Piorun w losową strone
 var Piorun: bool = false
+var piorun_timer: bool = false
+var time_pioruna: float = 1
 var piorun_rand
+var piorun_pozycja
 @onready var pasywne_itemki: Node2D = $Pasywne_Itemki
 @onready var piorun_area: Area2D = $Pasywne_Itemki/Piorun_Area
 
@@ -157,7 +160,7 @@ func reset():
 	Move_Slower_PowerUp = false
 	
 	# Itemy aktywne
-	Current_Active_Item = 5
+	Current_Active_Item = 4
 	Can_Use_Tarcza = false
 	Tarcza = false
 	Can_Use_Projectiles = false
@@ -166,7 +169,7 @@ func reset():
 	AOE = false
 	Can_Use_Clear = false
 	Clear = false
-	Can_Use_Pioruny = false
+	Can_Use_Pioruny = true
 	Pioruny = false
 	
 	# Itemy pasywne
@@ -207,6 +210,13 @@ func _ready() -> void:
 	regenerating_timer.wait_time = regenerating_wait_time
 
 func _process(delta: float) -> void:
+	if piorun_timer == true:
+		time_pioruna -= delta
+		$Pasywne_Itemki/Sprite2D.global_position = piorun_pozycja
+	if time_pioruna <= 0:
+		piorun_timer = false
+		$Pasywne_Itemki/Sprite2D.global_position = $Pasywne_Itemki/Node2D.global_position
+		$Pasywne_Itemki/Sprite2D.visible = false
 	
 	if Global.Zycie <= 0: 
 		get_tree().change_scene_to_file("res://Misc/Death Screen/death screen.tscn")
@@ -570,6 +580,10 @@ func Func_Projectiles():
 func Func_Piorun():
 	#Animacja Pioruna i SFX TODO
 	for o in piorun_area.get_overlapping_areas():
+		$Pasywne_Itemki/Sprite2D.visible = true
+		piorun_pozycja = $Pasywne_Itemki/Sprite2D.global_position
+		piorun_timer = true
+		time_pioruna = 1
 		if o.is_in_group("Enemy"):
 			o.owner.Death()
 		if o.is_in_group("Boss") and o.can_be_hit == true:

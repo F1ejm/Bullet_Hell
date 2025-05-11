@@ -228,6 +228,12 @@ func _process(delta: float) -> void:
 	else:
 		get_tree().paused = false
 	
+	#Kursor
+	if is_in_game == false or stop == true:
+		Input.set_custom_mouse_cursor(load("res://Art/cursor/cursor.png"))
+	else:
+		Input.set_custom_mouse_cursor(load("res://Art/cursor/pixil-frame-0 (28).png"))
+	
 	if Zycie > Max_Zycie:
 		Zycie = Max_Zycie
 	

@@ -1,6 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dn4sqx4suowf1"]
 
 [ext_resource type="Script" uid="uid://hms7joihh6ve" path="res://Player/Player.gd" id="1_q3lat"]
+[ext_resource type="Texture2D" uid="uid://6ttwqpyw8f5n" path="res://Art/itemy/piorun2.png" id="2_6ysni"]
 [ext_resource type="Script" uid="uid://c245k6bycio8f" path="res://Player/camera_2d.gd" id="3_6ysni"]
 [ext_resource type="AudioStream" uid="uid://brh8l0yf3hjcw" path="res://Audio/SFX/player/dash.mp3" id="3_8g4oa"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="3_ddoul"]
@@ -105,8 +106,19 @@ one_shot = true
 position = Vector2(0, -208.571)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pasywne_Itemki/Piorun_Area"]
-position = Vector2(0, -105.715)
+position = Vector2(327.143, 210)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6ysni")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pasywne_Itemki"]
+visible = false
+texture_filter = 1
+position = Vector2(311.429, 0.714287)
+scale = Vector2(41.9643, 12.4107)
+texture = ExtResource("2_6ysni")
+
+[node name="Node2D" type="Node2D" parent="Pasywne_Itemki"]
+position = Vector2(310, 0)
 
 [node name="Tarcza_Item_Area" type="Area2D" parent="."]
 
