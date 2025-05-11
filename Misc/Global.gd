@@ -201,7 +201,7 @@ func _process(delta: float) -> void:
 		Zycie = Max_Zycie
 	
 	#System Rund
-	if Input.is_action_just_pressed("next_round_button") and IsRoundPlaying != true:
+	if  IsRoundPlaying != true:
 		IsRoundPlaying = true
 		Czas_Rundy = 60
 		Runda += 1
