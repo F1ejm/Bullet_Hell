@@ -10,6 +10,9 @@ func _ready() -> void:
 
 func _on_in_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		print("a")
+		get_parent().is_Player_in_room = true
 		$StaticBody2D.position = Vector2(0,51)
 		Global.IsRoundPlaying = true
 		print("zakniete")
+		$"../../Spawner".active=true

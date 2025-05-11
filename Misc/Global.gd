@@ -179,6 +179,7 @@ func _process(delta: float) -> void:
 			o.queue_free()
 		for o in get_tree().get_nodes_in_group("Enemy"):
 			o.queue_free()
+			queue_free()
 	#Timer Do Staminy - Jeśli wyjdziesz staminą na minus to tedy to sie aktywuje
 	if Stamina < 0:
 		Long_Stamina_cdr = true

@@ -22,6 +22,7 @@ extends Node2D
 
 var Lista: Array = [Podstawowy,Seryjny,Okrągły,Naprowadzający]
 
+var active = false
 
 #Rozmiar areny
 var width = 1050
@@ -78,27 +79,29 @@ func get_rotated_markers(angle: int):
 			marker_pg=lg
 
 func _process(delta: float) -> void:
-	global_rotation = 0
-	if Global.can_spawn != c:
-		c = Global.can_spawn
-		Generate()
-	
-	if Global.IsRoundPlaying == true:
-		if Global.i == 0:
+	if active:
+		global_rotation = 0
+		if Global.can_spawn != c:
+			c = Global.can_spawn
 			Generate()
 		
-		if Global.i*Global.i - Global.Runda < 0:
-			Generate()
-		elif Global.i*Global.i - Global.Runda > 0 and Global.i*Global.i - Global.Runda < 8:
-			timer.wait_time = Global.i*Global.i - Global.Runda
-		else:
-			timer.wait_time = 8
+		if Global.IsRoundPlaying == true:
+			if Global.i == 0:
+				Generate()
+			
+			if Global.i*Global.i - Global.Runda < 0:
+				Generate()
+			elif Global.i*Global.i - Global.Runda > 0 and Global.i*Global.i - Global.Runda < 8:
+				timer.wait_time = Global.i*Global.i - Global.Runda
+			else:
+				timer.wait_time = 8
 
 func _on_timer_timeout() -> void:
-	if Global.IsRoundPlaying == true:
-		x = randi_range(int(ld.global_position.x)+30,int(pd.global_position.x)-30)
-		y = randi_range(int(ld.global_position.y)+30,int(lg.global_position.y)-30)
-		Generate()
+	if active:
+		if Global.IsRoundPlaying == true:
+			x = randi_range(int(ld.global_position.x)+30,int(pd.global_position.x)-30)
+			y = randi_range(int(ld.global_position.y)+30,int(lg.global_position.y)-30)
+			Generate()
 
 
 
@@ -138,17 +141,19 @@ func Generate():
 
 
 func Generate_power_up():
-	x = randi_range(20,width)
-	y = randi_range(20,height)
-	
-	var enemy = power_up.instantiate()
-	owner.add_child(enemy)
-	enemy.global_position = Vector2(x,-y)
+	if active:
+		x = randi_range(20,width)
+		y = randi_range(20,height)
+		
+		var enemy = power_up.instantiate()
+		owner.add_child(enemy)
+		enemy.global_position = Vector2(x,-y)
 
 
 
 
 func _on_timer_power_up_timeout() -> void:
-	if Global.IsRoundPlaying:
-		timer_power_up.wait_time = randi_range(10,20)
-		Generate_power_up()
+	if active:
+		if Global.IsRoundPlaying:
+			timer_power_up.wait_time = randi_range(10,20)
+			Generate_power_up()
