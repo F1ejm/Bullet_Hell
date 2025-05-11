@@ -19,6 +19,10 @@ func _input(event: InputEvent) -> void:
 		call_deferred("_return_to_pause_menu")
 
 func _ready():
+	for button in get_tree().get_nodes_in_group("button"):
+		button.button_down.connect(_on_button_down)
+		button.button_up.connect(_on_button_up)
+	
 	for res in resolutions:
 		resolution_button.add_item(res)
 		
@@ -29,6 +33,11 @@ func _ready():
 	music_volume.value = Global.current_music_volume
 	sfx_volume.value = Global.current_sfx_volume
 
+func _on_button_down():
+	AudioManager.menu_button_down.play()
+
+func _on_button_up():
+	AudioManager.menu_button_up.play()
 
 var resolutions := [
 	"1920 x 1080",

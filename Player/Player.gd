@@ -52,7 +52,7 @@ var Tarcza_Cooldown: float = 15
 @onready var tarcza_item_area: Area2D = $Tarcza_Item_Area
 
 #2 Pociski namierzające
-var Can_Use_Projectiles: bool = true
+var Can_Use_Projectiles: bool = false
 var Projectiles: bool
 var Projectiles_Trwanie: float = 5
 var Projectiles_Cooldown: float = 10
@@ -145,8 +145,52 @@ var dmg_range: int = 1
 #Audio
 @onready var dash: AudioStreamPlayer = $Sound/Dash
 
+func reset():
+	# Power-upy
+	Dash_PowerUp = false
+	Stamina_PowerUp = false
+	Bullet_PowerUp = false
+	Cant_Dash_PowerUp = false
+	Cant_Shoot_PowerUp = false
+	Move_Slower_PowerUp = false
+	
+	# Itemy aktywne
+	Current_Active_Item = 5
+	Can_Use_Tarcza = false
+	Tarcza = false
+	Can_Use_Projectiles = false
+	Projectiles = false
+	Can_Use_AOE = false
+	AOE = false
+	Can_Use_Clear = false
+	Clear = false
+	Can_Use_Pioruny = false
+	Pioruny = false
+	
+	# Itemy pasywne
+	faster_bullets = false
+	immunity_chance = false
+	Piorun = false
+	Trace = false
+	Orbitale = false
+	Bullet_Piercing_Pasywny = false
+	Regenerating_Health = false
+	regen = true
+	Regenerating_Heart = false
+	Dodatkowe_Zycie = false
+	Ignore_wall_Item = false
+
+	# Inne
+	collision_atak = false
+	range_cooldown = false
+	CurrentSeriaNumber = 1
+	is_sering = false
+	dmg_melee = 1
+	dmg_range = 1
+	lock_rotation = null
 
 func _ready() -> void:
+	reset()
 	_on_weapon_changed()
 	
 	#fire trace - pasywny itemek

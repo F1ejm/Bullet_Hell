@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://baeffjqt2pip1"]
+[gd_scene load_steps=17 format=3 uid="uid://baeffjqt2pip1"]
 
 [ext_resource type="Script" uid="uid://dfr4ev0ah2rh6" path="res://UI/Pause Menu/pause_menu.gd" id="1_e11wt"]
 [ext_resource type="Texture2D" uid="uid://cgbvsaukwm7d0" path="res://Art/UI/menu buttons/resume_idle.png" id="2_aw2qs"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dwaru5vmaacpl" path="res://Art/UI/menu buttons/menu_idle.png" id="10_df05m"]
 [ext_resource type="Texture2D" uid="uid://b3vwf36g82ka0" path="res://Art/UI/menu buttons/menu_glitch.png" id="11_lgeg3"]
 [ext_resource type="Texture2D" uid="uid://dhxsxsyysbdvq" path="res://Art/UI/menu buttons/menu_pressed.png" id="12_4l17m"]
+[ext_resource type="Texture2D" uid="uid://6hdld88odugk" path="res://Art/UI/menu buttons/menu_hover.png" id="13_aw2qs"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_16jii"]
 frames = 2
@@ -76,7 +77,7 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Resume" type="TextureButton" parent="MarginContainer2/VBoxContainer"]
+[node name="Resume" type="TextureButton" parent="MarginContainer2/VBoxContainer" groups=["button"]]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -85,7 +86,7 @@ texture_pressed = ExtResource("4_wfk44")
 texture_hover = ExtResource("5_agini")
 stretch_mode = 0
 
-[node name="Settings" type="TextureButton" parent="MarginContainer2/VBoxContainer"]
+[node name="Settings" type="TextureButton" parent="MarginContainer2/VBoxContainer" groups=["button"]]
 process_mode = 3
 texture_filter = 1
 layout_mode = 2
@@ -95,13 +96,13 @@ texture_pressed = ExtResource("8_vqt4l")
 texture_hover = ExtResource("9_0jg3l")
 stretch_mode = 0
 
-[node name="Main Menu" type="TextureButton" parent="MarginContainer2/VBoxContainer"]
+[node name="Main Menu" type="TextureButton" parent="MarginContainer2/VBoxContainer" groups=["button"]]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = SubResource("AnimatedTexture_wrnib")
 texture_pressed = ExtResource("12_4l17m")
-texture_hover = ExtResource("12_4l17m")
+texture_hover = ExtResource("13_aw2qs")
 stretch_mode = 0
 
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
