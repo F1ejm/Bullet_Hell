@@ -5,4 +5,13 @@
 [node name="Obstacle_template_2" type="Marker2D"]
 
 [node name="obstacle_spawner" parent="." instance=ExtResource("1_tlb4o")]
-position = Vector2(-1, -164)
+position = Vector2(-71, -168)
+
+[node name="obstacle_spawner2" parent="." instance=ExtResource("1_tlb4o")]
+position = Vector2(246, -94)
+
+[node name="obstacle_spawner3" parent="." instance=ExtResource("1_tlb4o")]
+position = Vector2(-127, 140)
+
+[node name="obstacle_spawner4" parent="." instance=ExtResource("1_tlb4o")]
+position = Vector2(191, 273)

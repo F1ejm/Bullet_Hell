@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cw0ma1k8hdhai"]
+[gd_scene load_steps=15 format=3 uid="uid://cw0ma1k8hdhai"]
 
 [ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawner/spawnery.gd" id="1_mb0sf"]
 [ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Podstawowy/Podstawowy_Enemy.tscn" id="2_t2v5x"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dutj4ocsn2cb2" path="res://Main/Obstacle/czujka/czujka.tscn" id="7_lmnvw"]
 [ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="8_5gany"]
 [ext_resource type="Script" uid="uid://d2mp0xam3t2x" path="res://Main/Obstacle/spawner_controler.gd" id="9_2nwa7"]
+[ext_resource type="PackedScene" uid="uid://c0t2i7jwx37q7" path="res://Main/Obstacle/obstacle_template/obstacle_template_end1.tscn" id="9_mnkbw"]
+[ext_resource type="PackedScene" uid="uid://cxylfbi30cvhw" path="res://Main/Obstacle/obstacle_template/obstacle_template_end2.tscn" id="10_acwpm"]
+[ext_resource type="PackedScene" uid="uid://xyl2nwgwvme2" path="res://Main/Obstacle/obstacle_template/obstacle_template_end3.tscn" id="11_7my8h"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xp4cu"]
 vertices = PackedVector2Array(1054.38, 507.312, 12.4609, 496.789, 13.4219, -403.562, 1047.73, -403.562)
@@ -38,6 +41,9 @@ autostart = true
 wait_time = 20.0
 
 [node name="Template_controler" parent="." node_paths=PackedStringArray("nav", "Placeholder") instance=ExtResource("8_5gany")]
+template_1 = ExtResource("9_mnkbw")
+template_2 = ExtResource("10_acwpm")
+template_3 = ExtResource("11_7my8h")
 nav = NodePath("../NavigationRegion2D")
 Placeholder = NodePath("../NavigationRegion2D/PlaceHolder")
 

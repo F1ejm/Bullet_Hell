@@ -6,3 +6,12 @@
 
 [node name="obstacle_spawner" parent="." instance=ExtResource("1_as5d0")]
 position = Vector2(-337, 22)
+
+[node name="obstacle_spawner2" parent="." instance=ExtResource("1_as5d0")]
+position = Vector2(-185, 301)
+
+[node name="obstacle_spawner3" parent="." instance=ExtResource("1_as5d0")]
+position = Vector2(55, -81)
+
+[node name="obstacle_spawner4" parent="." instance=ExtResource("1_as5d0")]
+position = Vector2(299, -60)

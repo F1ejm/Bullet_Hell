@@ -1,12 +1,12 @@
 [gd_scene load_steps=19 format=4 uid="uid://c8pl6xpbc05il"]
 
-[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_8dnt5"]
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="1_lyj31"]
 [ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="1_xnnyn"]
 [ext_resource type="Texture2D" uid="uid://cv6nare2clauc" path="res://Art/TŁO/sciana nr1.png" id="3_ljwap"]
 [ext_resource type="Texture2D" uid="uid://cuf75hcy7ysr3" path="res://Art/TŁO/sciana nr2.png" id="4_fwppr"]
 [ext_resource type="Script" uid="uid://b1t6gilm08w2d" path="res://Main/Rooms/Normal_Rooms/node_2d.gd" id="5_cr3jh"]
 [ext_resource type="Script" uid="uid://buw7aci8wawo3" path="res://Main/Rooms/Normal_Rooms/door.gd" id="6_pvetk"]
+[ext_resource type="Texture2D" uid="uid://c8gtuuxttw4sb" path="res://Art/DRZWI/DRZWI.png" id="7_fwppr"]
 [ext_resource type="Script" uid="uid://bt8qq8vmx8irc" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="7_ljwap"]
 [ext_resource type="PackedScene" uid="uid://cw0ma1k8hdhai" path="res://Main/spawner/spawne_2dorr.tscn" id="9_ljwap"]
 
@@ -32,7 +32,7 @@ sources/2 = SubResource("TileSetAtlasSource_pl012")
 size = Vector2(560, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwppr"]
-size = Vector2(262, 74)
+size = Vector2(262, 67)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xijto"]
 size = Vector2(240, 126)
@@ -121,11 +121,13 @@ script = ExtResource("6_pvetk")
 [node name="StaticBody2D" type="StaticBody2D" parent="Template/Door/Door"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Door/Door/StaticBody2D"]
-position = Vector2(2, 49)
+position = Vector2(2, 45.5)
 shape = SubResource("RectangleShape2D_fwppr")
 
 [node name="Sprite2D" type="Sprite2D" parent="Template/Door/Door/StaticBody2D"]
-texture = ExtResource("1_8dnt5")
+position = Vector2(1, 51)
+scale = Vector2(28.5, 2.875)
+texture = ExtResource("7_fwppr")
 
 [node name="in" type="Area2D" parent="Template/Door/Door"]
 
@@ -148,10 +150,10 @@ position = Vector2(-8, -20)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_2k8bf")
 
-[node name="Sprite2D" type="Sprite2D" parent="Template/Door/Door_out3/StaticBody2D"]
-position = Vector2(-6, 0)
-scale = Vector2(1.00401, 1.05097)
-texture = ExtResource("1_8dnt5")
+[node name="Sprite2D2" type="Sprite2D" parent="Template/Door/Door_out3/StaticBody2D"]
+position = Vector2(-7, -24)
+scale = Vector2(28.5, 2.875)
+texture = ExtResource("7_fwppr")
 
 [node name="Spawner" parent="Template" instance=ExtResource("9_ljwap")]
 position = Vector2(7, 568)

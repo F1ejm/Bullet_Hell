@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://hm4hwehos4pe"]
 
 [ext_resource type="Script" uid="uid://dhilufr237xg0" path="res://Main/Obstacle/obstacle.gd" id="1_4vgnl"]
-[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="1_sl1jc"]
+[ext_resource type="Texture2D" uid="uid://c8gtuuxttw4sb" path="res://Art/DRZWI/DRZWI.png" id="2_4vgnl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eit18"]
-radius = 36.0
-height = 192.0
+radius = 13.0
+height = 130.0
 
 [node name="obstacle" type="StaticBody2D" groups=["Wall"]]
 script = ExtResource("1_4vgnl")
@@ -16,8 +16,8 @@ shape = SubResource("CapsuleShape2D_eit18")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(9.53674e-06, 0)
-scale = Vector2(1.23077, 0.32)
-texture = ExtResource("1_sl1jc")
+scale = Vector2(20.5, 2.375)
+texture = ExtResource("2_4vgnl")
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -6,3 +6,9 @@
 
 [node name="obstacle_spawner" parent="." instance=ExtResource("2_2x1j2")]
 position = Vector2(228, 5)
+
+[node name="obstacle_spawner2" parent="." instance=ExtResource("2_2x1j2")]
+position = Vector2(-169, 373)
+
+[node name="obstacle_spawner3" parent="." instance=ExtResource("2_2x1j2")]
+position = Vector2(-312, -124)

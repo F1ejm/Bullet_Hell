@@ -43,6 +43,7 @@ size = Vector2(61, 226)
 [node name="2Dor2" type="Node2D"]
 
 [node name="Fog" type="Node2D" parent="."]
+visible = false
 z_index = 2
 position = Vector2(-577, 761)
 metadata/_edit_group_ = true
@@ -132,7 +133,7 @@ script = ExtResource("5_n8o2q")
 [node name="StaticBody2D" type="StaticBody2D" parent="Template/Door/Door"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Door/Door/StaticBody2D"]
-position = Vector2(2, 49)
+position = Vector2(3, 41)
 shape = SubResource("RectangleShape2D_1o5pf")
 
 [node name="Sprite2D" type="Sprite2D" parent="Template/Door/Door/StaticBody2D"]
@@ -151,7 +152,7 @@ shape = SubResource("RectangleShape2D_n8o2q")
 root_node = NodePath("../../../..")
 
 [node name="Door_out" type="StaticBody2D" parent="Template/Door"]
-position = Vector2(-640, 640)
+position = Vector2(-606, 641)
 script = ExtResource("6_wkt05")
 metadata/_edit_group_ = true
 
@@ -167,7 +168,7 @@ scale = Vector2(8.5, 8.898)
 texture = ExtResource("8_nvq7c")
 
 [node name="Door_out2" type="StaticBody2D" parent="Template/Door"]
-position = Vector2(606, 637)
+position = Vector2(621, 636)
 script = ExtResource("6_wkt05")
 metadata/_edit_group_ = true
 
