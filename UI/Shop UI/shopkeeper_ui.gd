@@ -231,24 +231,24 @@ func _process(delta: float) -> void:
 		
 	if Aktywny_Itemek_Cena > Global.VDolce:
 		aktywny_itemek_button.disabled = true
-		aktywny_itemek_texture.tooltip_text = str(Aktywny_Itemek_Cena) + "$ " + "Not Enough Money"
+		aktywny_itemek_button.tooltip_text = str(Aktywny_Itemek_Cena) + "$ " + "Not Enough Money"
 	else:
 		aktywny_itemek_button.disabled = false
-		aktywny_itemek_texture.tooltip_text = str(Aktywny_Itemek_Cena) + "$ "
+		aktywny_itemek_button.tooltip_text = str(Aktywny_Itemek_Cena) + "$ "
 		
 	if Pasywny_Itemek1_Cena > Global.VDolce:
 		pasywny_itemek_1_button.disabled = true
-		pasywny_itemek_1_texture.tooltip_text = str(Pasywny_Itemek1_Cena) + "$ " + "Not Enough Money"
+		pasywny_itemek_1_button.tooltip_text = str(Pasywny_Itemek1_Cena) + "$ " + "Not Enough Money"
 	else:
 		pasywny_itemek_1_button.disabled = false
-		pasywny_itemek_1_texture.tooltip_text = str(Pasywny_Itemek1_Cena) + "$ "
+		pasywny_itemek_1_button.tooltip_text = str(Pasywny_Itemek1_Cena) + "$ "
 		
 	if Pasywny_Itemek2_Cena > Global.VDolce:
 		pasywny_itemek_2_button.disabled = true
-		pasywny_itemek_2_texture.tooltip_text = str(Pasywny_Itemek2_Cena) + "$ " + "Not Enough Money"
+		pasywny_itemek_2_button.tooltip_text = str(Pasywny_Itemek2_Cena) + "$ " + "Not Enough Money"
 	else:
 		pasywny_itemek_2_button.disabled = false
-		pasywny_itemek_2_texture.tooltip_text = str(Pasywny_Itemek2_Cena) + "$ "
+		pasywny_itemek_2_button.tooltip_text = str(Pasywny_Itemek2_Cena) + "$ "
 		
 	if 5 > Global.VDolce:
 		reset_button.disabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=34 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://d1y8l7j8ou535" path="res://UI/PixelifySans[wght].ttf" id="2_j2iu7"]
 [ext_resource type="PackedScene" uid="uid://cfyt2yxs1dv36" path="res://UI/PlayerUI/zycie.tscn" id="3_amygn"]
 [ext_resource type="PackedScene" uid="uid://ckn81yvwna77p" path="res://UI/Shop UI/shop_ui.tscn" id="3_hh5pf"]
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="3_j2iu7"]
 [ext_resource type="Script" uid="uid://q8h1xhj2mpt0" path="res://UI/Interaction UI/interaction.gd" id="4_hh5pf"]
 [ext_resource type="Script" uid="uid://dnk7cgow6swma" path="res://Main/boss_label.gd" id="4_j4nmm"]
 [ext_resource type="PackedScene" uid="uid://ht7qibk0wg3t" path="res://UI/PlayerUI/stamina.tscn" id="4_ps1la"]
@@ -88,6 +89,15 @@ mesh = SubResource("QuadMesh_4npy4")
 [node name="random_event_timer" type="Timer" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Active_Item_Timer" type="TextureProgressBar" parent="CanvasLayer"]
+modulate = Color(100, 100, 100, 1)
+offset_left = 29.0
+offset_top = 207.0
+offset_right = 157.0
+offset_bottom = 335.0
+fill_mode = 4
+texture_progress = ExtResource("3_j2iu7")
 
 [node name="Unstable_label" type="Label" parent="CanvasLayer"]
 visible = false

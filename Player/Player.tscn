@@ -94,6 +94,7 @@ wait_time = 5.0
 
 [node name="Cooldown_Timer" type="Timer" parent="."]
 wait_time = 13.029
+one_shot = true
 
 [node name="Pasywne_Itemki" type="Node2D" parent="."]
 

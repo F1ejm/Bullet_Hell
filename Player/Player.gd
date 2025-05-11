@@ -40,6 +40,8 @@ var Move_Slower_PowerUp: bool = false
 
 #Itemy Aktywne --------------------------------
 
+var active_item_progresbar: TextureProgressBar
+
 var Current_Active_Item: int = 1
 @onready var trwanie_timer: Timer = $Trwanie_Timer
 @onready var cooldown_timer: Timer = $Cooldown_Timer
@@ -192,6 +194,7 @@ func reset():
 func _ready() -> void:
 	reset()
 	label = get_node("/root/Main/CanvasLayer/PowerUP_label")
+	active_item_progresbar = get_node("/root/Main/CanvasLayer/Active_Item_Timer")
 	_on_weapon_changed()
 	
 	#fire trace - pasywny itemek
@@ -204,6 +207,9 @@ func _ready() -> void:
 	regenerating_timer.wait_time = regenerating_wait_time
 
 func _process(delta: float) -> void:
+	#Active Item Progress Bar
+	active_item_progresbar.value = cooldown_timer.time_left
+	
 	$Sprite2D.global_rotation = 0
 	Global.player_main = $"."
 	node_orbitali.global_position = global_position
@@ -266,18 +272,23 @@ func _physics_process(delta):
 		0:
 			trwanie_timer.wait_time = Tarcza_Trwanie
 			cooldown_timer.wait_time = Tarcza_Cooldown
+			active_item_progresbar.max_value = Tarcza_Cooldown
 		1:
 			trwanie_timer.wait_time = Projectiles_Trwanie
 			cooldown_timer.wait_time = Projectiles_Cooldown
+			active_item_progresbar.max_value = Projectiles_Cooldown
 		2:
 			trwanie_timer.wait_time = delta
 			cooldown_timer.wait_time = AOE_Cooldown
+			active_item_progresbar.max_value = AOE_Cooldown
 		3:
 			trwanie_timer.wait_time = delta
 			cooldown_timer.wait_time = Clear_Cooldown
+			active_item_progresbar.max_value = Clear_Cooldown
 		4:
 			trwanie_timer.wait_time = Pioruny_Trwanie
 			cooldown_timer.wait_time = Pioruny_Cooldown
+			active_item_progresbar.max_value = Pioruny_Cooldown
 	
 	#Tarcza
 	if Input.is_action_just_pressed("active_item") and Can_Use_Tarcza == true:
