@@ -106,6 +106,53 @@ var timer: float = 0
 var player_main
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+func Reset():
+	i = -1
+	
+	Runda = 0
+	IsRoundPlaying = false
+	Czas_Rundy = 60
+	Generate_wall = false
+	
+	VDolce = 100
+	
+	CurrentWeapon = "Pistol"
+	
+	RangeCooldown = 2
+	
+	Stamina = 200
+	Max_Stamina = 200
+	Stamina_Regen = 1
+	
+	Zycie = 3
+	Max_Zycie = 3
+	
+	label_boss = false
+	
+	is_in_settings = false
+	is_in_game = false
+	is_in_pause_menu = false
+	
+	show_interaction = false
+	
+	#Player Powerups
+	start_powerup_timer = false
+	#Pozytywne
+	#1 Dash Zabija
+	Dash_PowerUp = false
+	#2 Nieograniczona Stamina
+	Stamina_PowerUp = false
+	#3 Bullet Przecinający Inne Bullety
+	Bullet_PowerUp = false
+	#Negatywne
+	#1 Nie możesz dashować przez 5 sekund
+	Cant_Dash_PowerUp = false
+	#2 Nie możesz strzelać
+	Cant_Shoot_PowerUp = false
+
+	#3 Chodzisz 2 razy wolniej
+	Move_Slower_PowerUp = false
 
 func _process(delta: float) -> void:
 	#Pauzowanie Gry
