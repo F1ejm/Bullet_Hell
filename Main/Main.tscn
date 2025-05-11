@@ -161,9 +161,17 @@ Player = NodePath("../../Player")
 
 [node name="interaction" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("4_hh5pf")
 
 [node name="Label" type="Label" parent="CanvasLayer/interaction"]
@@ -174,9 +182,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -9.0
-offset_top = -62.5
+offset_top = -22.5
 offset_right = 9.0
-offset_bottom = -17.5
+offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "E"

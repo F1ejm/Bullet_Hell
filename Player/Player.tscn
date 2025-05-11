@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dn4sqx4suowf1"]
+[gd_scene load_steps=16 format=3 uid="uid://dn4sqx4suowf1"]
 
 [ext_resource type="Script" uid="uid://hms7joihh6ve" path="res://Player/Player.gd" id="1_q3lat"]
 [ext_resource type="Texture2D" uid="uid://6ttwqpyw8f5n" path="res://Art/itemy/piorun2.png" id="2_6ysni"]
@@ -12,13 +12,13 @@ radius = 91.4286
 height = 651.429
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tok1r"]
-radius = 71.4429
+radius = 97.1849
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ddoul"]
-radius = 164.385
+radius = 281.722
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ysni"]
-radius = 397.207
+radius = 547.62
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
 size = Vector2(8.76266, 9.99998)

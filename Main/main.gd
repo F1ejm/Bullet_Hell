@@ -36,48 +36,51 @@ func Timer_():
 	
 func Choose_Event():
 	#Tu jakieś SFX i wizualnie rzeczy TODO
-	Global.Zycie += zycie_restored
-	Global.Unstable_World = true
-	zycie_restored = 0
-	shader_material.set_shader_parameter("vignette_power", 12.0)
-	shader_material.set_shader_parameter("vignette_divisor", 10.0)
-	Engine.time_scale = 1
-	
-	label.visible = true
-	
-	
-	x = randi_range(1,5)
-	match(x):
-		1:
-			Camera_Shake()
-			unstable_label_2.text = "The System Erupts"
-		2:
-			shader_material.set_shader_parameter("vignette_power", 2.0)
-			shader_material.set_shader_parameter("vignette_divisor", 1.0)
-			unstable_label_2.text = "The System Covers Itself With Immense Fog"
-		3:
-			Engine.time_scale = 1.3
-			unstable_label_2.text = "The System Magically Speeds Up"
-		4:
-			Engine.time_scale = 0.7
-			unstable_label_2.text = "The System Magically Slows Down"
-		5:
-			Health_Taken()
-			unstable_label_2.text = "The System Temporarily Sucks Your Health Out Of You"
-	
-	unstable_label_2.visible = true
+	if Global.IsRoundPlaying == true:
+		Global.Zycie += zycie_restored
+		Global.Unstable_World = true
+		zycie_restored = 0
+		shader_material.set_shader_parameter("vignette_power", 12.0)
+		shader_material.set_shader_parameter("vignette_divisor", 10.0)
+		Engine.time_scale = 1
+		
+		label.visible = true
+		
+		
+		x = randi_range(1,5)
+		
+		match(x):
+			1:
+				Camera_Shake()
+				unstable_label_2.text = "The System Erupts"
+			2:
+				shader_material.set_shader_parameter("vignette_power", 2.0)
+				shader_material.set_shader_parameter("vignette_divisor", 1.0)
+				unstable_label_2.text = "The System Covers Itself With Immense Fog"
+			3:
+				Engine.time_scale = 1.3
+				unstable_label_2.text = "The System Magically Speeds Up"
+			4:
+				Engine.time_scale = 0.7
+				unstable_label_2.text = "The System Magically Slows Down"
+			5:
+				Health_Taken()
+				unstable_label_2.text = "The System Temporarily Sucks Your Health Out Of You"
+		
+		unstable_label_2.visible = true
 	
 func _on_random_event_timer_timeout() -> void:
+	
 	Choose_Event()
 	Timer_()
-
 	
 #Funkcje Eventów
 func Camera_Shake():
-	if Global.IsRoundPlaying == true:
-		$Player/Node2D/Camera2D.screen_shake(15, 0.5)
+	$Player/Node2D/Camera2D.screen_shake(15, 0.5)
 
 		
 func Health_Taken():
 	zycie_restored = Global.Zycie - 2
 	Global.Zycie = 2
+	
+		
