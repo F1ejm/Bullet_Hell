@@ -47,20 +47,20 @@ func Choose_Event():
 	match(x):
 		1:
 			Camera_Shake()
-			unstable_label_2.text = "The World Erupts"
+			unstable_label_2.text = "The System Erupts"
 		2:
 			shader_material.set_shader_parameter("vignette_power", 2.0)
 			shader_material.set_shader_parameter("vignette_divisor", 1.0)
-			unstable_label_2.text = "The World Covers Itself With Immense Fog"
+			unstable_label_2.text = "The System Covers Itself With Immense Fog"
 		3:
 			Engine.time_scale = 1.3
-			unstable_label_2.text = "The World Magically Speeds Up"
+			unstable_label_2.text = "The System Magically Speeds Up"
 		4:
 			Engine.time_scale = 0.7
-			unstable_label_2.text = "The World Magically Slows Down"
+			unstable_label_2.text = "The System Magically Slows Down"
 		5:
 			Health_Taken()
-			unstable_label_2.text = "The World Temporarily Sucks Your Health Out Of You"
+			unstable_label_2.text = "The System Temporarily Sucks Your Health Out Of You"
 	
 	unstable_label_2.visible = true
 	
