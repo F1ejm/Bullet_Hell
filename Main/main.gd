@@ -16,18 +16,21 @@ var x
 var zycie_restored: int = 0
 
 func _ready() -> void:
+	label.visible = false
+	unstable_label_2.visible = false
 	Timer_()
 
 func _process(delta: float) -> void:
 	#AudioManager.
-	if Global.IsRoundPlaying == false:
+	if Global.IsRoundPlaying == false and get_tree().get_nodes_in_group("Boss").size() == 0:
 		Global.Zycie += zycie_restored
 		Global.Unstable_World = true
 		zycie_restored = 0
 		shader_material.set_shader_parameter("vignette_power", 12.0)
 		shader_material.set_shader_parameter("vignette_divisor", 10.0)
 		Engine.time_scale = 1
-		label.visible = true 
+		label.visible = false 
+		unstable_label_2.visible = false
 	
 	if label.visible == true:
 		time += delta
@@ -44,7 +47,7 @@ func Timer_():
 	
 func Choose_Event():
 	#Tu jakieś SFX i wizualnie rzeczy TODO
-	if Global.IsRoundPlaying == true:
+	if Global.IsRoundPlaying == true or get_tree().get_nodes_in_group("Boss").size() == 1:
 		Global.Zycie += zycie_restored
 		Global.Unstable_World = true
 		zycie_restored = 0
