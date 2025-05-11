@@ -157,14 +157,14 @@ position = Vector2(-7, -24)
 scale = Vector2(28.5, 2.875)
 texture = ExtResource("7_fwppr")
 
-[node name="music" type="Area2D" parent="Template/Door" groups=["battle_music"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Door/music"]
-position = Vector2(20, 564)
-shape = SubResource("RectangleShape2D_pl012")
-
 [node name="Spawner" parent="Template" instance=ExtResource("9_ljwap")]
 position = Vector2(7, 568)
+
+[node name="music" type="Area2D" parent="Template" groups=["battle_music"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/music"]
+position = Vector2(20, 564)
+shape = SubResource("RectangleShape2D_pl012")
 
 [node name="DoorContainer" type="Node2D" parent="."]
 
