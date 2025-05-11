@@ -214,7 +214,6 @@ func _ready():
 	Zmiana_Sklepu()
 
 func _process(delta: float) -> void:
-	print($HBoxContainer/VBoxContainer/Weapon_Texture.texture_filter)
 	if Global.shopkeeper_ui_visible == true:
 		visible = true
 		
@@ -226,13 +225,13 @@ func _process(delta: float) -> void:
 		weapon_button.tooltip_text = "Not Enough Money"
 	if Aktywny_Itemek_Cena > Global.VDolce:
 		aktywny_itemek_button.disabled = true
-		weapon_button.tooltip_text = "Not Enough Money"
+		aktywny_itemek_texture.tooltip_text = "Not Enough Money"
 	if Pasywny_Itemek1_Cena > Global.VDolce:
 		pasywny_itemek_1_button.disabled = true
-		weapon_button.tooltip_text = "Not Enough Money"
+		pasywny_itemek_1_texture.tooltip_text = "Not Enough Money"
 	if Pasywny_Itemek2_Cena > Global.VDolce:
 		pasywny_itemek_2_button.disabled = true
-		weapon_button.tooltip_text = "Not Enough Money"
+		pasywny_itemek_2_texture.tooltip_text = "Not Enough Money"
 
 func Zmiana_Sklepu():
 	#Pasywny Itemek 1

@@ -57,7 +57,7 @@ func Choose_Event():
 			unstable_label_2.text = "The World Magically Speeds Up"
 		4:
 			Engine.time_scale = 0.7
-			unstable_label_2.text = "The World Magically Slowers Down"
+			unstable_label_2.text = "The World Magically Slows Down"
 		5:
 			Health_Taken()
 			unstable_label_2.text = "The World Temporarily Sucks Your Health Out Of You"

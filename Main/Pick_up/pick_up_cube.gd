@@ -1,5 +1,9 @@
 extends StaticBody2D
 
+var label
+
+func _ready():
+	label = get_node("/root/Main/CanvasLayer/PowerUP_label")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -7,21 +11,22 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		match(x):
 			1:
 				Global.Dash_PowerUp = true
-				print("1")
+				label.text = "You Became Unstable Your Dash Now Kills Enemys"
 			2:
 				Global.Stamina_PowerUp = true
-				print("2")
+				label.text = "You Became Unstable Your Stamina Is Infinite"
 			3:
 				Global.Bullet_PowerUp = true
-				print("3")
+				label.text = "You Became Unstable Your Bullets Pierce Enemy Bullets"
 			4:
 				Global.Cant_Dash_PowerUp = true
-				print("4")
+				label.text = "You Became Unstable You Can't Dash"
 			5: 
 				Global.Cant_Shoot_PowerUp = true
-				print("5")
+				label.text = "You Became Unstable You Can't Shoot"
 			6:
 				Global.Move_Slower_PowerUp = true
-				print("6")
+				label.text = "You Became Unstable You Move Slower"
 		Global.start_powerup_timer = true
+		label.visible = true
 		queue_free()

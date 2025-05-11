@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=33 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
@@ -34,6 +34,10 @@ font = ExtResource("2_j2iu7")
 font_size = 60
 
 [sub_resource type="LabelSettings" id="LabelSettings_fayjp"]
+font = ExtResource("2_j2iu7")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_ggtbl"]
 font = ExtResource("2_j2iu7")
 font_size = 40
 
@@ -113,6 +117,22 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "kJSNDHFklijb"
 label_settings = SubResource("LabelSettings_fayjp")
+
+[node name="PowerUP_label" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -268.0
+offset_right = 20.0
+offset_bottom = -245.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "jhgkhjk"
+label_settings = SubResource("LabelSettings_ggtbl")
 
 [node name="Runda_UI" parent="CanvasLayer" instance=ExtResource("1_6yo1i")]
 

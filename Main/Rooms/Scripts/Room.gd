@@ -33,6 +33,7 @@ func _reset() -> void:
 	room_limit = 0
 	left = 0
 	right = 0
+	Global.Runda += 1
 	spawn(LastDoorContainer,true,1,false)
 	shoopkeeper_ui.Zmiana_Sklepu()
 	

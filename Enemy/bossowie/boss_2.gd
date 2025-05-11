@@ -64,6 +64,7 @@ var health: float = 100
 var can_be_hit: bool = true
 
 func _ready() -> void:
+	health = health + (0.2 * health * (Global.Runda - 1))
 	#animacje TODO
 	rotation = rotation - global_rotation
 	#health bar

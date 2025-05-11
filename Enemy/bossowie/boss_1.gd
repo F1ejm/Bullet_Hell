@@ -40,6 +40,7 @@ var can_be_hit: bool = false
 var teleport = preload("res://Main/teleport.tscn")
 
 func _ready() -> void:
+	health = health + (0.2 * health * (Global.Runda - 1))
 	rotation = rotation - global_rotation
 	#animacje
 	$AnimatedSprite2D.play("Idle")

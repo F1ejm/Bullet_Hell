@@ -63,7 +63,7 @@ var CurrentWeapon = "Pistol"
 var RangeWeaponCooldown: float = 1
 
 #Pieniądze
-var VDolce: int = 100
+var VDolce: int = 0
 
 #Immunity Gracza Po Otrzymaniu obrażeń
 var immune: bool = false
@@ -163,7 +163,7 @@ func reset():
 	RangeWeaponCooldown = 1.0
 
 	# Kasa
-	VDolce = 100
+	VDolce = 0
 
 	# Immunity
 	immune = false
@@ -204,7 +204,6 @@ func _process(delta: float) -> void:
 	if  IsRoundPlaying != true:
 		IsRoundPlaying = true
 		Czas_Rundy = 60
-		Runda += 1
 	if IsRoundPlaying == true:
 		Czas_Rundy -= delta
 	if Czas_Rundy <= 0:

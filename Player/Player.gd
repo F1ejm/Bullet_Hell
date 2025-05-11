@@ -12,7 +12,7 @@ extends CharacterBody2D
 @onready var sprite_2d: Sprite2D = $Node2D/Melee_attack_area/Sprite2D
 
 #Power Up'y --------------------------------
-
+var label
 @onready var power_up_timer: Timer = $PowerUp_Timer
 
 var PowerUp_time: float = 5
@@ -191,6 +191,7 @@ func reset():
 
 func _ready() -> void:
 	reset()
+	label = get_node("/root/Main/CanvasLayer/PowerUP_label")
 	_on_weapon_changed()
 	
 	#fire trace - pasywny itemek
@@ -570,6 +571,7 @@ func _on_fire_trace_timer_timeout() -> void:
 
 #Power Up Timer - wyłącza 
 func _on_power_up_timer_timeout() -> void:
+	label.visible = false
 	#Pozytywne
 	#1 Dash Zabija
 	Global.Dash_PowerUp = false
