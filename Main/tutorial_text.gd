@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 		Move, Left Click To Shoot And Space To Dash.
 		On Your Right Corner You Have Anti-Mattery or 
 		Money In This World, On Your Left Corner You Have Health
-		And Stamina"
+		And Stamina ProTip: You Can Find Shop After First Room"
 		Global.Start_Tutorial = false
 	if Global.Pierwszy_Pokój == true and Global.Show_Pierwszy_Pokój == true:
 		visible = true

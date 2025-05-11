@@ -15,7 +15,6 @@ extends Control
 @onready var pasywny_itemek_2_button: TextureButton = $HBoxContainer/VBoxContainer4/Pasywny_Itemek2_Button
 
 @onready var reset_button: Button = $Reset_Button
-
 class AktywnyItemek:
 	var Player: CharacterBody2D
 	var integer: int
@@ -212,6 +211,7 @@ var Pasywny_Itemek2_Textura
 var rand2
 
 func _ready():
+
 	visible = false
 	Zmiana_Sklepu()
 
