@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jxcv5xfhdka0"
+path="res://.godot/imported/02 - Nuclear Fusion.mp3-4e0b2e733b9f72b05e87c8714b7182e2.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/02 - Nuclear Fusion.mp3"
+dest_files=["res://.godot/imported/02 - Nuclear Fusion.mp3-4e0b2e733b9f72b05e87c8714b7182e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

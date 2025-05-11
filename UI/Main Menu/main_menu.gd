@@ -3,6 +3,7 @@ extends Control
 @onready var logo: AnimationPlayer = $logo
 @onready var solpolex_logo: Control = $"Solpolex Logo"
 @onready var logo_intro: AudioStreamPlayer = $"Solpolex Logo/LogoIntro"
+@onready var main_menu: AudioStreamPlayer = $MainMenu
 
 
 func _ready() -> void:
@@ -17,9 +18,11 @@ func _ready() -> void:
 		solpolex_logo.queue_free()
 		logo.queue_free()
 		Global.play_intro = false
+		AudioManager.play_main_menu(-20)
 	else:
 		solpolex_logo.queue_free()
 		logo.queue_free()
+		AudioManager.play_main_menu(-20)
 		
 func _on_button_down():
 	AudioManager.menu_button_down.play()
@@ -29,6 +32,7 @@ func _on_button_up():
 
 
 func _on_play_pressed() -> void:
+	AudioManager.fade_out(AudioManager.main_menu, 1.0)
 	Global.reset()
 	Transition.transition()
 	await Transition.on_transition_finished
