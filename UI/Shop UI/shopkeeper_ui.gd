@@ -123,7 +123,7 @@ class PasywnyItemek:
 			5: preload("res://Art/itemy/orbitable.png"),
 			7: preload("res://Art/itemy/regeneracja.png"),
 			2: preload("res://Art/itemy/25%redu.png"),
-			9: preload("res://Art/Maro/Maro_ZdjęcieOG.png")
+			9: preload("res://Art/itemy/przebijanie.png")
 		}
 		dojscie = Lista_Pasywnych_Itemków[integer]
 		opis = Opisy[integer]
@@ -171,7 +171,7 @@ class Bron:
 		cena = Ceny[integer]
 		lenght = Ceny.size()
 		Lista_Textur = {
-			1: preload("res://Art/Maro/Maro_ZdjęcieOG.png"),
+			1: preload("res://Art/itemy/kałach.png"),
 			2: preload("res://Art/itemy/pm.png"),
 			3: preload("res://Art/itemy/minigun.png"),
 			4: preload("res://Art/itemy/Strzelba.png")
@@ -214,6 +214,7 @@ func _ready():
 	Zmiana_Sklepu()
 
 func _process(delta: float) -> void:
+	print($HBoxContainer/VBoxContainer/Weapon_Texture.texture_filter)
 	if Global.shopkeeper_ui_visible == true:
 		visible = true
 		
@@ -230,8 +231,9 @@ func Zmiana_Sklepu():
 	Pasywny_Itemek1_Opis = pasywny1.opis
 	Pasywny_Itemek1_Textura = pasywny1.textura
 	var passive_image_1 = Pasywny_Itemek1_Textura.get_image()
-	passive_image_1.resize(128, 128, Image.INTERPOLATE_LANCZOS)
+	passive_image_1.resize(128, 128, Image.INTERPOLATE_NEAREST)
 	pasywny_itemek_1_texture.texture = ImageTexture.create_from_image(passive_image_1)
+	pasywny_itemek_1_texture.texture_filter = 1
 	pasywny_itemek_1_texture.tooltip_text = Pasywny_Itemek1_Opis
 	pasywny_itemek_1_button.tooltip_text = str(Pasywny_Itemek1_Cena) + " $"
 	
@@ -248,8 +250,9 @@ func Zmiana_Sklepu():
 	Pasywny_Itemek2_Opis = pasywny2.opis
 	Pasywny_Itemek2_Textura = pasywny2.textura
 	var passive_image_2 = Pasywny_Itemek2_Textura.get_image()
-	passive_image_2.resize(128, 128, Image.INTERPOLATE_LANCZOS)
+	passive_image_2.resize(128, 128, Image.INTERPOLATE_NEAREST)
 	pasywny_itemek_2_texture.texture = ImageTexture.create_from_image(passive_image_2)
+	pasywny_itemek_2_texture.texture_filter = 1
 	pasywny_itemek_2_texture.tooltip_text = Pasywny_Itemek2_Opis
 	pasywny_itemek_2_button.tooltip_text = str(Pasywny_Itemek2_Cena) + " $"
 	
@@ -261,8 +264,9 @@ func Zmiana_Sklepu():
 	Aktywny_Itemek_Opis = aktywny.opis
 	Aktywny_Itemek_Textura = aktywny.textura
 	var active_image = Aktywny_Itemek_Textura.get_image()
-	active_image.resize(128, 128, Image.INTERPOLATE_LANCZOS)
+	active_image.resize(128, 128, Image.INTERPOLATE_NEAREST)
 	aktywny_itemek_texture.texture = ImageTexture.create_from_image(active_image)
+	aktywny_itemek_texture.texture_filter = 1
 	aktywny_itemek_texture.tooltip_text = Aktywny_Itemek_Opis
 	aktywny_itemek_button.tooltip_text = str(Aktywny_Itemek_Cena) + " $"
 	
@@ -274,8 +278,9 @@ func Zmiana_Sklepu():
 	Bron_Opis = bron.opis
 	Bron_Textura = bron.textura
 	var bron_image = Bron_Textura.get_image()
-	bron_image.resize(128, 128, Image.INTERPOLATE_LANCZOS)
+	bron_image.resize(128, 128, Image.INTERPOLATE_NEAREST)
 	weapon_texture.texture = ImageTexture.create_from_image(bron_image)
+	weapon_texture.texture_filter = 1
 	weapon_texture.tooltip_text = Bron_Opis
 	weapon_button.tooltip_text = str(Bron_Cena) + " $"
 

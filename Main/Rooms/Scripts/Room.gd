@@ -16,11 +16,14 @@ var room_limit = 0
 var left = 0
 var right = 0
 
+var shoopkeeper_ui
+
 
 func _ready():
 	LastDoorContainer = self
 	spawn(LastDoorContainer,true,1,false)
 	$"..".rotation= (randi_range(1,4)/2) * PI
+	shoopkeeper_ui = get_node("/root/Main/CanvasLayer/shopkeeper_ui")
 	print("a")
 	
 func _reset() -> void:
@@ -32,6 +35,7 @@ func _reset() -> void:
 	left = 0
 	right = 0
 	spawn(LastDoorContainer,true,1,false)
+	shoopkeeper_ui.Zmiana_Sklepu()
 	
 func spawn(DoorContainer,isRoom,Door_Count,is4door) -> void:
 	if(not is4door):

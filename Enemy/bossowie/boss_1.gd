@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 		Death()
 	
 	if x == 3:
-		bullet_spawn.rotation += deg_to_rad(0.5)
+		bullet_spawn.rotation += deg_to_rad(0.3)
 	else:
 		bullet_spawn.look_at(Player.global_position)
 	if another_atak == true:
