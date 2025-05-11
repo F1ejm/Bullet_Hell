@@ -17,9 +17,10 @@ var zycie_restored: int = 0
 
 func _ready() -> void:
 	Timer_()
-	AudioManager.play_random_battle_track(-30)
 
 func _process(delta: float) -> void:
+	#AudioManager.
+	
 	if label.visible == true:
 		time += delta
 	if time >= 3.5:
@@ -74,7 +75,7 @@ func _on_random_event_timer_timeout() -> void:
 #Funkcje Eventów
 func Camera_Shake():
 	if Global.IsRoundPlaying == true:
-		pass #Nikita TODO
+		$Player/Node2D/Camera2D.screen_shake(15, 0.5)
 
 		
 func Health_Taken():

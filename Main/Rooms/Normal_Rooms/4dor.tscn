@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dy0nmtb1lvjw6"]
+[gd_scene load_steps=20 format=4 uid="uid://dy0nmtb1lvjw6"]
 
 [ext_resource type="Script" uid="uid://ccjypai3y0w7n" path="res://Main/Rooms/Scripts/Fog.gd" id="1_7k6xl"]
 [ext_resource type="Texture2D" uid="uid://dxoayxr8lirhu" path="res://Main/Rooms/Scripts/Black-Fade-PNG-Isolated-HD.png" id="2_n8o2q"]
@@ -39,6 +39,9 @@ size = Vector2(240, 126)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qs3m"]
 size = Vector2(61, 226)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vh80h"]
+size = Vector2(1197, 1195)
 
 [node name="2Dor2" type="Node2D"]
 
@@ -200,6 +203,12 @@ position = Vector2(-6, -1)
 rotation = 1.5708
 scale = Vector2(8.5, 8.898)
 texture = ExtResource("8_nvq7c")
+
+[node name="music" type="Area2D" parent="Template" groups=["battle_music"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/music"]
+position = Vector2(5.5, 641.5)
+shape = SubResource("RectangleShape2D_vh80h")
 
 [node name="DoorContainer" type="Node2D" parent="."]
 
