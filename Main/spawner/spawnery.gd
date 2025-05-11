@@ -145,7 +145,7 @@ func Generate_power_up():
 		
 		var enemy = power_up.instantiate()
 		owner.add_child(enemy)
-		enemy.global_position = Vector2(x,-y)
+		enemy.global_position = Vector2(x,y)
 
 
 
@@ -153,5 +153,4 @@ func Generate_power_up():
 func _on_timer_power_up_timeout() -> void:
 	if active:
 		if Global.IsRoundPlaying:
-			timer_power_up.wait_time = randi_range(10,20)
 			Generate_power_up()
