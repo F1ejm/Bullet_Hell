@@ -210,12 +210,24 @@ func _ready() -> void:
 	regenerating_timer.wait_time = regenerating_wait_time
 
 var cos := false
+var boss_present := false
 
 func _process(delta: float) -> void:
 	if cos and not Global.IsRoundPlaying:
 		_on_disabled_triggered()
-
 	cos = Global.IsRoundPlaying  # Update the previous state
+	
+	
+	var boss_now = get_tree().get_nodes_in_group("boss").size() > 0
+
+	if boss_now != boss_present:
+		boss_present = boss_now
+
+		if boss_present:
+			AudioManager.play_boss_music()
+		else:
+			AudioManager.play_random_battle_track()
+			
 	
 	if piorun_timer == true:
 		time_pioruna -= delta
@@ -636,7 +648,7 @@ func _on_regenerating_timer_timeout() -> void:
 
 var play_battle_music: bool = false
 func _on_music_detection_area_entered(area: Area2D) -> void:
-	if area.is_in_group("battle_music"):
+	if area.is_in_group("battle_music") and Global.IsRoundPlaying == true:
 		AudioManager.play_random_battle_track(-30)
 
 func _on_music_detection_area_exited(area: Area2D) -> void:
