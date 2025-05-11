@@ -30,10 +30,10 @@ class AktywnyItemek:
 		5: "Creates A Lighting Storm In Your Mouse's Place"
 	}
 	var Ceny = {
-		1: 10,
-		2: 20,
-		3: 20,
-		4: 20,
+		1: 15,
+		2: 10,
+		3: 13,
+		4: 10,
 		5: 20
 	}
 	
@@ -85,15 +85,15 @@ class PasywnyItemek:
 		9: "Your Bullets Can Fly Through Inner Walls"
 	}
 	var Ceny = {
-		1: 10,
-		2: 20,
-		3: 20,
-		4: 20,
-		5: 20,
-		6: 20,
-		7: 20,
-		8: 20,
-		9: 10
+		1: 7,
+		2: 8,
+		3: 8,
+		4: 25,
+		5: 30,
+		6: 5,
+		7: 15,
+		8: 15,
+		9: 6
 	}
 
 	var dojscie
@@ -151,10 +151,10 @@ class Bron:
 		4: "Shotgun, Fires a Bunch of Bullets at Once, Good Damage but Bad Attack Speed"
 	}
 	var Ceny = {
-		1: 10,
-		2: 10,
-		3: 10,
-		4: 10
+		1: 14,
+		2: 12,
+		3: 20,
+		4: 20
 	}
 	
 	var dojscie
