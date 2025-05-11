@@ -50,6 +50,7 @@ Bullet=""
 Boss=""
 Boss_Bullet=""
 button=""
+Pick_Up_Objects=""
 
 [gui]
 
