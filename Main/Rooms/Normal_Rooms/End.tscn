@@ -114,9 +114,11 @@ shape = SubResource("RectangleShape2D_bit3d")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Template/Door/Door"]
 root_node = NodePath("../../../..")
 
-[node name="music" type="Area2D" parent="Template" groups=["battle_music"]]
+[node name="music" type="Area2D" parent="Template/Door" groups=["battle_music"]]
+position = Vector2(10.9999, 20)
+rotation = -3.14159
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/music"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Door/music"]
 position = Vector2(-2.5, 402)
 shape = SubResource("RectangleShape2D_inkkk")
 

@@ -654,15 +654,15 @@ func _on_regenerating_timer_timeout() -> void:
 
 var play_battle_music: bool = false
 func _on_music_detection_area_entered(area: Area2D) -> void:
-	if area.is_in_group("battle_music") and Global.IsRoundPlaying == true:
+	if area.is_in_group("battle_music"):
 		AudioManager.play_random_battle_track(-30)
 
 func _on_music_detection_area_exited(area: Area2D) -> void:
 	if area.is_in_group("battle_music"):
-		AudioManager.play_dungeon_and_shop_music(-30)
+		AudioManager.play_dungeon_and_shop_music(-20)
 
 func _on_disabled_triggered() -> void:
-	AudioManager.play_dungeon_and_shop_music(-30)
+	AudioManager.play_dungeon_and_shop_music(-20)
 
 #Karabin, Pistol, Uzi, Minigun, Shotgun 
 func current_audio_to_play():
