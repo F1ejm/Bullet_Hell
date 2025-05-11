@@ -14,6 +14,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		Global.shop_can_interact = false
 
 func _process(delta: float) -> void:
+	global_rotation = 0 
 	if Global.shop_can_interact == true:
 		Global.show_interaction = true
 	else:
