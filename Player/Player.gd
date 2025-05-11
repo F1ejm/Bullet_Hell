@@ -226,7 +226,7 @@ func _process(delta: float) -> void:
 		if boss_present:
 			AudioManager.play_boss_music()
 		else:
-			AudioManager.play_random_battle_track()
+			AudioManager.play_dungeon_and_shop_music()
 	
 	if Tarcza == true:
 		$Tarcza_Item_Area/Sprite2D.visible = true
@@ -653,7 +653,7 @@ func _on_regenerating_timer_timeout() -> void:
 
 var play_battle_music: bool = false
 func _on_music_detection_area_entered(area: Area2D) -> void:
-	if area.is_in_group("battle_music") and Global.IsRoundPlaying == true:
+	if area.is_in_group("battle_music"):
 		AudioManager.play_random_battle_track(-30)
 
 func _on_music_detection_area_exited(area: Area2D) -> void:
