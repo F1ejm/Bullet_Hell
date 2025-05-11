@@ -209,7 +209,14 @@ func _ready() -> void:
 	#regenerujace zycie timer
 	regenerating_timer.wait_time = regenerating_wait_time
 
+var cos := false
+
 func _process(delta: float) -> void:
+	if cos and not Global.IsRoundPlaying:
+		_on_disabled_triggered()
+
+	cos = Global.IsRoundPlaying  # Update the previous state
+	
 	if piorun_timer == true:
 		time_pioruna -= delta
 		$Pasywne_Itemki/Sprite2D.global_position = piorun_pozycja
@@ -635,3 +642,6 @@ func _on_music_detection_area_entered(area: Area2D) -> void:
 func _on_music_detection_area_exited(area: Area2D) -> void:
 	if area.is_in_group("battle_music"):
 		AudioManager.play_dungeon_and_shop_music(-30)
+
+func _on_disabled_triggered() -> void:
+	AudioManager.play_dungeon_and_shop_music(-30)
