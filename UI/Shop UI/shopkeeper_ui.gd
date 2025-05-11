@@ -76,24 +76,22 @@ class PasywnyItemek:
 	var Opisy = {
 		1: "Your Bullets Fly Faster",
 		2: "You Have 25% Chance To Not Take Damage After You Get Hit",
-		3: "Every Time You Shoot, You Have 25% Chance To Fire A Lighting In Random Direction",
-		4: "Every Time You Walk You Leave A Trace Behind That Kills Enemys",
-		5: "3 Orbitals That Fly Around Your Character Killing Both Enemys And Bullets That Stand In Their Way",
-		6: "Your Bullets Can Pierce Through One Enemy",
-		7: "Your Health Slowly Regenerates",
-		8: "You Gain Additional Special Heart That Regenerates Quite Fast",
-		9: "Your Bullets Can Fly Through Inner Walls"
+		3: "Every Time You Walk You Leave A Trace Behind That Kills Enemys",
+		4: "3 Orbitals That Fly Around Your Character Killing Both Enemys And Bullets That Stand In Their Way",
+		5: "Your Bullets Can Pierce Through One Enemy",
+		6: "Your Health Slowly Regenerates",
+		7: "You Gain Additional Special Heart That Regenerates Quite Fast",
+		8: "Your Bullets Can Fly Through Inner Walls"
 	}
 	var Ceny = {
 		1: 7,
 		2: 8,
-		3: 8,
-		4: 25,
-		5: 30,
-		6: 5,
+		3: 25,
+		4: 30,
+		5: 5,
+		6: 15,
 		7: 15,
-		8: 15,
-		9: 6
+		8: 6
 	}
 
 	var dojscie
@@ -108,24 +106,22 @@ class PasywnyItemek:
 		Lista_Pasywnych_Itemków = {
 			1: "1",
 			2: "2",
-			3: "3",
-			4: "4",
-			5: "5",
-			6: "6",
-			7: "7",
-			8: "8",
-			9: "9"
+			3: "4",
+			4: "5",
+			5: "6",
+			6: "7",
+			7: "8",
+			8: "9"
 		}
 		Lista_Textur = {
-			8: preload("res://Art/itemy/dodawanie_serca.png"),
+			7: preload("res://Art/itemy/dodawanie_serca.png"),
 			1: preload("res://Art/itemy/szybsze_pociski.png"),
-			4: preload("res://Art/itemy/scieżka.png"),
-			6: preload("res://Art/itemy/przebijanie.png"),
-			3: preload("res://Art/itemy/piorun.png"),
-			5: preload("res://Art/itemy/orbitable.png"),
-			7: preload("res://Art/itemy/regeneracja.png"),
+			3: preload("res://Art/itemy/scieżka.png"),
+			5: preload("res://Art/itemy/przebijanie.png"),
+			4: preload("res://Art/itemy/orbitable.png"),
+			6: preload("res://Art/itemy/regeneracja.png"),
 			2: preload("res://Art/itemy/25%redu.png"),
-			9: preload("res://Art/itemy/przebijanie.png")
+			8: preload("res://Art/itemy/przebijanie.png")
 		}
 		dojscie = Lista_Pasywnych_Itemków[integer]
 		opis = Opisy[integer]
@@ -273,7 +269,7 @@ func Zmiana_Sklepu():
 	pasywny_itemek_1_button.tooltip_text = str(Pasywny_Itemek1_Cena) + " $"
 	
 	#Pasywny Itemek2
-	rand2 = randi_range(5,9)
+	rand2 = randi_range(5,8)
 	if rand2 == rand1:
 		if rand2 == 8:
 			rand2 -= 1
