@@ -29,14 +29,14 @@ func _process(delta: float) -> void:
 	if Global.Shop1 == true and Global.Show_Shop1 == true:
 		visible = true
 		Global.is_in_game = false
-		text = "This Is An Upgrade Shoop Which Increases Your Stats"
+		text = "This Is An Upgrade Shop Which Increases Your Stats"
 		Global.Shop1 = false
 		Global.Show_Shop1 = false
 	if Global.Shopkeeper == true and Global.Show_Shopkeeper == true:
 		visible = true
 		Global.is_in_game = false
 		text = "In This Shop You Can Buy Items Such As Weapons, Active Items and Passive Items
-		You Can Only Have One Weapon And One Active Item, However You Can Have As Much Passive Items 
+		You Can Only Have One Weapon And One Active Item, However You Can Have As Many Passive Items 
 		As You Desire, You Can Activate Active Items By Pressing R"
 		Global.Shopkeeper = false
 		Global.Show_Shopkeeper = false
