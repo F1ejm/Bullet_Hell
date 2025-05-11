@@ -40,7 +40,6 @@ scale = Vector2(0.022754, 0.0113232)
 texture = ExtResource("4_bpdb5")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="nav_timer" type="Timer" parent="."]
 wait_time = 0.1

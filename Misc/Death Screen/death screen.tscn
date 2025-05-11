@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7pc140h8dlby"]
+
+[ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="1_mfqt8"]
+
+[node name="DeathScreen" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(750, 478)
+texture = ExtResource("1_mfqt8")

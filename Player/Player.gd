@@ -207,6 +207,10 @@ func _ready() -> void:
 	regenerating_timer.wait_time = regenerating_wait_time
 
 func _process(delta: float) -> void:
+	
+	if Global.Zycie <= 0: 
+		get_tree().change_scene_to_file("res://Misc/Death Screen/death screen.tscn")
+	
 	#Active Item Progress Bar
 	active_item_progresbar.value = cooldown_timer.time_left
 	
