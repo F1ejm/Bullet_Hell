@@ -2,7 +2,8 @@ extends Node2D
 
 #Random Eventy
 @onready var random_events_timer: Timer = $random_event_timer
-@onready var label: Label = $CanvasLayer/Label
+@onready var label: Label = $CanvasLayer/Unstable_label
+@onready var unstable_label_2: Label = $CanvasLayer/Unstable_label2
 
 var time: float = 0
 
@@ -20,9 +21,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if label.visible == true:
 		time += delta
-	if time >= 2:
+	if time >= 3.5:
 		time = 0
 		label.visible = false
+		unstable_label_2.visible = false
 	
 
 #Funkcje uruchamiające
@@ -40,20 +42,27 @@ func Choose_Event():
 	
 	label.visible = true
 	
+	
 	x = randi_range(1,5)
 	match(x):
 		1:
 			Camera_Shake()
+			unstable_label_2.text = "The World Erupts"
 		2:
 			shader_material.set_shader_parameter("vignette_power", 2.0)
 			shader_material.set_shader_parameter("vignette_divisor", 1.0)
+			unstable_label_2.text = "The World Covers Itself With Immense Fog"
 		3:
 			Engine.time_scale = 1.3
+			unstable_label_2.text = "The World Magically Speeds Up"
 		4:
 			Engine.time_scale = 0.7
+			unstable_label_2.text = "The World Magically Slowers Down"
 		5:
-			#SFX i Wizualnie tu Trzeba TODO
 			Health_Taken()
+			unstable_label_2.text = "The World Temporarily Sucks Your Health Out Of You"
+	
+	unstable_label_2.visible = true
 	
 func _on_random_event_timer_timeout() -> void:
 	Choose_Event()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=32 format=3 uid="uid://c5lhq3xlm4eps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
@@ -32,6 +32,10 @@ size = Vector2(3840, 22680)
 [sub_resource type="LabelSettings" id="LabelSettings_j4nmm"]
 font = ExtResource("2_j2iu7")
 font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_fayjp"]
+font = ExtResource("2_j2iu7")
+font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_hh5pf"]
 font_size = 32
@@ -81,18 +85,34 @@ mesh = SubResource("QuadMesh_4npy4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Unstable_label" type="Label" parent="CanvasLayer"]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -326.0
+offset_left = -407.5
 offset_top = 66.0
-offset_right = 326.0
-offset_bottom = 125.0
+offset_right = 407.5
+offset_bottom = 139.0
 grow_horizontal = 2
 text = "The World Becomes Unstable"
 label_settings = SubResource("LabelSettings_j4nmm")
+
+[node name="Unstable_label2" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -368.0
+offset_right = 123.0
+offset_bottom = -319.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "kJSNDHFklijb"
+label_settings = SubResource("LabelSettings_fayjp")
 
 [node name="Runda_UI" parent="CanvasLayer" instance=ExtResource("1_6yo1i")]
 

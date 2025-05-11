@@ -109,7 +109,7 @@ func _ready() -> void:
 	
 func reset():
 	# Logo
-	play_intro = true
+	play_intro = false
 
 	# Power-up start
 	start_powerup_timer = false
