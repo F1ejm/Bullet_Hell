@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dn4sqx4suowf1"]
+[gd_scene load_steps=19 format=3 uid="uid://dn4sqx4suowf1"]
 
 [ext_resource type="Script" uid="uid://hms7joihh6ve" path="res://Player/Player.gd" id="1_q3lat"]
 [ext_resource type="Texture2D" uid="uid://6ttwqpyw8f5n" path="res://Art/itemy/piorun2.png" id="2_6ysni"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://brh8l0yf3hjcw" path="res://Audio/SFX/player/dash.mp3" id="3_8g4oa"]
 [ext_resource type="Texture2D" uid="uid://cysjcm5jrpds7" path="res://Art/player/pixil-frame-0 (75).png" id="3_tok1r"]
 [ext_resource type="Texture2D" uid="uid://ghe20h6yxce8" path="res://Art/itemy/tarcza_najdzer2.png" id="3_vlldt"]
+[ext_resource type="AudioStream" uid="uid://bacqc8fb145iq" path="res://Audio/SFX/guns/laser_pistol.mp3" id="7_vlldt"]
+[ext_resource type="AudioStream" uid="uid://c10bgywk44isj" path="res://Audio/SFX/guns/laser_shotgun.mp3" id="8_s1rgi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ysni"]
 radius = 91.4286
@@ -211,6 +213,21 @@ script = ExtResource("3_6ysni")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="music detection"]
 shape = SubResource("CircleShape2D_8g4oa")
 
+[node name="Karabin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_vlldt")
+
+[node name="Pistol" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_vlldt")
+
+[node name="Uzi" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_vlldt")
+
+[node name="Minigun" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_vlldt")
+
+[node name="Shotgun" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_s1rgi")
+
 [connection signal="timeout" from="PowerUp_Timer" to="." method="_on_power_up_timer_timeout"]
 [connection signal="timeout" from="Regenerating_Timer" to="." method="_on_regenerating_timer_timeout"]
 [connection signal="timeout" from="Fire_Trace_Timer" to="." method="_on_fire_trace_timer_timeout"]
@@ -221,3 +238,8 @@ shape = SubResource("CircleShape2D_8g4oa")
 [connection signal="timeout" from="Range_Timer" to="." method="_on_range_timer_timeout"]
 [connection signal="area_entered" from="music detection" to="." method="_on_music_detection_area_entered"]
 [connection signal="area_exited" from="music detection" to="." method="_on_music_detection_area_exited"]
+[connection signal="finished" from="Karabin" to="." method="finished"]
+[connection signal="finished" from="Pistol" to="." method="finished"]
+[connection signal="finished" from="Uzi" to="." method="finished"]
+[connection signal="finished" from="Minigun" to="." method="finished"]
+[connection signal="finished" from="Shotgun" to="." method="finished"]

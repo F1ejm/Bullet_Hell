@@ -213,6 +213,7 @@ var cos := false
 var boss_present := false
 
 func _process(delta: float) -> void:
+	current_audio_to_play()
 	if cos and not Global.IsRoundPlaying:
 		_on_disabled_triggered()
 	cos = Global.IsRoundPlaying  # Update the previous state
@@ -662,3 +663,37 @@ func _on_music_detection_area_exited(area: Area2D) -> void:
 
 func _on_disabled_triggered() -> void:
 	AudioManager.play_dungeon_and_shop_music(-30)
+
+#Karabin, Pistol, Uzi, Minigun, Shotgun 
+func current_audio_to_play():
+	var curent = Global.CurrentWeapon
+	if Input.is_action_just_pressed("range_atak"):
+		if range_cooldown == true: 
+			pass
+		elif  curent ==  "Karabin" :
+			$Karabin.play()
+		elif curent == "Pistol" :
+			$Pistol.play()
+		elif  curent == "Uzi" :
+			$Uzi.play()
+		elif  curent == "Minigun" :
+			$Minigun.play()
+		elif curent == "Shotgun"  :
+			$Shotgun.play()
+
+
+func finished() -> void:
+	var curent = Global.CurrentWeapon
+	if Input.is_action_just_pressed("range_atak"):
+		if range_cooldown == true: 
+			pass
+		elif  curent ==  "Karabin" :
+			$Karabin.play()
+		elif curent == "Pistol" :
+			$Pistol.play()
+		elif  curent == "Uzi" :
+			$Uzi.play()
+		elif  curent == "Minigun" :
+			$Minigun.play()
+		elif curent == "Shotgun"  :
+			$Shotgun.play()
