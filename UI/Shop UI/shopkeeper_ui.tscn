@@ -73,6 +73,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Weapon_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 tooltip_text = "
 "
@@ -101,6 +102,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Aktywny_Itemek_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+texture_filter = 1
 layout_mode = 2
 mouse_filter = 0
 stretch_mode = 3
@@ -127,6 +129,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Pasywny_Itemek1_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer3"]
+texture_filter = 1
 layout_mode = 2
 mouse_filter = 0
 stretch_mode = 3
@@ -153,6 +156,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Pasywny_Itemek2_Texture" type="TextureRect" parent="HBoxContainer/VBoxContainer4"]
+texture_filter = 1
 layout_mode = 2
 mouse_filter = 0
 stretch_mode = 3
