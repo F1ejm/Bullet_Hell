@@ -70,32 +70,34 @@ scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAABAAQAAQAAAAAAAAD+/wQAAQAAAAAAAAD+/wUAAQAAAAAAAAD+/wYAAQAAAAAAAAD+/wcAAQAAAAAAAAD+/wgAAQAAAAAAAAD+/wkAAQAAAAAAAAD4/w4AAQAAAAAAAFD5/w4AAQAAAAAAAFD6/w4AAQAAAAAAAFD7/w4AAQAAAAAAAFD8/w4AAQAAAAAAAFD9/w4AAQAAAAAAAFD+/w4AAQAAAAAAAFD//w4AAQAAAAAAAFAAAA4AAQAAAAAAAFABAA0AAQAAAAAAAAABAAwAAQAAAAAAAAABAAsAAQAAAAAAAAABAAoAAQAAAAAAAAABAAkAAQAAAAAAAAABAAgAAQAAAAAAAAABAAcAAQAAAAAAAAABAAYAAQAAAAAAAAABAAUAAQAAAAAAAAD+/woAAQAAAAAAAAABAA4AAgAAAAAAAAD9/wsAAQAAAAAAAFD8/wsAAQAAAAAAAFD7/wsAAQAAAAAAAFD6/wsAAQAAAAAAAFD5/wsAAQAAAAAAAFD4/wsAAQAAAAAAAFD+/wsAAgAAAAAAAAD3/wsAAQAAAAAAAFD3/w4AAQAAAAAAAFA=")
 tile_set = SubResource("TileSet_763t4")
 
-[node name="DoorContainer" type="Node2D" parent="."]
-
-[node name="Door" type="Node2D" parent="DoorContainer"]
-position = Vector2(-720, 720)
+[node name="StaticBody2D" type="StaticBody2D" parent="Ściany"]
+position = Vector2(1190, 611.004)
 rotation = 1.5708
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
 position = Vector2(120, 440)
 rotation = 1.5708
 scale = Vector2(1.573, 1)
 shape = SubResource("RectangleShape2D_t1atg")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
 position = Vector2(-120, 320)
 rotation = 1.5708
 scale = Vector2(1.143, 1)
 shape = SubResource("RectangleShape2D_t1atg")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
 position = Vector2(-400, 600)
 scale = Vector2(1.143, 1)
 shape = SubResource("RectangleShape2D_t1atg")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
 position = Vector2(-280, 840)
 scale = Vector2(1.568, 1)
 shape = SubResource("RectangleShape2D_t1atg")
+
+[node name="DoorContainer" type="Node2D" parent="."]
+
+[node name="Door" type="Node2D" parent="DoorContainer"]
+position = Vector2(-720, 720)
+rotation = 1.5708
