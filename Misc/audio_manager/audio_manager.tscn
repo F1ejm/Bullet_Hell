@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://vx8qnbcmqaja"]
+[gd_scene load_steps=21 format=3 uid="uid://vx8qnbcmqaja"]
 
 [ext_resource type="AudioStream" uid="uid://bgu0fccgfbqta" path="res://Audio/SFX/misc/menu button down.mp3" id="1_eoxc6"]
 [ext_resource type="Script" uid="uid://bkgc4omcr0b38" path="res://Misc/audio_manager/audio_manager.gd" id="1_tjl6i"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://b8viiyfqjf81h" path="res://Audio/Music/11 - Love Coloured Master Spark.mp3" id="16_6sljd"]
 [ext_resource type="AudioStream" uid="uid://mvaxvekymvr0" path="res://Audio/Music/12 - Primoridal Beat (feat. Jerod Collins).mp3" id="17_6ycmn"]
 [ext_resource type="AudioStream" uid="uid://iwtf8qkd2s51" path="res://Audio/Music/13 - Border of Life.mp3" id="18_jjf00"]
+[ext_resource type="AudioStream" uid="uid://c2blv5cte2p4p" path="res://Audio/Music/shop&dungeon.mp3" id="20_kq5r2"]
 
 [node name="AudioManager" type="Node"]
 process_mode = 3
@@ -95,5 +96,10 @@ bus = &"Music"
 [node name="MainMenu" type="AudioStreamPlayer" parent="music"]
 stream = ExtResource("6_vqqbq")
 volume_db = -20.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="Shop&dungeon" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("20_kq5r2")
 bus = &"Music"
 parameters/looping = true

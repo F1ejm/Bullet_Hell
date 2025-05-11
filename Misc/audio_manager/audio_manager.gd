@@ -1,12 +1,13 @@
 extends Node
 
-@onready var menu_button_down: AudioStreamPlayer = $MenuButtonDown
-@onready var menu_button_up: AudioStreamPlayer = $MenuButtonUp
 @onready var buy_1: AudioStreamPlayer = $Buy1
 @onready var buy_2: AudioStreamPlayer = $Buy2
+@onready var menu_button_down: AudioStreamPlayer = $MenuButtonDown
+@onready var menu_button_up: AudioStreamPlayer = $MenuButtonUp
 
+
+# AudioStreamPlayer nodes for each track
 @onready var main_menu: AudioStreamPlayer = $music/MainMenu
-
 @onready var battle_tracks: Array[AudioStreamPlayer] = [
 	$"music/02-NuclearFusion",
 	$"music/03-LunarClockLunaDial(feat_JamesFraser)",
@@ -16,89 +17,77 @@ extends Node
 	$"music/07-SeptetteForTheDeadPrincess(feat_JonathanParecki)",
 	$"music/08-ReachForTheMoon,ImmortalSmoke(feat_AlejandroHernández)",
 	$"music/09-BelovedTomboyishDaughter",
+	$"music/10-Necrofantasia",
 	$"music/11-LoveColouredMasterSpark",
 	$"music/12-PrimoridalBeat(feat_JerodCollins)",
 	$"music/13-BorderOfLife"
 ]
-
-@onready var shop_and_dungeons_tracks: Array[AudioStreamPlayer] = [
-	$"music/05-FloweringNight",
-	$"music/10-Necrofantasia"
+@onready var dungeon_and_shop_tracks: Array[AudioStreamPlayer] = [
+	$"music/Shop&dungeon"
+]
+@onready var boss_tracks: Array[AudioStreamPlayer] = [
+	$"music/01-U_n_OwenWasHer"
 ]
 
-# Location -> track(s)
-var location_tracks := {
-	"shop_and_dungeons": shop_and_dungeons_tracks,
-	"arena": battle_tracks,
-	"boss_room": $"music/01-U_n_OwenWasHer"
-}
-
+# Currently playing track
 var current_track: AudioStreamPlayer = null
 var last_battle_track: AudioStreamPlayer = null
-var track_positions: Dictionary = {}
 
 # --- FADING FUNCTIONS ---
 
-func crossfade_tracks(old_track: AudioStreamPlayer, new_track: AudioStreamPlayer, duration: float, target_db: float = 0.0) -> void:
-	if new_track == old_track:
+# Fade out audio over a given duration
+func fade_out(audio: AudioStreamPlayer, duration: float) -> void:
+	if not audio or not audio.playing:
 		return
 
-	if new_track:
-		new_track.volume_db = -40.0
-		new_track.stream.loop = true
-		if track_positions.has(new_track):
-			new_track.play(track_positions[new_track])
-		else:
-			new_track.play()
-
+	var start_db = audio.volume_db
+	var target_db = -40.0
 	var time_passed := 0.0
-	var start_db := old_track.volume_db if old_track else 0.0
 
-	while time_passed < duration:
+	while time_passed < duration and audio.volume_db > target_db:
 		await get_tree().process_frame
 		var delta = get_process_delta_time()
 		time_passed += delta
-		var t = time_passed / duration
+		audio.volume_db = lerp(start_db, target_db, time_passed / duration)
 
-		if old_track:
-			old_track.volume_db = lerp(start_db, -40.0, t)
-		if new_track:
-			new_track.volume_db = lerp(-40.0, target_db, t)
+	audio.stop()
 
-	if old_track:
-		track_positions[old_track] = old_track.get_playback_position()
-		old_track.stop()
+# Fade in audio over a given duration
+func fade_in(audio: AudioStreamPlayer, duration: float, target_db: float = 0.0) -> void:
+	if not audio:
+		return
 
-	if new_track:
-		new_track.volume_db = target_db
-		current_track = new_track
-
-# --- MUSIC CONTROL ---
-
-func stop_music(duration: float = 1.0) -> void:
-	if current_track and current_track.playing:
-		await fade_out(current_track, duration)
-		current_track = null
-
-func fade_out(track: AudioStreamPlayer, duration: float) -> void:
-	var start_db = track.volume_db
+	audio.volume_db = -40.0
+	audio.play()
 	var time_passed := 0.0
 
-	while time_passed < duration:
+	while time_passed < duration and audio.volume_db < target_db:
 		await get_tree().process_frame
 		var delta = get_process_delta_time()
 		time_passed += delta
-		track.volume_db = lerp(start_db, -40.0, time_passed / duration)
+		audio.volume_db = lerp(-40.0, target_db, time_passed / duration)
 
-	track_positions[track] = track.get_playback_position()
-	track.stop()
+	audio.volume_db = target_db
 
+# --- MUSIC CONTROL FUNCTIONS ---
+
+# Play main menu music
 func play_main_menu(volume_db: float = 0.0) -> void:
 	if current_track == main_menu and main_menu.playing:
-		return
-	await crossfade_tracks(current_track, main_menu, 1.0, volume_db)
+		return  # Already playing
 
+	if current_track and current_track != main_menu:
+		await fade_out(current_track, 1.0)
+
+	current_track = main_menu
+	await fade_in(main_menu, 1.0, volume_db)
+
+# Play a random battle track
 func play_random_battle_track(volume_db: float = 0.0) -> void:
+	if current_track and current_track.playing:
+		await fade_out(current_track, 1.0)
+
+	# Pick a track that is not the same as last time
 	var track: AudioStreamPlayer = null
 	while true:
 		track = battle_tracks[randi() % battle_tracks.size()]
@@ -106,25 +95,25 @@ func play_random_battle_track(volume_db: float = 0.0) -> void:
 			break
 
 	last_battle_track = track
-	await crossfade_tracks(current_track, track, 1.0, volume_db)
+	current_track = track
+	await fade_in(track, 1.0, volume_db)
 
-func play_music_for_location(location: String, volume_db: float = 0.0) -> void:
-	if not location_tracks.has(location):
-		push_warning("Unknown location: " + location)
-		return
+# Play boss music
+func play_boss_music(volume_db: float = 0.0) -> void:
+	if current_track and current_track.playing:
+		await fade_out(current_track, 1.0)
 
-	var music_data = location_tracks[location]
+	# Pick a random track for the boss fight
+	var track: AudioStreamPlayer = boss_tracks[randi() % boss_tracks.size()]
+	current_track = track
+	await fade_in(track, 1.0, volume_db)
 
-	if music_data is AudioStreamPlayer:
-		if current_track == music_data and music_data.playing:
-			return
-		await crossfade_tracks(current_track, music_data, 1.0, volume_db)
+# Play dungeon and shop music
+func play_dungeon_and_shop_music(volume_db: float = 0.0) -> void:
+	if current_track and current_track.playing:
+		await fade_out(current_track, 1.0)
 
-	elif music_data is Array:
-		var track: AudioStreamPlayer = null
-		while true:
-			track = music_data[randi() % music_data.size()]
-			if track != last_battle_track:
-				break
-		last_battle_track = track
-		await crossfade_tracks(current_track, track, 1.0, volume_db)
+	# Pick a random track for dungeons and shop
+	var track: AudioStreamPlayer = dungeon_and_shop_tracks[randi() % dungeon_and_shop_tracks.size()]
+	current_track = track
+	await fade_in(track, 1.0, volume_db)
