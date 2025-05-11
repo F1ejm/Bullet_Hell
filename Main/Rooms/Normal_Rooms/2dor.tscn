@@ -42,7 +42,7 @@ size = Vector2(88, 226)
 
 [node name="2Dor" type="Node2D"]
 
-[node name="Ściany" type="Node2D" parent="."]
+[node name="Ściany" type="Node2D" parent="." groups=["Wall"]]
 
 [node name="Fog" type="Node2D" parent="Ściany"]
 visible = false
