@@ -18,7 +18,6 @@ var right = 0
 
 var shoopkeeper_ui
 
-
 func _ready():
 	LastDoorContainer = self
 	spawn(LastDoorContainer,true,1,false)

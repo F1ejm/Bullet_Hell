@@ -59,7 +59,7 @@ var AtakCooldown: float = 0.4
 var RangeCooldown: float = 2
 
 #Karabin, Pistol, Uzi
-var CurrentWeapon = "Minigun" 
+var CurrentWeapon = "Pistol" 
 var RangeWeaponCooldown: float = 1
 
 #Pieniądze
@@ -107,52 +107,88 @@ var player_main
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
-func Reset():
-	i = -1
-	
-	Runda = 0
-	IsRoundPlaying = false
-	Czas_Rundy = 60
-	Generate_wall = false
-	
-	VDolce = 100
-	
-	CurrentWeapon = "Pistol"
-	
-	RangeCooldown = 2
-	
-	Stamina = 200
-	Max_Stamina = 200
-	Stamina_Regen = 1
-	
+func reset():
+	# Logo
+	play_intro = true
+
+	# Power-up start
+	start_powerup_timer = false
+
+	# Power-upy pozytywne
+	Dash_PowerUp = false
+	Stamina_PowerUp = false
+	Bullet_PowerUp = false
+
+	# Power-upy negatywne
+	Cant_Dash_PowerUp = false
+	Cant_Shoot_PowerUp = false
+	Move_Slower_PowerUp = false
+
+	# Player speed
+	speed = 600
+	normal_speed = 600
+	debuffed_speed = 600 * 0.5
+	stop = false
+
+	# Interakcje
+	show_interaction = false
+	label_boss = false
+
+	# Sklep
+	shop_can_interact = false
+	shop_ui_visible = false
+	show_shopkeeper = false
+	shopkeeper_ui_visible = false
+
+	# Życie
 	Zycie = 3
 	Max_Zycie = 3
-	
-	label_boss = false
-	
+
+	# Stamina
+	Stamina = 200.0
+	Max_Stamina = 200.0
+	Stamina_Regen = 1.0
+	Dash = false
+	Long_Stamina_cdr = false
+
+	# Dash
+	IsDashing = false
+	dash_timer = 0.0
+	Koszt_Dasha = 60
+
+	# Atak
+	AtakCooldown = 0.4
+	RangeCooldown = 2.0
+	CurrentWeapon = "Pistol"
+	RangeWeaponCooldown = 1.0
+
+	# Kasa
+	VDolce = 100
+
+	# Immunity
+	immune = false
+	immunity = 1.0
+
+	# Dash Immunity
+	dash_immunity = false
+	dash_imm_timer = 0.0
+
+	# Runda
+	Runda = 0
+	IsRoundPlaying = false
+	Czas_Rundy = 60.0
+	Generate_wall = false
+
 	is_in_settings = false
 	is_in_game = false
 	is_in_pause_menu = false
-	
-	show_interaction = false
-	
-	#Player Powerups
-	start_powerup_timer = false
-	#Pozytywne
-	#1 Dash Zabija
-	Dash_PowerUp = false
-	#2 Nieograniczona Stamina
-	Stamina_PowerUp = false
-	#3 Bullet Przecinający Inne Bullety
-	Bullet_PowerUp = false
-	#Negatywne
-	#1 Nie możesz dashować przez 5 sekund
-	Cant_Dash_PowerUp = false
-	#2 Nie możesz strzelać
-	Cant_Shoot_PowerUp = false
 
-	#3 Chodzisz 2 razy wolniej
-	Move_Slower_PowerUp = false
+	# Przeciwnicy
+	i = -1
+	can_spawn = 0
+
+	# Timer staminy
+	timer = 0.0
 
 func _process(delta: float) -> void:
 	#Pauzowanie Gry

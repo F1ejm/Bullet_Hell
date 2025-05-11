@@ -29,6 +29,7 @@ func _on_button_up():
 
 
 func _on_play_pressed() -> void:
+	Global.reset()
 	Transition.transition()
 	await Transition.on_transition_finished
 	Global.is_in_game = true
