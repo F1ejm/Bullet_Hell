@@ -84,9 +84,9 @@ var current_resolution: Vector2i
 var current_resolution_id: int
 var current_fullscreen_mode: int # 1-windowed, 2-fullscreen, 3-borderless
 
-var current_master_volume: float
-var current_music_volume: float
-var current_sfx_volume: float
+var current_master_volume: float = 100
+var current_music_volume: float = 100
+var current_sfx_volume: float = 100
 
 var is_in_settings := false # dotyczy settingsów w pause menu
 var is_in_game := false
@@ -214,6 +214,10 @@ func _process(delta: float) -> void:
 			o.queue_free()
 		for o in get_tree().get_nodes_in_group("Enemy"):
 			o.queue_free()
+		for o in get_tree().get_nodes_in_group("Pick_Up_Objects"):
+			o.queue_free()
+		Zycie = Max_Zycie
+		i = -1
 		Global.Czas_Rundy = 60
 	#Timer Do Staminy - Jeśli wyjdziesz staminą na minus to tedy to sie aktywuje
 	if Stamina < 0:

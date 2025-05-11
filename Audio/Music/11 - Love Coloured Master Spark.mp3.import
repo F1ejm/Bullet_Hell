@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8viiyfqjf81h"
+path="res://.godot/imported/11 - Love Coloured Master Spark.mp3-f8f29c82ddaa4f39574acdfaa090bd76.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/11 - Love Coloured Master Spark.mp3"
+dest_files=["res://.godot/imported/11 - Love Coloured Master Spark.mp3-f8f29c82ddaa4f39574acdfaa090bd76.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
