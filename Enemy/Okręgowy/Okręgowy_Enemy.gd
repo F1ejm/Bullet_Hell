@@ -35,6 +35,7 @@ var f = true
 signal can_not_spawn
 
 func _ready() -> void:
+	health = health + Global.Runda
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
 	shoot_timer.start()

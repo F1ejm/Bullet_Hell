@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and Global.show_shopkeeper == true:
+		Global.Shopkeeper = true
 		if shop_open == false:
 			shop_open = true
 			Global.stop = true

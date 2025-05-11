@@ -36,6 +36,7 @@ func Timer_():
 func Choose_Event():
 	#Tu jakieś SFX i wizualnie rzeczy TODO
 	Global.Zycie += zycie_restored
+	Global.Unstable_World = true
 	zycie_restored = 0
 	shader_material.set_shader_parameter("vignette_power", 12.0)
 	shader_material.set_shader_parameter("vignette_divisor", 10.0)
@@ -77,5 +78,5 @@ func Camera_Shake():
 
 		
 func Health_Taken():
-	zycie_restored = Global.Zycie - 1
-	Global.Zycie = 1
+	zycie_restored = Global.Zycie - 2
+	Global.Zycie = 2

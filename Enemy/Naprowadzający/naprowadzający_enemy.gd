@@ -37,6 +37,7 @@ var dir: Vector2 = Vector2(0,0)
 var in_ : bool
 
 func _ready() -> void:
+	health = health + Global.Runda
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
 	shoot_timer.start()

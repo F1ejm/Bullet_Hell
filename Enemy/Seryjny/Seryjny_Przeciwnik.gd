@@ -33,6 +33,7 @@ var in_ = false
 
 
 func _ready() -> void:
+	health = health + Global.Runda
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
 	shoot_timer.start()
