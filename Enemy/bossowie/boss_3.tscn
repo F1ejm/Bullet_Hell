@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvro2lca1jslt"]
+
+[ext_resource type="Texture2D" uid="uid://bvviunoqqdsa3" path="res://Art/boss_3/0 i 1.png" id="1_kq6j2"]
+[ext_resource type="Script" uid="uid://cju4tfgdpii85" path="res://Enemy/bossowie/boss_3.gd" id="1_nu1qr"]
+[ext_resource type="Texture2D" uid="uid://b8bekch7ala6n" path="res://Art/boss_3/1 i 0.png" id="2_nu1qr"]
+[ext_resource type="Texture2D" uid="uid://p6yhkbvhuwp3" path="res://Art/boss_3/0 i 0.png" id="3_jv8s1"]
+[ext_resource type="Texture2D" uid="uid://p5jhjpk67mm8" path="res://Art/boss_3/1 i .png" id="4_6bjwc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c128t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kq6j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nu1qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_kq6j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nu1qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_kq6j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nu1qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_kq6j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nu1qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_kq6j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nu1qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jv8s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6bjwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jv8s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6bjwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jv8s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6bjwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jv8s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6bjwc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 13.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iccxn"]
+size = Vector2(35.7182, 35.9861)
+
+[node name="boss_3" type="Node2D"]
+script = ExtResource("1_nu1qr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(6, 6.05789)
+sprite_frames = SubResource("SpriteFrames_c128t")
+animation = &"Idle"
+frame = 6
+frame_progress = 0.32043
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9.61125e-07, 1)
+scale = Vector2(6, 6.05789)
+shape = SubResource("RectangleShape2D_iccxn")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+offset_left = -149.0
+offset_top = -171.0
+offset_right = 149.0
+offset_bottom = -131.0
+show_percentage = false
+
+[node name="Bullet_Spawn" type="Node2D" parent="."]
+rotation = 0.0174533
+
+[node name="Rotating_Bullet_Spawner" type="Node2D" parent="Bullet_Spawn"]
+position = Vector2(20.9968, -0.366499)
+
+[node name="Atak_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Lasting_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Cooldown_Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
