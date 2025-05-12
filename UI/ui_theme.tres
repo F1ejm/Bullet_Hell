@@ -27,6 +27,8 @@ bg_color = Color(0.341176, 0.145098, 0.501961, 1)
 bg_color = Color(0.25098, 0.0980392, 0.376471, 1)
 
 [resource]
+CheckButton/font_sizes/font_size = 20
+CheckButton/fonts/font = ExtResource("3_qbadw")
 HSlider/icons/grabber = ExtResource("1_p8160")
 HSlider/icons/grabber_highlight = ExtResource("2_6tkuj")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_p8160")

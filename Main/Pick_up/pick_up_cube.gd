@@ -8,7 +8,7 @@ func _ready():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		item_pick_up.play()
+		AudioManager.item_pick_up.play()
 		var x = randi_range(1,12)
 		match(x):
 			1:

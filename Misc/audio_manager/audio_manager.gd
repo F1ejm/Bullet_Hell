@@ -7,6 +7,7 @@ extends Node
 @onready var player_death: AudioStreamPlayer = $PlayerDeath
 @onready var enemy_death_1: AudioStreamPlayer = $EnemyDeath1
 @onready var enemy_death_2: AudioStreamPlayer = $EnemyDeath2
+@onready var item_pick_up: AudioStreamPlayer = $ItemPickUp
 
 
 # AudioStreamPlayer nodes for each track

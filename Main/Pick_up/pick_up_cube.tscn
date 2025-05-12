@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvxgexgniu3ha"]
+[gd_scene load_steps=4 format=3 uid="uid://bvxgexgniu3ha"]
 
 [ext_resource type="Script" uid="uid://cxtpm2k0tiud1" path="res://Main/Pick_up/pick_up_cube.gd" id="1_eb5jm"]
 [ext_resource type="Texture2D" uid="uid://d2n5rjqb67e8g" path="res://Art/pick_up/pixil-frame-0 (80).png" id="2_l4kxa"]
-[ext_resource type="AudioStream" uid="uid://cx64avo2asbax" path="res://Audio/SFX/player/item_pick_up.mp3" id="3_wyp63"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hv7j7"]
 size = Vector2(56, 41)
@@ -21,8 +20,5 @@ texture_filter = 1
 position = Vector2(-2, 1)
 scale = Vector2(3.773, 2.696)
 texture = ExtResource("2_l4kxa")
-
-[node name="ItemPickUp" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_wyp63")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
