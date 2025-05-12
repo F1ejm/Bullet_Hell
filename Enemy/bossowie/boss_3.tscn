@@ -71,7 +71,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iccxn"]
 size = Vector2(35.7182, 35.9861)
 
-[node name="boss_3" type="Node2D"]
+[node name="boss_3" type="Area2D"]
 script = ExtResource("1_nu1qr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -110,3 +110,7 @@ one_shot = true
 [node name="Cooldown_Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[connection signal="timeout" from="Atak_Timer" to="." method="_on_atak_timer_timeout"]
+[connection signal="timeout" from="Lasting_Timer" to="." method="_on_lasting_timer_timeout"]
+[connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]
