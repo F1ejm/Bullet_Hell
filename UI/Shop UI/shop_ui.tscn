@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://ckn81yvwna77p"]
 
 [ext_resource type="Script" uid="uid://fyehnsobw802" path="res://UI/Shop UI/shop_ui.gd" id="1_0qc3d"]
-[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="2_ck7jg"]
 [ext_resource type="Texture2D" uid="uid://3ei8q4eum24b" path="res://Art/shop/upgrade_shop.png" id="2_ybqa0"]
+[ext_resource type="Texture2D" uid="uid://dk5x542xje0ty" path="res://Art/shop/upgrade_icon.png" id="3_fjj0y"]
 [ext_resource type="Texture2D" uid="uid://qq4kdmfjh73y" path="res://Art/shop/serce_full.png" id="4_d8ich"]
 [ext_resource type="Texture2D" uid="uid://du8exxbupx5qn" path="res://Art/shop/stamina_icon.png" id="5_0kvjv"]
 [ext_resource type="Texture2D" uid="uid://vpyybhvapleg" path="res://Art/shop/buy_progress_bar_back.png" id="5_yt86v"]
@@ -59,14 +59,15 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -351.0
-offset_top = -222.0
-offset_right = -139.0
-offset_bottom = -38.0
+offset_left = -361.0
+offset_top = -237.0
+offset_right = -142.0
+offset_bottom = -24.0
 grow_vertical = 0
 mouse_filter = 2
-texture = ExtResource("2_ck7jg")
+texture = ExtResource("3_fjj0y")
 expand_mode = 1
+stretch_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
