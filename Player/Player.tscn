@@ -174,7 +174,6 @@ shape = SubResource("CircleShape2D_6ysni")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4.76837e-07)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ddoul")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
