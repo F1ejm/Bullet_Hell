@@ -30,7 +30,14 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		#$"../Get_Out".visible = true
-#		$"../Get_Out/CollisionShape2D".visible = true
-#		$"../AnimationPlayer".play("close")
+		var get_out = $"../Get_Out"
+		var get_out_collision = $"../Get_Out/CollisionShape2D"
+		var anim_player = $"../AnimationPlayer"
+
+		if get_out and get_out_collision:
+			get_out.visible = true
+			get_out_collision.visible = true
+		if anim_player:
+			anim_player.play("close")
+
 		queue_free()

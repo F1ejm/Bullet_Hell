@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c3j22shvwsely" path="res://Art/shop/buy_button_pressed.png" id="6_0vti0"]
 [ext_resource type="Texture2D" uid="uid://c3xhfpllns8lh" path="res://Art/UI/menu buttons/reset_pressed.png" id="6_wbvku"]
 [ext_resource type="Texture2D" uid="uid://cf7p85hssgkio" path="res://Art/shop/buy_button_hover.png" id="7_0nnyu"]
-[ext_resource type="Texture2D" uid="uid://b07c6jtwx7pa5" path="res://Art/UI/menu buttons/restart_hover.png" id="7_q3naf"]
+[ext_resource type="Texture2D" uid="uid://bc7ufmoxyeccl" path="res://Art/UI/menu buttons/reset_hover.png" id="7_pyvl5"]
 [ext_resource type="Texture2D" uid="uid://cq4hkx7u44ly6" path="res://Art/shop/buy_button_not_enough.png" id="8_pyvl5"]
 
 [node name="shopkeeper_ui" type="Control"]
@@ -68,7 +68,7 @@ offset_bottom = 1041.0
 tooltip_text = "5$ To Reset The Offer"
 texture_normal = ExtResource("5_pyvl5")
 texture_pressed = ExtResource("6_wbvku")
-texture_hover = ExtResource("7_q3naf")
+texture_hover = ExtResource("7_pyvl5")
 stretch_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_jgi54")
-cooldown = 0.6
+cooldown = 0.45
 dmg = 1
 seria = 1
 isShotgun = false
