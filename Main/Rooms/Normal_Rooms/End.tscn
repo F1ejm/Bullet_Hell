@@ -28,7 +28,7 @@ sources/2 = SubResource("TileSetAtlasSource_pfmx6")
 size = Vector2(560, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2658o"]
-size = Vector2(262, 74)
+size = Vector2(160, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bit3d"]
 size = Vector2(267, 70.9986)
@@ -97,12 +97,13 @@ script = ExtResource("5_52o5m")
 [node name="StaticBody2D" type="StaticBody2D" parent="Template/Door/Door"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Door/Door/StaticBody2D"]
-position = Vector2(2, -23)
+position = Vector2(11.0001, -20)
 shape = SubResource("RectangleShape2D_2658o")
 
 [node name="Sprite2D" type="Sprite2D" parent="Template/Door/Door/StaticBody2D"]
-position = Vector2(12.0001, -22.95)
-scale = Vector2(30.8796, 4.47262)
+position = Vector2(11.0001, -20)
+rotation = 1.5708
+scale = Vector2(10, 10)
 texture = ExtResource("6_inkkk")
 
 [node name="in" type="Area2D" parent="Template/Door/Door"]
