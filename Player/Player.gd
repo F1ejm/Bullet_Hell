@@ -401,9 +401,6 @@ func _physics_process(delta):
 			elif curent == "Pistol":
 				$Pistol.pitch_scale = rand_pitch
 				$Pistol.play()
-			elif  curent == "Uzi":
-				$Uzi.pitch_scale = rand_pitch
-				$Uzi.play()
 			elif  curent == "Minigun":
 				$Minigun.pitch_scale = rand_pitch
 				$Minigun.play()
@@ -439,6 +436,10 @@ func _physics_process(delta):
 #Atak - Ranged
 func Ranged():
 	if(not stats.isShotgun):
+		var rand_pitch = randf_range(0.95, 1.05)
+		if  Global.CurrentWeapon == "Uzi":
+			$Uzi.pitch_scale = rand_pitch
+			$Uzi.play()
 		var b = bullet_path.instantiate()
 		owner.add_child(b)
 		b.transform = $WeaponSprite/BulletSpacing.global_transform
@@ -665,6 +666,9 @@ func _on_power_up_timer_timeout() -> void:
 
 	#3 Chodzisz 2 razy wolniej
 	Global.Move_Slower_PowerUp = false
+
+func Camera_Shake(intensity,time):
+	$Node2D/Camera2D.screen_shake(intensity,time)
 
 #Pasywny Itemek timer - regenerujace sie zycie
 func _on_regenerating_timer_timeout() -> void:

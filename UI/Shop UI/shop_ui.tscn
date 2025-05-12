@@ -111,7 +111,7 @@ texture_under = ExtResource("5_yt86v")
 texture_over = ExtResource("6_fjj0y")
 texture_progress = ExtResource("7_ql46n")
 
-[node name="Health_Button" type="TextureButton" parent="HBoxContainer/Health"]
+[node name="Health_Button" type="TextureButton" parent="HBoxContainer/Health" groups=["button"]]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
@@ -152,7 +152,7 @@ texture_under = ExtResource("5_yt86v")
 texture_over = ExtResource("6_fjj0y")
 texture_progress = ExtResource("7_ql46n")
 
-[node name="Stamina_Button" type="TextureButton" parent="HBoxContainer/Stamina Amount"]
+[node name="Stamina_Button" type="TextureButton" parent="HBoxContainer/Stamina Amount" groups=["button"]]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
@@ -186,7 +186,7 @@ texture_under = ExtResource("5_yt86v")
 texture_over = ExtResource("6_fjj0y")
 texture_progress = ExtResource("7_ql46n")
 
-[node name="Stamina_Regen_Button" type="TextureButton" parent="HBoxContainer/Stamina Regen"]
+[node name="Stamina_Regen_Button" type="TextureButton" parent="HBoxContainer/Stamina Regen" groups=["button"]]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
@@ -220,7 +220,7 @@ texture_under = ExtResource("5_yt86v")
 texture_over = ExtResource("6_fjj0y")
 texture_progress = ExtResource("7_ql46n")
 
-[node name="Attack_Speed_Button" type="TextureButton" parent="HBoxContainer/Attack"]
+[node name="Attack_Speed_Button" type="TextureButton" parent="HBoxContainer/Attack" groups=["button"]]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4

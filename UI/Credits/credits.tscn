@@ -2,16 +2,16 @@
 
 [ext_resource type="FontFile" uid="uid://d1y8l7j8ou535" path="res://UI/PixelifySans[wght].ttf" id="1_4i5kg"]
 [ext_resource type="Script" uid="uid://frhse62uc8i5" path="res://UI/Credits/credits.gd" id="1_n4oh0"]
-[ext_resource type="Texture2D" uid="uid://cmy52wjivuw0f" path="res://Art/UI/menu buttons/back_idle.png" id="2_n4oh0"]
-[ext_resource type="Texture2D" uid="uid://b5ypo1rec14lp" path="res://Art/UI/menu buttons/back_glitch.png" id="3_lfta3"]
-[ext_resource type="Texture2D" uid="uid://b236o5406pec5" path="res://Art/UI/menu buttons/back_pressed.png" id="4_30bwe"]
-[ext_resource type="Texture2D" uid="uid://whl5qkxy16id" path="res://Art/UI/menu buttons/back_hover.png" id="5_jjdaq"]
+[ext_resource type="Texture2D" uid="uid://cau642co5oers" path="res://Art/UI/menu buttons/back_idle3.png" id="3_n4oh0"]
+[ext_resource type="Texture2D" uid="uid://bl2stw2d4k00m" path="res://Art/UI/menu buttons/back_glitch3.png" id="4_lfta3"]
+[ext_resource type="Texture2D" uid="uid://dg7j2ojx8hm7l" path="res://Art/UI/menu buttons/back_pressed3.png" id="5_30bwe"]
+[ext_resource type="Texture2D" uid="uid://bnwkvqrqu1cfl" path="res://Art/UI/menu buttons/back_hover3.png" id="6_jjdaq"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_ailny"]
 frames = 2
-frame_0/texture = ExtResource("2_n4oh0")
+frame_0/texture = ExtResource("3_n4oh0")
 frame_0/duration = 1.5
-frame_1/texture = ExtResource("3_lfta3")
+frame_1/texture = ExtResource("4_lfta3")
 frame_1/duration = 0.2
 
 [node name="Credits" type="Control"]
@@ -107,8 +107,8 @@ grow_vertical = 0
 scale = Vector2(4, 4)
 size_flags_vertical = 3
 texture_normal = SubResource("AnimatedTexture_ailny")
-texture_pressed = ExtResource("4_30bwe")
-texture_hover = ExtResource("5_jjdaq")
+texture_pressed = ExtResource("5_30bwe")
+texture_hover = ExtResource("6_jjdaq")
 
 [connection signal="button_down" from="back" to="." method="_on_back_button_down"]
 [connection signal="button_up" from="back" to="." method="_on_back_button_up"]

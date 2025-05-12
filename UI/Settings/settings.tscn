@@ -197,6 +197,15 @@ texture_normal = SubResource("AnimatedTexture_qx4ph")
 texture_pressed = ExtResource("5_v3ito")
 texture_hover = ExtResource("6_4ang8")
 
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 2
+offset_left = 728.0
+offset_top = 772.0
+offset_right = 1186.0
+offset_bottom = 810.0
+theme = ExtResource("1_u23uq")
+text = "Skip Tutorial  "
+
 [connection signal="value_changed" from="MarginContainer2/VBoxContainer/Master Volume" to="." method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="MarginContainer2/VBoxContainer/Music Volume" to="." method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="MarginContainer2/VBoxContainer/SFX Volume" to="." method="_on_sfx_volume_value_changed"]

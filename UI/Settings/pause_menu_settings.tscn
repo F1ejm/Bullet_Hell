@@ -3,16 +3,16 @@
 [ext_resource type="Script" uid="uid://hkmdm5cltr3g" path="res://UI/Settings/pause_menu_settings.gd" id="1_vnph7"]
 [ext_resource type="Theme" uid="uid://bxkc4jb1w6l8n" path="res://UI/ui_theme.tres" id="2_u3c0a"]
 [ext_resource type="FontFile" uid="uid://d1y8l7j8ou535" path="res://UI/PixelifySans[wght].ttf" id="3_ccdt5"]
-[ext_resource type="Texture2D" uid="uid://cmy52wjivuw0f" path="res://Art/UI/menu buttons/back_idle.png" id="4_c1fvp"]
-[ext_resource type="Texture2D" uid="uid://b5ypo1rec14lp" path="res://Art/UI/menu buttons/back_glitch.png" id="5_ohvr3"]
-[ext_resource type="Texture2D" uid="uid://b236o5406pec5" path="res://Art/UI/menu buttons/back_pressed.png" id="6_x6vkj"]
-[ext_resource type="Texture2D" uid="uid://whl5qkxy16id" path="res://Art/UI/menu buttons/back_hover.png" id="7_8xi34"]
+[ext_resource type="Texture2D" uid="uid://dw445obb5w5y0" path="res://Art/UI/menu buttons/back_idle2.png" id="4_u3c0a"]
+[ext_resource type="Texture2D" uid="uid://dpscit6xrbmvn" path="res://Art/UI/menu buttons/back_glitch2.png" id="5_ccdt5"]
+[ext_resource type="Texture2D" uid="uid://dqnr4g6vu52p2" path="res://Art/UI/menu buttons/back_pressed2.png" id="6_c1fvp"]
+[ext_resource type="Texture2D" uid="uid://dfevwj37rh73r" path="res://Art/UI/menu buttons/back_hover2.png" id="7_ohvr3"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_i76as"]
 frames = 2
-frame_0/texture = ExtResource("4_c1fvp")
+frame_0/texture = ExtResource("4_u3c0a")
 frame_0/duration = 1.5
-frame_1/texture = ExtResource("5_ohvr3")
+frame_1/texture = ExtResource("5_ccdt5")
 frame_1/duration = 0.2
 
 [node name="Pause Menu Settings" type="Control"]
@@ -193,8 +193,16 @@ grow_vertical = 0
 scale = Vector2(4, 4)
 size_flags_vertical = 3
 texture_normal = SubResource("AnimatedTexture_i76as")
-texture_pressed = ExtResource("6_x6vkj")
-texture_hover = ExtResource("7_8xi34")
+texture_pressed = ExtResource("6_c1fvp")
+texture_hover = ExtResource("7_ohvr3")
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_left = 728.0
+offset_top = 772.0
+offset_right = 1186.0
+offset_bottom = 810.0
+theme = ExtResource("2_u3c0a")
+text = "Skip Tutorial  "
 
 [connection signal="value_changed" from="MarginContainer2/VBoxContainer/Master Volume" to="." method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="MarginContainer2/VBoxContainer/Music Volume" to="." method="_on_music_volume_value_changed"]
