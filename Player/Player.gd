@@ -667,6 +667,9 @@ func _on_power_up_timer_timeout() -> void:
 	#3 Chodzisz 2 razy wolniej
 	Global.Move_Slower_PowerUp = false
 
+func Camera_Shake(intensity,time):
+	$Node2D/Camera2D.screen_shake(intensity,time)
+
 #Pasywny Itemek timer - regenerujace sie zycie
 func _on_regenerating_timer_timeout() -> void:
 	if Global.IsRoundPlaying == true:

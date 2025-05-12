@@ -5,6 +5,8 @@ extends Node2D
 @onready var label: Label = $CanvasLayer/Unstable_label
 @onready var unstable_label_2: Label = $CanvasLayer/Unstable_label2
 
+@export var Player:CharacterBody2D
+
 var time: float = 0
 
 #który event ma sie odbyć
@@ -87,7 +89,7 @@ func _on_random_event_timer_timeout() -> void:
 	
 #Funkcje Eventów
 func Camera_Shake():
-	$Player/Node2D/Camera2D.screen_shake(15, 0.5)
+	Player.Camera_Shake(15, 5)
 
 		
 func Health_Taken():
