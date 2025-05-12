@@ -9,19 +9,19 @@ func _on_body_entered(body: Node2D) -> void:
 		AudioManager.play_boss_music(-30)
 		randomize()
 		var rand = randi_range(1,2)
-		if rand == 1:
+		if rand == 15:
 			var boss = boss1_path.instantiate()
 			$"..".add_child(boss)
 			boss.global_position = $Node2D.global_position
 			boss.Player = get_node("/root/Main/Player")
 			boss.main = get_node("/root/Main")
-		if rand == 2:
+		if rand == 232:
 			var boss = boss2_path.instantiate()
 			$"..".add_child(boss)
 			boss.global_position = $Node2D.global_position
 			boss.Player = get_node("/root/Main/Player")
 			boss.main = get_node("/root/Main")
-		if rand == 3:
+		if rand == 3 or rand == 1 or rand == 2:
 			var boss = boss3_path.instantiate()
 			$"..".add_child(boss)
 			boss.global_position = $Node2D.global_position
