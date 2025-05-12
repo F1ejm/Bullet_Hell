@@ -254,7 +254,7 @@ func _process(delta: float) -> void:
 	if Czas_Rundy <= 0:
 		IsRoundPlaying = false
 		
-	if IsRoundPlaying == false:
+	if IsRoundPlaying == false and get_tree().get_nodes_in_group("Boss").size() == 0:
 		for o in get_tree().get_nodes_in_group("Bullet"):
 			o.queue_free()
 		for o in get_tree().get_nodes_in_group("Enemy"):
