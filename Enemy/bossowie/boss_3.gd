@@ -35,7 +35,7 @@ var health: float = 80.0
 var teleport = preload("res://Main/teleport.tscn")
 
 func _ready() -> void:
-	$".".rotation = 180
+	$".".rotation = 130
 	# skalowanie HP
 	health += health * 0.2 * (Global.Runda - 1)
 	progress_bar.max_value = health
@@ -123,7 +123,7 @@ func _on_Death() -> void:
 	var t = teleport.instantiate()
 	main.add_child(t)
 	t.global_position = global_position
-	Player.get_node("Node2D/Camera2D").screen_shake(13,4)
+	Player.get_node("Node2D/Camera2D").screen_shake(13,4,1)
 	AudioManager.play_dungeon_and_shop_music(-20)
 	queue_free()
 
