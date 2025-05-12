@@ -73,7 +73,7 @@ func _circle_attack() -> void:
 		main.add_child(bullet)
 		bullet.global_transform = bullet_spawn.global_transform
 		bullet.rotation = deg_to_rad(18 * i)
-		bullet.speed = 200
+#		bullet.speed = 200
 		bullet.move_side = true
 		bullet.change_timer = true
 		bullet.directon = randi_range(1, 2) == 1
@@ -113,24 +113,6 @@ func _eryk_attack() -> void:
 	another_atak = false
 	lasting_timer.wait_time = 10.0
 	lasting_timer.start()
-
-# Po zakończeniu okresu trwania ataku (ready for next)
-func _on_Lasting_Timer_timeout() -> void:
-	# Zwolnienie kolejnego ataku i czyszczenie pocisków
-	another_atak = true
-	for bullet in get_tree().get_nodes_in_group("Boss_Bullet"):
-		bullet.queue_free()
-	# Uruchom cooldown
-	cooldown_timer.start()
-	$AnimatedSprite2D.play("Idle")
-
-# Po zakończeniu cooldownu wybierz nowy atak
-func _on_Cooldown_Timer_timeout() -> void:
-	x = _generate_attack(3)
-
-func _on_Atak_Timer_timeout() -> void:
-	pass
-
 # Funkcja uderzenia bossa (wołać zawsze, gdy boss jest trafiony)
 func hit(dmg: float) -> void:
 	health -= dmg
@@ -143,3 +125,20 @@ func _on_death() -> void:
 	teleportacja.global_position = global_position
 	Player.get_node("Node2D/Camera2D").screen_shake(13, 4)
 	queue_free()
+
+
+func _on_atak_timer_timeout() -> void:
+	pass 
+
+
+func _on_lasting_timer_timeout() -> void:
+	another_atak = true
+	for bullet in get_tree().get_nodes_in_group("Boss_Bullet"):
+		bullet.queue_free()
+	# Uruchom cooldown
+	cooldown_timer.start()
+	$AnimatedSprite2D.play("Idle")
+
+
+func _on_cooldown_timer_timeout() -> void:
+	x = _generate_attack(3)

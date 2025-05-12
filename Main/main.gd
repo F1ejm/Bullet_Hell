@@ -56,6 +56,8 @@ func Choose_Event():
 		shader_material.set_shader_parameter("vignette_power", 12.0)
 		shader_material.set_shader_parameter("vignette_divisor", 10.0)
 		Engine.time_scale = 1
+		Camera_Shake(30,1)
+		
 		
 		label.visible = true
 		
@@ -64,7 +66,7 @@ func Choose_Event():
 		
 		match(x):
 			1:
-				Camera_Shake()
+				Camera_Shake(50,10)
 				unstable_label_2.text = "The System Erupts"
 			2:
 				shader_material.set_shader_parameter("vignette_power", 4.0)
@@ -88,9 +90,8 @@ func _on_random_event_timer_timeout() -> void:
 	Timer_()
 	
 #Funkcje Eventów
-func Camera_Shake():
-	Player.Camera_Shake(40, 5)
-	print("NIGGA")
+func Camera_Shake(intensity,time):
+	Player.Camera_Shake(intensity,time)
 		
 func Health_Taken():
 	zycie_restored = Global.Zycie - 2
