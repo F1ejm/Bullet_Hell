@@ -1,8 +1,10 @@
 extends Label
 
+@onready var button: TextureButton = $Button
 
 func _process(delta: float) -> void:
 	if Global.Start_Tutorial == true:
+		button.position.y = 500.0
 		visible = true
 		Global.is_in_game = false
 		text = "Welcome To System Killer! It's A Bullet Hell Rogue-Like. Use W S A D to 
@@ -12,6 +14,7 @@ func _process(delta: float) -> void:
 		And Stamina ProTip: You Can Find Shop After First Room"
 		Global.Start_Tutorial = false
 	if Global.Pierwszy_Pokój == true and Global.Show_Pierwszy_Pokój == true:
+		button.position.y = 410.0
 		visible = true
 		Global.is_in_game = false
 		text = "This Is The Kill Room, Here Enemys Will Spawn.
@@ -20,6 +23,7 @@ func _process(delta: float) -> void:
 		Global.Pierwszy_Pokój = false
 		Global.Show_Pierwszy_Pokój = false
 	if Global.Unstable_World == true and Global.Show_Unstable_World == true:
+		button.position.y = 410.0
 		visible = true
 		Global.is_in_game = false
 		text = "The System Is Very Unstable Which Results In Various World Effects,
@@ -27,12 +31,14 @@ func _process(delta: float) -> void:
 		Global.Unstable_World = false
 		Global.Show_Unstable_World = false
 	if Global.Shop1 == true and Global.Show_Shop1 == true:
+		button.position.y = 410.0
 		visible = true
 		Global.is_in_game = false
 		text = "This Is An Upgrade Shop Which Increases Your Stats"
 		Global.Shop1 = false
 		Global.Show_Shop1 = false
 	if Global.Shopkeeper == true and Global.Show_Shopkeeper == true:
+		button.position.y = 410.0
 		visible = true
 		Global.is_in_game = false
 		text = "In This Shop You Can Buy Items Such As Weapons, Active Items and Passive Items

@@ -27,7 +27,6 @@ func _process(delta: float) -> void:
 	#AudioManager.
 	if Global.IsRoundPlaying == false and get_tree().get_nodes_in_group("Boss").size() == 0:
 		Global.Zycie += zycie_restored
-		Global.Unstable_World = true
 		zycie_restored = 0
 		shader_material.set_shader_parameter("vignette_power", 12.0)
 		shader_material.set_shader_parameter("vignette_divisor", 10.0)
