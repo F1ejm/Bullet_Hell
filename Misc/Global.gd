@@ -134,6 +134,7 @@ var timer: float = 0
 #nwm co to ale potrzebne
 var player_main
 func _ready() -> void:
+	skip_tutorial_func()
 	Start_Tutorial = true
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
@@ -142,16 +143,12 @@ func reset():
 	Start_Tutorial = true
 
 	Pierwszy_Pokój = false
-	Show_Pierwszy_Pokój = true
 
 	Unstable_World = false
-	Show_Unstable_World = true
 
 	Shop1 = false
-	Show_Shop1 = true
 
 	Shopkeeper = false
-	Show_Shopkeeper = true
 	
 	# Logo
 	play_intro = false
