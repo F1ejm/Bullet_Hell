@@ -23,6 +23,9 @@ var regen_cost: int = 5
 var atak_cost: int = 5
 
 func _ready() -> void:
+	for button in get_tree().get_nodes_in_group("button"):
+		button.button_down.connect(_on_button_down)
+		button.button_up.connect(_on_button_up)
 	Stamina_Bar.max_value = 3
 	Stamina_Bar.value = 0
 	Health_Bar.max_value = 3
@@ -32,6 +35,12 @@ func _ready() -> void:
 	Attack_Bar.max_value = 3
 	Attack_Bar.value = 0
 	visible = false
+
+func _on_button_down():
+	AudioManager.menu_button_down.play()
+
+func _on_button_up():
+	AudioManager.menu_button_up.play()
 
 func _process(delta: float) -> void:
 	if Global.shop_ui_visible == true:

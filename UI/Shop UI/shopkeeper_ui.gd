@@ -14,7 +14,7 @@ extends Control
 @onready var pasywny_itemek_2_texture: TextureRect = $HBoxContainer/VBoxContainer4/Pasywny_Itemek2_Texture
 @onready var pasywny_itemek_2_button: TextureButton = $HBoxContainer/VBoxContainer4/Pasywny_Itemek2_Button
 
-@onready var reset_button: Button = $Reset_Button
+@onready var reset_button: TextureButton = $Reset_Button
 class AktywnyItemek:
 	var Player: CharacterBody2D
 	var integer: int
@@ -211,9 +211,18 @@ var Pasywny_Itemek2_Textura
 var rand2
 
 func _ready():
+	for button in get_tree().get_nodes_in_group("button"):
+		button.button_down.connect(_on_button_down)
+		button.button_up.connect(_on_button_up)
 
 	visible = false
 	Zmiana_Sklepu()
+
+func _on_button_down():
+	AudioManager.menu_button_down.play()
+
+func _on_button_up():
+	AudioManager.menu_button_up.play()
 
 func _process(delta: float) -> void:
 	if Global.shopkeeper_ui_visible == true:

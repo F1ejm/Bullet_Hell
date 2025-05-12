@@ -304,4 +304,6 @@ label_settings = SubResource("LabelSettings_j2iu7")
 script = ExtResource("4_j4nmm")
 
 [connection signal="timeout" from="random_event_timer" to="." method="_on_random_event_timer_timeout"]
+[connection signal="button_down" from="CanvasLayer/Tutorial_Text/Button" to="CanvasLayer/Tutorial_Text" method="_on_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/Tutorial_Text/Button" to="CanvasLayer/Tutorial_Text" method="_on_button_button_up"]
 [connection signal="pressed" from="CanvasLayer/Tutorial_Text/Button" to="CanvasLayer/Tutorial_Text" method="_on_button_pressed"]

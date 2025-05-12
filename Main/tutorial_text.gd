@@ -45,3 +45,9 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	visible = false
 	Global.is_in_game = true
+
+func _on_button_button_down() -> void:
+	AudioManager.menu_button_down.play()
+
+func _on_button_button_up() -> void:
+	AudioManager.menu_button_up.play()

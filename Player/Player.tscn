@@ -219,21 +219,27 @@ shape = SubResource("CircleShape2D_8g4oa")
 
 [node name="Karabin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0j2ni")
+bus = &"SFX"
 
 [node name="Pistol" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_vlldt")
+bus = &"SFX"
 
 [node name="Uzi" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_v0k0e")
+bus = &"SFX"
 
 [node name="Minigun" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_v0k0e")
+bus = &"SFX"
 
 [node name="Shotgun" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_s1rgi")
+bus = &"SFX"
 
 [node name="PlayerHurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_5wa8t")
+bus = &"SFX"
 
 [connection signal="timeout" from="PowerUp_Timer" to="." method="_on_power_up_timer_timeout"]
 [connection signal="timeout" from="Regenerating_Timer" to="." method="_on_regenerating_timer_timeout"]
