@@ -68,7 +68,7 @@ func Choose_Event():
 		
 		match(x):
 			1:
-				Camera_Shake(40,10,true)
+				Camera_Shake(35,10,true)
 				unstable_label_2.text = "The System Erupts"
 			2:
 				shader_material.set_shader_parameter("vignette_power", 4.0)
