@@ -16,7 +16,7 @@ script = ExtResource("1_n55vs")
 scale = Vector2(5.575, 3.982)
 texture = ExtResource("2_n55vs")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["shop"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_n55vs")
