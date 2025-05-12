@@ -300,7 +300,8 @@ func _physics_process(delta):
 	node_orbitali.global_position = global_position
 	if Orbitale == true:
 		node_orbitali.Func_Orbitals(delta)
-		
+	else:
+		node_orbitali.visible = false
 	#Pasywny Itemek - regenerujace sie zycie
 	if Regenerating_Health == true and Global.Zycie < Global.Max_Zycie and regen == true and Global.IsRoundPlaying == true:
 		regen = false
