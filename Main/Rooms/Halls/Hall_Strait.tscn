@@ -24,7 +24,7 @@ sources/1 = SubResource("TileSetAtlasSource_2rw8b")
 sources/2 = SubResource("TileSetAtlasSource_x4sis")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqj4i"]
-size = Vector2(560, 80)
+size = Vector2(579.34, 80)
 
 [node name="HallStrait" type="Node2D"]
 

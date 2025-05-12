@@ -89,7 +89,7 @@ sources/1 = SubResource("TileSetAtlasSource_3luy5")
 sources/2 = SubResource("TileSetAtlasSource_jwwgx")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4jvg"]
-size = Vector2(560, 80)
+size = Vector2(562.74, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68v5t"]
 size = Vector2(1290, 1330)

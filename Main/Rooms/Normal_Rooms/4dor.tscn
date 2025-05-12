@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://b1t6gilm08w2d" path="res://Main/Rooms/Normal_Rooms/node_2d.gd" id="5_1o5pf"]
 [ext_resource type="Script" uid="uid://buw7aci8wawo3" path="res://Main/Rooms/Normal_Rooms/door.gd" id="5_n8o2q"]
 [ext_resource type="Texture2D" uid="uid://cuf75hcy7ysr3" path="res://Art/TŁO/sciana nr2.png" id="5_vh80h"]
-[ext_resource type="Script" uid="uid://bt8qq8vmx8irc" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="6_wkt05"]
+[ext_resource type="Script" path="res://Main/Rooms/Normal_Rooms/door_out.gd" id="6_wkt05"]
 [ext_resource type="Texture2D" uid="uid://c8gtuuxttw4sb" path="res://Art/DRZWI/DRZWI.png" id="8_nvq7c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkt05"]
