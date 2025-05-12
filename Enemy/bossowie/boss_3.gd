@@ -38,6 +38,7 @@ func _ready() -> void:
 	cooldown_timer.wait_time = cooldown_waittime
 
 func _process(delta: float) -> void:
+	print(x)
 	progress_bar.value = health
 	if health <= 0:
 		_on_death()
@@ -73,7 +74,7 @@ func _circle_attack() -> void:
 		main.add_child(bullet)
 		bullet.global_transform = bullet_spawn.global_transform
 		bullet.rotation = deg_to_rad(18 * i)
-#		bullet.speed = 200
+		bullet.speed = 200
 		bullet.move_side = true
 		bullet.change_timer = true
 		bullet.directon = randi_range(1, 2) == 1
@@ -125,6 +126,7 @@ func _on_death() -> void:
 	teleportacja.global_position = global_position
 	Player.get_node("Node2D/Camera2D").screen_shake(13, 4)
 	queue_free()
+	AudioManager.play_dungeon_and_shop_music(-20)
 
 
 func _on_atak_timer_timeout() -> void:

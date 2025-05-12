@@ -543,14 +543,14 @@ func Dmg_Func(x):
 			if Dodatkowe_Zycie == true:
 				Dodatkowe_Zycie = false
 			else:
-				Global.Zycie -= x
+				#Global.Zycie -= x
 				Global.immune = true
 	else:
 		#Pasywny Item - regenerujace serduszko
 		if Dodatkowe_Zycie == true:
 			Dodatkowe_Zycie = false
 		else:
-			Global.Zycie -= x
+			#Global.Zycie -= x
 			Global.immune = true
 	
 		

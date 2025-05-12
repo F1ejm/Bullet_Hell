@@ -1,17 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://s6wcj003g2fm"]
+[gd_scene load_steps=4 format=3 uid="uid://s6wcj003g2fm"]
 
+[ext_resource type="Script" uid="uid://4cqgour5ndmq" path="res://Enemy/bossowie/boss_3_bullet.gd" id="1_4cepr"]
 [ext_resource type="Texture2D" uid="uid://cy6a4gn3twbi5" path="res://Art/Emeny/pixil-frame-0 (13).png" id="1_ocdol"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4cepr"]
-radius = 4.0
+radius = 5.0
 
-[node name="Boss3_bullet" type="Area2D"]
+[node name="Boss3_bullet" type="Area2D" groups=["Boss_Bullet"]]
+script = ExtResource("1_4cepr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Boss_Bullet"]]
 position = Vector2(0, -2.98023e-08)
 shape = SubResource("CircleShape2D_4cepr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Boss_Bullet"]]
 texture_filter = 1
 position = Vector2(-0.4, 0.4)
 texture = ExtResource("1_ocdol")
@@ -22,3 +24,5 @@ autostart = true
 [node name="queue_free_timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
