@@ -85,8 +85,9 @@ sources/3 = SubResource("TileSetAtlasSource_rii6w")
 font = ExtResource("2_j2iu7")
 font_size = 30
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("Player")]
 script = ExtResource("1_fayjp")
+Player = NodePath("Player")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
