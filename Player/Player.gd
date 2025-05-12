@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var range_timer: Timer = $Range_Timer
 @onready var parry_area: Area2D = $"Node2D/Parry area"
+@onready var interaction_ui: Control = $Sprite2D/Interaction_ui
+@onready var interaction_area: Area2D = $interaction_area
 
 @onready var sprite_2d: Sprite2D = $Node2D/Melee_attack_area/Sprite2D
 
@@ -195,6 +197,7 @@ func reset():
 	lock_rotation = null
 
 func _ready() -> void:
+	interaction_ui.visible = false
 	reset()
 	label = get_node("/root/Main/CanvasLayer/PowerUP_label")
 	active_item_progresbar = get_node("/root/Main/CanvasLayer/Active_Item_Timer")
@@ -687,3 +690,12 @@ func _on_music_detection_area_exited(area: Area2D) -> void:
 
 func _on_disabled_triggered() -> void:
 	AudioManager.play_dungeon_and_shop_music(-20)
+
+
+func _on_interaction_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("shop"):
+		interaction_ui.visible = true
+
+func _on_interaction_area_area_exited(area: Area2D) -> void:
+	if area.is_in_group("shop"):
+		interaction_ui.visible = false

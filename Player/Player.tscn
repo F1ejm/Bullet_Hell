@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dn4sqx4suowf1"]
+[gd_scene load_steps=25 format=3 uid="uid://dn4sqx4suowf1"]
 
 [ext_resource type="Script" uid="uid://hms7joihh6ve" path="res://Player/Player.gd" id="1_q3lat"]
 [ext_resource type="Texture2D" uid="uid://6ttwqpyw8f5n" path="res://Art/itemy/piorun2.png" id="2_6ysni"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dgxirhssrtykx" path="res://Audio/SFX/guns/laser_pm.mp3" id="9_v0k0e"]
 [ext_resource type="AudioStream" uid="uid://c74kmmvhsehct" path="res://Audio/SFX/guns/laser_minigun.mp3" id="10_v0k0e"]
 [ext_resource type="AudioStream" uid="uid://c8sod7ur70v0x" path="res://Audio/SFX/player/player_hurt.mp3" id="12_5wa8t"]
+[ext_resource type="Texture2D" uid="uid://c8eu8mimkbl8p" path="res://Art/player/interaction_ui.png" id="13_p7tob"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ysni"]
 radius = 91.4286
@@ -89,6 +90,9 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8g4oa"]
 radius = 74.5052
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p7tob"]
+radius = 75.8355
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(0.7, 0.7)
@@ -174,8 +178,32 @@ shape = SubResource("RectangleShape2D_ddoul")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(6, 6.012)
+scale = Vector2(6, 6)
 texture = ExtResource("3_tok1r")
+
+[node name="Interaction_ui" type="Control" parent="Sprite2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -229.0
+offset_top = -128.0
+offset_right = 2820.0
+offset_bottom = 1582.0
+scale = Vector2(0.15, 0.15)
+
+[node name="TextureRect" type="TextureRect" parent="Sprite2D/Interaction_ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -96.5715
+offset_right = 20.0
+offset_bottom = -56.5715
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_p7tob")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
@@ -241,6 +269,11 @@ bus = &"SFX"
 stream = ExtResource("12_5wa8t")
 bus = &"SFX"
 
+[node name="interaction_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area"]
+shape = SubResource("CircleShape2D_p7tob")
+
 [connection signal="timeout" from="PowerUp_Timer" to="." method="_on_power_up_timer_timeout"]
 [connection signal="timeout" from="Regenerating_Timer" to="." method="_on_regenerating_timer_timeout"]
 [connection signal="timeout" from="Fire_Trace_Timer" to="." method="_on_fire_trace_timer_timeout"]
@@ -251,3 +284,5 @@ bus = &"SFX"
 [connection signal="timeout" from="Range_Timer" to="." method="_on_range_timer_timeout"]
 [connection signal="area_entered" from="music detection" to="." method="_on_music_detection_area_entered"]
 [connection signal="area_exited" from="music detection" to="." method="_on_music_detection_area_exited"]
+[connection signal="area_entered" from="interaction_area" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="interaction_area" to="." method="_on_interaction_area_area_exited"]
