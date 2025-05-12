@@ -141,17 +141,17 @@ func reset():
 	#Tutorial
 	Start_Tutorial = true
 
-	#Pierwszy_Pokój = false
-	#Show_Pierwszy_Pokój = true
+	Pierwszy_Pokój = false
+	Show_Pierwszy_Pokój = true
 
-	#Unstable_World = false
-	#Show_Unstable_World = true
+	Unstable_World = false
+	Show_Unstable_World = true
 
-	#Shop1 = false
-	#Show_Shop1 = true
+	Shop1 = false
+	Show_Shop1 = true
 
-	#Shopkeeper = false
-	#Show_Shopkeeper = true
+	Shopkeeper = false
+	Show_Shopkeeper = true
 	
 	# Logo
 	play_intro = false

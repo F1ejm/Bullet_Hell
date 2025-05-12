@@ -484,7 +484,7 @@ func Ranged():
 			#Pasywny itemek - przebicie ścian
 			if Ignore_wall_Item == true:
 				b.ignore_walls = true
-	$Node2D/Camera2D.screen_shake(5,0.5)
+	$Node2D/Camera2D.screen_shake(5,0.5,false)
 
 	#Pasywny Itemek - Piorun
 	pasywne_itemki.rotation = randi_range(0,360)
@@ -529,7 +529,7 @@ func _on_weapon_changed() -> void:
 	
 #Otrzymywanie Dmg'u
 func Dmg_Func(x):
-	$Node2D/Camera2D.screen_shake(15,0.5)
+	$Node2D/Camera2D.screen_shake(15,0.5,false)
 	var rand_pitch = randf_range(0.95, 1.05)
 	$PlayerHurt.pitch_scale = rand_pitch
 	$PlayerHurt.play()
@@ -667,8 +667,8 @@ func _on_power_up_timer_timeout() -> void:
 	#3 Chodzisz 2 razy wolniej
 	Global.Move_Slower_PowerUp = false
 
-func Camera_Shake(intensity,time):
-	$Node2D/Camera2D.screen_shake(intensity,time)
+func Camera_Shake(intensity,time,unstable):
+	$Node2D/Camera2D.screen_shake(intensity,time,unstable)
 
 #Pasywny Itemek timer - regenerujace sie zycie
 func _on_regenerating_timer_timeout() -> void:
