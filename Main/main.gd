@@ -23,10 +23,10 @@ func _ready() -> void:
 	Timer_()
 
 func _process(delta: float) -> void:
+	
 	#AudioManager.
 	if Global.IsRoundPlaying == false and get_tree().get_nodes_in_group("Boss").size() == 0:
 		Global.Zycie += zycie_restored
-		Global.Unstable_World = true
 		zycie_restored = 0
 		shader_material.set_shader_parameter("vignette_power", 12.0)
 		shader_material.set_shader_parameter("vignette_divisor", 10.0)
@@ -50,12 +50,15 @@ func Timer_():
 func Choose_Event():
 	#Tu jakieś SFX i wizualnie rzeczy TODO
 	if Global.IsRoundPlaying == true or get_tree().get_nodes_in_group("Boss").size() == 1:
+		Camera_Shake(0,0,true)
 		Global.Zycie += zycie_restored
 		Global.Unstable_World = true
 		zycie_restored = 0
 		shader_material.set_shader_parameter("vignette_power", 12.0)
 		shader_material.set_shader_parameter("vignette_divisor", 10.0)
 		Engine.time_scale = 1
+		Camera_Shake(20,1,true)
+		
 		
 		label.visible = true
 		
@@ -64,7 +67,7 @@ func Choose_Event():
 		
 		match(x):
 			1:
-				Camera_Shake()
+				Camera_Shake(35,10,true)
 				unstable_label_2.text = "The System Erupts"
 			2:
 				shader_material.set_shader_parameter("vignette_power", 4.0)
@@ -88,9 +91,8 @@ func _on_random_event_timer_timeout() -> void:
 	Timer_()
 	
 #Funkcje Eventów
-func Camera_Shake():
-	Player.Camera_Shake(40, 5)
-	print("NIGGA")
+func Camera_Shake(intensity,time,unstable):
+	Player.Camera_Shake(intensity,time,unstable)
 		
 func Health_Taken():
 	zycie_restored = Global.Zycie - 2

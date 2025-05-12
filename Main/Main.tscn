@@ -1,6 +1,5 @@
-[gd_scene load_steps=40 format=3 uid="uid://c5lhq3xlm4eps"]
+[gd_scene load_steps=37 format=3 uid="uid://c5lhq3xlm4eps"]
 
-[ext_resource type="PackedScene" uid="uid://c3n14o50uplsa" path="res://UI/PlayerUI/runda_ui.tscn" id="1_6yo1i"]
 [ext_resource type="PackedScene" uid="uid://diugecwtbpsr7" path="res://UI/PlayerUI/v_dolce.tscn" id="1_bor5n"]
 [ext_resource type="Script" uid="uid://dgmdeixn5aj6u" path="res://Main/main.gd" id="1_fayjp"]
 [ext_resource type="PackedScene" uid="uid://dn4sqx4suowf1" path="res://Player/Player.tscn" id="1_lxy7q"]
@@ -8,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cfyt2yxs1dv36" path="res://UI/PlayerUI/zycie.tscn" id="3_amygn"]
 [ext_resource type="PackedScene" uid="uid://ckn81yvwna77p" path="res://UI/Shop UI/shop_ui.tscn" id="3_hh5pf"]
 [ext_resource type="Texture2D" uid="uid://dafvxbhjfhcpj" path="res://Art/icon.svg" id="3_j2iu7"]
-[ext_resource type="Script" uid="uid://q8h1xhj2mpt0" path="res://UI/Interaction UI/interaction.gd" id="4_hh5pf"]
 [ext_resource type="Script" uid="uid://dnk7cgow6swma" path="res://Main/boss_label.gd" id="4_j4nmm"]
 [ext_resource type="PackedScene" uid="uid://ht7qibk0wg3t" path="res://UI/PlayerUI/stamina.tscn" id="4_ps1la"]
 [ext_resource type="PackedScene" uid="uid://b4ule07d21r78" path="res://UI/Shop UI/shopkeeper_ui.tscn" id="7_d3r6l"]
@@ -46,9 +44,6 @@ font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_ggtbl"]
 font = ExtResource("2_j2iu7")
 font_size = 40
-
-[sub_resource type="LabelSettings" id="LabelSettings_hh5pf"]
-font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_o8qko"]
 font = ExtResource("2_j2iu7")
@@ -154,45 +149,12 @@ grow_vertical = 2
 text = "jhgkhjk"
 label_settings = SubResource("LabelSettings_ggtbl")
 
-[node name="Runda_UI" parent="CanvasLayer" instance=ExtResource("1_6yo1i")]
-
 [node name="V-Dolce" parent="CanvasLayer" instance=ExtResource("1_bor5n")]
 
 [node name="zycie" parent="CanvasLayer" node_paths=PackedStringArray("Player") instance=ExtResource("3_amygn")]
 Player = NodePath("../../Player")
 
 [node name="Stamina" parent="CanvasLayer" instance=ExtResource("4_ps1la")]
-
-[node name="interaction" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("4_hh5pf")
-
-[node name="Label" type="Label" parent="CanvasLayer/interaction"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -9.0
-offset_top = -22.5
-offset_right = 9.0
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "E"
-label_settings = SubResource("LabelSettings_hh5pf")
 
 [node name="shop ui" parent="CanvasLayer" node_paths=PackedStringArray("Zycie_UI") instance=ExtResource("3_hh5pf")]
 visible = false
@@ -247,8 +209,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -128.0
-offset_top = -64.0
+offset_top = -72.0
 offset_right = 128.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("13_rii6w")

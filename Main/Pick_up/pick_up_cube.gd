@@ -1,13 +1,16 @@
 extends StaticBody2D
 
 var label
+var player
 @onready var item_pick_up: AudioStreamPlayer = $ItemPickUp
 
 func _ready():
+	player = get_node("/root/Main/Player")
 	label = get_node("/root/Main/CanvasLayer/PowerUP_label")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		player.Camera_Shake(15,1.5,false)
 		AudioManager.item_pick_up.play()
 		var x = randi_range(1,12)
 		match(x):
