@@ -89,8 +89,8 @@ func _on_random_event_timer_timeout() -> void:
 	
 #Funkcje Eventów
 func Camera_Shake():
-	Player.Camera_Shake(15, 5)
-
+	Player.Camera_Shake(40, 5)
+	print("NIGGA")
 		
 func Health_Taken():
 	zycie_restored = Global.Zycie - 2
