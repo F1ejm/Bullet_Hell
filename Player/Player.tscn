@@ -32,7 +32,7 @@ point_count = 2
 radius = 547.62
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddoul"]
-size = Vector2(8.76266, 9.99998)
+size = Vector2(11.4286, 23.5714)
 
 [sub_resource type="Animation" id="Animation_tok1r"]
 length = 0.001
@@ -173,12 +173,13 @@ position = Vector2(155.714, 0)
 shape = SubResource("CircleShape2D_6ysni")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4.76837e-07)
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ddoul")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(6, 6)
+scale = Vector2(5, 5)
 texture = ExtResource("3_tok1r")
 
 [node name="Interaction_ui" type="Control" parent="Sprite2D"]
