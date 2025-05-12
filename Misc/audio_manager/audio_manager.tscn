@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://vx8qnbcmqaja"]
+[gd_scene load_steps=26 format=3 uid="uid://vx8qnbcmqaja"]
 
 [ext_resource type="AudioStream" uid="uid://bgu0fccgfbqta" path="res://Audio/SFX/misc/menu button down.mp3" id="1_eoxc6"]
 [ext_resource type="Script" uid="uid://bkgc4omcr0b38" path="res://Misc/audio_manager/audio_manager.gd" id="1_tjl6i"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bofwd8cwsq0sv" path="res://Audio/Music/04 - Lunatic Princess.mp3" id="9_84pmh"]
 [ext_resource type="AudioStream" uid="uid://cx64avo2asbax" path="res://Audio/SFX/player/item_pick_up.mp3" id="9_l0luo"]
 [ext_resource type="AudioStream" uid="uid://dvbvd1yks0s6" path="res://Audio/Music/05 - Flowering Night.mp3" id="10_541kk"]
+[ext_resource type="AudioStream" uid="uid://di2d7erit3t3i" path="res://Audio/SFX/misc/zmiana_mapy.mp3" id="10_nnd8a"]
 [ext_resource type="AudioStream" uid="uid://dhtvjgvchqa1y" path="res://Audio/Music/06 - Native Faith.mp3" id="11_l0luo"]
 [ext_resource type="AudioStream" uid="uid://cnwl3ms6x2qrw" path="res://Audio/Music/07 - Septette for the Dead Princess (feat. Jonathan Parecki).mp3" id="12_nnd8a"]
 [ext_resource type="AudioStream" uid="uid://diwu3q3f8f7fv" path="res://Audio/Music/08 - Reach for the Moon, Immortal Smoke (feat. Alejandro Hernández).mp3" id="13_jmgit"]
@@ -54,6 +55,9 @@ stream = ExtResource("6_q40tu")
 
 [node name="ItemPickUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_l0luo")
+
+[node name="ZmianaMapy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_nnd8a")
 
 [node name="music" type="Node" parent="."]
 

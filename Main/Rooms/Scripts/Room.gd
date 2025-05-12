@@ -26,7 +26,7 @@ func _ready():
 	print("a")
 	
 func _reset() -> void:
-	print(self.get_child(0).get_child(0))
+	AudioManager.zmiana_mapy.play()
 	self.get_child(0).get_child(0).queue_free()
 	LastDoorContainer = self
 	d = 0

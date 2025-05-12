@@ -224,9 +224,9 @@ func _process(delta: float) -> void:
 		boss_present = boss_now
 
 		if boss_present:
-			AudioManager.play_boss_music()
+			AudioManager.play_boss_music(-30)
 		else:
-			AudioManager.play_random_battle_track()
+			AudioManager.play_dungeon_and_shop_music(-20)
 	
 	if Tarcza == true:
 		$Tarcza_Item_Area/Sprite2D.visible = true
