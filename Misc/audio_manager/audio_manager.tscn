@@ -32,32 +32,41 @@ script = ExtResource("1_tjl6i")
 
 [node name="EnemyDeath1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_541kk")
+bus = &"SFX"
 
 [node name="EnemyDeath2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_l0luo")
+bus = &"SFX"
 
 [node name="Buy1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_oeafg")
 volume_db = -15.0
+bus = &"SFX"
 
 [node name="Buy2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_vqqbq")
 volume_db = -15.0
+bus = &"SFX"
 
 [node name="MenuButtonDown" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_eoxc6")
+bus = &"SFX"
 
 [node name="MenuButtonUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_tjl6i")
+bus = &"SFX"
 
 [node name="PlayerDeath" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_q40tu")
+bus = &"SFX"
 
 [node name="ItemPickUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_l0luo")
+bus = &"SFX"
 
 [node name="ZmianaMapy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_nnd8a")
+bus = &"SFX"
 
 [node name="music" type="Node" parent="."]
 

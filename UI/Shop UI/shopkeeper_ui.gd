@@ -14,7 +14,7 @@ extends Control
 @onready var pasywny_itemek_2_texture: TextureRect = $HBoxContainer/VBoxContainer4/Pasywny_Itemek2_Texture
 @onready var pasywny_itemek_2_button: TextureButton = $HBoxContainer/VBoxContainer4/Pasywny_Itemek2_Button
 
-@onready var reset_button: Button = $Reset_Button
+@onready var reset_button: TextureButton = $Reset_Button
 class AktywnyItemek:
 	var Player: CharacterBody2D
 	var integer: int

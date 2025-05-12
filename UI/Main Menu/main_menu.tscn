@@ -249,6 +249,7 @@ texture = ExtResource("22_j66k8")
 
 [node name="LogoIntro" type="AudioStreamPlayer" parent="Solpolex Logo"]
 stream = ExtResource("23_122ck")
+bus = &"SFX"
 
 [node name="logo" type="AnimationPlayer" parent="."]
 libraries = {
