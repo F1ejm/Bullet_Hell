@@ -24,6 +24,8 @@ func _physics_process(delta: float) -> void:
 		offset = lerp(offset, Vector2.ZERO, 10.5 * delta)
 	
 func screen_shake(intensity: float, time: float):
+	if shake_time < active_shake_time:
+		return  # ignoruj nowe shake jeśli trwa stare
 	noise.seed = randi()
 	noise.frequency = 2.0
 	
