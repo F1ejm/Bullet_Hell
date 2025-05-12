@@ -1,5 +1,7 @@
 extends Node
 #Tutorial
+var skip_tutorial: bool = false
+
 var Start_Tutorial: bool = true
 
 var Pierwszy_Pokój: bool = false
@@ -13,6 +15,18 @@ var Show_Shop1: bool = true
 
 var Shopkeeper: bool = false
 var Show_Shopkeeper: bool = true
+
+func skip_tutorial_func():
+	if skip_tutorial == true:
+		Show_Pierwszy_Pokój = false
+		Show_Shop1 = false
+		Show_Unstable_World = false
+		Show_Shopkeeper = false
+	else:
+		Show_Pierwszy_Pokój = true
+		Show_Shop1 = true
+		Show_Unstable_World = true
+		Show_Shopkeeper = true
 
 #Logo
 var play_intro := true
@@ -127,17 +141,17 @@ func reset():
 	#Tutorial
 	Start_Tutorial = true
 
-	Pierwszy_Pokój = false
-	Show_Pierwszy_Pokój = true
+	#Pierwszy_Pokój = false
+	#Show_Pierwszy_Pokój = true
 
-	Unstable_World = false
-	Show_Unstable_World = true
+	#Unstable_World = false
+	#Show_Unstable_World = true
 
-	Shop1 = false
-	Show_Shop1 = true
+	#Shop1 = false
+	#Show_Shop1 = true
 
-	Shopkeeper = false
-	Show_Shopkeeper = true
+	#Shopkeeper = false
+	#Show_Shopkeeper = true
 	
 	# Logo
 	play_intro = false

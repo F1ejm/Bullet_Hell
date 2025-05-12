@@ -197,12 +197,13 @@ texture_normal = SubResource("AnimatedTexture_qx4ph")
 texture_pressed = ExtResource("5_v3ito")
 texture_hover = ExtResource("6_4ang8")
 
-[node name="CheckButton" type="CheckButton" parent="."]
+[node name="tutorial_skip" type="CheckButton" parent="."]
 layout_mode = 2
 offset_left = 728.0
 offset_top = 772.0
 offset_right = 1186.0
 offset_bottom = 810.0
+focus_mode = 0
 theme = ExtResource("1_u23uq")
 text = "Skip Tutorial  "
 
@@ -214,3 +215,4 @@ text = "Skip Tutorial  "
 [connection signal="button_down" from="back" to="." method="_on_back_button_down"]
 [connection signal="button_up" from="back" to="." method="_on_back_button_up"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="tutorial_skip" to="." method="_on_tutorial_skip_toggled"]
