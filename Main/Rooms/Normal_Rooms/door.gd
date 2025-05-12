@@ -15,5 +15,5 @@ func _on_in_body_entered(body: Node2D) -> void:
 		Global.Czas_Rundy = 60
 		Global.Pierwszy_Pokój = true
 		get_parent().is_Player_in_room = true
-		$StaticBody2D.position = Vector2(0,51)
+		$StaticBody2D.position = Vector2(0,0)
 		$"../../Spawner".active=true
