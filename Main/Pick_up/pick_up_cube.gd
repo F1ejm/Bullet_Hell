@@ -1,12 +1,14 @@
 extends StaticBody2D
 
 var label
+@onready var item_pick_up: AudioStreamPlayer = $ItemPickUp
 
 func _ready():
 	label = get_node("/root/Main/CanvasLayer/PowerUP_label")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		item_pick_up.play()
 		var x = randi_range(1,12)
 		match(x):
 			1:

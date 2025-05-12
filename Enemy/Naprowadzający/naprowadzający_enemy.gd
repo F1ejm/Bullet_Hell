@@ -143,6 +143,7 @@ func _on_nav_timer_timeout() -> void:
 
 func Death():
 	#Animacja Smierci i SFX TODO
+	AudioManager.enemy_death()
 	Global.i -= 1
 	var monetki = randi_range(0,2)
 	Global.VDolce += monetki

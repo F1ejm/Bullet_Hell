@@ -1,10 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://vx8qnbcmqaja"]
+[gd_scene load_steps=24 format=3 uid="uid://vx8qnbcmqaja"]
 
 [ext_resource type="AudioStream" uid="uid://bgu0fccgfbqta" path="res://Audio/SFX/misc/menu button down.mp3" id="1_eoxc6"]
 [ext_resource type="Script" uid="uid://bkgc4omcr0b38" path="res://Misc/audio_manager/audio_manager.gd" id="1_tjl6i"]
+[ext_resource type="AudioStream" uid="uid://celg4d4relx3p" path="res://Audio/SFX/misc/enemy_death_1.mp3" id="2_541kk"]
 [ext_resource type="AudioStream" uid="uid://baupph2381qt3" path="res://Audio/SFX/misc/buy1.mp3" id="2_oeafg"]
 [ext_resource type="AudioStream" uid="uid://cb0iiqvnook7m" path="res://Audio/SFX/misc/menu button up.mp3" id="2_tjl6i"]
+[ext_resource type="AudioStream" uid="uid://cb5nv5lfiubg0" path="res://Audio/SFX/misc/enemy_death_2.mp3" id="3_l0luo"]
 [ext_resource type="AudioStream" uid="uid://d0vg3lpp1es3a" path="res://Audio/SFX/misc/buy2.mp3" id="3_vqqbq"]
+[ext_resource type="AudioStream" uid="uid://csae5dvdgmns6" path="res://Audio/SFX/player/player_death.mp3" id="6_q40tu"]
 [ext_resource type="AudioStream" uid="uid://chvy4svw3rmw0" path="res://Audio/Music/01 - U.N. Owen Was Her.mp3" id="6_qcdol"]
 [ext_resource type="AudioStream" uid="uid://bs5iq7qbcmct8" path="res://Audio/Music/main_menu.mp3" id="6_vqqbq"]
 [ext_resource type="AudioStream" uid="uid://jxcv5xfhdka0" path="res://Audio/Music/02 - Nuclear Fusion.mp3" id="7_kq5r2"]
@@ -25,6 +28,12 @@
 process_mode = 3
 script = ExtResource("1_tjl6i")
 
+[node name="EnemyDeath1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_541kk")
+
+[node name="EnemyDeath2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_l0luo")
+
 [node name="Buy1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_oeafg")
 volume_db = -15.0
@@ -38,6 +47,9 @@ stream = ExtResource("1_eoxc6")
 
 [node name="MenuButtonUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_tjl6i")
+
+[node name="PlayerDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_q40tu")
 
 [node name="music" type="Node" parent="."]
 

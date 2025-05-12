@@ -141,6 +141,7 @@ func Generate():
 
 func Death():
 	#Animacja Smierci i SFX TODO
+	AudioManager.enemy_death()
 	Global.i -= 1
 	var monetki = randi_range(0,2)
 	Global.VDolce += monetki
