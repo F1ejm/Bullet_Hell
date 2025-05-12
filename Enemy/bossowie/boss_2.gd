@@ -235,7 +235,7 @@ func Second_Phase():
 	second_phase.transform = global_transform
 	second_phase.Player = Player
 	second_phase.main = main
-	Player.get_node("Node2D/Camera2D").screen_shake(9, 5)
+	Player.get_node("Node2D/Camera2D").screen_shake(9, 5, false)
 	queue_free()
 
 #Timery
