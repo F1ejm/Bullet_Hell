@@ -34,7 +34,7 @@ size = Vector2(160, 80)
 size = Vector2(267, 70.9986)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inkkk"]
-size = Vector2(1195, 722)
+size = Vector2(1098, 620)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hjwj"]
 size = Vector2(1290, 734)
@@ -120,7 +120,7 @@ position = Vector2(10.9999, 20)
 rotation = -3.14159
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Door/music"]
-position = Vector2(-2.5, 402)
+position = Vector2(-1.00003, 399)
 shape = SubResource("RectangleShape2D_inkkk")
 
 [node name="Fog" type="Node2D" parent="."]

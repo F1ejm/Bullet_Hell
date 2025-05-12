@@ -41,7 +41,7 @@ size = Vector2(240, 126)
 size = Vector2(80, 160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vh80h"]
-size = Vector2(1197, 1195)
+size = Vector2(1097, 1097)
 
 [node name="2Dor2" type="Node2D"]
 
@@ -199,7 +199,7 @@ texture = ExtResource("8_nvq7c")
 [node name="music" type="Area2D" parent="Template/Door" groups=["battle_music"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Template/Door/music"]
-position = Vector2(5.5, 641.5)
+position = Vector2(-1.5, 636.5)
 shape = SubResource("RectangleShape2D_vh80h")
 
 [node name="DoorContainer" type="Node2D" parent="."]
