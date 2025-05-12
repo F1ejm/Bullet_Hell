@@ -32,7 +32,7 @@ func _ready():
 	master_volume.value = Global.current_master_volume
 	music_volume.value = Global.current_music_volume
 	sfx_volume.value = Global.current_sfx_volume
-
+	
 func _on_button_down():
 	AudioManager.menu_button_down.play()
 

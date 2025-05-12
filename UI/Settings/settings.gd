@@ -5,6 +5,7 @@ extends Control
 @onready var master_volume: HSlider = $"MarginContainer2/VBoxContainer/Master Volume"
 @onready var music_volume: HSlider = $"MarginContainer2/VBoxContainer/Music Volume"
 @onready var sfx_volume: HSlider = $"MarginContainer2/VBoxContainer/SFX Volume"
+@onready var tutorial_skip: CheckButton = $tutorial_skip
 
 
 func _ready():
@@ -17,7 +18,11 @@ func _ready():
 	master_volume.value = Global.current_master_volume
 	music_volume.value = Global.current_music_volume
 	sfx_volume.value = Global.current_sfx_volume
-
+	
+	if Global.skip_tutorial == true:
+		tutorial_skip.button_pressed = true
+	elif Global.skip_tutorial == false:
+		tutorial_skip.button_pressed = false
 
 var resolutions := [
 	"1920 x 1080",
@@ -79,3 +84,11 @@ func _on_back_button_down() -> void:
 
 func _on_back_button_up() -> void:
 	AudioManager.menu_button_up.play()
+
+func _on_tutorial_skip_toggled(toggled_on: bool) -> void:
+	if toggled_on == true:
+		Global.skip_tutorial = true
+		Global.skip_tutorial_func()
+	else:
+		Global.skip_tutorial = false
+		Global.skip_tutorial_func()
