@@ -161,11 +161,11 @@ color = Color(0.190762, 0.190762, 0.190762, 1)
 [node name="Projectiles_Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Projectiles_Area"]
+position = Vector2(155.714, 0)
 shape = SubResource("CircleShape2D_6ysni")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4.76837e-07)
-scale = Vector2(0.978177, 1)
 shape = SubResource("RectangleShape2D_ddoul")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

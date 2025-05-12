@@ -88,8 +88,8 @@ func _spray_attack() -> void:
 	var bullet = bullet_path.instantiate()
 	main.add_child(bullet)
 	bullet.global_transform = bullet_spawn.global_transform
-	bullet.rotation = bullet_spawn.rotation + deg_to_rad(randi_range(-45, 45))
-	bullet.speed = 400
+	bullet.rotation = bullet_spawn.rotation + deg_to_rad(randi_range(-180, 180))
+	bullet.speed = 200
 	bullet.move_side = false
 	bullet.scale = Vector2(2, 2)
 	atak_timer.start()
@@ -129,7 +129,6 @@ func _on_Cooldown_Timer_timeout() -> void:
 	x = _generate_attack(3)
 
 func _on_Atak_Timer_timeout() -> void:
-	# Ta funkcja może być użyta do animacji odświeżenia ataku, jeśli potrzebne
 	pass
 
 # Funkcja uderzenia bossa (wołać zawsze, gdy boss jest trafiony)
