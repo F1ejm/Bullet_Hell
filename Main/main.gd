@@ -23,6 +23,7 @@ func _ready() -> void:
 	Timer_()
 
 func _process(delta: float) -> void:
+	
 	#AudioManager.
 	if Global.IsRoundPlaying == false and get_tree().get_nodes_in_group("Boss").size() == 0:
 		Global.Zycie += zycie_restored
@@ -50,13 +51,14 @@ func Timer_():
 func Choose_Event():
 	#Tu jakieś SFX i wizualnie rzeczy TODO
 	if Global.IsRoundPlaying == true or get_tree().get_nodes_in_group("Boss").size() == 1:
+		Camera_Shake(0,0)
 		Global.Zycie += zycie_restored
 		Global.Unstable_World = true
 		zycie_restored = 0
 		shader_material.set_shader_parameter("vignette_power", 12.0)
 		shader_material.set_shader_parameter("vignette_divisor", 10.0)
 		Engine.time_scale = 1
-		Camera_Shake(30,1)
+		Camera_Shake(20,1)
 		
 		
 		label.visible = true
@@ -66,7 +68,7 @@ func Choose_Event():
 		
 		match(x):
 			1:
-				Camera_Shake(50,10)
+				Camera_Shake(35,10)
 				unstable_label_2.text = "The System Erupts"
 			2:
 				shader_material.set_shader_parameter("vignette_power", 4.0)

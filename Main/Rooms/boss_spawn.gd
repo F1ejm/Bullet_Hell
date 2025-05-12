@@ -6,6 +6,7 @@ var boss3_path = preload("res://Enemy/bossowie/boss_3.tscn")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		AudioManager.play_boss_music(-30)
 		randomize()
 		var rand = randi_range(1,3)
 		if rand == 15:
