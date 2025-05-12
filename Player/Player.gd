@@ -160,12 +160,12 @@ func reset():
 	Move_Slower_PowerUp = false
 	
 	# Itemy aktywne
-	Current_Active_Item = 4
+	Current_Active_Item = 5
 	Can_Use_Tarcza = false
 	Tarcza = false
 	Can_Use_Projectiles = false
 	Projectiles = false
-	Can_Use_AOE = true
+	Can_Use_AOE = false
 	AOE = false
 	Can_Use_Clear = false
 	Clear = false
@@ -542,14 +542,14 @@ func Dmg_Func(x):
 			if Dodatkowe_Zycie == true:
 				Dodatkowe_Zycie = false
 			else:
-				#Global.Zycie -= x
+				Global.Zycie -= x
 				Global.immune = true
 	else:
 		#Pasywny Item - regenerujace serduszko
 		if Dodatkowe_Zycie == true:
 			Dodatkowe_Zycie = false
 		else:
-			#Global.Zycie -= x
+			Global.Zycie -= x
 			Global.immune = true
 	
 		
