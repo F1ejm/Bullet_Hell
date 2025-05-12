@@ -401,9 +401,6 @@ func _physics_process(delta):
 			elif curent == "Pistol":
 				$Pistol.pitch_scale = rand_pitch
 				$Pistol.play()
-			elif  curent == "Uzi":
-				$Uzi.pitch_scale = rand_pitch
-				$Uzi.play()
 			elif  curent == "Minigun":
 				$Minigun.pitch_scale = rand_pitch
 				$Minigun.play()
@@ -439,6 +436,10 @@ func _physics_process(delta):
 #Atak - Ranged
 func Ranged():
 	if(not stats.isShotgun):
+		var rand_pitch = randf_range(0.95, 1.05)
+		if  Global.CurrentWeapon == "Uzi":
+			$Uzi.pitch_scale = rand_pitch
+			$Uzi.play()
 		var b = bullet_path.instantiate()
 		owner.add_child(b)
 		b.transform = $WeaponSprite/BulletSpacing.global_transform
