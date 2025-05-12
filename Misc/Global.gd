@@ -134,7 +134,7 @@ var timer: float = 0
 #nwm co to ale potrzebne
 var player_main
 func _ready() -> void:
-	skip_tutorial_func()
+	#skip_tutorial_func()
 	Start_Tutorial = true
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	

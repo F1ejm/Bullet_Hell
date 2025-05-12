@@ -17,7 +17,7 @@ extends CharacterBody2D
 var label
 @onready var power_up_timer: Timer = $PowerUp_Timer
 
-var PowerUp_time: float = 5
+var PowerUp_time: float = 7
 
 #Pozytywne
 #1 Dash Zabija
