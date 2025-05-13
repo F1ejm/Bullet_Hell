@@ -81,7 +81,7 @@ func can_shoot() -> void:
 	shoot()
 
 func shoot():
-	if shoot_available and can_shoot_timer == true and is_instance_valid(main): 
+	if shoot_available and can_shoot_timer == true: 
 		shoot_available = false
 		var b = Bullet.instantiate()
 		main.add_child(b)
