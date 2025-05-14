@@ -21,7 +21,7 @@ var another_atak: bool = false
 # interwały i czasy trwania
 var atack_speed = 1
 var cooldown_waittime = 1.5
-var circle_interval   = 0.6 * atack_speed
+var circle_interval   = 0.5 * atack_speed
 var circle_duration   = 7.0
 var spray_interval    = 0.12 * atack_speed
 var spiral_angle := 0.0  
@@ -29,16 +29,17 @@ var spray_duration    = 7.0
 var eryk_interval     = 0.2 * atack_speed
 var eryk_duration     = 7.0
 var can_rage = true
-
+var can_be_hit
 var max_health = health * 0.2 * (Global.Runda - 1)
 # życie
-var health: float = 80.0
+var health: float = 130.0
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 # teleport
 var teleport = preload("res://Main/teleport.tscn")
 
 func _ready() -> void:
+	can_be_hit = true
 	$".".global_rotation = 0
 	can_rage = true
 	health += health * 0.2 * (Global.Runda - 1)
@@ -85,27 +86,29 @@ func _circle_attack() -> void:
 		b.global_position = bullet_spawn.global_position
 		var angle = start_angle + deg_to_rad(spread_angle) * i / (bullet_count - 1)
 		b.rotation = angle
-		b.speed = 250
+		b.speed = 500 * atack_speed
 		b.move_side = false
 		b.scale = Vector2(3, 3)
 
-
+var gap_index := 0  # indeks dziury w okręgu
 func _spiral_attack() -> void:
-	var bullets_to_shoot = 6
-	var angle_step = 360.0 / bullets_to_shoot
+	var bullet_count = 28
+	var angle_step = TAU / bullet_count
 
-	for i in range(bullets_to_shoot):
+	# Strzelamy w każdą stronę oprócz gap_index
+	for i in range(bullet_count):
+		if i == gap_index:
+			continue  # zostaw dziurę
 		var b = bullet_path.instantiate()
 		main.add_child(b)
-		
-		var angle = spiral_angle + i * angle_step
-		b.global_transform = bullet_spawn.global_transform
-		b.rotation = deg_to_rad(angle)
-		b.speed = 260
+		b.global_position = bullet_spawn.global_position
+		b.rotation = i * angle_step
+		b.speed = 280 * atack_speed
 		b.move_side = false
-		b.scale = Vector2(2.5, 2.5)
+		b.scale = Vector2(2.0, 2.0)
 
-	spiral_angle += 12
+	# Przesuń dziurę w prawo (wiruje)
+	gap_index = (gap_index + 1) % bullet_count
 
 func _eryk_attack() -> void:
 	for i in range(8):
@@ -113,7 +116,7 @@ func _eryk_attack() -> void:
 		main.add_child(b)
 		b.global_transform = bullet_spawn.global_transform
 		b.rotation = bullet_spawn.rotation + deg_to_rad(45 * i)
-		b.speed = 220
+		b.speed = 220 * atack_speed
 		b.move_side = true
 		b.change_timer = false
 		b.directon = true
@@ -144,6 +147,7 @@ func _generate_attack() -> int:
 
 # ─── RAGE──────────────────────────
 func rage():
+	$AnimatedSprite2D.play("Rage")
 	can_rage = false
 	$bluescreen.visible = true
 	rage_timer.start()
@@ -174,7 +178,7 @@ func _on_Death() -> void:
 func _on_lasting_timer_timeout() -> void:
 		# koniec fazy ataku
 	another_atak = false
-	$AnimatedSprite2D.play("Idle")
+	
 	# usuń pociski
 	for b in get_tree().get_nodes_in_group("Boss_Bullet"):
 		b.queue_free()
@@ -199,7 +203,6 @@ func _on_cooldown_timer_timeout() -> void:
 	# wchodzimy w fazę ataku
 	x = _generate_attack()
 	another_atak = true
-	$AnimatedSprite2D.play("Attack")
 	match x:
 		1:
 			atak_timer.wait_time = circle_interval

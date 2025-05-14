@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvro2lca1jslt"]
+[gd_scene load_steps=14 format=3 uid="uid://bvro2lca1jslt"]
 
 [ext_resource type="Texture2D" uid="uid://bvviunoqqdsa3" path="res://Art/boss_3/0 i 1.png" id="1_kq6j2"]
 [ext_resource type="Script" uid="uid://cju4tfgdpii85" path="res://Enemy/bossowie/boss_3.gd" id="1_nu1qr"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://p6yhkbvhuwp3" path="res://Art/boss_3/0 i 0.png" id="3_jv8s1"]
 [ext_resource type="Texture2D" uid="uid://p5jhjpk67mm8" path="res://Art/boss_3/1 i .png" id="4_6bjwc"]
 [ext_resource type="Texture2D" uid="uid://dohwtav4cx08i" path="res://Art/boss_3/pixil-frame-0 (92).png" id="6_jv8s1"]
+[ext_resource type="Texture2D" uid="uid://de2odlehbxxtm" path="res://Art/boss_3/pixil-frame-0 (94).png" id="7_fu7lk"]
+[ext_resource type="Texture2D" uid="uid://blt2k5a33sd00" path="res://Art/boss_3/pixil-frame-0 (95).png" id="8_lmh0d"]
+[ext_resource type="Texture2D" uid="uid://c4mp56gggw5xw" path="res://Art/boss_3/pixil-frame-0 (93).png" id="9_qovvd"]
+[ext_resource type="Texture2D" uid="uid://do1y47vhpuhul" path="res://Art/boss_3/pixil-frame-0 (96).png" id="10_2svcd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c128t"]
 animations = [{
@@ -67,6 +71,47 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_fu7lk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lmh0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fu7lk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lmh0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fu7lk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lmh0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qovvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2svcd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qovvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2svcd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qovvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2svcd")
+}],
+"loop": true,
+"name": &"Rage",
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iccxn"]
@@ -79,6 +124,7 @@ size = Vector2(203, 206)
 script = ExtResource("1_nu1qr")
 
 [node name="bluescreen" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Sprite2D" type="TextureRect" parent="bluescreen"]
 scale = Vector2(6.31579, 7.5)
@@ -87,9 +133,7 @@ texture = ExtResource("6_jv8s1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6, 6.05789)
 sprite_frames = SubResource("SpriteFrames_c128t")
-animation = &"Idle"
-frame = 6
-frame_progress = 0.32043
+animation = &"Rage"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9.61125e-07, 1)
