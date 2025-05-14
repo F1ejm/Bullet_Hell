@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvro2lca1jslt"]
+[gd_scene load_steps=10 format=3 uid="uid://bvro2lca1jslt"]
 
 [ext_resource type="Texture2D" uid="uid://bvviunoqqdsa3" path="res://Art/boss_3/0 i 1.png" id="1_kq6j2"]
 [ext_resource type="Script" uid="uid://cju4tfgdpii85" path="res://Enemy/bossowie/boss_3.gd" id="1_nu1qr"]
 [ext_resource type="Texture2D" uid="uid://b8bekch7ala6n" path="res://Art/boss_3/1 i 0.png" id="2_nu1qr"]
 [ext_resource type="Texture2D" uid="uid://p6yhkbvhuwp3" path="res://Art/boss_3/0 i 0.png" id="3_jv8s1"]
 [ext_resource type="Texture2D" uid="uid://p5jhjpk67mm8" path="res://Art/boss_3/1 i .png" id="4_6bjwc"]
+[ext_resource type="Texture2D" uid="uid://dohwtav4cx08i" path="res://Art/boss_3/pixil-frame-0 (92).png" id="6_jv8s1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c128t"]
 animations = [{
@@ -71,8 +72,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iccxn"]
 size = Vector2(35.7182, 35.9861)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nu1qr"]
+size = Vector2(203, 206)
+
 [node name="boss_3" type="Area2D" groups=["Boss"]]
 script = ExtResource("1_nu1qr")
+
+[node name="bluescreen" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="TextureRect" parent="bluescreen"]
+scale = Vector2(6.31579, 7.5)
+texture = ExtResource("6_jv8s1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6, 6.05789)
@@ -110,6 +120,16 @@ one_shot = true
 [node name="Cooldown_Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_nu1qr")
+
+[node name="Rage_Timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="Atak_Timer" to="." method="_on_atak_timer_timeout"]
 [connection signal="timeout" from="Lasting_Timer" to="." method="_on_lasting_timer_timeout"]
 [connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="timeout" from="Rage_Timer" to="." method="_on_rage_timer_timeout"]
