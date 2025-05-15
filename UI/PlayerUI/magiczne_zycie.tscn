@@ -7,9 +7,9 @@
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -71.5
-offset_right = 71.5
-offset_bottom = 143.0
+offset_left = -48.0
+offset_right = 48.0
+offset_bottom = 96.0
 grow_horizontal = 2
 texture_under = ExtResource("1_f0ub2")
 texture_progress = ExtResource("2_d6hny")

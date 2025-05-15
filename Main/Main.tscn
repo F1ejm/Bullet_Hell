@@ -262,7 +262,7 @@ offset_right = 1223.5
 offset_bottom = 558.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Beaware, A Grave Danger Lies Ahead"
+text = "Beaware, A Grave Danger Lies Ahead..."
 label_settings = SubResource("LabelSettings_j2iu7")
 script = ExtResource("4_j4nmm")
 

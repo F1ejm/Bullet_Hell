@@ -137,7 +137,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_r32pv")
 }
 
-[node name="Ściany" type="Node2D" parent="."]
+[node name="Ściany" type="Node2D" parent="." groups=["Wall"]]
 rotation = -3.14159
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Ściany"]
@@ -147,31 +147,31 @@ scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAABAAAAAgAAAAAAAAD+/wAAAgAAAAAAAAD1/wAAAgAAAAAAAAAKAAAAAgAAAAAAAAD1/xEAAgAAAAAAAAAKABEAAgAAAAAAAAD1/xAAAQAAAAAAAAD1/w8AAQAAAAAAAAD1/w4AAQAAAAAAAAD1/w0AAQAAAAAAAAD1/wwAAQAAAAAAAAD1/wsAAQAAAAAAAAD1/woAAQAAAAAAAAD1/wkAAQAAAAAAAAD1/wgAAQAAAAAAAAD1/wcAAQAAAAAAAAD1/wYAAQAAAAAAAAD1/wUAAQAAAAAAAAD1/wQAAQAAAAAAAAD1/wMAAQAAAAAAAAD1/wIAAQAAAAAAAAD1/wEAAQAAAAAAAAAKAAEAAQAAAAAAAAAKAAIAAQAAAAAAAAAKAAMAAQAAAAAAAAAKAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAAKAAYAAQAAAAAAAAAKAAcAAQAAAAAAAAAKAAgAAQAAAAAAAAAKAAkAAQAAAAAAAAAKAAoAAQAAAAAAAAAKAAsAAQAAAAAAAAAKAAwAAQAAAAAAAAAKAA0AAQAAAAAAAAAKAA4AAQAAAAAAAAAKAA8AAQAAAAAAAAAKABAAAQAAAAAAAAD2/xEAAQAAAAAAAFD3/xEAAQAAAAAAAFD4/xEAAQAAAAAAAFD5/xEAAQAAAAAAAFD6/xEAAQAAAAAAAFD7/xEAAQAAAAAAAFD8/xEAAQAAAAAAAFD9/xEAAQAAAAAAAFD+/xEAAQAAAAAAAFD//xEAAQAAAAAAAFAAABEAAQAAAAAAAFABABEAAQAAAAAAAFACABEAAQAAAAAAAFADABEAAQAAAAAAAFAEABEAAQAAAAAAAFAFABEAAQAAAAAAAFAGABEAAQAAAAAAAFAHABEAAQAAAAAAAFAIABEAAQAAAAAAAFAJABEAAQAAAAAAAFACAAAAAQAAAAAAAFADAAAAAQAAAAAAAFAEAAAAAQAAAAAAAFAFAAAAAQAAAAAAAFAGAAAAAQAAAAAAAFAHAAAAAQAAAAAAAFAIAAAAAQAAAAAAAFAJAAAAAQAAAAAAAFD9/wAAAQAAAAAAAFD8/wAAAQAAAAAAAFD7/wAAAQAAAAAAAFD6/wAAAQAAAAAAAFD5/wAAAQAAAAAAAFD4/wAAAQAAAAAAAFD3/wAAAQAAAAAAAFD2/wAAAQAAAAAAAFA=")
 tile_set = SubResource("TileSet_r32pv")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Ściany"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Ściany" groups=["Wall"]]
 position = Vector2(0, -80)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ściany/StaticBody2D" groups=["Wall"]]
 position = Vector2(-480, 40)
 scale = Vector2(1.43, 1)
 shape = SubResource("RectangleShape2D_w4jvg")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Ściany/StaticBody2D" groups=["Wall"]]
 position = Vector2(480, 40)
 scale = Vector2(1.43, 1)
 shape = SubResource("RectangleShape2D_w4jvg")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ściany/StaticBody2D" groups=["Wall"]]
 position = Vector2(0, -1320)
 scale = Vector2(3.145, 1)
 shape = SubResource("RectangleShape2D_w4jvg")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Ściany/StaticBody2D" groups=["Wall"]]
 position = Vector2(840, -640)
 rotation = 1.5708
 scale = Vector2(2.285, 1)
 shape = SubResource("RectangleShape2D_w4jvg")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Ściany/StaticBody2D"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Ściany/StaticBody2D" groups=["Wall"]]
 position = Vector2(-840, -640)
 rotation = 1.5708
 scale = Vector2(2.285, 1)

@@ -2,9 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://b51k2g4a0lyg6" path="res://UI/popup_theme.tres" id="1_00l7t"]
 [ext_resource type="Script" uid="uid://b1yaqtb71s7g2" path="res://UI/Shop UI/shopkeeper_ui.gd" id="1_ji8f1"]
-[ext_resource type="Texture2D" uid="uid://bi00ujhkyifeq" path="res://Art/Maro/Maro_ZdjęcieOG.png" id="2_au6eo"]
 [ext_resource type="Texture2D" uid="uid://dui06aw47ji3v" path="res://Art/shop/item_shop.png" id="2_ji8f1"]
 [ext_resource type="Theme" uid="uid://bxkc4jb1w6l8n" path="res://UI/ui_theme.tres" id="4_lbab3"]
+[ext_resource type="Texture2D" uid="uid://b1kosgt02pbhl" path="res://Art/shop/item_icon.png" id="4_pyvl5"]
 [ext_resource type="Texture2D" uid="uid://c87g38wylllrs" path="res://Art/shop/buy_button_normal.png" id="5_00l7t"]
 [ext_resource type="Texture2D" uid="uid://buc64vp5eeupd" path="res://Art/UI/menu buttons/reset_normal.png" id="5_pyvl5"]
 [ext_resource type="Texture2D" uid="uid://c3j22shvwsely" path="res://Art/shop/buy_button_pressed.png" id="6_0vti0"]
@@ -49,14 +49,15 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = -234.0
-offset_right = 294.0
-offset_bottom = -34.0
+offset_left = 35.0
+offset_top = -257.0
+offset_right = 317.0
+offset_bottom = 18.0
 grow_vertical = 0
 mouse_filter = 2
-texture = ExtResource("2_au6eo")
+texture = ExtResource("4_pyvl5")
 expand_mode = 1
+stretch_mode = 4
 
 [node name="Reset_Button" type="TextureButton" parent="." groups=["button"]]
 texture_filter = 1

@@ -184,6 +184,6 @@ func Death():
 	var teleportacja = teleport.instantiate()
 	main.add_child(teleportacja)
 	teleportacja.global_position = self.global_position
-	Player.get_node("Node2D/Camera2D").screen_shake(13, 5)
+	Player.get_node("Node2D/Camera2D").screen_shake(13, 5,false)
 	AudioManager.play_dungeon_and_shop_music(-20)
 	queue_free()
