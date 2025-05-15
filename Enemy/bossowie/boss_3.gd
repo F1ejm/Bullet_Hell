@@ -23,9 +23,9 @@ var atack_speed = 1
 var cooldown_waittime = 1.5
 var circle_interval   = 0.5 * atack_speed
 var circle_duration   = 7.0
-var spray_interval    = 0.12 * atack_speed
+var spray_interval    = 0.2 * atack_speed
 var spiral_angle := 0.0  
-var spray_duration    = 7.0
+var spray_duration    = 5
 var eryk_interval     = 0.2 * atack_speed
 var eryk_duration     = 7.0
 var can_rage = true
@@ -71,6 +71,8 @@ func _process(delta: float) -> void:
 		bullet_spawn.rotation += deg_to_rad(1)
 	else:
 		bullet_spawn.look_at(Player.global_position)
+	if can_rage == false:
+		cooldown_waittime = 1
 
 # ─── ATAKI ──────────────────────────────────────
 
@@ -92,7 +94,7 @@ func _circle_attack() -> void:
 
 var gap_index := 0  # indeks dziury w okręgu
 func _spiral_attack() -> void:
-	var bullet_count = 28
+	var bullet_count = 30
 	var angle_step = TAU / bullet_count
 
 	# Strzelamy w każdą stronę oprócz gap_index

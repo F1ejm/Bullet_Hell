@@ -7,26 +7,46 @@ var boss3_path = preload("res://Enemy/bossowie/boss_3.tscn")
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		AudioManager.play_boss_music(-30)
-		randomize()
-		var rand = randi_range(1,2)
-		if rand == 11:
-			var boss = boss1_path.instantiate()
-			$"..".add_child(boss)
-			boss.global_position = $Node2D.global_position
-			boss.Player = get_node("/root/Main/Player")
-			boss.main = get_node("/root/Main")
-		if rand == 21:
-			var boss = boss2_path.instantiate()
-			$"..".add_child(boss)
-			boss.global_position = $Node2D.global_position
-			boss.Player = get_node("/root/Main/Player")
-			boss.main = get_node("/root/Main")
-		if rand == 1 or rand == 3 or rand == 2:
-			var boss = boss3_path.instantiate()
-			$"..".add_child(boss)
-			boss.global_position = $Node2D.global_position
-			boss.Player = get_node("/root/Main/Player")
-			boss.main = get_node("/root/Main")
+		if Global.Runda > 3:
+			randomize()
+			var rand = randi_range(1,3)
+			if rand == 3:
+				var boss = boss1_path.instantiate()
+				$"..".add_child(boss)
+				boss.global_position = $Node2D.global_position
+				boss.Player = get_node("/root/Main/Player")
+				boss.main = get_node("/root/Main")
+			if rand == 2:
+				var boss = boss2_path.instantiate()
+				$"..".add_child(boss)
+				boss.global_position = $Node2D.global_position
+				boss.Player = get_node("/root/Main/Player")
+				boss.main = get_node("/root/Main")
+			if rand == 1:
+				var boss = boss3_path.instantiate()
+				$"..".add_child(boss)
+				boss.global_position = $Node2D.global_position
+				boss.Player = get_node("/root/Main/Player")
+				boss.main = get_node("/root/Main")
+		else:
+			if Global.Runda == 0:
+				var boss = boss3_path.instantiate()
+				$"..".add_child(boss)
+				boss.global_position = $Node2D.global_position
+				boss.Player = get_node("/root/Main/Player")
+				boss.main = get_node("/root/Main")
+			if Global.Runda == 1:
+				var boss = boss1_path.instantiate()
+				$"..".add_child(boss)
+				boss.global_position = $Node2D.global_position
+				boss.Player = get_node("/root/Main/Player")
+				boss.main = get_node("/root/Main")
+			if Global.Runda == 2:
+				var boss = boss2_path.instantiate()
+				$"..".add_child(boss)
+				boss.global_position = $Node2D.global_position
+				boss.Player = get_node("/root/Main/Player")
+				boss.main = get_node("/root/Main")
 
 
 func _on_body_exited(body: Node2D) -> void:
