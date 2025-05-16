@@ -20,12 +20,12 @@ var another_atak: bool = false
 @onready var rage_timer:  Timer = $Rage_Timer
 # interwały i czasy trwania
 var atack_speed = 1
-var cooldown_waittime = 1.5
+var cooldown_waittime = 1.0
 var circle_interval   = 0.5 * atack_speed
 var circle_duration   = 7.0
 var spray_interval    = 0.2 * atack_speed
 var spiral_angle := 0.0  
-var spray_duration    = 5
+var spray_duration    = 3.0
 var eryk_interval     = 0.2 * atack_speed
 var eryk_duration     = 7.0
 var can_rage = true
@@ -72,13 +72,13 @@ func _process(delta: float) -> void:
 	else:
 		bullet_spawn.look_at(Player.global_position)
 	if can_rage == false:
-		cooldown_waittime = 1
+		cooldown_waittime = 0.5
 
 # ─── ATAKI ──────────────────────────────────────
 
 func _circle_attack() -> void:
-	var bullet_count = 15
-	var spread_angle = 120 
+	var bullet_count = 18
+	var spread_angle = 90 
 	var base_angle = (Player.global_position - bullet_spawn.global_position).angle()
 	var start_angle = base_angle - deg_to_rad(spread_angle / 2)
 
@@ -105,7 +105,11 @@ func _spiral_attack() -> void:
 		main.add_child(b)
 		b.global_position = bullet_spawn.global_position
 		b.rotation = i * angle_step
-		b.speed = 280 * atack_speed
+		if can_rage == true:
+			b.speed = 300
+		if can_rage == false:
+			b.speed = 450
+	
 		b.move_side = false
 		b.scale = Vector2(2.0, 2.0)
 
@@ -225,5 +229,5 @@ func _on_cooldown_timer_timeout() -> void:
 
 func _on_rage_timer_timeout() -> void:
 	$bluescreen.visible = false
-	atack_speed = 3
+	atack_speed = 2.3
 	get_tree().paused = false

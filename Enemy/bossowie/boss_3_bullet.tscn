@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cy6a4gn3twbi5" path="res://Art/Emeny/pixil-frame-0 (13).png" id="1_ocdol"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4cepr"]
-radius = 5.0
+radius = 7.0
 
 [node name="Boss3_bullet" type="Area2D" groups=["Boss_Bullet"]]
 script = ExtResource("1_4cepr")
