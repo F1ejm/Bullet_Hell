@@ -8,6 +8,7 @@ extends Node2D
 @export var Seryjny: PackedScene
 @export var Okrągły: PackedScene
 @export var Naprowadzający: PackedScene
+@export var Ulepszony_Podstawowy: PackedScene
 
 @export var power_up : PackedScene
 
@@ -109,7 +110,7 @@ func Generate():
 	x = randi_range(int(ld.global_position.x),int(pd.global_position.x))
 	y = randi_range(int(ld.global_position.y),int(lg.global_position.y))
 	
-	var losowanie_enemy = randi_range(0,3)
+	var losowanie_enemy = randi_range(0,4)
 	
 	match(losowanie_enemy):
 		0:
@@ -136,7 +137,13 @@ func Generate():
 			enemy.main = owner
 			enemy.global_position = Vector2(x,y)
 			enemy.Player = Player
-
+		4:
+			var enemy = Ulepszony_Podstawowy.instantiate()
+			add_child(enemy)
+			enemy.main = owner
+			enemy.global_position = Vector2(x,y)
+			enemy.Player = Player
+		
 
 func Generate_power_up():
 	if active:
