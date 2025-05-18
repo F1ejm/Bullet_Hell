@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3pce5gyy6w0j"]
+[gd_scene load_steps=13 format=3 uid="uid://b3pce5gyy6w0j"]
 
 [ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawner/spawnery.gd" id="1_4tvbi"]
 [ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Podstawowy/Podstawowy_Enemy.tscn" id="2_f5u33"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cne0e6ok8lj6l" path="res://Enemy/Okręgowy/Okręgowy_Enemy.tscn" id="4_vsm8q"]
 [ext_resource type="PackedScene" uid="uid://cot52aa5y87c6" path="res://Enemy/Naprowadzający/naprowadzający_enemy.tscn" id="5_kut7u"]
 [ext_resource type="Script" uid="uid://d2mp0xam3t2x" path="res://Main/Obstacle/spawner_controler.gd" id="5_tvwdq"]
+[ext_resource type="PackedScene" uid="uid://d2vaggubymepf" path="res://Enemy/Podstawowy/Ulepszony_Podstawowy_Enemy.tscn" id="6_f5u33"]
 [ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="9_12q52"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xp4cu"]
@@ -26,6 +27,7 @@ Podstawowy = ExtResource("2_f5u33")
 Seryjny = ExtResource("3_xd47v")
 "Okrągły" = ExtResource("4_vsm8q")
 "Naprowadzający" = ExtResource("5_kut7u")
+Ulepszony_Podstawowy = ExtResource("6_f5u33")
 power_up = ExtResource("2_jlw8o")
 czujka = ExtResource("3_30bco")
 

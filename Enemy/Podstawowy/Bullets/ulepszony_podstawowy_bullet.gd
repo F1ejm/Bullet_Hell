@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 700
+var speed = 2500
 
 func _physics_process(delta: float) -> void:
 	position += transform.x * speed * delta
@@ -17,7 +17,5 @@ func _on_body_entered(body: Node2D) -> void:
 var direction = Vector2.ZERO
 
 
-func set_direction(d: Vector2):
-	direction = d.normalized()
 
 	

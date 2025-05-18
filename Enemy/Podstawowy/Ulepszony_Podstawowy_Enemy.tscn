@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2vaggubymepf"]
+[gd_scene load_steps=8 format=3 uid="uid://d2vaggubymepf"]
 
 [ext_resource type="Script" uid="uid://731iygvpehxa" path="res://Enemy/Podstawowy/ulepszony_podstawowy_enemy.gd" id="1_ktnks"]
+[ext_resource type="PackedScene" uid="uid://4px7t6o6dwia" path="res://Enemy/Podstawowy/Bullets/Ulepszony_Podstawowy_Bullet.tscn" id="2_v3xbv"]
 [ext_resource type="Texture2D" uid="uid://ccwldk75h3syc" path="res://Art/Emeny/ulepszony podstawowy.png" id="3_v3xbv"]
 [ext_resource type="Texture2D" uid="uid://qjmqyi3i02wq" path="res://Art/Emeny/pixil-frame-0 (19).png" id="4_qhaeu"]
 
@@ -15,10 +16,11 @@ radius = 24.0832
 radius = 206.243
 
 [node name="Ulepszony_Podstawowy_Enemy" type="CharacterBody2D" groups=["Enemy"]]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.798798, 0.798798)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ktnks")
+Bullet = ExtResource("2_v3xbv")
 
 [node name="Can_Shoot_Timer" type="Timer" parent="."]
 one_shot = true
@@ -39,7 +41,7 @@ scale = Vector2(1.20755, 1.92453)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Marker2D"]
 position = Vector2(9.66144, 1.55882)
-scale = Vector2(0.609, 0.398)
+scale = Vector2(0.416037, 0.271893)
 texture = ExtResource("4_qhaeu")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

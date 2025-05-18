@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var Bullet : PackedScene
 @onready var Player : CharacterBody2D = Global.player_main
-@export var shoot_timer : Timer
+@onready var shoot_timer: Timer = $shoot_timer
 
 #variable potrzebny do tego aby przeciwnicy nie atakowali odrazu jak sie zrespią
 var can_shoot_timer: bool = false
@@ -10,10 +10,10 @@ var can_shoot_timer: bool = false
 var main: Node2D
 
 @onready var nav_agent := $NavigationAgent2D as  NavigationAgent2D
-@export var nav_timer : Timer
+@onready var nav_timer : Timer = $nav_timer
 @onready var sprite: Sprite2D = $Sprite2D
 
-var speed = 3000
+var speed = 1200
 var distance : Vector2i
 var lang : int
 var shoot_available : bool
@@ -26,7 +26,7 @@ var generate:bool = false
 var dir: Vector2 = Vector2(0,0)
 
 #Health
-var health:int = 1
+var health:int = 5
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 var f = true
@@ -34,10 +34,13 @@ var f = true
 var in_ = false
 
 func _ready() -> void:
+	shoot_timer.wait_time = 1.5  # lub inna rozsądna wartość w sekundach
+	shoot_timer.start()
 	health = health + Global.Runda
 	x = randi_range(-400,400)
 	y = randi_range(-400,400)
-	shoot_timer.start()
+	shoot_available = false
+	can_shoot_timer = false  # <- domyślnie nie może strzelać
 	
 	progress_bar.max_value = health
 	
