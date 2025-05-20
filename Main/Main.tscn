@@ -88,7 +88,7 @@ Player = NodePath("Player")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer2"]
 material = SubResource("ShaderMaterial_o8qko")
-position = Vector2(1908, 235)
+position = Vector2(1889, 249)
 mesh = SubResource("QuadMesh_4npy4")
 
 [node name="random_event_timer" type="Timer" parent="."]
@@ -246,7 +246,7 @@ offset_left = -25985.0
 offset_top = -23509.0
 offset_right = 22979.0
 offset_bottom = 22076.0
-color = Color(0.0313726, 0.0392157, 0.0588235, 1)
+color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="boss_label" type="Label" parent="."]
