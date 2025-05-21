@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cw0ma1k8hdhai"]
+[gd_scene load_steps=17 format=3 uid="uid://cw0ma1k8hdhai"]
 
 [ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawner/spawnery.gd" id="1_mb0sf"]
 [ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Podstawowy/Podstawowy_Enemy.tscn" id="2_t2v5x"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cot52aa5y87c6" path="res://Enemy/Naprowadzający/naprowadzający_enemy.tscn" id="5_acwpm"]
 [ext_resource type="PackedScene" uid="uid://bvxgexgniu3ha" path="res://Main/Pick_up/pick_up_cube.tscn" id="6_7my8h"]
 [ext_resource type="PackedScene" uid="uid://d2vaggubymepf" path="res://Enemy/Podstawowy/Ulepszony_Podstawowy_Enemy.tscn" id="6_acwpm"]
+[ext_resource type="PackedScene" uid="uid://ldl31a8pquj2" path="res://Enemy/wybuchowy/Wybuchowy_Enemy.tscn" id="7_7my8h"]
 [ext_resource type="PackedScene" uid="uid://dutj4ocsn2cb2" path="res://Main/Obstacle/czujka/czujka.tscn" id="7_lmnvw"]
 [ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="8_5gany"]
 [ext_resource type="Script" uid="uid://d2mp0xam3t2x" path="res://Main/Obstacle/spawner_controler.gd" id="9_2nwa7"]
@@ -31,6 +32,7 @@ Seryjny = ExtResource("3_uqa5w")
 "Okrągły" = ExtResource("4_mnkbw")
 "Naprowadzający" = ExtResource("5_acwpm")
 Ulepszony_Podstawowy = ExtResource("6_acwpm")
+Wybuchowy = ExtResource("7_7my8h")
 power_up = ExtResource("6_7my8h")
 czujka = ExtResource("7_lmnvw")
 

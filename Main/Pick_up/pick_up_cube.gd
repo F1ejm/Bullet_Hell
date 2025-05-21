@@ -33,8 +33,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				Global.Move_Slower_PowerUp = true
 				label.text = "You Became Unstable You Move Slower"
 			_:
-				Global.Zycie += randi_range(1,2)
-				label.text = "You Became Unstable You Regained Some Health"
+				Global.Zycie += randi_range(1,1)
+				label.text = "You Became Unstable You Regained Health"
 		Global.start_powerup_timer = true
 		label.visible = true
 		queue_free()

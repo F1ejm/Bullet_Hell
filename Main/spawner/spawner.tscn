@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3pce5gyy6w0j"]
+[gd_scene load_steps=14 format=3 uid="uid://b3pce5gyy6w0j"]
 
 [ext_resource type="Script" uid="uid://by2o78rxce12q" path="res://Main/spawner/spawnery.gd" id="1_4tvbi"]
 [ext_resource type="PackedScene" uid="uid://bxcd4bfk2fee7" path="res://Enemy/Podstawowy/Podstawowy_Enemy.tscn" id="2_f5u33"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cot52aa5y87c6" path="res://Enemy/Naprowadzający/naprowadzający_enemy.tscn" id="5_kut7u"]
 [ext_resource type="Script" uid="uid://d2mp0xam3t2x" path="res://Main/Obstacle/spawner_controler.gd" id="5_tvwdq"]
 [ext_resource type="PackedScene" uid="uid://d2vaggubymepf" path="res://Enemy/Podstawowy/Ulepszony_Podstawowy_Enemy.tscn" id="6_f5u33"]
+[ext_resource type="PackedScene" uid="uid://ldl31a8pquj2" path="res://Enemy/wybuchowy/Wybuchowy_Enemy.tscn" id="7_xd47v"]
 [ext_resource type="PackedScene" uid="uid://ddj0xrvpax0fc" path="res://Main/Obstacle/obstacle_template/template_controler.tscn" id="9_12q52"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xp4cu"]
@@ -28,16 +29,18 @@ Seryjny = ExtResource("3_xd47v")
 "Okrągły" = ExtResource("4_vsm8q")
 "Naprowadzający" = ExtResource("5_kut7u")
 Ulepszony_Podstawowy = ExtResource("6_f5u33")
+Wybuchowy = ExtResource("7_xd47v")
 power_up = ExtResource("2_jlw8o")
 czujka = ExtResource("3_30bco")
 
 [node name="Spawnery" type="Node2D" parent="."]
 
 [node name="Timer" type="Timer" parent="Spawnery"]
+wait_time = 0.5
 autostart = true
 
 [node name="Timer_power_up" type="Timer" parent="Spawnery"]
-wait_time = 5.0
+wait_time = 7.5
 autostart = true
 
 [node name="Template_controler" parent="." node_paths=PackedStringArray("nav", "Placeholder") instance=ExtResource("9_12q52")]

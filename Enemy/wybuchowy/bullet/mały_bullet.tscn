@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://kf8ksxqxms3c"]
+
+[ext_resource type="Script" uid="uid://c6r0rpismypda" path="res://Enemy/wybuchowy/bullet/mały_bullet.gd" id="1_pk8ns"]
+[ext_resource type="Texture2D" uid="uid://hby1b7loaxn" path="res://Art/Emeny/bulett.png" id="2_pk8ns"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r4qxo"]
+radius = 32.0
+
+[node name="Area2D" type="Area2D" groups=["Bullet"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_pk8ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.11902, 0.999548)
+shape = SubResource("CircleShape2D_r4qxo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1.90735e-06, -1.90735e-06)
+scale = Vector2(5, 5)
+texture = ExtResource("2_pk8ns")
+
+[node name="QueueFreeTimer" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="QueueFreeTimer" to="." method="_on_queue_free_timer_timeout"]

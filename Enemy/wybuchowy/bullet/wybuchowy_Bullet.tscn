@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxwbjqsccxhnx"]
+
+[ext_resource type="Script" uid="uid://crudu253yql3o" path="res://Enemy/wybuchowy/bullet/wybuchowy_bullet.gd" id="1_otksv"]
+[ext_resource type="Texture2D" uid="uid://dr6gwhc6ai7em" path="res://Art/itemy/pixil-frame-0 (99).png" id="2_otksv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r4qxo"]
+radius = 43.834
+
+[node name="Area2D" type="Area2D" groups=["Bullet"]]
+position = Vector2(-6, 7)
+scale = Vector2(2.01, 2.01)
+script = ExtResource("1_otksv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -2)
+scale = Vector2(1.11902, 0.999548)
+shape = SubResource("CircleShape2D_r4qxo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2.48756, -15.9204)
+scale = Vector2(2.769, 2.769)
+texture = ExtResource("2_otksv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

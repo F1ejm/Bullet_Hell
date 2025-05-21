@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var Bullet : PackedScene
 @onready var Player : CharacterBody2D = Global.player_main
-@export var shoot_timer : Timer
+@onready var shoot_timer : Timer = $shoot_timer
 
 #variable potrzebny do tego aby przeciwnicy nie atakowali odrazu jak sie zrespią
 var can_shoot_timer: bool = false
@@ -10,7 +10,7 @@ var can_shoot_timer: bool = false
 var main: Node2D
 
 @onready var nav_agent := $NavigationAgent2D as  NavigationAgent2D
-@export var nav_timer : Timer
+@onready var nav_timer : Timer = $nav_timer
 @onready var sprite: Sprite2D = $Sprite2D
 
 var speed = 3000
@@ -26,7 +26,7 @@ var generate:bool = false
 var dir: Vector2 = Vector2(0,0)
 
 #Health
-var health:int = 1
+var health:int = 3
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 var f = true

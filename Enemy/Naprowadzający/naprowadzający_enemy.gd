@@ -145,7 +145,7 @@ func Death():
 	#Animacja Smierci i SFX TODO
 	AudioManager.enemy_death()
 	Global.i -= 1
-	var monetki = randi_range(0,2)
+	var monetki = randi_range(0,1)
 	Global.VDolce += monetki
 	queue_free()
 

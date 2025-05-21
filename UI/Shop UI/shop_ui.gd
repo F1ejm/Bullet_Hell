@@ -17,10 +17,10 @@ extends Control
 
 @export var Zycie_UI: Control
 
-var health_cost: int = 5
-var stamina_cost: int = 5
-var regen_cost: int = 5
-var atak_cost: int = 5
+var health_cost: int = 8
+var stamina_cost: int = 8
+var regen_cost: int = 8
+var atak_cost: int = 8
 
 func _ready() -> void:
 	for button in get_tree().get_nodes_in_group("button"):

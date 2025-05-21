@@ -115,7 +115,7 @@ var Bullet_Piercing_Pasywny: bool = false
 #zycie które się regeneruje
 var Regenerating_Health: bool = false
 @onready var regenerating_timer: Timer = $Regenerating_Timer
-var regenerating_wait_time: float = 19
+var regenerating_wait_time: float = 30
 var regen: bool = true
 
 #Serce które się regeneruje

@@ -17,10 +17,12 @@ var left = 0
 var right = 0
 var shoopkeeper_ui
 
-# Ile zwykłych pokoi zanim pojawi się boss (możesz zmienić dynamicznie np. + Global.Runda)
 var max_rooms_before_boss = 4
 
 func _ready():
+	max_rooms_before_boss = 4 + Global.Runda
+	if max_rooms_before_boss > 7:
+		max_rooms_before_boss = 7
 	LastDoorContainer = self
 	spawn(LastDoorContainer, true, 1, false)
 	$"..".rotation = (randi_range(1, 4) / 2) * PI

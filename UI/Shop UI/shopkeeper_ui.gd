@@ -29,10 +29,10 @@ class AktywnyItemek:
 		5: "Creates A Lighting Storm In Your Mouse's Place"
 	}
 	var Ceny = {
-		1: 15,
-		2: 10,
-		3: 13,
-		4: 10,
+		1: 18,
+		2: 13,
+		3: 18,
+		4: 13,
 		5: 20
 	}
 	
@@ -83,14 +83,14 @@ class PasywnyItemek:
 		8: "Your Bullets Can Fly Through Inner Walls"
 	}
 	var Ceny = {
-		1: 7,
+		1: 8,
 		2: 8,
 		3: 25,
 		4: 30,
-		5: 5,
-		6: 15,
-		7: 15,
-		8: 6
+		5: 10,
+		6: 16,
+		7: 16,
+		8: 8
 	}
 
 	var dojscie
