@@ -148,11 +148,14 @@ func Generate():
 			else: 
 				Generate()
 		5:
-			var enemy = Wybuchowy.instantiate()
-			add_child(enemy)
-			enemy.main = owner
-			enemy.global_position = Vector2(x,y)
-			enemy.Player = Player
+			if Global.Runda > 0:
+				var enemy = Wybuchowy.instantiate()
+				add_child(enemy)
+				enemy.main = owner
+				enemy.global_position = Vector2(x,y)
+				enemy.Player = Player
+			else:
+				Generate()
 		
 
 func Generate_power_up():
