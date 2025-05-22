@@ -74,11 +74,19 @@ func Choose_Event():
 				shader_material.set_shader_parameter("vignette_divisor", 1.0)
 				unstable_label_2.text = "The System Covers Itself With Immense Fog"
 			3:
-				Engine.time_scale = 1.3
-				unstable_label_2.text = "The System Magically Speeds Up"
+				if Global.boss_round == false:
+					Engine.time_scale = 1.3
+					unstable_label_2.text = "The System Magically Speeds Up"
+				else:
+					Camera_Shake(70,20,true)
+					unstable_label_2.text = "The 'Boss_System32' Erupts"
 			4:
-				Engine.time_scale = 0.7
-				unstable_label_2.text = "The System Magically Slows Down"
+				if Global.boss_round == false:
+					Engine.time_scale = 0.7
+					unstable_label_2.text = "The System Magically Slows Down"
+				else:
+					Camera_Shake(70,20,true)
+					unstable_label_2.text = "The 'Boss_System32' Erupts"
 			5:
 				Health_Taken()
 				unstable_label_2.text = "The System Temporarily Sucks Your Health Out Of You"

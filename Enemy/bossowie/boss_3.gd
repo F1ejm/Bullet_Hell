@@ -39,6 +39,7 @@ var health: float = 130.0
 var teleport = preload("res://Main/teleport.tscn")
 
 func _ready() -> void:
+	Global.boss_round = true
 	can_be_hit = true
 	$".".global_rotation = 0
 	can_rage = true
@@ -178,6 +179,7 @@ func _on_Death() -> void:
 	t.global_position = global_position
 	Player.get_node("Node2D/Camera2D").screen_shake(13,4,1)
 	AudioManager.play_dungeon_and_shop_music(-20)
+	Global.boss_round = false
 	queue_free()
 
 
@@ -229,5 +231,5 @@ func _on_cooldown_timer_timeout() -> void:
 
 func _on_rage_timer_timeout() -> void:
 	$bluescreen.visible = false
-	atack_speed = 2.3
+	atack_speed = 2.1
 	get_tree().paused = false

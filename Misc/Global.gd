@@ -107,6 +107,7 @@ var Runda: int = 1
 var IsRoundPlaying: bool
 var Czas_Rundy: float = 60
 var Generate_wall: bool = false
+var boss_round = false
 
 #Settings
 var current_resolution: Vector2i

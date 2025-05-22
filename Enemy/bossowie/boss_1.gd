@@ -40,6 +40,7 @@ var can_be_hit: bool = false
 var teleport = preload("res://Main/teleport.tscn")
 
 func _ready() -> void:
+	Global.boss_round = true
 	health = health + (0.2 * health * (Global.Runda - 1))
 	rotation = rotation - global_rotation
 	#animacje
@@ -183,4 +184,5 @@ func Death():
 	teleportacja.global_position = self.global_position
 	Player.get_node("Node2D/Camera2D").screen_shake(13, 4,false)
 	AudioManager.play_dungeon_and_shop_music(-20)
+	Global.boss_round = false
 	queue_free()

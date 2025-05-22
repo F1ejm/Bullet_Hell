@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_oqn4p")
-cooldown = 1.0
-dmg = 1
+cooldown = 1.4
+dmg = 2
 seria = 1
 isShotgun = true
 isMinigun = false
